@@ -3,8 +3,6 @@ import SocialProofBar from "@/components/sections/SocialProofBar";
 import Barriers from "@/components/sections/Barriers";
 import ProblemSolution from "@/components/sections/ProblemSolution";
 import ServicesOverview from "@/components/sections/ServicesOverview";
-import Processes from "@/components/sections/Processes";
-import HowItWorks from "@/components/sections/HowItWorks";
 import CaseHighlight from "@/components/sections/CaseHighlight";
 import Team from "@/components/sections/Team";
 import Testimonials from "@/components/sections/Testimonials";
@@ -173,8 +171,6 @@ export default function Forside() {
       <Testimonials />
       <Team />
       <ServicesOverview />
-      <Processes />
-      <HowItWorks />
       <RiskReversal />
       <LeadMagnet />
       <FAQ />
