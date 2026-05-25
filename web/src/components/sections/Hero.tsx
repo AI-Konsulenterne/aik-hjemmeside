@@ -81,7 +81,7 @@ export default function Hero() {
               {/* Portrait */}
               <div className="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-xl ring-1 ring-gray-100">
                 <Image
-                  src="/team/alexander.svg"
+                  src="/team/alexander-hero.png"
                   alt="Alexander, AI-konsulent hos AI Konsulenterne"
                   fill
                   priority
