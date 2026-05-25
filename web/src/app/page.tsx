@@ -9,7 +9,6 @@ import Testimonials from "@/components/sections/Testimonials";
 import RiskReversal from "@/components/sections/RiskReversal";
 import LeadMagnet from "@/components/sections/LeadMagnet";
 import FAQ from "@/components/sections/FAQ";
-import FinalCTA from "@/components/sections/FinalCTA";
 import JsonLd from "@/components/ui/JsonLd";
 
 const organizationJsonLd = {
@@ -174,7 +173,6 @@ export default function Forside() {
       <RiskReversal />
       <LeadMagnet />
       <FAQ />
-      <FinalCTA />
     </>
   );
 }
