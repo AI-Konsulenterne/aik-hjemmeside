@@ -41,18 +41,84 @@ function splitResult(result: string): string[] {
     .slice(0, 3);
 }
 
+function CaseCard({ c }: { c: Case }) {
+  return (
+    <Link
+      href={`/cases/${c.slug}`}
+      className="group block bg-white rounded-2xl p-8 lg:p-10 ring-1 ring-gray-100 hover:ring-primary/40 hover:shadow-lg transition-all duration-300"
+    >
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-10">
+        {/* Left — customer + challenge + solution */}
+        <div className="lg:col-span-2">
+          <p className="text-[11px] uppercase tracking-[0.15em] text-primary font-semibold mb-3">
+            {categoryLabels[c.category]}
+          </p>
+          <h3 className="text-2xl lg:text-3xl font-bold tracking-heading text-gray-900 group-hover:text-primary transition-colors">
+            {c.customer}
+          </h3>
+          <div className="mt-5 space-y-3 text-gray-500 leading-relaxed text-[15px]">
+            <p>
+              <span className="font-semibold text-gray-900">Udfordring: </span>
+              {c.challenge}
+            </p>
+            <p>
+              <span className="font-semibold text-gray-900">Løsning: </span>
+              {c.solution}
+            </p>
+          </div>
+          <span className="inline-flex items-center gap-1.5 text-sm text-primary font-semibold mt-6 group-hover:gap-2.5 transition-all">
+            Læs hele casen
+            <svg
+              className="w-4 h-4"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth={2.5}
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M17 8l4 4m0 0l-4 4m4-4H3"
+              />
+            </svg>
+          </span>
+        </div>
+
+        {/* Right — results */}
+        <div className="flex flex-col gap-3 lg:border-l lg:border-gray-100 lg:pl-8">
+          <p className="text-[11px] uppercase tracking-[0.15em] text-gray-400 font-semibold">
+            Resultater
+          </p>
+          {splitResult(c.result).map((line) => (
+            <div
+              key={line}
+              className="bg-gray-50 rounded-xl px-4 py-3.5"
+            >
+              <p className="text-[15px] lg:text-base font-bold text-gray-900 tracking-heading leading-snug">
+                {line}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </Link>
+  );
+}
+
 export default async function Cases() {
   const allCases = await getCases().catch(() => [] as Case[]);
-  const featured = allCases.find((c) => c.featured) ?? allCases[0];
-  const rest = allCases.filter((c) => c.id !== featured?.id);
 
   return (
     <>
       {/* Hero */}
-      <section className="pt-[clamp(4rem,12vw,8rem)] pb-[clamp(3rem,8vw,6rem)]">
+      <section className="pt-[clamp(4rem,12vw,8rem)] pb-[clamp(2rem,5vw,4rem)]">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center">
           <FadeIn>
             <div className="max-w-3xl mx-auto">
+              <p className="text-[11px] uppercase tracking-[0.2em] text-primary font-semibold mb-4">
+                Kundehistorier
+              </p>
               <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold tracking-heading text-gray-900 leading-[1.05]">
                 Konkrete resultater fra vores kunder
               </h1>
@@ -77,123 +143,14 @@ export default async function Cases() {
         </section>
       )}
 
-      {/* Featured case */}
-      {featured && (
+      {/* All cases — unified design */}
+      {allCases.length > 0 && (
         <section className="pb-[clamp(3rem,8vw,6rem)]">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8">
-            <FadeIn>
-              <Link
-                href={`/cases/${featured.slug}`}
-                className="group block bg-gray-900 rounded-2xl p-8 lg:p-12 xl:p-16 relative overflow-hidden hover:ring-2 hover:ring-primary/50 transition-all duration-300"
-              >
-                <div
-                  className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-primary/10 to-transparent pointer-events-none"
-                  aria-hidden="true"
-                />
-                <div className="relative z-10 grid grid-cols-1 lg:grid-cols-3 gap-10">
-                  <div className="lg:col-span-2">
-                    <p className="text-xs uppercase tracking-widest text-primary font-semibold mb-2">
-                      {categoryLabels[featured.category]}
-                    </p>
-                    <h2 className="text-3xl lg:text-4xl font-bold tracking-heading text-white mb-4 group-hover:text-primary transition-colors">
-                      {featured.customer}
-                    </h2>
-                    <div className="space-y-4 text-white/60 leading-relaxed">
-                      <p>
-                        <span className="font-semibold text-white">
-                          Udfordring:{" "}
-                        </span>
-                        {featured.challenge}
-                      </p>
-                      <p>
-                        <span className="font-semibold text-white">
-                          Løsning:{" "}
-                        </span>
-                        {featured.solution}
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex flex-col gap-4 justify-center">
-                    {splitResult(featured.result).map((line) => (
-                      <div
-                        key={line}
-                        className="bg-white/10 backdrop-blur-sm rounded-xl p-5 border border-white/10"
-                      >
-                        <p className="text-lg lg:text-xl font-bold text-primary tracking-heading">
-                          {line}
-                        </p>
-                      </div>
-                    ))}
-                    <span className="inline-flex items-center gap-2 text-sm text-primary font-semibold pt-2">
-                      Læs hele casen →
-                    </span>
-                  </div>
-                </div>
-              </Link>
-            </FadeIn>
-          </div>
-        </section>
-      )}
-
-      {/* Other cases */}
-      {rest.length > 0 && (
-        <section className="pb-[clamp(3rem,8vw,6rem)]">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8">
-            <FadeIn>
-              <h2 className="text-2xl font-bold tracking-heading text-gray-900 mb-8">
-                Flere kundehistorier
-              </h2>
-            </FadeIn>
-            <div className="flex flex-col gap-6">
-              {rest.map((c, i) => (
-                <FadeIn key={c.id} delay={i * 100}>
-                  <Link
-                    href={`/cases/${c.slug}`}
-                    className="group block bg-gray-50 rounded-2xl p-8 lg:p-10 hover:bg-white hover:shadow-md hover:ring-1 hover:ring-gray-100 transition-all duration-300"
-                  >
-                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                      <div className="lg:col-span-2">
-                        <p className="text-xs uppercase tracking-widest text-primary font-semibold mb-2">
-                          {categoryLabels[c.category]}
-                        </p>
-                        <h3 className="text-2xl lg:text-3xl font-bold tracking-heading text-gray-900 mb-4 group-hover:text-primary transition-colors">
-                          {c.customer}
-                        </h3>
-                        <div className="space-y-4 text-gray-500 leading-relaxed">
-                          <p>
-                            <span className="font-semibold text-gray-900">
-                              Udfordring:{" "}
-                            </span>
-                            {c.challenge}
-                          </p>
-                          <p>
-                            <span className="font-semibold text-gray-900">
-                              Løsning:{" "}
-                            </span>
-                            {c.solution}
-                          </p>
-                        </div>
-                      </div>
-                      <div className="flex flex-col gap-4">
-                        <p className="text-xs uppercase tracking-widest text-gray-400 font-semibold">
-                          Resultater
-                        </p>
-                        {splitResult(c.result).map((line) => (
-                          <div
-                            key={line}
-                            className="bg-white rounded-xl p-4 shadow-sm"
-                          >
-                            <p className="text-base lg:text-lg font-bold text-primary tracking-heading leading-snug">
-                              {line}
-                            </p>
-                          </div>
-                        ))}
-                        <span className="inline-flex items-center gap-2 text-sm text-primary font-semibold pt-1">
-                          Læs mere →
-                        </span>
-                      </div>
-                    </div>
-                  </Link>
+          <div className="max-w-6xl mx-auto px-6 lg:px-8">
+            <div className="flex flex-col gap-5 lg:gap-6">
+              {allCases.map((c, i) => (
+                <FadeIn key={c.id} delay={i * 80}>
+                  <CaseCard c={c} />
                 </FadeIn>
               ))}
             </div>
