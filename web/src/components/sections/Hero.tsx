@@ -63,7 +63,7 @@ export default function Hero() {
             <FadeIn delay={300}>
               <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3 mt-8 lg:mt-10">
                 <Button variant="primary" size="lg" href="/kontakt" cal>
-                  Få jeres gratis AI-plan
+                  Start jeres AI rejse her
                 </Button>
                 <Button variant="secondary" href="/cases">
                   Se resultater
