@@ -54,7 +54,7 @@ export default function Hero() {
             </FadeIn>
             <FadeIn delay={150}>
               <p className="text-base sm:text-lg lg:text-xl text-gray-500 mt-6 lg:mt-8 max-w-xl mx-auto lg:mx-0 leading-relaxed">
-                Vi bygger skræddersyede AI-løsninger til danske virksomheder —
+                Vi bygger skræddersyede AI-løsninger til danske virksomheder -
                 også dem uden IT-afdeling, intern AI-viden eller idé om hvor
                 de skal starte. Finder vi ikke en konkret mulighed, koster
                 mødet ingenting.
