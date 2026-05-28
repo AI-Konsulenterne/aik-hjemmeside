@@ -9,7 +9,7 @@ import {
 } from "@/lib/strapi";
 
 const fallbackImages = [
-  "/team/alexander.svg",
+  "/team/alexander-hero.png",
   "/team/member-2.svg",
   "/team/member-3.svg",
   "/team/member-4.svg",
@@ -71,6 +71,9 @@ const values = [
 export default async function OmOs() {
   const team = await getTeamMembers().catch(() => [] as TeamMember[]);
   const primary = team.find((m) => m.isPrimary);
+  const others = team.filter((m) => !m.isPrimary);
+  // Alexander (primary) først, derefter resten — så Alexander + Martin står øverst
+  const ordered = primary ? [primary, ...others] : others;
 
   return (
     <>
@@ -125,47 +128,31 @@ export default async function OmOs() {
             </p>
           </FadeIn>
 
-          {primary && (
-            <FadeIn delay={100}>
-              <div className="max-w-4xl mx-auto mb-16">
-                <div className="bg-gray-50 rounded-2xl p-8 lg:p-10 grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-8 items-center">
-                  <div className="relative aspect-[4/5] rounded-xl overflow-hidden ring-1 ring-gray-100">
+          <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-8 max-w-3xl mx-auto">
+            {ordered.map((person, i) => (
+              <FadeIn key={person.id} delay={i * 100}>
+                <div className="group">
+                  <div className="relative aspect-[4/5] rounded-2xl overflow-hidden bg-gray-100 ring-1 ring-gray-100">
                     <Image
-                      src={imageForMember(primary, 0)}
-                      alt={primary.name}
+                      src={imageForMember(person, i)}
+                      alt={person.name}
                       fill
-                      className="object-cover"
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
                     />
                   </div>
-                  <div>
-                    <span className="inline-block bg-primary/10 text-primary text-[10px] uppercase tracking-widest font-bold px-2.5 py-1 rounded-full mb-4">
-                      Tager første møde
-                    </span>
-                    <h3 className="text-2xl lg:text-3xl font-bold tracking-heading">
-                      {primary.name}
-                    </h3>
-                    <p className="text-primary font-semibold mt-1">
-                      {primary.role}
+                  <div className="mt-4">
+                    <p className="text-lg lg:text-xl font-bold tracking-heading text-gray-900 leading-tight">
+                      {person.name}
                     </p>
-                    {primary.bio && (
-                      <p className="text-gray-500 mt-4 leading-relaxed">
-                        {primary.bio}
-                      </p>
-                    )}
-                    <div className="flex items-center gap-4 mt-6">
-                      <a
-                        href="tel:+4525547074"
-                        className="text-sm text-primary font-semibold hover:underline"
-                      >
-                        +45 25 54 70 74
-                      </a>
-                      {primary.linkedinUrl && (
+                    <div className="flex items-center justify-between mt-1">
+                      <p className="text-sm text-gray-500">{person.role}</p>
+                      {person.linkedinUrl && (
                         <a
-                          href={primary.linkedinUrl}
+                          href={person.linkedinUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-gray-400 hover:text-primary transition-colors"
-                          aria-label="LinkedIn"
+                          className="text-gray-400 hover:text-primary transition-colors flex-shrink-0 ml-2"
+                          aria-label={`LinkedIn-profil for ${person.name}`}
                         >
                           <svg
                             className="w-4 h-4"
@@ -179,35 +166,8 @@ export default async function OmOs() {
                     </div>
                   </div>
                 </div>
-              </div>
-            </FadeIn>
-          )}
-
-          <div className="grid grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6 max-w-4xl mx-auto">
-            {team
-              .filter((m) => !m.isPrimary)
-              .map((person, i) => (
-                <FadeIn key={person.id} delay={i * 100}>
-                  <div className="group">
-                    <div className="relative aspect-[4/5] rounded-2xl overflow-hidden bg-gray-100 ring-1 ring-gray-100">
-                      <Image
-                        src={imageForMember(person, i)}
-                        alt={person.name}
-                        fill
-                        className="object-cover transition-transform duration-500 group-hover:scale-105"
-                      />
-                    </div>
-                    <div className="mt-4">
-                      <p className="text-base lg:text-lg font-bold tracking-heading text-gray-900 leading-tight">
-                        {person.name}
-                      </p>
-                      <p className="text-sm text-gray-500 mt-0.5">
-                        {person.role}
-                      </p>
-                    </div>
-                  </div>
-                </FadeIn>
-              ))}
+              </FadeIn>
+            ))}
           </div>
         </div>
       </section>
