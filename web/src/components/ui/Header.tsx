@@ -12,6 +12,7 @@ const serviceLinks = [
 
 const navLinks = [
   { label: "Cases", href: "/cases" },
+  { label: "Hjælp til AI", href: "/ai-guide" },
   { label: "Viden om AI", href: "/viden-om-ai" },
   { label: "Om os", href: "/om-os" },
   { label: "Kontakt", href: "/kontakt" },

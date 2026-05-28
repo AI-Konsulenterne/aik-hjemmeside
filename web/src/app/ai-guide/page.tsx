@@ -3,13 +3,14 @@ import GuideForm from "@/components/ui/GuideForm";
 import FadeIn from "@/components/ui/FadeIn";
 
 export const metadata: Metadata = {
-  title: "Gratis AI-guide til din virksomhed",
+  title: "Hjælp til AI — kom i gang og find jeres første use case",
   description:
-    "Download vores gratis guide og forstå præcis hvordan AI kan bruges i din virksomhed. Konkret viden uden buzzwords.",
+    "Mange virksomheder ved ikke hvor de skal starte med AI. Download vores gratis guide og find det rigtige første use case for jer — uden buzzwords.",
+  alternates: { canonical: "/ai-guide" },
   openGraph: {
-    title: "Gratis AI-guide — AI Konsulenterne",
+    title: "Hjælp til AI — AI Konsulenterne",
     description:
-      "Hvad kan AI egentlig? + Sådan kommer din virksomhed i gang. Download gratis.",
+      "Svært ved at komme i gang med AI? Vores gratis guide hjælper jer med at vælge det rigtige første use case. Download gratis.",
   },
 };
 
@@ -24,22 +25,23 @@ export default function AIGuide() {
             <FadeIn>
               <div>
                 <p className="text-xs uppercase tracking-widest text-primary font-semibold mb-4">
-                  Gratis AI-guide
+                  Hjælp til AI
                 </p>
                 <h1 className="text-4xl lg:text-5xl font-bold tracking-heading text-gray-900 leading-[1.05]">
-                  Hvad kan AI egentlig? + Sådan kommer din virksomhed i gang
+                  Svært ved at komme i gang med AI? Start med det rigtige use case
                 </h1>
                 <p className="text-lg text-gray-500 mt-6 leading-relaxed">
-                  Download vores gratis guide og forstå præcis hvordan AI kan
-                  bruges i en virksomhed som din. Ingen buzzwords, ingen
-                  tech-jargon — kun konkret viden du kan handle på.
+                  Vi oplever at rigtig mange virksomheder gerne vil bruge AI —
+                  men ikke ved hvor de skal starte, eller hvilken opgave de skal
+                  tage fat på først. Denne gratis guide hjælper jer med at finde
+                  det første use case der giver mest værdi for netop jer.
                 </p>
 
                 <ul className="mt-8 space-y-3">
                   {[
-                    "Hvad AI faktisk kan (og ikke kan) i dag",
-                    "5 konkrete AI-muligheder for danske SMV'er",
-                    "Trin-for-trin: Sådan kommer I i gang",
+                    "Sådan finder I det rigtige første AI-use case",
+                    "De spørgsmål vi stiller for at afdække potentialet",
+                    "5 konkrete AI-muligheder for danske virksomheder",
                     "De mest almindelige fejl — og hvordan I undgår dem",
                   ].map((item) => (
                     <li
