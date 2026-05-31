@@ -6,20 +6,20 @@ const barriers = [
     answer: "Vi kortlægger jeres processer og finder de 2-3 største muligheder",
   },
   {
-    quote: "Vi har ikke AI-eksperter ansat",
-    answer: "Vi er jeres eksterne AI-afdeling — I behøver ingen intern viden",
+    quote: "Vi har ingen AI kompetencer in-house",
+    answer: "Vi fungerer som jeres eksterne AI partner, så I ikke behøver at besidde kompetencerne",
   },
   {
     quote: "Vi ved ikke hvilke processer vi skal automatisere først",
     answer: "Vi fokuserer på dem med højest ROI og lavest implementeringsrisiko",
   },
   {
-    quote: "Der er 100 AI-platforme — hvilken skal vi vælge?",
-    answer: "Vi er platformsuafhængige og vælger det der passer jer — ikke det vi tjener mest på",
+    quote: "Der er 100 AI-platforme - hvilken skal vi vælge?",
+    answer: "Vi hjælper jer med at finde den platform der passer bedst til jeres behov.",
   },
   {
     quote: "Vores medarbejdere kommer aldrig til at bruge det",
-    answer: "Adoption er en del af leverancen — træning, onboarding og support",
+    answer: "Hvis jeres medarbejdere ikke ser værdi i værktøjerne bruger de dem ikke, derfor hjælper vi jer med at lægge en konkret plan for at få AI ud at leve i organisationen",
   },
 ];
 
