@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import FadeIn from "@/components/ui/FadeIn";
 
 export default function CaseHighlight() {
@@ -21,8 +22,22 @@ export default function CaseHighlight() {
           </div>
         </FadeIn>
 
-        <FadeIn delay={200}>
-          <div className="max-w-3xl mx-auto mt-12 lg:mt-16">
+        <FadeIn delay={150}>
+          <div className="max-w-3xl mx-auto mt-12 lg:mt-14">
+            <div className="relative aspect-[16/9] rounded-2xl overflow-hidden bg-gray-50 ring-1 ring-gray-100 flex items-center justify-center">
+              <Image
+                src="/logos/lavazza.png"
+                alt="Lavazza — kundecase hos AI Konsulenterne"
+                width={320}
+                height={200}
+                className="w-auto h-16 lg:h-20 object-contain"
+              />
+            </div>
+          </div>
+        </FadeIn>
+
+        <FadeIn delay={250}>
+          <div className="max-w-3xl mx-auto mt-10 lg:mt-12">
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 text-center mb-10">
               <div>
                 <p className="text-2xl font-bold tracking-heading text-gray-900">Lavazza</p>
