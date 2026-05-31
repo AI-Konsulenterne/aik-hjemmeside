@@ -64,8 +64,8 @@ export default function GuideForm() {
           Tak! Vi er i gang.
         </h2>
         <p className="text-gray-500">
-          Vi kigger på jeres svar og vender tilbage med en konkret AI-analyse
-          inden for 2 hverdage.
+          Vi kigger på jeres svar og vender tilbage hurtigst muligt med en
+          konkret AI-analyse.
         </p>
       </div>
     );
