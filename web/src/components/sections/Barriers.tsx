@@ -69,7 +69,7 @@ export default function Barriers() {
                 I behøver ikke have svarene.
               </p>
               <p className="text-white/60 text-sm leading-relaxed">
-                Det er præcis derfor vi findes. 45 minutter med os — så ved I hvor I skal starte.
+                Det er præcis derfor vi findes. 45 minutter med os - så lægger vi en plan
               </p>
             </div>
           </FadeIn>
