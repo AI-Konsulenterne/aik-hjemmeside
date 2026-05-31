@@ -23,14 +23,14 @@ export default function CaseHighlight() {
         </FadeIn>
 
         <FadeIn delay={150}>
-          <div className="max-w-3xl mx-auto mt-12 lg:mt-14">
-            <div className="relative aspect-[16/9] rounded-2xl overflow-hidden bg-gray-50 ring-1 ring-gray-100 flex items-center justify-center">
+          <div className="flex justify-center mt-10 lg:mt-12">
+            <div className="inline-flex items-center justify-center bg-gray-50 ring-1 ring-gray-100 rounded-2xl px-10 lg:px-14 py-6 lg:py-7">
               <Image
                 src="/logos/lavazza.png"
                 alt="Lavazza — kundecase hos AI Konsulenterne"
-                width={320}
-                height={200}
-                className="w-auto h-16 lg:h-20 object-contain"
+                width={200}
+                height={60}
+                className="w-auto h-9 lg:h-11 object-contain"
               />
             </div>
           </div>
