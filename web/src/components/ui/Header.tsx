@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import Button from "./Button";
 
 const serviceLinks = [
@@ -50,12 +51,15 @@ export default function Header() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-8 flex items-center justify-between h-16 lg:h-20">
-        <Link href="/" className="flex items-center gap-3">
-          <span className="relative">
-            <span className="text-[2rem] lg:text-[2.4rem] font-bold leading-none text-primary">AI</span>
-            <span className="absolute bottom-[-4px] left-0 w-full h-[3px] rounded-full bg-primary" />
-          </span>
-          <span className="text-sm lg:text-base font-bold tracking-[0.1em] text-primary uppercase">Konsulenterne</span>
+        <Link href="/" className="flex items-center" aria-label="AI Konsulenterne — forside">
+          <Image
+            src="/logo-full.svg"
+            alt="AI Konsulenterne"
+            width={208}
+            height={32}
+            priority
+            className="h-7 lg:h-8 w-auto"
+          />
         </Link>
 
         {/* Desktop nav */}
