@@ -18,7 +18,7 @@ export default function GuideForm() {
     setError("");
 
     try {
-      const res = await fetch("/api/subscribe", {
+      const res = await fetch("/api/ai-analyse", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -61,11 +61,11 @@ export default function GuideForm() {
           </svg>
         </div>
         <h2 className="text-2xl font-bold tracking-heading mb-2">
-          Tak! Vi er i gang.
+          Tak! Jeres AI-analyse er på vej.
         </h2>
         <p className="text-gray-500">
-          Vi kigger på jeres svar og vender tilbage hurtigst muligt med en
-          konkret AI-analyse.
+          Tjek din indbakke om et øjeblik — vi har sendt en konkret AI-analyse
+          baseret på jeres svar. Alexander følger op hurtigst muligt.
         </p>
       </div>
     );
@@ -130,7 +130,7 @@ export default function GuideForm() {
           disabled={loading}
           className="w-full bg-primary text-white font-semibold rounded-full px-8 py-3.5 hover:bg-primary-dark hover:-translate-y-0.5 hover:shadow-lg transition-all duration-200 disabled:opacity-60 disabled:cursor-not-allowed disabled:transform-none"
         >
-          {loading ? "Sender…" : "Få min gratis AI-analyse"}
+          {loading ? "Genererer jeres analyse…" : "Få min gratis AI-analyse"}
         </button>
         <p className="text-xs text-gray-400 text-center">
           Ingen forpligtelser — vi sælger ikke jeres data.
