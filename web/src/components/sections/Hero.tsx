@@ -92,12 +92,12 @@ export default function Hero() {
               {/* Floating quote card */}
               <div className="absolute -bottom-6 -left-4 lg:-left-8 bg-white rounded-xl shadow-lg p-4 lg:p-5 max-w-[260px] ring-1 ring-gray-100">
                 <p className="text-sm lg:text-[0.95rem] text-gray-900 font-semibold leading-snug">
-                  &ldquo;Du kommer til at snakke direkte med mig på første møde.&rdquo;
+                  &ldquo;Lad os tage en uforpligtende snak&rdquo;
                 </p>
                 <div className="flex items-center gap-2 mt-3 pt-3 border-t border-gray-100">
                   <span className="inline-block w-2 h-2 rounded-full bg-green-500 flex-shrink-0 animate-pulse" aria-hidden="true" />
                   <p className="text-xs text-gray-500">
-                    <span className="font-semibold text-gray-700">Alexander</span> · svarer typisk inden for 2 timer
+                    <span className="font-semibold text-gray-700">Alexander</span> - AI-Konsulent
                   </p>
                 </div>
               </div>
