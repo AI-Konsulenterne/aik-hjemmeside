@@ -28,21 +28,21 @@ export default function AIGuide() {
                   Hjælp til AI
                 </p>
                 <h1 className="text-4xl lg:text-5xl font-bold tracking-heading text-gray-900 leading-[1.05]">
-                  Svært ved at komme i gang med AI? Start med det rigtige use case
+                  Svært ved at komme i gang med AI? Start med den rigtige use case
                 </h1>
                 <p className="text-lg text-gray-500 mt-6 leading-relaxed">
-                  Vi oplever at rigtig mange virksomheder gerne vil bruge AI —
+                  Vi oplever at rigtig mange virksomheder gerne vil bruge AI -
                   men ikke ved hvor de skal starte, eller hvilken opgave de skal
-                  tage fat på først. Denne gratis guide hjælper jer med at finde
-                  det første use case der giver mest værdi for netop jer.
+                  tage fat på først. Derfor har vi lavet en guide til jer, som
+                  hjælper jer med at finde den første use case.
                 </p>
 
                 <ul className="mt-8 space-y-3">
                   {[
-                    "Sådan finder I det rigtige første AI-use case",
-                    "De spørgsmål vi stiller for at afdække potentialet",
-                    "5 konkrete AI-muligheder for danske virksomheder",
-                    "De mest almindelige fejl — og hvordan I undgår dem",
+                    "Sådan finder I den første AI-use case",
+                    "De spørgsmål vi bruger med vores kunder for at afdække hvor de skal starte",
+                    "5 konkrete AI-muligheder",
+                    "De mest almindelige fejl vi ser - og hvordan I undgår dem",
                   ].map((item) => (
                     <li
                       key={item}
