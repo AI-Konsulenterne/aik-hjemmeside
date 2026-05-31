@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Button from "@/components/ui/Button";
 import FadeIn from "@/components/ui/FadeIn";
 import SubpageCTA from "@/components/sections/SubpageCTA";
@@ -105,41 +106,56 @@ export default function Workshop() {
       {/* Hero */}
       <section className="pt-[clamp(4rem,12vw,8rem)] pb-[clamp(3rem,8vw,6rem)]">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <FadeIn>
-            <div className="max-w-3xl">
-              <p className="text-xs uppercase tracking-widest text-primary font-semibold mb-4">
-                AI Workshop
-              </p>
-              <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold tracking-heading text-gray-900 leading-[1.05]">
-                Giv jeres team superkræfter med AI
-              </h1>
-              <p className="text-lg lg:text-xl text-gray-500 mt-6 leading-relaxed">
-                Hands-on workshop hvor jeres team lærer at bruge AI i hverdagen.
-                Konkrete værktøjer — ikke teori og buzzwords.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 mt-10">
-                <Button variant="primary" size="lg" href="/kontakt" cal>
-                  Book en workshop
-                </Button>
+          <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-10 lg:gap-16 items-center">
+            <FadeIn>
+              <div>
+                <p className="text-xs uppercase tracking-widest text-primary font-semibold mb-4">
+                  AI Workshop
+                </p>
+                <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold tracking-heading text-gray-900 leading-[1.05]">
+                  Giv jeres team superkræfter med AI
+                </h1>
+                <p className="text-lg lg:text-xl text-gray-500 mt-6 leading-relaxed">
+                  Hands-on workshop hvor jeres team lærer at bruge AI i hverdagen.
+                  Konkrete værktøjer — ikke teori og buzzwords.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 mt-10">
+                  <Button variant="primary" size="lg" href="/kontakt" cal>
+                    Book en workshop
+                  </Button>
+                </div>
               </div>
-            </div>
-          </FadeIn>
+            </FadeIn>
+
+            <FadeIn delay={200}>
+              <div className="relative aspect-[4/5] max-w-sm mx-auto lg:mx-0 lg:ml-auto w-full rounded-2xl overflow-hidden shadow-xl ring-1 ring-gray-100">
+                <Image
+                  src="/team/alexander-hero.png"
+                  alt="AI-workshop med AI Konsulenterne"
+                  fill
+                  priority
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 40vw"
+                />
+              </div>
+            </FadeIn>
+          </div>
         </div>
       </section>
 
-      {/* What's included */}
+      {/* What's included — list-stil for at adskille fra format-kortene */}
       <section className="bg-gray-50 py-[clamp(3rem,8vw,6rem)]">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="max-w-3xl mx-auto px-6 lg:px-8">
           <FadeIn>
-            <h2 className="text-3xl lg:text-4xl font-bold tracking-heading text-gray-900 text-center mb-12">
+            <h2 className="text-3xl lg:text-4xl font-bold tracking-heading text-gray-900 mb-10 lg:mb-12">
               Hvad indeholder workshoppen?
             </h2>
           </FadeIn>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="flex flex-col divide-y divide-gray-200">
             {includes.map((item, i) => (
-              <FadeIn key={item.title} delay={i * 150}>
-                <div className="bg-white rounded-2xl p-8 shadow-sm h-full">
-                  <div className="w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center mb-4">
+              <FadeIn key={item.title} delay={i * 120}>
+                <div className="flex items-start gap-5 py-6 lg:py-7">
+                  <div className="w-11 h-11 flex-shrink-0 bg-primary/10 rounded-xl flex items-center justify-center">
                     <svg
                       className="w-5 h-5 text-primary"
                       fill="none"
@@ -154,12 +170,14 @@ export default function Workshop() {
                       />
                     </svg>
                   </div>
-                  <h3 className="text-xl font-bold tracking-heading mb-3">
-                    {item.title}
-                  </h3>
-                  <p className="text-gray-500 leading-relaxed">
-                    {item.description}
-                  </p>
+                  <div>
+                    <h3 className="text-lg lg:text-xl font-bold tracking-heading mb-1.5">
+                      {item.title}
+                    </h3>
+                    <p className="text-gray-500 leading-relaxed">
+                      {item.description}
+                    </p>
+                  </div>
                 </div>
               </FadeIn>
             ))}
