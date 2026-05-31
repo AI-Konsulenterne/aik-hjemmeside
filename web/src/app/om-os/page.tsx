@@ -91,7 +91,7 @@ export default async function OmOs() {
               <p className="text-lg lg:text-xl text-gray-500 mt-6 leading-relaxed">
                 AI Konsulenterne er et dansk AI-konsulenthus der hjælper SMV&apos;er
                 med at spare tid og penge med skræddersyede AI-løsninger. Vi
-                tror på at AI skal være nede på jorden — ikke raketvidenskab.
+                tror på at AI skal være nede på jorden - ikke raketvidenskab.
               </p>
             </div>
           </FadeIn>
