@@ -3,14 +3,14 @@ import GuideForm from "@/components/ui/GuideForm";
 import FadeIn from "@/components/ui/FadeIn";
 
 export const metadata: Metadata = {
-  title: "Hjælp til AI — kom i gang og find jeres første use case",
+  title: "Gratis AI-analyse — find jeres første use case",
   description:
-    "Mange virksomheder ved ikke hvor de skal starte med AI. Download vores gratis guide og find det rigtige første use case for jer — uden buzzwords.",
+    "Mange virksomheder ved ikke hvor de skal starte med AI. Få en gratis AI-analyse og konkrete forslag til hvor AI kan spare jer tid — uden buzzwords.",
   alternates: { canonical: "/ai-guide" },
   openGraph: {
-    title: "Hjælp til AI — AI Konsulenterne",
+    title: "Gratis AI-analyse — AI Konsulenterne",
     description:
-      "Svært ved at komme i gang med AI? Vores gratis guide hjælper jer med at vælge det rigtige første use case. Download gratis.",
+      "Svært ved at komme i gang med AI? Få en gratis AI-analyse med konkrete forslag til jeres første use case.",
   },
 };
 
@@ -25,24 +25,24 @@ export default function AIGuide() {
             <FadeIn>
               <div>
                 <p className="text-xs uppercase tracking-widest text-primary font-semibold mb-4">
-                  Hjælp til AI
+                  Gratis AI-analyse
                 </p>
                 <h1 className="text-4xl lg:text-5xl font-bold tracking-heading text-gray-900 leading-[1.05]">
-                  Svært ved at komme i gang med AI? Start med den rigtige use case
+                  Svært ved at komme i gang med AI? Få en gratis AI-analyse
                 </h1>
                 <p className="text-lg text-gray-500 mt-6 leading-relaxed">
                   Vi oplever at rigtig mange virksomheder gerne vil bruge AI -
                   men ikke ved hvor de skal starte, eller hvilken opgave de skal
-                  tage fat på først. Derfor har vi lavet en guide til jer, som
-                  hjælper jer med at finde den første use case.
+                  tage fat på først. Fortæl os kort om jer, så vender vi tilbage
+                  med en konkret analyse af hvor AI kan skabe mest værdi for jer.
                 </p>
 
                 <ul className="mt-8 space-y-3">
                   {[
-                    "Sådan finder I den første AI-use case",
-                    "De spørgsmål vi bruger med vores kunder for at afdække hvor de skal starte",
-                    "5 konkrete AI-muligheder",
-                    "De mest almindelige fejl vi ser - og hvordan I undgår dem",
+                    "Konkrete forslag til jeres første AI-use case",
+                    "Et bud på hvor I kan spare mest tid",
+                    "De mest almindelige fejl - og hvordan I undgår dem",
+                    "Uforpligtende og helt gratis",
                   ].map((item) => (
                     <li
                       key={item}

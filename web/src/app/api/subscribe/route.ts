@@ -25,6 +25,7 @@ type SubscribePayload = {
   source?: string;
   firstName?: string;
   company?: string;
+  message?: string;
 };
 
 async function acFetch(endpoint: string, body: unknown) {
@@ -62,7 +63,9 @@ export async function POST(req: NextRequest) {
 
     // Hvis AC ikke er konfigureret, log og returner success
     if (!AC_URL || !AC_KEY) {
-      console.log(`[Subscribe] Email modtaget (AC ikke konfigureret): ${email}`);
+      console.log(
+        `[Subscribe] Lead modtaget (AC ikke konfigureret) — email: ${email}, virksomhed: ${body.company || "-"}, source: ${source}, besked: ${body.message || "-"}`,
+      );
       return NextResponse.json({
         success: true,
         mode: "dev-no-ac",
@@ -77,6 +80,7 @@ export async function POST(req: NextRequest) {
         fieldValues: [
           { field: "source", value: source },
           ...(body.company ? [{ field: "company", value: body.company }] : []),
+          ...(body.message ? [{ field: "message", value: body.message }] : []),
         ],
       },
     };
