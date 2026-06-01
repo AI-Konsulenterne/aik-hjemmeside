@@ -89,7 +89,7 @@ export default function ServicesOverview() {
                       </h3>
                     </div>
                     <p className="text-gray-500 text-sm leading-relaxed">
-                      Vores færdige AI-platform til virksomheder der vil have styrken fra ChatGPT - bare med jeres egne dokumenter, jeres egne data, og uden at noget forlader huset.
+                      Jeres eget AI-system - forankret i jeres data, jeres systemer og jeres måde at gøre tingene på. Føles som ChatGPT, men svarene kommer fra jeres egen forretning. Frit valg mellem Claude, GPT og andre modeller. Bruges af 400+ medarbejdere hver dag.
                     </p>
                   </div>
                   <div className="flex items-center gap-2 text-sm font-semibold text-gray-400 group-hover:text-primary transition-colors mt-4">
