@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 import FadeIn from "@/components/ui/FadeIn";
 
 export default function CaseHighlight() {
@@ -19,18 +18,6 @@ export default function CaseHighlight() {
               Datasikker AI der frigør tid i HR-afdelingen ved at besvare
               medarbejdernes spørgsmål automatisk.
             </p>
-          </div>
-        </FadeIn>
-
-        <FadeIn delay={150}>
-          <div className="flex justify-center mt-10 lg:mt-12">
-            <Image
-              src="/logos/lavazza.png"
-              alt="Lavazza — kundecase hos AI Konsulenterne"
-              width={200}
-              height={60}
-              className="w-auto h-9 lg:h-11 object-contain"
-            />
           </div>
         </FadeIn>
 
