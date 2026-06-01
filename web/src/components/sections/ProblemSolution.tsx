@@ -16,7 +16,7 @@ const steps = [
   {
     number: "03",
     title: "Vi bygger første version - hurtigt",
-    body: "I stedet for et halvt års projekt får I noget i hånden på få uger. Så kan I mærke om det virker, før vi bygger videre.",
+    body: "Vi gider ikke projekter der trækker i langdrag, og vi vil gerne have at I kommer i gang hurtigst muligt.",
     output: "Første version i drift inden for 4-8 uger",
   },
   {
