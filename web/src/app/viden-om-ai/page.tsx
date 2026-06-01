@@ -99,7 +99,7 @@ export default async function VidenOmAI() {
                       className="group block h-full"
                     >
                       <article className="bg-white rounded-2xl overflow-hidden border border-gray-100 h-full flex flex-col hover:shadow-md hover:-translate-y-0.5 transition-all duration-300">
-                        {imageUrl && (
+                        {imageUrl ? (
                           <div className="relative aspect-[16/9] bg-gray-100 overflow-hidden">
                             <Image
                               src={imageUrl}
@@ -107,6 +107,27 @@ export default async function VidenOmAI() {
                               fill
                               className="object-cover transition-transform duration-500 group-hover:scale-105"
                             />
+                          </div>
+                        ) : (
+                          <div className="relative aspect-[16/9] bg-gradient-to-br from-orange-50 via-white to-gray-50 overflow-hidden flex items-center justify-center">
+                            <div
+                              className="absolute -top-8 -right-8 w-40 h-40 rounded-full bg-primary/10 blur-2xl"
+                              aria-hidden="true"
+                            />
+                            <svg
+                              className="w-12 h-12 text-primary relative z-10 transition-transform duration-500 group-hover:scale-110"
+                              fill="none"
+                              stroke="currentColor"
+                              strokeWidth={1.5}
+                              viewBox="0 0 24 24"
+                              aria-hidden="true"
+                            >
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456z"
+                              />
+                            </svg>
                           </div>
                         )}
                         <div className="p-6 flex-grow flex flex-col">
