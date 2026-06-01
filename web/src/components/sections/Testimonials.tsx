@@ -21,7 +21,7 @@ export default async function Testimonials() {
             Hvad kunderne siger
           </p>
           <h2 className="text-3xl lg:text-4xl font-bold tracking-heading text-gray-900 text-center leading-[1.1] max-w-3xl mx-auto">
-            Der er en grund til at de vælger os
+            Hvad siger vores kunder
           </h2>
         </FadeIn>
 
