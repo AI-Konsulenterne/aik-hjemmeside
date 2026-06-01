@@ -43,7 +43,7 @@ export default function CaseHighlight() {
                 Lavazzas HR-afdeling brugte uforholdsmæssigt mange timer på at
                 besvare de samme medarbejderspørgsmål igen og igen. Vi byggede en
                 datasikker AI-agent der automatisk besvarer HR-relaterede spørgsmål
-                — så teamet kan fokusere på det der virkelig kræver mennesker.
+                — så teamet kan fokusere på det der virkelig kræver et menneske.
               </p>
             </div>
 

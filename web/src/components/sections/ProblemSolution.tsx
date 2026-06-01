@@ -35,14 +35,14 @@ const steps = [
 
 export default function ProblemSolution() {
   return (
-    <section className="bg-gray-900 text-white py-[clamp(4rem,10vw,7rem)]">
+    <section className="bg-gray-50 py-[clamp(4rem,10vw,7rem)]">
       <div className="max-w-4xl mx-auto px-6 lg:px-8">
         <FadeIn>
           <div className="text-center max-w-3xl mx-auto mb-14 lg:mb-16">
-            <h2 className="text-3xl lg:text-4xl xl:text-5xl font-bold tracking-heading leading-[1.1]">
+            <h2 className="text-3xl lg:text-4xl xl:text-5xl font-bold tracking-heading text-gray-900 leading-[1.1]">
               Sådan ser et forløb ud
             </h2>
-            <p className="text-white/60 mt-5 leading-relaxed">
+            <p className="text-gray-500 mt-5 leading-relaxed">
               Det skal ikke være kompliceret at komme i gang med AI. Her er
               hvordan vi typisk gør - uanset om I er klar til at bygge, eller
               bare skal finde ud af hvor I står.
@@ -53,24 +53,24 @@ export default function ProblemSolution() {
         <div className="space-y-4 lg:space-y-5">
           {steps.map((step, i) => (
             <FadeIn key={step.number} delay={i * 80}>
-              <div className="bg-white/5 ring-1 ring-white/10 rounded-2xl p-6 lg:p-8 flex flex-col sm:flex-row gap-5 lg:gap-7">
+              <div className="bg-white ring-1 ring-gray-100 rounded-2xl p-6 lg:p-8 flex flex-col sm:flex-row gap-5 lg:gap-7">
                 <div className="flex-shrink-0">
                   <span className="text-2xl lg:text-3xl font-bold tracking-heading text-primary">
                     {step.number}
                   </span>
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-lg lg:text-xl font-bold tracking-heading text-white mb-2">
+                  <h3 className="text-lg lg:text-xl font-bold tracking-heading text-gray-900 mb-2">
                     {step.title}
                   </h3>
-                  <p className="text-white/60 leading-relaxed text-[15px] lg:text-base">
+                  <p className="text-gray-500 leading-relaxed text-[15px] lg:text-base">
                     {step.body}
                   </p>
                   <div className="mt-4 inline-flex items-start gap-2 rounded-lg bg-primary/10 px-3.5 py-2">
                     <span className="text-[11px] uppercase tracking-widest text-primary font-bold mt-0.5 flex-shrink-0">
                       Output
                     </span>
-                    <span className="text-sm text-white/80 leading-snug">
+                    <span className="text-sm text-gray-700 leading-snug">
                       {step.output}
                     </span>
                   </div>
