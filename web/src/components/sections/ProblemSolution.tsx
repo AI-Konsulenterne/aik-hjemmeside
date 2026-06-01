@@ -1,121 +1,84 @@
 import FadeIn from "@/components/ui/FadeIn";
 
+const steps = [
+  {
+    number: "01",
+    title: "Vi finder ud af, hvor I står",
+    body: "Vi tager en snak om hvordan jeres hverdag ser ud, og hvor I kunne hente noget. Nogle gange er der en konkret use case klar med det samme. Andre gange er det første skridt en workshop, lidt oplæring eller bare at få ryddet op i hvor I overhovedet skal starte. Vi siger ærligt hvad der giver mening - også hvis svaret er at I skal vente lidt endnu.",
+    output: "Et klart næste skridt - det rigtige for jer",
+  },
+  {
+    number: "02",
+    title: "Vi finder den løsning der passer til jer",
+    body: "Nogle skal have alt kørende på egne servere. Andre er fint med en cloud-løsning. Vi finder ud af hvad der giver bedst mening hos jer - og bygger altid compliant AI, der overholder GDPR.",
+    output: "Løsningsdesign, fast pris, og en plan I kan følge med i",
+  },
+  {
+    number: "03",
+    title: "Vi bygger første version - hurtigt",
+    body: "I stedet for et halvt års projekt får I noget i hånden på få uger. Så kan I mærke om det virker, før vi bygger videre.",
+    output: "Første version i drift inden for 4-8 uger",
+  },
+  {
+    number: "04",
+    title: "Vi kigger på hvad der virker",
+    body: "Når folk er begyndt at bruge det, ser vi sammen på hvor det rammer plet, og hvor der skal justeres. AI er sjældent perfekt fra dag ét - og det er helt fint.",
+    output: "En løsning der bliver bedre, jo længere I bruger den",
+  },
+  {
+    number: "05",
+    title: "Vi udvider, når I er klar",
+    body: "Når den første case kører, kigger vi på den næste. En bid ad gangen - aldrig en stor plan I ikke har lyst til at sige ja til.",
+    output: "AI der vokser i jeres tempo",
+  },
+];
+
 export default function ProblemSolution() {
   return (
-    <section className="py-[clamp(4rem,10vw,7rem)]">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+    <section className="bg-gray-900 text-white py-[clamp(4rem,10vw,7rem)]">
+      <div className="max-w-4xl mx-auto px-6 lg:px-8">
         <FadeIn>
           <div className="text-center max-w-3xl mx-auto mb-14 lg:mb-16">
-            <h2 className="text-3xl lg:text-4xl xl:text-5xl font-bold tracking-heading text-gray-900 leading-[1.1]">
-              Fra manuelt arbejde til AI på autopilot
+            <h2 className="text-3xl lg:text-4xl xl:text-5xl font-bold tracking-heading leading-[1.1]">
+              Sådan ser et forløb ud
             </h2>
-            <p className="text-gray-500 mt-4 leading-relaxed">
-              Se forskellen AI gør for en typisk dansk virksomhed med 10 ansatte.
+            <p className="text-white/60 mt-5 leading-relaxed">
+              Det skal ikke være kompliceret at komme i gang med AI. Her er
+              hvordan vi typisk gør - uanset om I er klar til at bygge, eller
+              bare skal finde ud af hvor I står.
             </p>
           </div>
         </FadeIn>
 
-        {/* Before / After comparison */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
-          {/* BEFORE */}
-          <FadeIn delay={100}>
-            <div className="relative rounded-2xl border border-gray-200 p-8 lg:p-10 h-full">
-              <div className="absolute top-0 left-8 -translate-y-1/2">
-                <span className="bg-white px-3 py-1 text-[11px] uppercase tracking-[0.2em] text-gray-400 font-semibold border border-gray-200 rounded-full">
-                  Uden AI
-                </span>
-              </div>
-              <div className="space-y-6 mt-2">
-                <div className="flex items-start gap-4">
-                  <div className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                  </div>
-                  <div>
-                    <p className="font-semibold text-gray-900">8 timer om ugen pr. medarbejder</p>
-                    <p className="text-sm text-gray-500 mt-0.5">brugt på manuelle, gentagne opgaver</p>
-                  </div>
+        <div className="space-y-4 lg:space-y-5">
+          {steps.map((step, i) => (
+            <FadeIn key={step.number} delay={i * 80}>
+              <div className="bg-white/5 ring-1 ring-white/10 rounded-2xl p-6 lg:p-8 flex flex-col sm:flex-row gap-5 lg:gap-7">
+                <div className="flex-shrink-0">
+                  <span className="text-2xl lg:text-3xl font-bold tracking-heading text-primary">
+                    {step.number}
+                  </span>
                 </div>
-                <div className="flex items-start gap-4">
-                  <div className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" />
-                    </svg>
-                  </div>
-                  <div>
-                    <p className="font-semibold text-gray-900">Fejl der koster jer kunder</p>
-                    <p className="text-sm text-gray-500 mt-0.5">glemte opfølgninger, langsomme svar, copy-paste fejl</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-4">
-                  <div className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 00-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 01-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 003 15h-.75M15 10.5a3 3 0 11-6 0 3 3 0 016 0zm3 0h.008v.008H18V10.5zm-12 0h.008v.008H6V10.5z" />
-                    </svg>
-                  </div>
-                  <div>
-                    <p className="font-semibold text-gray-900">~17.000 kr/måned i skjulte omkostninger</p>
-                    <p className="text-sm text-gray-500 mt-0.5">dyre medarbejdertimer brugt på ting AI kan klare</p>
+                <div className="flex-1">
+                  <h3 className="text-lg lg:text-xl font-bold tracking-heading text-white mb-2">
+                    {step.title}
+                  </h3>
+                  <p className="text-white/60 leading-relaxed text-[15px] lg:text-base">
+                    {step.body}
+                  </p>
+                  <div className="mt-4 inline-flex items-start gap-2 rounded-lg bg-primary/10 px-3.5 py-2">
+                    <span className="text-[11px] uppercase tracking-widest text-primary font-bold mt-0.5 flex-shrink-0">
+                      Output
+                    </span>
+                    <span className="text-sm text-white/80 leading-snug">
+                      {step.output}
+                    </span>
                   </div>
                 </div>
               </div>
-            </div>
-          </FadeIn>
-
-          {/* AFTER */}
-          <FadeIn delay={250}>
-            <div className="relative rounded-2xl border-2 border-primary/20 bg-primary/[0.02] p-8 lg:p-10 h-full">
-              <div className="absolute top-0 left-8 -translate-y-1/2">
-                <span className="bg-primary px-3 py-1 text-[11px] uppercase tracking-[0.2em] text-white font-semibold rounded-full">
-                  Med AI
-                </span>
-              </div>
-              <div className="space-y-6 mt-2">
-                <div className="flex items-start gap-4">
-                  <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <svg className="w-4 h-4 text-primary" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-                    </svg>
-                  </div>
-                  <div>
-                    <p className="font-semibold text-gray-900">8 timer frigjort om ugen</p>
-                    <p className="text-sm text-gray-500 mt-0.5">til arbejde der faktisk skaber værdi</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-4">
-                  <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <svg className="w-4 h-4 text-primary" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-                    </svg>
-                  </div>
-                  <div>
-                    <p className="font-semibold text-gray-900">Færre fejl, gladere kunder</p>
-                    <p className="text-sm text-gray-500 mt-0.5">AI svarer på sekunder, 24/7, uden at glemme noget</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-4">
-                  <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <svg className="w-4 h-4 text-primary" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-                    </svg>
-                  </div>
-                  <div>
-                    <p className="font-semibold text-gray-900">~200.000 kr/år sparet</p>
-                    <p className="text-sm text-gray-500 mt-0.5">de fleste kunder ser ROI inden 60 dage</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </FadeIn>
+            </FadeIn>
+          ))}
         </div>
-
-        {/* Money translation */}
-        <FadeIn delay={350}>
-          <p className="text-center text-xs text-gray-400 mt-6">
-            Beregnet ud fra gennemsnitlig dansk medarbejderkostnad på 350 kr/time
-          </p>
-        </FadeIn>
       </div>
     </section>
   );
