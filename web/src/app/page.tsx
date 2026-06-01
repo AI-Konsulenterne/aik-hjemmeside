@@ -91,10 +91,10 @@ const faqJsonLd = {
   mainEntity: [
     {
       "@type": "Question",
-      name: "Vi har ikke en IT-afdeling — kan vi stadig få AI?",
+      name: "Vi har ikke en IT-afdeling - kan vi stadig få AI?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Ja. Vi tager det hele: opsætning, integration, drift og support. I behøver ingen IT-kompetencer internt. Vi fungerer som jeres eksterne AI-afdeling.",
+        text: "Ja - og I er faktisk i godt selskab. Det er størstedelen af vores kunder. I behøver hverken IT-folk eller intern AI-viden for at komme i gang, det er det vi er her til. Vi sætter det op, viser jer hvordan det bruges, og er der hvis noget driller.",
       },
     },
     {
@@ -102,7 +102,7 @@ const faqJsonLd = {
       name: "Hvilke platforme bruger I?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Vi er platformsuafhængige. Afhængigt af opgaven bruger vi OpenAI, Anthropic, Azure OpenAI, Microsoft Copilot, Google Vertex AI, eller custom open-source modeller. Vi anbefaler det der passer jeres behov, budget og datakrav.",
+        text: "Vi er ikke gift med én leverandør. Vi bruger det der passer bedst til opgaven - Azure OpenAI, Claude, Gemini, åbne modeller, eller en kombination. Vi sælger ikke licenser, vi løser opgaver.",
       },
     },
     {
@@ -110,23 +110,23 @@ const faqJsonLd = {
       name: "Hvordan sikrer I at medarbejderne faktisk bruger løsningen?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Adoption er en del af leverancen. Vi laver onboarding-sessioner, træning tilpasset hver rolle, og løbende support de første 30-60 dage. Vi måler faktisk brug — ikke bare at løsningen er live.",
+        text: "Det er nok det sværeste i hele AI-historien - og det er der de fleste projekter falder fra hinanden. Vi bygger løsningen ind i de værktøjer folk bruger i forvejen. Efter lancering kigger vi sammen på hvem der bruger det, og hvor der skal justeres. Hvis ingen bruger løsningen, har vi ikke leveret den.",
       },
     },
     {
       "@type": "Question",
-      name: "Er AI-løsninger GDPR-sikre?",
+      name: "Er det GDPR-sikkert?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Ja. Alle vores løsninger bygges med GDPR fra dag 1. Vi håndterer databehandleraftaler, vælger hosting i EU når det kræves, og sikrer at jeres data aldrig bruges til at træne offentlige modeller.",
+        text: "Ja. Vi bygger altid setups der overholder GDPR - jeres data ender ikke i åbne modeller, og bliver ikke brugt til at træne noget. Hvor strengt setuppet skal være kommer an på jer - nogle kører fint med en cloud-løsning og en databehandleraftale, andre vil have alt liggende internt.",
       },
     },
     {
       "@type": "Question",
-      name: "Hvad koster en AI-løsning?",
+      name: "Hvad koster det?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Afhænger af omfang. Små workshops starter ved 25.000 kr, skræddersyede løsninger typisk 50.000-250.000 kr. Vi giver altid et fast tilbud før vi går i gang. Første afklaringsmøde er altid gratis.",
+        text: "Det kommer an på hvad vi bygger. Workshops starter typisk omkring 25.000 kr. Mindre AI-løsninger ligger fra 50.000 kr og opefter. Efter første snak giver vi jer en fast pris, så I ved præcis hvad I siger ja til.",
       },
     },
     {
@@ -134,7 +134,7 @@ const faqJsonLd = {
       name: "Kan vi ikke bare bruge ChatGPT?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Til simple opgaver, ja. Men ChatGPT kender ikke jeres data, systemer eller processer. Skræddersyet AI integrerer med jeres CRM, ERP, webshop og vidensbase — og arbejder automatisk uden at en medarbejder sidder og prompter. Det er forskellen på et værktøj og en medarbejder.",
+        text: "Selvfølgelig kan I det - vi bruger den også selv. ChatGPT er fin til de hurtige opgaver. Men når I rammer et reelt behov der kræver jeres egne data, jeres systemer eller en proces der skal køre af sig selv, så er en standardchat ikke nok. Der bygger vi noget der løser den specifikke ting.",
       },
     },
   ],

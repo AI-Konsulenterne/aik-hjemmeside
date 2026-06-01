@@ -5,28 +5,28 @@ import FadeIn from "@/components/ui/FadeIn";
 
 const faqs = [
   {
-    q: "Vi har ikke en IT-afdeling — kan vi stadig få AI?",
-    a: "Ja. Vi tager det hele: opsætning, integration, drift og support. I behøver ingen IT-kompetencer internt. Vi fungerer som jeres eksterne AI-afdeling.",
+    q: "Vi har ikke en IT-afdeling - kan vi stadig få AI?",
+    a: "Ja - og I er faktisk i godt selskab. Det er størstedelen af vores kunder. I behøver hverken IT-folk eller intern AI-viden for at komme i gang, det er det vi er her til. Vi sætter det op, viser jer hvordan det bruges, og er der hvis noget driller. Når I efter et stykke tid selv har styr på det, er det også fint.",
   },
   {
     q: "Hvilke platforme bruger I?",
-    a: "Vi er platformsuafhængige. Afhængigt af opgaven bruger vi OpenAI, Anthropic, Azure OpenAI, Microsoft Copilot, Google Vertex AI, eller custom open-source modeller. Vi anbefaler det der passer jeres behov, budget og datakrav — ikke det vi tjener mest på.",
+    a: "Vi er ikke gift med én leverandør. Vi bruger det der passer bedst til opgaven - Azure OpenAI, Claude, Gemini, åbne modeller, eller en kombination. Vi sælger ikke licenser, vi løser opgaver. Så vi vælger det værktøj der gør jobbet bedst.",
   },
   {
     q: "Hvordan sikrer I at medarbejderne faktisk bruger løsningen?",
-    a: "Adoption er en del af leverancen. Vi laver onboarding-sessioner, træning tilpasset hver rolle, og løbende support de første 30-60 dage. Vi måler faktisk brug — ikke bare at løsningen er live.",
+    a: "Det er nok det sværeste i hele AI-historien - og det er der de fleste projekter falder fra hinanden. Vi bygger løsningen ind i de værktøjer folk bruger i forvejen, så den ikke ligger som en ekstra fane de skal huske at åbne. Efter lancering kigger vi sammen på hvem der bruger det, hvem der ikke gør, og hvor der skal justeres. Hvis ingen bruger løsningen, har vi ikke leveret den.",
   },
   {
     q: "Er det GDPR-sikkert?",
-    a: "Ja. Alle vores løsninger bygges med GDPR fra dag 1. Vi håndterer databehandleraftaler, vælger hosting i EU når det kræves, og sikrer at jeres data aldrig bruges til at træne offentlige modeller. Se f.eks. vores HR-agent hos Lavazza.",
+    a: "Ja. Det er faktisk en af de første ting vi tjekker af. Vi bygger altid setups der overholder GDPR - jeres data ender ikke i åbne modeller, og bliver ikke brugt til at træne noget. Kort version: jeres data går ikke ud at vandre. Hvor strengt setuppet skal være, kommer an på jer - nogle kører fint med en cloud-løsning og en tydelig databehandleraftale, andre vil have alt liggende internt. Vi finder ud af hvad der passer til jer.",
   },
   {
     q: "Hvad koster det?",
-    a: "Afhænger af omfang. Små workshops starter ved 25.000 kr, skræddersyede løsninger typisk 50.000-250.000 kr. Vi giver altid et fast tilbud før vi går i gang — ingen overraskelser. Første afklaringsmøde er altid gratis.",
+    a: "Det kommer an på hvad vi bygger - og det ville være useriøst at give et tal her uden at have set jeres setup. Workshops starter typisk omkring 25.000 kr. Mindre AI-løsninger ligger fra 50.000 kr og opefter. Efter første snak ved vi nok til at give jer en fast pris, så I ved præcis hvad I siger ja til.",
   },
   {
     q: "Kan vi ikke bare bruge ChatGPT?",
-    a: "Ja — til simple opgaver. Men ChatGPT kender ikke jeres data, systemer eller processer. Skræddersyet AI integrerer med jeres CRM, ERP, webshop og vidensbase — og arbejder automatisk uden at en medarbejder sidder og prompter. Det er forskellen på et værktøj og en medarbejder.",
+    a: "Selvfølgelig kan I det - vi bruger den også selv. ChatGPT er fin til de hurtige opgaver: en mail, et resumé, et oplæg. Men når I rammer et reelt behov i forretningen - noget der kræver jeres egne data, jeres systemer eller en proces der skal køre af sig selv - så er en standardchat ikke nok. Der bygger vi noget der løser den specifikke ting, ikke en generisk chat oveni.",
   },
 ];
 
@@ -41,7 +41,7 @@ export default function FAQ() {
             Spørgsmål vi ofte får
           </p>
           <h2 className="text-3xl lg:text-4xl font-bold tracking-heading text-gray-900 text-center leading-[1.1]">
-            De vigtigste spørgsmål — besvaret
+            De vigtigste spørgsmål - besvaret
           </h2>
         </FadeIn>
 
