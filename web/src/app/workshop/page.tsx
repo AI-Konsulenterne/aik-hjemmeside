@@ -56,21 +56,21 @@ export const metadata: Metadata = {
 
 const includes = [
   {
-    title: "Hands-on træning",
+    title: "En workshop bygget om jeres behov",
     description:
-      "Ikke slides og teori — jeres team arbejder med rigtige AI-værktøjer og jeres egne opgaver.",
+      "Skal I have det grundlæggende på plads? Lære at prompte ordentligt? Eller springe direkte til konkrete use cases I allerede har i tankerne? Vi snakker det igennem med jer på forhånd og bygger dagen omkring det - med den rigtige blanding af oplæg og hands-on.",
     iconPath: "M15.59 14.37a6 6 0 01-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 006.16-12.12A14.98 14.98 0 009.631 8.41m5.96 5.96a14.926 14.926 0 01-5.841 2.58m-.119-8.54a6 6 0 00-7.381 5.84h4.8m2.581-5.84a14.927 14.927 0 00-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 01-2.448-2.448 14.9 14.9 0 01.06-.312m-2.24 2.39a4.493 4.493 0 00-1.757 4.306 4.493 4.493 0 004.306-1.758M16.5 9a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z",
   },
   {
-    title: "Tilpasset jeres branche",
+    title: "Tilpasset jer, ikke en standardpakke",
     description:
-      "Vi skræddersyr indholdet til jeres virksomhed, så alt er relevant og kan bruges med det samme.",
+      "En workshop for en advokatvirksomhed ligner ikke en for et byggefirma - og det skal den heller ikke. Vi bygger om jeres branche, jeres opgaver og jeres niveau.",
     iconPath: "M10.5 6h9.75M10.5 6a1.5 1.5 0 11-3 0m3 0a1.5 1.5 0 10-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-9.75 0h9.75",
   },
   {
-    title: "Konkrete takeaways",
+    title: "Værktøjer I kan bruge dagen efter",
     description:
-      "Alle deltagere går hjem med en personlig AI-handlingsplan og adgang til de værktøjer vi gennemgår.",
+      "Alle går hjem med en konkret plan for deres egne opgaver og adgang til de værktøjer vi har gennemgået. Ingen “vi vender tilbage med materialerne”.",
     iconPath: "M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z",
   },
 ];
@@ -79,23 +79,16 @@ const formats = [
   {
     title: "Halv dag (3 timer)",
     description:
-      "Intensiv introduktion til AI-værktøjer. Perfekt til teams der vil i gang hurtigt.",
-    suited: "Velegnet til: Teams på 5-15 personer",
+      "En god første smagsprøve. Vi gennemgår de vigtigste AI-værktøjer og prøver dem af på et par konkrete opgaver fra jeres hverdag.",
+    suited: "Bedst til: Teams på 5-15 personer der vil i gang",
     highlight: false,
   },
   {
     title: "Hel dag (6 timer)",
     description:
-      "Dybdegående workshop med hands-on øvelser, case-arbejde og individuel AI-handlingsplan.",
-    suited: "Velegnet til: Afdelinger og ledergrupper",
+      "Vi går mere i dybden. Halv dag oplæg og hands-on, halv dag på jeres egne use cases. Alle går hjem med en plan for hvad de selv kan bruge AI til.",
+    suited: "Bedst til: Afdelinger og ledergrupper",
     highlight: true,
-  },
-  {
-    title: "Forløb (3 sessioner)",
-    description:
-      "Tre workshops over 3 uger. Vi følger op på implementering og sikrer at AI bliver en del af hverdagen.",
-    suited: "Velegnet til: Organisationer der vil have varig forandring",
-    highlight: false,
   },
 ];
 
@@ -113,11 +106,13 @@ export default function Workshop() {
                   AI Workshop
                 </p>
                 <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold tracking-heading text-gray-900 leading-[1.05]">
-                  Giv jeres team superkræfter med AI
+                  En dag hvor jeres team prøver AI af på deres egne opgaver
                 </h1>
                 <p className="text-lg lg:text-xl text-gray-500 mt-6 leading-relaxed">
-                  Hands-on workshop hvor jeres team lærer at bruge AI i hverdagen.
-                  Konkrete værktøjer — ikke teori og buzzwords.
+                  Vi tilpasser dagen til jer - fra generel AI-forståelse og
+                  prompt school til konkrete use cases I sidder med lige nu. Vi
+                  snakker sammen med jer om hvor I står, og finder den rigtige
+                  blanding af teori og praksis.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 mt-10">
                   <Button variant="primary" size="lg" href="/kontakt" cal>
@@ -148,7 +143,7 @@ export default function Workshop() {
         <div className="max-w-3xl mx-auto px-6 lg:px-8">
           <FadeIn>
             <h2 className="text-3xl lg:text-4xl font-bold tracking-heading text-gray-900 mb-10 lg:mb-12">
-              Hvad indeholder workshoppen?
+              Hvad får I med hjem?
             </h2>
           </FadeIn>
           <div className="flex flex-col divide-y divide-gray-200">
@@ -193,7 +188,7 @@ export default function Workshop() {
               Vælg det format der passer jer
             </h2>
           </FadeIn>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {formats.map((format, i) => (
               <FadeIn key={format.title} delay={i * 150}>
                 <div
