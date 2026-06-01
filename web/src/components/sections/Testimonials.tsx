@@ -46,7 +46,7 @@ export default async function Testimonials() {
                       {Array.from({ length: t.rating }).map((_, idx) => (
                         <svg
                           key={idx}
-                          className="w-4 h-4 text-white fill-current"
+                          className="w-4 h-4 text-gray-900 fill-current"
                           viewBox="0 0 20 20"
                           aria-hidden="true"
                         >
@@ -56,13 +56,13 @@ export default async function Testimonials() {
                     </div>
                   )}
 
-                  <blockquote className="text-white leading-relaxed text-[0.98rem] lg:text-base flex-grow italic">
+                  <blockquote className="text-gray-900 leading-relaxed text-[0.98rem] lg:text-base flex-grow italic">
                     &ldquo;{t.quote}&rdquo;
                   </blockquote>
 
-                  <figcaption className="mt-6 pt-5 border-t border-white/20 flex items-center gap-3">
+                  <figcaption className="mt-6 pt-5 border-t border-gray-900/15 flex items-center gap-3">
                     {photo ? (
-                      <div className="relative w-11 h-11 rounded-full overflow-hidden bg-white/20 flex-shrink-0">
+                      <div className="relative w-11 h-11 rounded-full overflow-hidden bg-gray-900/10 flex-shrink-0">
                         <Image
                           src={photo}
                           alt={t.authorName}
@@ -71,17 +71,17 @@ export default async function Testimonials() {
                         />
                       </div>
                     ) : (
-                      <div className="w-11 h-11 rounded-full bg-white/20 flex items-center justify-center flex-shrink-0">
-                        <span className="text-white font-bold text-sm">
+                      <div className="w-11 h-11 rounded-full bg-gray-900/10 flex items-center justify-center flex-shrink-0">
+                        <span className="text-gray-900 font-bold text-sm">
                           {t.authorName.charAt(0)}
                         </span>
                       </div>
                     )}
                     <div className="flex-grow min-w-0">
-                      <p className="text-sm font-bold tracking-heading text-white leading-tight">
+                      <p className="text-sm font-bold tracking-heading text-gray-900 leading-tight">
                         {t.authorName}
                       </p>
-                      <p className="text-xs text-white/70 mt-0.5 truncate">
+                      <p className="text-xs text-gray-700 mt-0.5 truncate">
                         {t.authorTitle} · {t.company}
                       </p>
                     </div>

@@ -41,7 +41,7 @@ export default function FAQ() {
             Spørgsmål vi ofte får
           </p>
           <h2 className="text-3xl lg:text-4xl font-bold tracking-heading text-gray-900 text-center leading-[1.1]">
-            De vigtigste spørgsmål - besvaret
+            Hvad er vores kunder nysgerrige på?
           </h2>
         </FadeIn>
 
