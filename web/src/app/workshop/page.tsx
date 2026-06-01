@@ -70,7 +70,7 @@ const includes = [
   {
     title: "Værktøjer I kan bruge dagen efter",
     description:
-      "Alle går hjem med en konkret plan for deres egne opgaver og adgang til de værktøjer vi har gennemgået. Ingen “vi vender tilbage med materialerne”.",
+      "Alle går hjem med en konkret plan for deres egne opgaver og adgang til de værktøjer vi har gennemgået.",
     iconPath: "M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z",
   },
 ];
