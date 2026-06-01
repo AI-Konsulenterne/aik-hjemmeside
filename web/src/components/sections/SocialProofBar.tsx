@@ -3,11 +3,11 @@
 import Image from "next/image";
 
 const clients = [
-  { name: "Lavazza", logo: "/logos/lavazza.png", width: 140, height: 88 },
-  { name: "INDKOM", logo: "/logos/indkom.png", width: 140, height: 26 },
-  { name: "Wunderwear", logo: "/logos/wunderwear.svg", width: 160, height: 30 },
-  { name: "Stretchfit", logo: "/logos/stretchfit.png", width: 150, height: 45 },
-  { name: "J.M Band", logo: "/logos/jmband.png", width: 120, height: 59 },
+  { name: "Lavazza", logo: "/logos/lavazza.png", width: 140, height: 88, cls: "h-8 lg:h-10" },
+  { name: "INDKOM", logo: "/logos/indkom.png", width: 140, height: 26, cls: "h-6 lg:h-7" },
+  { name: "Wunderwear", logo: "/logos/wunderwear.svg", width: 160, height: 30, cls: "h-4 lg:h-5" },
+  { name: "Stretchfit", logo: "/logos/stretchfit.png", width: 150, height: 45, cls: "h-7 lg:h-9" },
+  { name: "J.M Band", logo: "/logos/jmband.png", width: 120, height: 59, cls: "h-9 lg:h-11" },
 ];
 
 // Duplicate for seamless infinite scroll
@@ -39,7 +39,7 @@ export default function SocialProofBar() {
                 alt={c.name}
                 width={c.width}
                 height={c.height}
-                className="h-8 lg:h-10 w-auto object-contain opacity-90 hover:opacity-100 transition-all duration-300"
+                className={`${c.cls} w-auto max-w-[180px] object-contain opacity-90 hover:opacity-100 transition-all duration-300`}
               />
             </div>
           ))}
