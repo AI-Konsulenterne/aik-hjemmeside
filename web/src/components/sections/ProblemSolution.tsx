@@ -36,9 +36,9 @@ const steps = [
 export default function ProblemSolution() {
   return (
     <section className="bg-gray-50 py-[clamp(4rem,10vw,7rem)]">
-      <div className="max-w-4xl mx-auto px-6 lg:px-8">
+      <div className="max-w-5xl mx-auto px-6 lg:px-8">
         <FadeIn>
-          <div className="text-center max-w-3xl mx-auto mb-14 lg:mb-16">
+          <div className="text-center max-w-3xl mx-auto mb-12 lg:mb-14">
             <h2 className="text-3xl lg:text-4xl xl:text-5xl font-bold tracking-heading text-gray-900 leading-[1.1]">
               Sådan ser et forløb ud
             </h2>
@@ -50,30 +50,26 @@ export default function ProblemSolution() {
           </div>
         </FadeIn>
 
-        <div className="space-y-4 lg:space-y-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-5">
           {steps.map((step, i) => (
-            <FadeIn key={step.number} delay={i * 80}>
-              <div className="bg-white ring-1 ring-gray-100 rounded-2xl p-6 lg:p-8 flex flex-col sm:flex-row gap-5 lg:gap-7">
-                <div className="flex-shrink-0">
-                  <span className="text-2xl lg:text-3xl font-bold tracking-heading text-primary">
-                    {step.number}
+            <FadeIn key={step.number} delay={i * 70}>
+              <div className="bg-gray-900 rounded-2xl p-6 lg:p-7 h-full flex flex-col">
+                <span className="text-2xl lg:text-3xl font-bold tracking-heading text-primary mb-3">
+                  {step.number}
+                </span>
+                <h3 className="text-lg lg:text-xl font-bold tracking-heading text-white mb-2">
+                  {step.title}
+                </h3>
+                <p className="text-white/60 leading-relaxed text-[15px] flex-grow">
+                  {step.body}
+                </p>
+                <div className="mt-4 inline-flex items-start gap-2 rounded-lg bg-primary/10 px-3.5 py-2 self-start">
+                  <span className="text-[11px] uppercase tracking-widest text-primary font-bold mt-0.5 flex-shrink-0">
+                    Output
                   </span>
-                </div>
-                <div className="flex-1">
-                  <h3 className="text-lg lg:text-xl font-bold tracking-heading text-gray-900 mb-2">
-                    {step.title}
-                  </h3>
-                  <p className="text-gray-500 leading-relaxed text-[15px] lg:text-base">
-                    {step.body}
-                  </p>
-                  <div className="mt-4 inline-flex items-start gap-2 rounded-lg bg-primary/10 px-3.5 py-2">
-                    <span className="text-[11px] uppercase tracking-widest text-primary font-bold mt-0.5 flex-shrink-0">
-                      Output
-                    </span>
-                    <span className="text-sm text-gray-700 leading-snug">
-                      {step.output}
-                    </span>
-                  </div>
+                  <span className="text-sm text-white/80 leading-snug">
+                    {step.output}
+                  </span>
                 </div>
               </div>
             </FadeIn>
