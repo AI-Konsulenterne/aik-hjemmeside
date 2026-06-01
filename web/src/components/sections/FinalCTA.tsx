@@ -16,7 +16,7 @@ export default function FinalCTA() {
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8">
               <Button variant="primary" size="lg" href="/kontakt" cal>
-                Få jeres gratis AI-plan
+                Book et møde i dag
               </Button>
             </div>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-4">

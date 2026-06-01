@@ -79,7 +79,7 @@ export default function RiskReversal() {
               </p>
 
               <Button variant="primary" href="/kontakt" cal>
-                Få jeres gratis AI-plan
+                Book et møde i dag
               </Button>
             </div>
           </FadeIn>

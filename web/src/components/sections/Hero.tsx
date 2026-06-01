@@ -69,7 +69,7 @@ export default function Hero() {
                 </Button>
               </div>
               <p className="text-xs text-gray-400 mt-4">
-                45 min · Gratis · Ingen forberedelse · Ingen forpligtelse
+                45 min · Gratis · Ingen forberedelse · Uforpligtende
               </p>
             </FadeIn>
           </div>

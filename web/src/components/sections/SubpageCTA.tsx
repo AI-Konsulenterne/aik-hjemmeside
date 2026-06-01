@@ -21,7 +21,7 @@ export default function SubpageCTA({
             <p className="text-gray-500 mt-4 leading-relaxed">{description}</p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8">
               <Button variant="primary" href="/kontakt" cal>
-                Få jeres gratis AI-plan
+                Book et møde i dag
               </Button>
               <a
                 href="tel:+4525547074"

@@ -10,7 +10,7 @@ const productSchema = {
   applicationCategory: "BusinessApplication",
   operatingSystem: "Web",
   description:
-    "VisionAI samler data fra CRM, ERP og andre systemer i ét AI-drevet business intelligence dashboard.",
+    "VisionAI er AI Konsulenternes eget AI-system. Ligesom ChatGPT, men i jeres eget lukkede miljø, forankret i jeres egne data og systemer.",
   offers: {
     "@type": "Offer",
     priceCurrency: "DKK",
@@ -19,9 +19,9 @@ const productSchema = {
 };
 
 export const metadata: Metadata = {
-  title: "VisionAI — AI-drevet Business Intelligence Dashboard",
+  title: "VisionAI - Jeres eget AI-system i et lukket miljø",
   description:
-    "VisionAI samler data fra CRM, ERP og andre systemer i ét AI-drevet dashboard. Automatisk rapportering og indsigt for danske SMV'er.",
+    "VisionAI er vores eget AI-system. Ligesom ChatGPT, men i jeres eget lukkede, GDPR-sikre miljø, forankret i jeres data. Fuld modelfrihed og kildehenvisning.",
   alternates: { canonical: "/visionai" },
   keywords: [
     "AI dashboard",
@@ -30,37 +30,37 @@ export const metadata: Metadata = {
     "AI dataanalyse virksomhed",
   ],
   openGraph: {
-    title: "VisionAI — AI-drevet Business Intelligence",
+    title: "VisionAI - Jeres eget AI-system",
     description:
-      "Samlet AI-dashboard på tværs af jeres systemer. Automatisk indsigt i realtid.",
+      "Vores eget AI-system. Ligesom ChatGPT, men i jeres eget lukkede miljø, forankret i jeres data.",
     url: "/visionai",
   },
 };
 
 const features = [
   {
-    title: "Ét samlet overblik",
+    title: "Fuld modelfrihed",
     description:
-      "VisionAI samler data fra jeres CRM, ERP, e-commerce og andre systemer i ét intelligent dashboard.",
-    iconPath: "M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6zM3.75 15.75A2.25 2.25 0 016 13.5h2.25a2.25 2.25 0 012.25 2.25V18a2.25 2.25 0 01-2.25 2.25H6A2.25 2.25 0 013.75 18v-2.25zM13.5 6a2.25 2.25 0 012.25-2.25H18A2.25 2.25 0 0120.25 6v2.25A2.25 2.25 0 0118 10.5h-2.25a2.25 2.25 0 01-2.25-2.25V6zM13.5 15.75a2.25 2.25 0 012.25-2.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-2.25a2.25 2.25 0 01-2.25-2.25v-2.25z",
+      "Vælg og kombinér ChatGPT, Claude, Gemini eller jeres egne modeller. I bestemmer hvilken model der løser hvilken opgave.",
+    iconPath: "M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.324.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 011.37.49l1.296 2.247a1.125 1.125 0 01-.26 1.431l-1.003.827c-.293.24-.438.613-.431.992a6.759 6.759 0 010 .255c-.007.378.138.75.43.99l1.005.828c.424.35.534.954.26 1.43l-1.298 2.247a1.125 1.125 0 01-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.57 6.57 0 01-.22.128c-.331.183-.581.495-.644.869l-.213 1.28c-.09.543-.56.941-1.11.941h-2.594c-.55 0-1.02-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 01-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 01-1.369-.49l-1.297-2.247a1.125 1.125 0 01.26-1.431l1.004-.827c.292-.24.437-.613.43-.992a6.932 6.932 0 010-.255c.007-.378-.138-.75-.43-.99l-1.004-.828a1.125 1.125 0 01-.26-1.43l1.297-2.247a1.125 1.125 0 011.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.087.22-.128.332-.183.582-.495.644-.869l.214-1.281z M15 12a3 3 0 11-6 0 3 3 0 016 0z",
   },
   {
-    title: "AI-drevne anbefalinger",
+    title: "Forankret i jeres data",
     description:
-      "Få automatiske forslag til handlinger baseret på mønstre i jeres data — før problemer opstår.",
-    iconPath: "M12 18v-5.25m0 0a6.01 6.01 0 001.5-.189m-1.5.189a6.01 6.01 0 01-1.5-.189m3.75 7.478a12.06 12.06 0 01-4.5 0m3.75 2.383a14.406 14.406 0 01-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 10-7.517 0c.85.493 1.509 1.333 1.509 2.316V18",
+      "VisionAI forbindes til SharePoint, Teams, dokumenter, Visma, Slack og Salesforce, så svarene altid bygger på jeres egen viden.",
+    iconPath: "M2.25 12.76c0 1.6 1.123 2.994 2.707 3.227 1.087.16 2.185.283 3.293.369V21l4.184-4.183a1.14 1.14 0 01.778-.332 48.294 48.294 0 005.83-.498c1.585-.233 2.708-1.626 2.708-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z",
   },
   {
-    title: "Naturligt sprog",
+    title: "Altid med kildehenvisning",
     description:
-      "Stil spørgsmål til jeres data på almindeligt dansk. Ingen SQL, ingen teknisk viden krævet.",
-    iconPath: "M7.5 8.25h9m-9 3H12m-9.75 1.51c0 1.6 1.123 2.994 2.707 3.227 1.129.166 2.27.293 3.423.379.35.026.67.21.865.501L12 21l2.755-4.133a1.14 1.14 0 01.865-.501 48.172 48.172 0 003.423-.379c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z",
+      "Hvert svar kommer med kildehenvisning, så I altid kan verificere hvor svaret stammer fra. Ingen sorte bokse.",
+    iconPath: "M12 7.5h1.5m-1.5 3h1.5m-7.5 3h7.5m-7.5 3h7.5m3-9h3.375c.621 0 1.125.504 1.125 1.125V18a2.25 2.25 0 01-2.25 2.25M16.5 7.5V18a2.25 2.25 0 002.25 2.25M16.5 7.5V4.875c0-.621-.504-1.125-1.125-1.125H4.125C3.504 3.75 3 4.254 3 4.875V18a2.25 2.25 0 002.25 2.25h13.5M6 7.5h3v3H6v-3z",
   },
   {
-    title: "Realtidsindsigt",
+    title: "Skalerbar og datasikker",
     description:
-      "Se hvad der sker i jeres virksomhed lige nu. Ikke rapporter fra i går — indsigt fra i dag.",
-    iconPath: "M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z",
+      "Vokser fra én afdeling til hele organisationen. EU-hosting, GDPR-compliant, og jeres data deles aldrig med OpenAI eller Anthropic.",
+    iconPath: "M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z",
   },
 ];
 
@@ -74,15 +74,16 @@ export default function VisionAI() {
           <FadeIn>
             <div className="max-w-3xl">
               <p className="text-xs uppercase tracking-widest text-primary font-semibold mb-4">
-                VisionAI
+                VisionAI · Vores eget AI-system
               </p>
               <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold tracking-heading text-gray-900 leading-[1.05]">
-                Se jeres virksomhed med nye øjne
+                Ligesom ChatGPT - men i jeres eget lukkede miljø
               </h1>
               <p className="text-lg lg:text-xl text-gray-500 mt-6 leading-relaxed">
-                VisionAI giver jer AI-drevet indsigt på tværs af alle jeres
-                systemer. Stil spørgsmål på almindeligt dansk — få svar med det
-                samme.
+                VisionAI er vores eget AI-system, bygget til hele jeres
+                virksomhed. Det føles som ChatGPT, men svarene er forankret i
+                jeres egne data, systemer og forretningslogik - i et lukket,
+                GDPR-sikkert miljø.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 mt-10">
                 <Button variant="primary" size="lg" href="/kontakt" cal>

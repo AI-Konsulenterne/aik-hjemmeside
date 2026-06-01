@@ -118,7 +118,7 @@ export default function SkraeddersyedeAI() {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 mt-10">
                 <Button variant="primary" size="lg" href="/kontakt" cal>
-                  Få jeres gratis AI-plan
+                  Book et møde i dag
                 </Button>
                 <Button variant="secondary" size="lg" href="/cases">
                   Se eksempler
