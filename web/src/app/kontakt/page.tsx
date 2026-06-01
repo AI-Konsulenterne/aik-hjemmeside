@@ -147,7 +147,7 @@ export default function Kontakt() {
             </div>
           </FadeIn>
           <FadeIn delay={150}>
-            <CalBooking className="max-w-3xl mx-auto min-h-[400px]" />
+            <CalBooking className="max-w-5xl mx-auto min-h-[680px]" />
           </FadeIn>
         </div>
       </section>
