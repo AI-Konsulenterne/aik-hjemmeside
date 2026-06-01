@@ -24,7 +24,7 @@ const legalLinks = [
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-50 border-t border-gray-200">
+    <footer className="bg-gray-900 border-t border-white/10">
       <div className="max-w-7xl mx-auto px-6 lg:px-8 pt-16 lg:pt-20 pb-28 lg:pb-28">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1.3fr_1fr_1fr_1.3fr] gap-10 lg:gap-12">
           {/* Brand + Newsletter */}
@@ -35,15 +35,15 @@ export default function Footer() {
               </span>
               <span className="absolute bottom-[-3px] left-0 w-full h-[3px] rounded-full bg-primary" />
             </span>
-            <p className="mt-3 text-sm text-gray-500 leading-relaxed">
+            <p className="mt-3 text-sm text-gray-400 leading-relaxed">
               Vi bygger skræddersyede AI-løsninger til danske virksomheder.
             </p>
-            <p className="mt-4 text-xs text-gray-400">CVR: 45569241</p>
+            <p className="mt-4 text-xs text-gray-500">CVR: 45569241</p>
           </div>
 
           {/* Services */}
           <div>
-            <p className="text-xs uppercase tracking-widest text-gray-400 font-semibold mb-4">
+            <p className="text-xs uppercase tracking-widest text-gray-500 font-semibold mb-4">
               Ydelser
             </p>
             <nav className="flex flex-col gap-2.5">
@@ -51,7 +51,7 @@ export default function Footer() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="text-sm text-gray-500 hover:text-black transition-colors"
+                  className="text-sm text-gray-400 hover:text-white transition-colors"
                 >
                   {link.label}
                 </Link>
@@ -61,7 +61,7 @@ export default function Footer() {
 
           {/* Virksomhed */}
           <div>
-            <p className="text-xs uppercase tracking-widest text-gray-400 font-semibold mb-4">
+            <p className="text-xs uppercase tracking-widest text-gray-500 font-semibold mb-4">
               Virksomhed
             </p>
             <nav className="flex flex-col gap-2.5">
@@ -69,7 +69,7 @@ export default function Footer() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="text-sm text-gray-500 hover:text-black transition-colors"
+                  className="text-sm text-gray-400 hover:text-white transition-colors"
                 >
                   {link.label}
                 </Link>
@@ -79,25 +79,25 @@ export default function Footer() {
 
           {/* Newsletter + kontakt */}
           <div>
-            <p className="text-xs uppercase tracking-widest text-gray-400 font-semibold mb-4">
+            <p className="text-xs uppercase tracking-widest text-gray-500 font-semibold mb-4">
               Kort brief i indbakken
             </p>
-            <p className="text-sm text-gray-500 leading-relaxed mb-4">
+            <p className="text-sm text-gray-400 leading-relaxed mb-4">
               1-2 gange om måneden: praktiske AI-indsigter til danske SMV&apos;er.
               Ingen spam.
             </p>
-            <NewsletterForm source="footer-newsletter" />
+            <NewsletterForm source="footer-newsletter" dark />
 
-            <div className="mt-7 pt-6 border-t border-gray-200 space-y-2.5 text-sm text-gray-500">
+            <div className="mt-7 pt-6 border-t border-white/10 space-y-2.5 text-sm text-gray-400">
               <a
                 href="tel:+4525547074"
-                className="block hover:text-black transition-colors"
+                className="block hover:text-white transition-colors"
               >
                 +45 25 54 70 74
               </a>
               <a
                 href="mailto:kontakt@ai-konsulenterne.dk"
-                className="block hover:text-black transition-colors"
+                className="block hover:text-white transition-colors"
               >
                 kontakt@ai-konsulenterne.dk
               </a>
@@ -105,7 +105,7 @@ export default function Footer() {
                 href="https://www.linkedin.com/company/ai-konsulenterne"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 hover:text-black transition-colors"
+                className="inline-flex items-center gap-2 hover:text-white transition-colors"
               >
                 <svg
                   className="w-4 h-4"
@@ -121,9 +121,9 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-gray-200 pt-8 mt-12 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+        <div className="border-t border-white/10 pt-8 mt-12 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-6">
-            <p className="text-xs text-gray-400">
+            <p className="text-xs text-gray-500">
               © {new Date().getFullYear()} AI Konsulenterne. Alle rettigheder
               forbeholdes.
             </p>
@@ -132,15 +132,15 @@ export default function Footer() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="text-xs text-gray-400 hover:text-black transition-colors"
+                  className="text-xs text-gray-500 hover:text-white transition-colors"
                 >
                   {link.label}
                 </Link>
               ))}
-              <CookieConsentLink className="text-xs text-gray-400 hover:text-black transition-colors cursor-pointer" />
+              <CookieConsentLink className="text-xs text-gray-500 hover:text-white transition-colors cursor-pointer" />
             </div>
           </div>
-          <p className="text-xs text-gray-400 flex items-center gap-1.5">
+          <p className="text-xs text-gray-500 flex items-center gap-1.5">
             <span
               className="inline-block w-1.5 h-1.5 rounded-full bg-primary/60"
               aria-hidden="true"
