@@ -106,8 +106,8 @@ export default async function OmOs() {
               Teamet bag
             </h2>
             <p className="text-gray-500 text-center max-w-2xl mx-auto mb-12 leading-relaxed">
-              Fire mennesker med én mission — at gøre AI konkret og nyttigt for
-              danske virksomheder.
+              Fire mennesker med én mission - at gøre AI konkret og nyttigt for
+              danske SMV&apos;er.
             </p>
           </FadeIn>
 
