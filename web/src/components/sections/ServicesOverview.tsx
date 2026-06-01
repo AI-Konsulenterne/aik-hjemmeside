@@ -30,7 +30,7 @@ export default function ServicesOverview() {
                     Skræddersyede AI-løsninger
                   </h3>
                   <p className="text-white/50 mt-3 leading-relaxed max-w-md">
-                    Vi bygger AI der passer præcis til jeres virksomhed og processer. Ingen standardløsninger.
+                    Vi bygger AI ind i jeres hverdag - med udgangspunkt i jeres data, jeres systemer og det I rent faktisk har brug for. Ikke bare en standardpakke.
                   </p>
                 </div>
                 <div className="relative z-10 flex items-center gap-2 text-sm font-semibold text-white/60 group-hover:text-primary transition-colors mt-6">
@@ -60,7 +60,7 @@ export default function ServicesOverview() {
                       </h3>
                     </div>
                     <p className="text-gray-500 text-sm leading-relaxed">
-                      Hands-on workshop hvor jeres team lærer at bruge AI i hverdagen. Konkrete værktøjer, ikke teori.
+                      En dag hvor jeres team prøver AI af i praksis - på deres egne opgaver. I går hjem med konkrete værktøjer I kan bruge dagen efter, ikke en bunke slides.
                     </p>
                   </div>
                   <div className="flex items-center gap-2 text-sm font-semibold text-gray-400 group-hover:text-primary transition-colors mt-4">
@@ -89,7 +89,7 @@ export default function ServicesOverview() {
                       </h3>
                     </div>
                     <p className="text-gray-500 text-sm leading-relaxed">
-                      Vores AI-produkt der giver jer overblik og indsigt på tværs af jeres systemer — i ét samlet dashboard.
+                      Vores færdige AI-platform til virksomheder der vil have styrken fra ChatGPT - bare med jeres egne dokumenter, jeres egne data, og uden at noget forlader huset.
                     </p>
                   </div>
                   <div className="flex items-center gap-2 text-sm font-semibold text-gray-400 group-hover:text-primary transition-colors mt-4">
