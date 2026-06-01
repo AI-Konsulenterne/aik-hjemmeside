@@ -106,7 +106,7 @@ export default function Workshop() {
                   AI Workshop
                 </p>
                 <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold tracking-heading text-gray-900 leading-[1.05]">
-                  En dag hvor jeres team prøver AI af på deres egne opgaver
+                  En dag hvor jeres team prøver kræfter med AI
                 </h1>
                 <p className="text-lg lg:text-xl text-gray-500 mt-6 leading-relaxed">
                   Vi tilpasser dagen til jer - fra generel AI-forståelse og
