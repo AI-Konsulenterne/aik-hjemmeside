@@ -105,10 +105,31 @@ async function generateAnalysis(
   return text.trim();
 }
 
+function escapeHtml(s: string): string {
+  return s
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;");
+}
+
 function analysisToHtml(company: string, analysis: string): string {
   const paragraphs = analysis
     .split(/\n\n+/)
-    .map((p) => `<p style="margin:0 0 16px;line-height:1.6;color:#404040;">${p.replace(/\n/g, "<br>")}</p>`)
+    .map((block) => {
+      const trimmed = block.trim();
+      // Heading-linje: enten "## ..." eller en linje der er helt omsluttet af **...**
+      const headingMatch =
+        trimmed.match(/^#{1,3}\s*(.+)$/) ||
+        trimmed.match(/^\*\*(.+?)\*\*$/);
+      if (headingMatch) {
+        return `<h2 style="font-size:16px;color:#171717;margin:24px 0 8px;">${escapeHtml(headingMatch[1].trim())}</h2>`;
+      }
+      // Almindeligt afsnit — konvertér **fed** → <strong> og linjeskift → <br>
+      const html = escapeHtml(trimmed)
+        .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
+        .replace(/\n/g, "<br>");
+      return `<p style="margin:0 0 16px;line-height:1.6;color:#404040;">${html}</p>`;
+    })
     .join("");
 
   return `<!DOCTYPE html><html lang="da"><body style="margin:0;background:#fafafa;font-family:Helvetica,Arial,sans-serif;">
