@@ -35,43 +35,18 @@ const steps = [
 
 type Step = (typeof steps)[number];
 
-// Opdel trin i rækker af 2 (til pile imellem)
-const rows: Step[][] = [];
-for (let i = 0; i < steps.length; i += 2) {
-  rows.push(steps.slice(i, i + 2));
-}
-
-function Arrow() {
-  return (
-    <div
-      className="flex items-center justify-center text-primary shrink-0 rotate-90 md:rotate-0"
-      aria-hidden="true"
-    >
-      <svg className="w-8 h-8" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-      </svg>
-    </div>
-  );
-}
-
 function StepCard({ step }: { step: Step }) {
   return (
-    <div className="flex-1 bg-white ring-1 ring-gray-200 rounded-2xl p-6 lg:p-8 h-full flex flex-col shadow-sm">
+    <div className="bg-white ring-1 ring-gray-200 rounded-2xl p-6 lg:p-8 h-full flex flex-col shadow-sm">
       <span className="text-2xl lg:text-3xl font-bold tracking-heading text-primary mb-3">
         {step.number}
       </span>
       <h3 className="text-lg lg:text-xl font-bold tracking-heading text-gray-900 mb-2">
         {step.title}
       </h3>
-      <p className="text-gray-500 leading-relaxed text-[15px] flex-grow">
+      <p className="text-gray-500 leading-relaxed text-[15px]">
         {step.body}
       </p>
-      <div className="mt-4 inline-flex items-start gap-2 rounded-lg bg-primary/10 px-3.5 py-2 self-start">
-        <span className="text-[11px] uppercase tracking-widest text-primary font-bold mt-0.5 flex-shrink-0">
-          Output
-        </span>
-        <span className="text-sm text-gray-700 leading-snug">{step.output}</span>
-      </div>
     </div>
   );
 }
@@ -93,21 +68,10 @@ export default function ProblemSolution() {
           </div>
         </FadeIn>
 
-        <div className="flex flex-col gap-8 lg:gap-10">
-          {rows.map((row, rowIdx) => (
-            <FadeIn key={rowIdx} delay={rowIdx * 100}>
-              <div className="flex flex-col md:flex-row items-stretch md:items-center gap-8 md:gap-5">
-                <StepCard step={row[0]} />
-                {row[1] ? (
-                  <>
-                    <Arrow />
-                    <StepCard step={row[1]} />
-                  </>
-                ) : (
-                  // Tom plads så enligt kort beholder halv bredde på desktop
-                  <div className="hidden md:block flex-1" aria-hidden="true" />
-                )}
-              </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+          {steps.map((step, i) => (
+            <FadeIn key={step.number} delay={i * 80}>
+              <StepCard step={step} />
             </FadeIn>
           ))}
         </div>
