@@ -6,7 +6,6 @@ import ServicesOverview from "@/components/sections/ServicesOverview";
 import CaseHighlight from "@/components/sections/CaseHighlight";
 import Team from "@/components/sections/Team";
 import Testimonials from "@/components/sections/Testimonials";
-import RiskReversal from "@/components/sections/RiskReversal";
 import FAQ from "@/components/sections/FAQ";
 import JsonLd from "@/components/ui/JsonLd";
 
@@ -169,7 +168,6 @@ export default function Forside() {
       <Testimonials />
       <Team />
       <ServicesOverview />
-      <RiskReversal />
       <FAQ />
     </>
   );

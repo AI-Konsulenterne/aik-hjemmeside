@@ -5,6 +5,7 @@ import Link from "next/link";
 import FadeIn from "@/components/ui/FadeIn";
 import JsonLd from "@/components/ui/JsonLd";
 import SubpageCTA from "@/components/sections/SubpageCTA";
+import SolutionDiagram from "@/components/ui/SolutionDiagram";
 import {
   getCaseBySlug,
   getCases,
@@ -211,6 +212,9 @@ export default async function CaseDetail({
                 </p>
                 <div className="prose-article">
                   {renderMarkdown(caseData.solution)}
+                </div>
+                <div className="mt-8">
+                  <SolutionDiagram />
                 </div>
               </div>
             </FadeIn>

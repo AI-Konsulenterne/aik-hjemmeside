@@ -15,16 +15,16 @@ const marqueeItems = [...clients, ...clients];
 
 export default function SocialProofBar() {
   return (
-    <section className="border-y border-gray-100 py-8 lg:py-10 overflow-hidden">
+    <section className="bg-primary py-8 lg:py-10 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 lg:px-8 mb-4">
-        <p className="text-xs uppercase tracking-[0.15em] text-gray-400 font-semibold text-center">
+        <p className="text-xs uppercase tracking-[0.15em] text-white/80 font-semibold text-center">
           Virksomheder vi har hjulpet
         </p>
       </div>
       <div className="relative">
         {/* Fade edges */}
-        <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
-        <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
+        <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-[#ff9a00] to-transparent z-10 pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-[#ff9a00] to-transparent z-10 pointer-events-none" />
 
         {/* Marquee track */}
         <div className="flex animate-marquee">
