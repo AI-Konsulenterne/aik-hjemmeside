@@ -39,14 +39,14 @@ export default async function Testimonials() {
             const logo = strapiImageUrl(t.companyLogo);
             return (
               <FadeIn key={t.id} delay={i * 100}>
-                <figure className="bg-primary rounded-2xl p-7 lg:p-8 h-full flex flex-col hover:shadow-lg transition-shadow">
+                <figure className="bg-white rounded-2xl p-7 lg:p-8 h-full flex flex-col border-2 border-primary hover:shadow-lg transition-shadow">
                   {/* Stars */}
                   {t.rating && t.rating > 0 && (
                     <div className="flex gap-0.5 mb-4">
                       {Array.from({ length: t.rating }).map((_, idx) => (
                         <svg
                           key={idx}
-                          className="w-4 h-4 text-gray-900 fill-current"
+                          className="w-4 h-4 text-primary fill-current"
                           viewBox="0 0 20 20"
                           aria-hidden="true"
                         >
@@ -60,9 +60,9 @@ export default async function Testimonials() {
                     &ldquo;{t.quote}&rdquo;
                   </blockquote>
 
-                  <figcaption className="mt-6 pt-5 border-t border-gray-900/15 flex items-center gap-3">
+                  <figcaption className="mt-6 pt-5 border-t border-gray-100 flex items-center gap-3">
                     {photo ? (
-                      <div className="relative w-11 h-11 rounded-full overflow-hidden bg-gray-900/10 flex-shrink-0">
+                      <div className="relative w-11 h-11 rounded-full overflow-hidden bg-gray-100 flex-shrink-0">
                         <Image
                           src={photo}
                           alt={t.authorName}
@@ -71,8 +71,8 @@ export default async function Testimonials() {
                         />
                       </div>
                     ) : (
-                      <div className="w-11 h-11 rounded-full bg-gray-900/10 flex items-center justify-center flex-shrink-0">
-                        <span className="text-gray-900 font-bold text-sm">
+                      <div className="w-11 h-11 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                        <span className="text-primary font-bold text-sm">
                           {t.authorName.charAt(0)}
                         </span>
                       </div>
@@ -81,7 +81,7 @@ export default async function Testimonials() {
                       <p className="text-sm font-bold tracking-heading text-gray-900 leading-tight">
                         {t.authorName}
                       </p>
-                      <p className="text-xs text-gray-700 mt-0.5 truncate">
+                      <p className="text-xs text-gray-500 mt-0.5 truncate">
                         {t.authorTitle} · {t.company}
                       </p>
                     </div>
