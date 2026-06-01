@@ -6,6 +6,7 @@ import ServicesOverview from "@/components/sections/ServicesOverview";
 import CaseHighlight from "@/components/sections/CaseHighlight";
 import Team from "@/components/sections/Team";
 import Testimonials from "@/components/sections/Testimonials";
+import MidCTA from "@/components/sections/MidCTA";
 import FAQ from "@/components/sections/FAQ";
 import JsonLd from "@/components/ui/JsonLd";
 
@@ -166,6 +167,7 @@ export default function Forside() {
       <ProblemSolution />
       <CaseHighlight />
       <Testimonials />
+      <MidCTA />
       <Team />
       <ServicesOverview />
       <FAQ />

@@ -64,7 +64,7 @@ function loadCalScript() {
 }
 
 type ButtonProps = {
-  variant?: "primary" | "secondary";
+  variant?: "primary" | "secondary" | "white";
   size?: "default" | "lg" | "sm";
   href?: string;
   children: React.ReactNode;
@@ -80,6 +80,7 @@ const variantClasses = {
   primary: "bg-primary text-white hover:bg-primary-dark",
   secondary:
     "border-2 border-gray-900 text-gray-900 hover:bg-gray-900 hover:text-white",
+  white: "bg-white text-primary hover:bg-gray-50",
 };
 
 const sizeClasses = {
