@@ -168,8 +168,8 @@ export default function Forside() {
       <CaseHighlight />
       <Testimonials />
       <MidCTA />
-      <Team />
       <ServicesOverview />
+      <Team />
       <FAQ />
     </>
   );
