@@ -10,7 +10,7 @@ export default function CaseHighlight() {
             <p className="text-[11px] uppercase tracking-[0.2em] text-primary font-semibold mb-6">
               Kundecase — Lavazza
             </p>
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-heading text-gray-900 leading-none">
+            <h2 className="text-3xl lg:text-4xl xl:text-5xl font-bold tracking-heading text-gray-900 leading-[1.1]">
               HR-agent der svarer<br className="hidden sm:block" /> så medarbejderne{" "}
               <span className="text-primary">ikke skal</span>
             </h2>
