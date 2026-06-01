@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Button from "@/components/ui/Button";
 import FadeIn from "@/components/ui/FadeIn";
 import JsonLd from "@/components/ui/JsonLd";
@@ -135,50 +136,66 @@ export default function VisionAI() {
 
       {/* Hero */}
       <section className="pt-[clamp(4rem,12vw,8rem)] pb-[clamp(3rem,8vw,6rem)]">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center">
-          <FadeIn>
-            <div className="max-w-3xl mx-auto">
-              <p className="text-xs uppercase tracking-widest text-primary font-semibold mb-4">
-                VisionAI · Vores eget AI-system
-              </p>
-              <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold tracking-heading text-gray-900 leading-[1.05]">
-                Ligesom ChatGPT - men i jeres eget lukkede miljø
-              </h1>
-              <p className="text-lg lg:text-xl text-gray-500 mt-6 leading-relaxed">
-                VisionAI er jeres AI-system til hele virksomheden - forankret i
-                jeres egen data, systemer og forretningslogik.
-              </p>
-              <div className="flex flex-wrap items-center justify-center gap-2.5 mt-8">
-                {badges.map((b) => (
-                  <span
-                    key={b}
-                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-gray-600 bg-gray-50 ring-1 ring-gray-100 rounded-full px-3.5 py-1.5"
-                  >
-                    <svg
-                      className="w-3.5 h-3.5 text-primary"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth={2.5}
-                      viewBox="0 0 24 24"
-                      aria-hidden="true"
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-[1.05fr_1fr] gap-10 lg:gap-14 items-center">
+            <FadeIn>
+              <div>
+                <p className="text-xs uppercase tracking-widest text-primary font-semibold mb-4">
+                  VisionAI · Vores eget AI-system
+                </p>
+                <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold tracking-heading text-gray-900 leading-[1.05]">
+                  Ligesom ChatGPT - men i jeres eget lukkede miljø
+                </h1>
+                <p className="text-lg lg:text-xl text-gray-500 mt-6 leading-relaxed">
+                  VisionAI er jeres AI-system til hele virksomheden - forankret i
+                  jeres egen data, systemer og forretningslogik.
+                </p>
+                <div className="flex flex-wrap items-center gap-2.5 mt-8">
+                  {badges.map((b) => (
+                    <span
+                      key={b}
+                      className="inline-flex items-center gap-1.5 text-xs font-semibold text-gray-600 bg-gray-50 ring-1 ring-gray-100 rounded-full px-3.5 py-1.5"
                     >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M4.5 12.75l6 6 9-13.5"
-                      />
-                    </svg>
-                    {b}
-                  </span>
-                ))}
+                      <svg
+                        className="w-3.5 h-3.5 text-primary"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth={2.5}
+                        viewBox="0 0 24 24"
+                        aria-hidden="true"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M4.5 12.75l6 6 9-13.5"
+                        />
+                      </svg>
+                      {b}
+                    </span>
+                  ))}
+                </div>
+                <div className="flex flex-col sm:flex-row gap-4 mt-10">
+                  <Button variant="primary" size="lg" href="/kontakt" cal>
+                    Book en demo
+                  </Button>
+                </div>
               </div>
-              <div className="flex flex-col sm:flex-row gap-4 mt-10 justify-center">
-                <Button variant="primary" size="lg" href="/kontakt" cal>
-                  Book en demo
-                </Button>
+            </FadeIn>
+
+            <FadeIn delay={200}>
+              <div className="relative rounded-2xl overflow-hidden shadow-xl ring-1 ring-gray-100">
+                <Image
+                  src="/screenshots/aik-gpt.png"
+                  alt="VisionAI - jeres eget AI-system i et lukket miljø"
+                  width={768}
+                  height={502}
+                  priority
+                  className="w-full h-auto"
+                  sizes="(max-width: 1024px) 100vw, 48vw"
+                />
               </div>
-            </div>
-          </FadeIn>
+            </FadeIn>
+          </div>
         </div>
       </section>
 

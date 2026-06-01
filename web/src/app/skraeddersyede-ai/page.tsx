@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Button from "@/components/ui/Button";
 import FadeIn from "@/components/ui/FadeIn";
 import SubpageCTA from "@/components/sections/SubpageCTA";
@@ -103,29 +104,45 @@ export default function SkraeddersyedeAI() {
       {/* Hero */}
       <section className="pt-[clamp(4rem,12vw,8rem)] pb-[clamp(3rem,8vw,6rem)]">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <FadeIn>
-            <div className="max-w-3xl">
-              <p className="text-xs uppercase tracking-widest text-primary font-semibold mb-4">
-                Skræddersyede løsninger
-              </p>
-              <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold tracking-heading text-gray-900 leading-[1.05]">
-                AI der passer præcis til jeres virksomhed
-              </h1>
-              <p className="text-lg lg:text-xl text-gray-500 mt-6 leading-relaxed">
-                Vi bygger ikke standardløsninger. Vi bygger AI der løser jeres
-                specifikke udfordringer — og som integrerer med de systemer I
-                allerede bruger.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 mt-10">
-                <Button variant="primary" size="lg" href="/kontakt" cal>
-                  Book et møde i dag
-                </Button>
-                <Button variant="secondary" size="lg" href="/cases">
-                  Se eksempler
-                </Button>
+          <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_1fr] gap-10 lg:gap-16 items-center">
+            <FadeIn>
+              <div>
+                <p className="text-xs uppercase tracking-widest text-primary font-semibold mb-4">
+                  Skræddersyede løsninger
+                </p>
+                <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold tracking-heading text-gray-900 leading-[1.05]">
+                  AI der passer præcis til jeres virksomhed
+                </h1>
+                <p className="text-lg lg:text-xl text-gray-500 mt-6 leading-relaxed">
+                  Vi bygger ikke standardløsninger. Vi bygger AI der løser jeres
+                  specifikke udfordringer - og som integrerer med de systemer I
+                  allerede bruger.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 mt-10">
+                  <Button variant="primary" size="lg" href="/kontakt" cal>
+                    Book et møde i dag
+                  </Button>
+                  <Button variant="secondary" size="lg" href="/cases">
+                    Se eksempler
+                  </Button>
+                </div>
               </div>
-            </div>
-          </FadeIn>
+            </FadeIn>
+
+            <FadeIn delay={200}>
+              <div className="relative rounded-2xl overflow-hidden shadow-xl ring-1 ring-gray-100">
+                <Image
+                  src="/screenshots/aik-gpt.png"
+                  alt="AI Konsulenternes egen AI-assistent"
+                  width={768}
+                  height={502}
+                  priority
+                  className="w-full h-auto"
+                  sizes="(max-width: 1024px) 100vw, 48vw"
+                />
+              </div>
+            </FadeIn>
+          </div>
         </div>
       </section>
 
@@ -198,8 +215,8 @@ export default function SkraeddersyedeAI() {
       </section>
 
       <SubpageCTA
-        heading="Klar til at automatisere?"
-        description="Book en gratis 45-minutters AI-afklaring. Vi finder ud af præcis hvor AI kan spare jer tid — uden forpligtelser."
+        heading="Ikke klar til at automatisere? Skal vi tage en snak?"
+        description="Book en gratis 45-minutters AI-afklaring. Vi finder ud af præcis hvor AI kan spare jer tid - uden forpligtelser."
       />
     </>
   );
