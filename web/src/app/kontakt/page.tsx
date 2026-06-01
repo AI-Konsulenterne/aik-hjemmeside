@@ -152,21 +152,6 @@ export default function Kontakt() {
         </div>
       </section>
 
-      {/* Guarantee */}
-      <section className="bg-gray-50 py-[clamp(3rem,8vw,6rem)]">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center">
-          <div className="max-w-2xl mx-auto">
-            <h2 className="text-2xl lg:text-3xl font-bold tracking-heading text-gray-900">
-              Finder vi ikke en konkret AI-mulighed — koster mødet ingenting.
-            </h2>
-            <p className="text-gray-500 mt-4 leading-relaxed">
-              Ingen risiko, ingen skjulte omkostninger, ingen forpligtelser. I
-              skal ikke forberede noget — vi tager det hele.
-            </p>
-          </div>
-        </div>
-      </section>
-
       {/* Info */}
       <section className="py-[clamp(3rem,8vw,6rem)]">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center">

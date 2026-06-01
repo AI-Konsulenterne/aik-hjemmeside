@@ -98,23 +98,6 @@ export default async function OmOs() {
         </div>
       </section>
 
-      {/* Mission */}
-      <section className="bg-gray-50 py-[clamp(3rem,8vw,6rem)]">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <FadeIn>
-            <div className="max-w-3xl mx-auto text-center">
-              <p className="text-xs uppercase tracking-widest text-primary font-semibold mb-4">
-                Vores mission
-              </p>
-              <h2 className="text-2xl lg:text-3xl font-bold tracking-heading text-gray-900 leading-snug">
-                At gøre AI til en konkurrencefordel for danske virksomheder —
-                uanset størrelse eller teknisk niveau.
-              </h2>
-            </div>
-          </FadeIn>
-        </div>
-      </section>
-
       {/* Team */}
       <section className="py-[clamp(3rem,8vw,6rem)]">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
