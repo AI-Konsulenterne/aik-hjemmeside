@@ -32,7 +32,7 @@ export default function Barriers() {
             Kender du den her følelse?
           </p>
           <h2 className="text-3xl lg:text-4xl font-bold tracking-heading text-gray-900 text-center leading-[1.1] max-w-3xl mx-auto">
-            Det er ikke AI der er svært. Det er at komme i gang.
+            Det er ikke AI der er svært. Det er at vide hvor man skal starte.
           </h2>
           <p className="text-gray-500 text-center max-w-2xl mx-auto mt-4 leading-relaxed">
             De fleste virksomheder vi møder står med de samme fem spørgsmål. Genkender du nogen?
