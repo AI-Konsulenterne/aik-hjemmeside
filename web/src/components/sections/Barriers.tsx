@@ -15,7 +15,7 @@ const barriers = [
   },
   {
     quote: "Der er 100 AI-platforme - hvilken skal vi vælge?",
-    answer: "Vi hjælper jer med at finde den platform der passer bedst til jeres behov.",
+    answer: "Vi ved hvor de forskellige platforme brillerer og har testet dem alle, så vi skal nok hjælpe jer med at finde den platform der passer bedst til jeres behov.",
   },
   {
     quote: "Vores medarbejdere kommer aldrig til at bruge det",
