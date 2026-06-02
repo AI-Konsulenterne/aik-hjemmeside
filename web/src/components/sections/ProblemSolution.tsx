@@ -62,8 +62,8 @@ export default function ProblemSolution() {
             </h2>
             <p className="text-gray-500 mt-5 leading-relaxed">
               Det skal ikke være kompliceret at komme i gang med AI. Her er
-              hvordan vi typisk gør - uanset om I er klar til at bygge, eller
-              bare skal finde ud af hvor I står.
+              hvordan vi arbejder - uanset om I har en konkret use case eller om
+              I skal finde ud af hvor I står.
             </p>
           </div>
         </FadeIn>
