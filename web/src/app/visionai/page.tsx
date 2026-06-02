@@ -103,26 +103,36 @@ const useCases = [
     title: "HR & Onboarding",
     description:
       "Automatisér svar på HR-relaterede forespørgsler og giv nye kollegaer en flyvende start med AI-drevet onboarding.",
+    iconPath:
+      "M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z",
   },
   {
     title: "Salg & Kundeservice",
     description:
       "Find hurtigt oplysninger om produkter, kontrakter og kundehistorik - direkte i VisionAI.",
+    iconPath:
+      "M2.25 12.76c0 1.6 1.123 2.994 2.707 3.227 1.087.16 2.185.283 3.293.369V21l4.184-4.183a1.14 1.14 0 01.778-.332 48.294 48.294 0 005.83-.498c1.585-.233 2.708-1.626 2.708-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z",
   },
   {
     title: "Juridisk & Compliance",
     description:
       "Søg i kontrakter, politikker og regulatoriske dokumenter.",
+    iconPath:
+      "M12 3v17.25m0 0c-1.472 0-2.882.265-4.185.75M12 20.25c1.472 0 2.882.265 4.185.75M18.75 4.97A48.416 48.416 0 0012 4.5c-2.291 0-4.545.16-6.75.47m13.5 0c.621.084 1.237.18 1.849.291.811.147 1.401.85 1.401 1.677v1.85c0 1.025-.95 1.788-1.94 1.539a3.75 3.75 0 00-1.86 0c-.99.249-1.94-.514-1.94-1.54V5.732m0 0c-.621-.084-1.237-.18-1.849-.291m1.849.291L18.75 9m-1.849-3.769A48.5 48.5 0 0012 4.97m6.75.262L20.6 9M5.25 4.97L3.4 9m1.85-3.769c-.621.084-1.237.18-1.849.291-.811.147-1.401.85-1.401 1.677v1.85c0 1.025.95 1.788 1.94 1.539a3.75 3.75 0 011.86 0c.99.249 1.94-.514 1.94-1.54V5.732",
   },
   {
     title: "IT & Support",
     description:
       "Giv medarbejderne selvbetjening til teknisk support og dokumentation.",
+    iconPath:
+      "M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 11-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 004.486-6.336l-3.276 3.277a3.004 3.004 0 01-2.25-2.25l3.276-3.276a4.5 4.5 0 00-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085m-1.745 1.437L5.909 7.5H4.5L2.25 3.75l1.5-1.5L7.5 4.5v1.409l4.26 4.26m-1.745 1.437l1.745-1.437m6.615 8.206L15.75 15.75M4.867 19.125h.008v.008h-.008v-.008z",
   },
   {
     title: "Marketing & Kommunikation",
     description:
       "Find og genbrug eksisterende indhold, cases og produktinformation - og skab hurtigere, mere konsistent kommunikation.",
+    iconPath:
+      "M10.34 15.84c-.688-.06-1.386-.09-2.09-.09H7.5a4.5 4.5 0 110-9h.75c.704 0 1.402-.03 2.09-.09m0 9.18c.253.962.584 1.892.985 2.783.247.55.06 1.21-.463 1.511l-.657.38c-.551.318-1.26.117-1.527-.461a20.845 20.845 0 01-1.44-4.282m3.102.069a18.03 18.03 0 01-.59-4.59c0-1.586.205-3.124.59-4.59m0 9.18a23.848 23.848 0 018.835 2.535M10.34 6.66a23.847 23.847 0 008.835-2.535m0 0A23.74 23.74 0 0018.795 3m.38 1.125a23.91 23.91 0 011.014 5.395m-1.014 8.855c-.118.38-.245.754-.38 1.125m.38-1.125a23.91 23.91 0 001.014-5.395m0-3.46c.495.413.811 1.035.811 1.73 0 .695-.316 1.317-.811 1.73m0-3.46a24.347 24.347 0 010 3.46",
   },
 ];
 
@@ -313,7 +323,7 @@ export default function VisionAI() {
                 Datasikkerhed & GDPR
               </p>
               <h2 className="text-3xl lg:text-4xl font-bold tracking-heading leading-[1.1]">
-                Jeres data forbliver sikker og under jeres kontrol
+                Jeres data bliver i et sikkert miljø under jeres kontrol
               </h2>
             </div>
           </FadeIn>
@@ -351,7 +361,22 @@ export default function VisionAI() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6 max-w-6xl mx-auto">
             {useCases.map((u, i) => (
               <FadeIn key={u.title} delay={i * 70}>
-                <div className="bg-gray-50 rounded-2xl p-7 ring-1 ring-gray-100 h-full">
+                <div className="bg-white rounded-2xl p-7 ring-1 ring-gray-100 h-full hover:ring-primary/30 hover:shadow-md transition-all duration-300">
+                  <div className="w-11 h-11 bg-primary/10 rounded-xl flex items-center justify-center mb-4">
+                    <svg
+                      className="w-5 h-5 text-primary"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth={1.5}
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d={u.iconPath}
+                      />
+                    </svg>
+                  </div>
                   <h3 className="text-lg font-bold tracking-heading text-gray-900 mb-2">
                     {u.title}
                   </h3>
@@ -378,7 +403,7 @@ export default function VisionAI() {
               </h2>
               <p className="text-gray-500 mt-4 leading-relaxed">
                 Enkel pris pr. bruger - inklusive tokens, søgninger og
-                hukommelse. Træk i skyderen og se prisen.
+                hukommelse. Træk i stregen for at se jeres pris.
               </p>
             </div>
           </FadeIn>

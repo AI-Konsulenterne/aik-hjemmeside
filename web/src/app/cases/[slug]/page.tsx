@@ -214,7 +214,7 @@ export default async function CaseDetail({
                   {renderMarkdown(caseData.solution)}
                 </div>
                 <div className="mt-8">
-                  <SolutionDiagram />
+                  <SolutionDiagram category={caseData.category} />
                 </div>
               </div>
             </FadeIn>

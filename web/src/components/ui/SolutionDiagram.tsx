@@ -60,28 +60,66 @@ function Node({
   );
 }
 
-export default function SolutionDiagram() {
+type Flow = {
+  systemsLabel: string;
+  systems: string[];
+  agentLabel: string;
+  agent: string[];
+  results: string[];
+};
+
+// Case-specifikke flows pr. kategori
+const flows: Record<string, Flow> = {
+  hr: {
+    systemsLabel: "Jeres HR-viden",
+    systems: ["HR-dokumenter", "Personalehåndbog", "Politikker"],
+    agentLabel: "Datasikker HR-agent",
+    agent: ["Forstår jeres HR-data", "Svarer i lukket miljø", "GDPR-sikkert"],
+    results: ["Frigjort HR-tid", "Svar med det samme", "Fuld kontrol over data"],
+  },
+  webshop: {
+    systemsLabel: "Jeres webshop & kanaler",
+    systems: ["Shopify", "CRM", "Kundehenvendelser"],
+    agentLabel: "AI-agent fra AIK",
+    agent: ["Automatiserer ordrer", "Svarer kunder 24/7", "Tilsluttet jeres systemer"],
+    results: ["Mindre manuel håndtering", "24/7 kundeservice", "Skalerer uden flere hænder"],
+  },
+  "intern-ai": {
+    systemsLabel: "Jeres systemer",
+    systems: ["CRM", "Shopify", "Interne systemer"],
+    agentLabel: "AI-agent fra AIK",
+    agent: ["Samler data på tværs", "Giver indsigt", "Arbejder automatisk"],
+    results: ["Hurtigere beslutninger", "Data samlet ét sted", "Mindre friktion"],
+  },
+  vidensbase: {
+    systemsLabel: "Jeres viden",
+    systems: ["Dokumenter", "Vidensbase", "Intranet"],
+    agentLabel: "AI-agent fra AIK",
+    agent: ["Forstår jeres viden", "Finder de rigtige svar", "Tilsluttet kilderne"],
+    results: ["Medarbejdere finder svar", "Mindre søgetid", "Konsistente svar"],
+  },
+  andet: {
+    systemsLabel: "Jeres systemer & kanaler",
+    systems: ["Email & kundeservice", "Webshop / CRM", "Interne dokumenter"],
+    agentLabel: "AI-agent fra AIK",
+    agent: ["Forstår jeres data", "Arbejder automatisk", "Tilsluttet jeres systemer"],
+    results: ["Automatiske svar", "Frigjort tid", "Skalerer uden flere hænder"],
+  },
+};
+
+export default function SolutionDiagram({ category }: { category?: string }) {
+  const flow = (category && flows[category]) || flows.andet;
   return (
     <div className="bg-gray-50 rounded-2xl p-6 lg:p-8 border border-gray-100">
       <p className="text-[11px] uppercase tracking-[0.15em] text-gray-400 font-semibold text-center mb-6">
         Sådan virker løsningen
       </p>
       <div className="flex flex-col md:flex-row items-stretch md:items-center gap-3 md:gap-2">
-        <Node
-          label="Jeres systemer & kanaler"
-          items={["Email & kundeservice", "Webshop / CRM", "Interne dokumenter"]}
-        />
+        <Node label={flow.systemsLabel} items={flow.systems} />
         <Arrow />
-        <Node
-          label="AI-agent fra AIK"
-          items={["Forstår jeres data", "Arbejder automatisk 24/7", "Tilsluttet jeres systemer"]}
-          variant="primary"
-        />
+        <Node label={flow.agentLabel} items={flow.agent} variant="primary" />
         <Arrow />
-        <Node
-          label="Resultater"
-          items={["Automatiske svar", "Frigjort tid", "Skalerer uden flere hænder"]}
-        />
+        <Node label="Resultater" items={flow.results} />
       </div>
     </div>
   );
