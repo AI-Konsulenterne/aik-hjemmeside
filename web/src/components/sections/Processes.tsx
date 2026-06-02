@@ -34,7 +34,7 @@ const processes = [
   {
     icon: "📚",
     title: "Intern vidensbase",
-    description: "Medarbejderne finder svar på sekunder",
+    description: "Medarbejderne finder hurtigt svar",
   },
   {
     icon: "✍️",
