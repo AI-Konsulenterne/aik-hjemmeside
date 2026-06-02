@@ -16,8 +16,8 @@ export default function MidCTA() {
                 Klar til at komme i gang med AI?
               </h2>
               <p className="text-white/80 mt-4 leading-relaxed text-lg">
-                Tag en uforpligtende snak med os. 45 minutter, gratis, ingen
-                forberedelse - så finder vi ud af hvor I skal starte.
+                Tag en uforpligtende snak med os. 45 minutter, gratis - så
+                finder vi ud af hvor I skal starte.
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8">
                 <Button variant="white" size="lg" href="/kontakt" cal>
