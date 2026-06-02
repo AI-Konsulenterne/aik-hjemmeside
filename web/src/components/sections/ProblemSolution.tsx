@@ -22,7 +22,7 @@ const steps = [
   {
     number: "04",
     title: "Vi kigger på hvad der virker",
-    body: "Når jeres medarbejdere er begyndt at bruge det, ser vi sammen på hvor det rammer plet, og hvor der skal justeres. AI-løsninger er ikke perfekte fra starten, og derfor tilpasser vi undervejs.",
+    body: "Når jeres medarbejdere er begyndt at bruge det, ser vi sammen på hvad der rammer plet, og hvor der skal justeres. AI-løsninger er ikke perfekte fra starten og derfor tilpasser vi undervejs.",
     output: "En løsning der bliver bedre, jo længere I bruger den",
   },
   {
