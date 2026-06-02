@@ -136,8 +136,20 @@ const useCases = [
   },
 ];
 
-const integrations = ["SharePoint", "Microsoft 365", "Slack", "Salesforce", "Visma", "DeepL"];
-const models = ["ChatGPT", "Claude", "Gemini", "Azure OpenAI"];
+const integrations = [
+  { name: "SharePoint", logo: "/logos/integrations/sharepoint.svg" },
+  { name: "Microsoft 365", logo: "/logos/integrations/microsoft365.svg" },
+  { name: "Slack", logo: "/logos/integrations/slack.svg" },
+  { name: "Salesforce", logo: "/logos/integrations/salesforce.svg" },
+  { name: "Visma", logo: null },
+  { name: "DeepL", logo: "/logos/integrations/deepl.svg" },
+];
+const models = [
+  { name: "ChatGPT", logo: "/logos/integrations/chatgpt.svg" },
+  { name: "Claude", logo: "/logos/integrations/claude.svg" },
+  { name: "Gemini", logo: "/logos/integrations/gemini.svg" },
+  { name: "Azure OpenAI", logo: "/logos/integrations/azure.svg" },
+];
 
 export default function VisionAI() {
   return (
@@ -288,12 +300,20 @@ export default function VisionAI() {
               Datakilder
             </p>
             <div className="flex flex-wrap justify-center gap-3">
-              {integrations.map((name) => (
+              {integrations.map((item) => (
                 <span
-                  key={name}
-                  className="bg-gray-50 ring-1 ring-gray-100 rounded-xl px-4 py-2.5 text-sm font-semibold text-gray-700"
+                  key={item.name}
+                  className="inline-flex items-center gap-2.5 bg-white ring-1 ring-gray-100 shadow-sm rounded-xl px-4 py-3 text-sm font-semibold text-gray-700"
                 >
-                  {name}
+                  {item.logo && (
+                    /* eslint-disable-next-line @next/next/no-img-element */
+                    <img
+                      src={item.logo}
+                      alt={item.name}
+                      className="h-5 w-auto object-contain"
+                    />
+                  )}
+                  {item.name}
                 </span>
               ))}
             </div>
@@ -301,12 +321,20 @@ export default function VisionAI() {
               AI-modeller
             </p>
             <div className="flex flex-wrap justify-center gap-3">
-              {models.map((name) => (
+              {models.map((item) => (
                 <span
-                  key={name}
-                  className="bg-primary/5 ring-1 ring-primary/20 rounded-xl px-4 py-2.5 text-sm font-semibold text-primary"
+                  key={item.name}
+                  className="inline-flex items-center gap-2.5 bg-white ring-1 ring-gray-100 shadow-sm rounded-xl px-4 py-3 text-sm font-semibold text-gray-700"
                 >
-                  {name}
+                  {item.logo && (
+                    /* eslint-disable-next-line @next/next/no-img-element */
+                    <img
+                      src={item.logo}
+                      alt={item.name}
+                      className="h-5 w-auto object-contain"
+                    />
+                  )}
+                  {item.name}
                 </span>
               ))}
             </div>
