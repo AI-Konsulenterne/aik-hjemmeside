@@ -4,13 +4,13 @@ const steps = [
   {
     number: "01",
     title: "Vi finder ud af, hvor I står",
-    body: "Vi tager en snak om hvordan jeres hverdag ser ud, og hvor I kunne hente noget. Nogle gange er der en konkret use case klar med det samme. Andre gange er det første skridt en workshop, lidt oplæring eller bare at få ryddet op i hvor I overhovedet skal starte. Vi siger ærligt hvad der giver mening - også hvis svaret er at I skal vente lidt endnu.",
+    body: "Vi tager en snak om hvordan jeres hverdag ser ud og hvor der er potentiale. Nogle gange er der en konkret use case klar med det samme. Andre gange er det første skridt en workshop, lidt oplæring eller bare at få ryddet op i hvor I overhovedet skal starte. Vi kommer med vores ærlige vurdering, også hvis det betyder at I skal vente lidt.",
     output: "Et klart næste skridt - det rigtige for jer",
   },
   {
     number: "02",
     title: "Vi finder den løsning der passer til jer",
-    body: "Nogle skal have alt kørende på egne servere. Andre er fint med en cloud-løsning. Vi finder ud af hvad der giver bedst mening hos jer - og bygger altid compliant AI, der overholder GDPR.",
+    body: "Nogle skal have alt kørende på egne servere. For andre passer en cloud løsning bedre. Vi finder ud af hvad der giver bedst mening hos jer - og bygger altid compliant AI, der overholder GDPR.",
     output: "Løsningsdesign, fast pris, og en plan I kan følge med i",
   },
   {
