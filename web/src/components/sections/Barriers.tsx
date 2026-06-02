@@ -10,8 +10,8 @@ const barriers = [
     answer: "Vi fungerer som jeres eksterne AI partner, så I ikke behøver at besidde kompetencerne",
   },
   {
-    quote: "Vi ved ikke hvilke processer vi skal automatisere først",
-    answer: "Vi fokuserer på dem med højest ROI og lavest implementeringsrisiko",
+    quote: "Vi ved ikke hvad vores første use case skal være",
+    answer: "Vi afdækker, undersøger og finder den use case der giver bedst mening for jer",
   },
   {
     quote: "Der er 100 AI-platforme - hvilken skal vi vælge?",
@@ -35,7 +35,7 @@ export default function Barriers() {
             Det er ikke AI der er svært. Det er at vide hvor man skal starte.
           </h2>
           <p className="text-gray-500 text-center max-w-2xl mx-auto mt-4 leading-relaxed">
-            De fleste virksomheder vi møder står med de samme fem spørgsmål. Genkender du nogen?
+            De fleste virksomheder vi møder, sidder med de samme fem udfordringer - genkender I nogen?
           </p>
         </FadeIn>
 
