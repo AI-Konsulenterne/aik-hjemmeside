@@ -165,10 +165,10 @@ export default function Forside() {
       <SocialProofBar />
       <Barriers />
       <ProblemSolution />
+      <ServicesOverview />
       <CaseHighlight />
       <Testimonials />
       <MidCTA />
-      <ServicesOverview />
       <Team />
       <FAQ />
     </>

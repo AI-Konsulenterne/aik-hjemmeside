@@ -58,7 +58,7 @@ export default function ProblemSolution() {
         <FadeIn>
           <div className="text-center max-w-3xl mx-auto mb-12 lg:mb-14">
             <h2 className="text-3xl lg:text-4xl xl:text-5xl font-bold tracking-heading text-gray-900 leading-[1.1]">
-              Sådan ser et forløb ud
+              Vi hjælper jer hele vejen
             </h2>
             <p className="text-gray-500 mt-5 leading-relaxed">
               Det skal ikke være kompliceret at komme i gang med AI. Her er

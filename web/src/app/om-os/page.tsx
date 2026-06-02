@@ -43,26 +43,27 @@ export const metadata: Metadata = {
 
 const values = [
   {
-    title: "Nede på jorden",
-    description: "Vi taler dansk og bruger ikke teknisk jargon.",
-    iconPath: "M7.5 8.25h9m-9 3H12m-9.75 1.51c0 1.6 1.123 2.994 2.707 3.227 1.129.166 2.27.293 3.423.379.35.026.67.21.865.501L12 21l2.755-4.133a1.14 1.14 0 01.865-.501 48.172 48.172 0 003.423-.379c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z",
+    title: "I har direkte kontakt med os hele vejen",
+    description:
+      "Vi er kun fire mennesker. Den I taler med på første møde, er også den der bygger og leverer. Ingen account manager imellem, ingen “lige et øjeblik mens jeg tjekker med kollegaen”.",
+    iconPath: "M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z",
   },
   {
-    title: "Resultater frem for fancy demoer",
+    title: "Vi forklarer det så I kan bruge det",
     description:
-      "Vi måler succes på om jeres folk bruger løsningen, og om det flytter noget i hverdagen. Hvad modellen hedder, og hvor avanceret den er, kommer i anden række.",
-    iconPath: "M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z",
+      "I behøver ikke vide noget om AI for at arbejde sammen med os. Vi gør vores bedste for at forklare tingene i et sprog I kan tage med videre - også til kollegaen der ikke var med til mødet.",
+    iconPath: "M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25",
   },
   {
-    title: "Vi siger fra",
+    title: "Vi siger til hvis det ikke giver mening",
     description:
-      "Hvis AI ikke er svaret, siger vi det. Hvis I skal vente med at gå i gang, siger vi det. Vi vægter tillid og tilfredshed højt.",
+      "Hvis I ikke er klar, eller hvis AI ikke er det rigtige for jer lige nu, så får I det at vide. Vi vil hellere passe på jer end at sælge et projekt der ikke virker.",
     iconPath: "M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z",
   },
   {
-    title: "Vi bliver hængende",
+    title: "Vi forsvinder ikke efter lancering",
     description:
-      "Lancering er ikke målstregen. Vi følger op, justerer, også når der er noget der driller.",
+      "Når løsningen er sat op, er vi der stadig. Vi følger op, hjælper når noget driller, og justerer det der ikke fungerer. Også når der ikke lige er en faktura imellem.",
     iconPath: "M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z",
   },
 ];
@@ -159,7 +160,7 @@ export default async function OmOs() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <FadeIn>
             <h2 className="text-3xl lg:text-4xl font-bold tracking-heading text-gray-900 text-center mb-12">
-              Vores værdier
+              Sådan er vi at arbejde med
             </h2>
           </FadeIn>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
