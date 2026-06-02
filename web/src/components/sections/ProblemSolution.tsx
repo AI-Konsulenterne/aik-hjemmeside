@@ -4,7 +4,7 @@ const steps = [
   {
     number: "01",
     title: "Vi finder ud af, hvor I står",
-    body: "Vi tager en snak om hvordan jeres hverdag ser ud og hvor der er potentiale. Nogle gange er der en konkret use case klar med det samme. Andre gange er det første skridt en workshop, lidt oplæring eller bare at få ryddet op i hvor I overhovedet skal starte. Vi kommer med vores ærlige vurdering, også hvis det betyder at I skal vente lidt.",
+    body: "Vi tager en snak om hvordan jeres hverdag ser ud og hvor der er potentiale. Nogle gange ligger en konkret use case lige til højrebenet. Andre gange er det første skridt en workshop, undervisning eller bare at få skabt et overblik.",
     output: "Et klart næste skridt - det rigtige for jer",
   },
   {
