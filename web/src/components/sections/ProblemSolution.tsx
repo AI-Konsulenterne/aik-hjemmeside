@@ -27,8 +27,8 @@ const steps = [
   },
   {
     number: "05",
-    title: "Vi udvider, når I er klar",
-    body: "Når den første case kører, kigger vi på den næste. En bid ad gangen - aldrig en stor plan I ikke har lyst til at sige ja til.",
+    title: "Vi tager én ting ad gangen",
+    body: "Når den første løsning fungerer i praksis og vi kan se at den skaber forretningsmæssig værdi, kigger vi på hvad det næste skridt er.",
     output: "AI der vokser i jeres tempo",
   },
 ];
