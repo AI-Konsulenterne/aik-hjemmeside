@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import GuideForm from "@/components/ui/GuideForm";
+import LeadMagnetForm from "@/components/ui/LeadMagnetForm";
 import FadeIn from "@/components/ui/FadeIn";
 
 export const metadata: Metadata = {
@@ -77,7 +77,7 @@ export default function AIGuide() {
             {/* Form */}
             <FadeIn delay={200}>
               <div className="bg-gray-50 rounded-2xl p-8 lg:p-10">
-                <GuideForm />
+                <LeadMagnetForm />
               </div>
             </FadeIn>
           </div>
