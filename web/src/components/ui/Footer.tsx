@@ -7,6 +7,7 @@ const serviceLinks = [
   { label: "Skræddersyede AI", href: "/skraeddersyede-ai" },
   { label: "Workshop", href: "/workshop" },
   { label: "VisionAI", href: "/visionai" },
+  { label: "AIK Academy", href: "/academy" },
 ];
 
 const companyLinks = [

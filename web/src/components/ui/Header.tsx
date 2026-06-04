@@ -9,6 +9,7 @@ const serviceLinks = [
   { label: "Skræddersyede AI-løsninger", href: "/skraeddersyede-ai" },
   { label: "AI Workshop", href: "/workshop" },
   { label: "VisionAI", href: "/visionai" },
+  { label: "AIK Academy", href: "/academy" },
 ];
 
 const navLinks = [
