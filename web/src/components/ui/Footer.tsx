@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import NewsletterForm from "./NewsletterForm";
 import CookieConsentLink from "./CookieConsentLink";
 
@@ -29,12 +30,13 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1.3fr_1fr_1fr_1.3fr] gap-10 lg:gap-12">
           {/* Brand + Newsletter */}
           <div>
-            <span className="relative inline-block">
-              <span className="text-[2rem] font-bold leading-none text-primary">
-                AI
-              </span>
-              <span className="absolute bottom-[-3px] left-0 w-full h-[3px] rounded-full bg-primary" />
-            </span>
+            <Image
+              src="/logo-aik.png"
+              alt="AI Konsulenterne"
+              width={589}
+              height={97}
+              className="h-8 w-auto"
+            />
             <p className="mt-3 text-sm text-gray-400 leading-relaxed">
               Vi bygger skræddersyede AI-løsninger til danske virksomheder.
             </p>

@@ -53,10 +53,10 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-6 lg:px-8 flex items-center justify-between h-16 lg:h-20">
         <Link href="/" className="flex items-center" aria-label="AI Konsulenterne — forside">
           <Image
-            src="/logo-full.svg"
+            src="/logo-aik.png"
             alt="AI Konsulenterne"
-            width={208}
-            height={32}
+            width={589}
+            height={97}
             priority
             className="h-7 lg:h-8 w-auto"
           />
