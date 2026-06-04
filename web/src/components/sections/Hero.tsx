@@ -64,8 +64,8 @@ export default function Hero() {
                 <Button variant="primary" size="lg" href="/kontakt" cal>
                   Start jeres AI rejse her
                 </Button>
-                <Button variant="secondary" href="/cases">
-                  Se resultater
+                <Button variant="secondary" size="lg" href="/ai-guide">
+                  Få en gratis AI-analyse
                 </Button>
               </div>
               <p className="text-xs text-gray-400 mt-4">
