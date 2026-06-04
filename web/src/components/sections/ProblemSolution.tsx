@@ -38,21 +38,26 @@ export default function ProblemSolution() {
   return (
     <section className="bg-gray-50 py-[clamp(4rem,10vw,7rem)]">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        {/* Header over begge kolonner */}
+        <FadeIn>
+          <div className="max-w-3xl mb-12 lg:mb-16">
+            <h2 className="text-3xl lg:text-4xl xl:text-5xl font-bold tracking-heading text-gray-900 leading-[1.1]">
+              Vi hjælper jer hele vejen
+            </h2>
+            <p className="text-gray-500 mt-5 leading-relaxed">
+              Det skal ikke være kompliceret at komme i gang med AI. Her er
+              hvordan vi arbejder - uanset om I har en konkret use case eller om
+              I skal finde ud af hvor I står.
+            </p>
+          </div>
+        </FadeIn>
+
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
-          {/* Venstre — intro, statistik, trin-numre, CTA */}
+          {/* Venstre — statistik, trin-numre, CTA */}
           <FadeIn>
             <div className="lg:sticky lg:top-28">
-              <h2 className="text-3xl lg:text-4xl xl:text-5xl font-bold tracking-heading text-gray-900 leading-[1.1]">
-                Vi hjælper jer hele vejen
-              </h2>
-              <p className="text-gray-500 mt-5 leading-relaxed">
-                Det skal ikke være kompliceret at komme i gang med AI. Her er
-                hvordan vi arbejder - uanset om I har en konkret use case eller
-                om I skal finde ud af hvor I står.
-              </p>
-
               {/* Statistik */}
-              <div className="mt-8 bg-white rounded-2xl p-6 ring-1 ring-gray-100">
+              <div className="bg-white rounded-2xl p-6 ring-1 ring-gray-100">
                 <p className="text-2xl lg:text-3xl font-bold tracking-heading text-primary">
                   Over 80% af AI-projekter mislykkes
                 </p>

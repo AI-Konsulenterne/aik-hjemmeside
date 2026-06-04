@@ -37,7 +37,7 @@ export default function Hero() {
           <div className="text-center lg:text-left">
             <FadeIn>
               <h1 className="text-[2.5rem] sm:text-5xl lg:text-[4rem] xl:text-[4.5rem] font-bold tracking-heading text-gray-900 leading-[1.05]">
-                Spar tid på{" "}
+                Spar 5-10 timer om ugen på{" "}
                 <span className="relative inline-block">
                   <span
                     className={`text-primary transition-all duration-400 ${
