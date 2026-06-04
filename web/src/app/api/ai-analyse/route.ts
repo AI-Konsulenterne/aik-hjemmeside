@@ -42,6 +42,11 @@ type AnalysePayload = {
   company: string;
   message: string; // brugerens beskrivelse af hvor de bruger tid
   name?: string;
+  // CVR-enrichment (valgfri, fra autocomplete)
+  cvr?: number | string | null;
+  industry?: string | null;
+  employees?: number | null;
+  city?: string | null;
 };
 
 const SYSTEM_PROMPT = `Du er senior AI-konsulent hos AI Konsulenterne (AIK), et dansk konsulenthus der hjælper SMV'er med at komme i gang med AI.
@@ -65,6 +70,7 @@ Regler:
 async function generateAnalysis(
   company: string,
   challenge: string,
+  context = "",
 ): Promise<string> {
   if (!ANTHROPIC_KEY) throw new Error("ANTHROPIC_API_KEY mangler");
 
@@ -88,7 +94,7 @@ async function generateAnalysis(
       messages: [
         {
           role: "user",
-          content: `Virksomhed: ${company}\n\nHvor de bruger mest tid på manuelt arbejde i dag:\n${challenge}`,
+          content: `Virksomhed: ${company}${context}\n\nHvor de bruger mest tid på manuelt arbejde i dag:\n${challenge}`,
         },
       ],
     }),
@@ -209,10 +215,19 @@ export async function POST(req: NextRequest) {
     const domain = email.split("@")[1];
     const sourceUrl = req.headers.get("referer") || "https://ai-konsulenterne.dk/ai-guide";
 
+    // CVR-enrichment → kontekst til Claude + note på leadet
+    const cvrBits = [
+      body.industry ? `Branche: ${body.industry}` : null,
+      body.employees ? `Antal ansatte: ${body.employees}` : null,
+      body.city ? `By: ${body.city}` : null,
+      body.cvr ? `CVR: ${body.cvr}` : null,
+    ].filter(Boolean);
+    const cvrContext = cvrBits.length ? `\n${cvrBits.join("\n")}` : "";
+
     // 1. Generér analysen med Claude
     let analysis: string;
     try {
-      analysis = await generateAnalysis(company, challenge);
+      analysis = await generateAnalysis(company, challenge, cvrContext);
     } catch (err) {
       console.error("[AI-analyse] Generering fejlede:", err);
       // Fald tilbage: gem stadig leadet, så Alexander kan følge op manuelt
@@ -259,13 +274,14 @@ export async function POST(req: NextRequest) {
       console.error("[AI-analyse] Email-fejl:", emailErrors.join(" | "));
     }
 
-    // 3. Opret lead i LeadAgent med analysen vedhæftet
+    // 3. Opret lead i LeadAgent med analysen + CVR-data vedhæftet
     await sendToLeadAgent({
       company,
       domain,
       name: body.name,
+      industry: body.industry ?? undefined,
+      message: `De bruger mest tid på:\n${challenge}${cvrContext ? `\n\n— CVR-data —${cvrContext}` : ""}\n\n— AI-analyse sendt automatisk —\n${analysis}`,
       email,
-      message: `De bruger mest tid på:\n${challenge}\n\n— AI-analyse sendt automatisk —\n${analysis}`,
       source: "ai-analyse",
       source_url: sourceUrl,
     });
