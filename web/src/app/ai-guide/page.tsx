@@ -65,6 +65,12 @@ export default function AIGuide() {
                     </li>
                   ))}
                 </ul>
+
+                <p className="text-base text-gray-500 mt-8 leading-relaxed">
+                  Vi stiller jer de samme spørgsmål, som vi stiller vores kunder,
+                  når vi afdækker hvor skoen trykker og hvor jeres AI-rejse skal
+                  starte. På den måde bliver analysen jeres startskud.
+                </p>
               </div>
             </FadeIn>
 
