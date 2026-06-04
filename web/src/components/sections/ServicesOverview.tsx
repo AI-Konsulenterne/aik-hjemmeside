@@ -22,6 +22,38 @@ export default function ServicesOverview() {
               <div className="relative bg-gray-900 rounded-2xl p-8 lg:p-10 h-full min-h-[320px] flex flex-col justify-between overflow-hidden">
                 {/* Decorative gradient */}
                 <div className="absolute top-0 right-0 w-2/3 h-2/3 bg-gradient-to-bl from-primary/15 to-transparent rounded-bl-[6rem]" aria-hidden="true" />
+
+                {/* Dekorativ AI-netværks-illustration (transparent) */}
+                <svg
+                  className="absolute -bottom-6 -right-4 w-72 h-72 lg:w-96 lg:h-96 opacity-[0.18] pointer-events-none"
+                  viewBox="0 0 200 200"
+                  fill="none"
+                  aria-hidden="true"
+                >
+                  {/* forbindelser */}
+                  <g stroke="#ffffff" strokeWidth="1">
+                    <line x1="40" y1="60" x2="100" y2="40" />
+                    <line x1="40" y1="60" x2="90" y2="110" />
+                    <line x1="100" y1="40" x2="150" y2="70" />
+                    <line x1="100" y1="40" x2="90" y2="110" />
+                    <line x1="90" y1="110" x2="150" y2="70" />
+                    <line x1="90" y1="110" x2="60" y2="160" />
+                    <line x1="150" y1="70" x2="160" y2="130" />
+                    <line x1="90" y1="110" x2="160" y2="130" />
+                    <line x1="60" y1="160" x2="130" y2="170" />
+                    <line x1="160" y1="130" x2="130" y2="170" />
+                  </g>
+                  {/* noder */}
+                  <g>
+                    <circle cx="40" cy="60" r="5" fill="#ffffff" />
+                    <circle cx="100" cy="40" r="7" fill="#ff9a00" />
+                    <circle cx="150" cy="70" r="5" fill="#ffffff" />
+                    <circle cx="90" cy="110" r="9" fill="#ff9a00" />
+                    <circle cx="160" cy="130" r="5" fill="#ffffff" />
+                    <circle cx="60" cy="160" r="6" fill="#ffffff" />
+                    <circle cx="130" cy="170" r="7" fill="#ff9a00" />
+                  </g>
+                </svg>
                 <div className="relative z-10">
                   <span className="inline-block bg-primary/20 text-primary text-[11px] uppercase tracking-[0.15em] font-semibold px-3 py-1 rounded-full mb-4">
                     Mest populær

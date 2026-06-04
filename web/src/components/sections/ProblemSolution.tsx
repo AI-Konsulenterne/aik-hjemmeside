@@ -18,7 +18,7 @@ const steps = [
   {
     number: "03",
     title: "Vi bygger første version - hurtigt",
-    body: "Ikke for hurtighedens skyld - for at I kan mærke om det virker, før vi bygger videre. Det er bedre at justere efter 4 uger end at opdage på sjette måned at vi byggede det forkerte.",
+    body: "Det her trin handler mindre om at opfinde AI og mere om at gøre den nyttig hos jer. De stærkeste modeller findes allerede - Claude, GPT, Gemini og en lang række andre. Vores arbejde er at vælge den rette til opgaven og koble den sammen med jeres data, jeres systemer og jeres arbejdsgange, så I får noget der passer ind i jeres hverdag og skaber forretningsværdi.",
   },
   {
     number: "04",
