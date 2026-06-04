@@ -28,7 +28,7 @@ export default function AIGuide() {
                   Gratis AI-analyse
                 </p>
                 <h1 className="text-4xl lg:text-5xl font-bold tracking-heading text-gray-900 leading-[1.05]">
-                  Svært ved at komme i gang med AI? Få en gratis AI-analyse
+                  Find jeres første AI use case lige her
                 </h1>
                 <p className="text-lg text-gray-500 mt-6 leading-relaxed">
                   Vi oplever at rigtig mange virksomheder gerne vil bruge AI -
