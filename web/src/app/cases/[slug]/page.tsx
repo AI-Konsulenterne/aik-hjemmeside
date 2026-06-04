@@ -259,7 +259,7 @@ export default async function CaseDetail({
                   </p>
                   <Link
                     href="/kontakt"
-                    className="inline-block w-full text-center bg-primary text-white rounded-full px-5 py-2.5 text-sm font-semibold hover:bg-primary-dark transition-colors"
+                    className="block w-full text-center whitespace-nowrap bg-primary text-white rounded-full px-5 py-3 text-sm font-semibold hover:bg-primary-dark transition-colors"
                   >
                     Book en snak
                   </Link>

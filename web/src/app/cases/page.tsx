@@ -34,13 +34,12 @@ const categoryLabels: Record<Case["category"], string> = {
   andet: "AI-løsning",
 };
 
-// Kunde-logoer vi har liggende
+// Kunde-logoer vi har i en mørk/farvet version (synlige på lyse kort).
+// Wunderwear (hvid) og INDKOM (creme) udelades — de vises som tekstnavn.
 const logoMap: { match: string; logo: string }[] = [
   { match: "lavazza", logo: "/logos/lavazza.png" },
-  { match: "indkom", logo: "/logos/indkom.png" },
   { match: "j.m band", logo: "/logos/jmband.png" },
   { match: "jmband", logo: "/logos/jmband.png" },
-  { match: "wunderwear", logo: "/logos/wunderwear.svg" },
   { match: "stretchfit", logo: "/logos/stretchfit.png" },
 ];
 
@@ -171,6 +170,67 @@ export default async function Cases() {
                   <CaseCard c={c} index={i} />
                 </FadeIn>
               ))}
+
+              {/* AI-grafik CTA-kort — udfylder grid'et og giver liv */}
+              <FadeIn delay={allCases.length * 80}>
+                <Link href="/kontakt" className="group block h-full">
+                  <div className="relative overflow-hidden bg-gray-900 rounded-3xl h-full min-h-[280px] p-8 flex flex-col justify-between">
+                    {/* AI-netværks-illustration */}
+                    <svg
+                      className="absolute -bottom-8 -right-6 w-64 h-64 opacity-25 pointer-events-none"
+                      viewBox="0 0 200 200"
+                      fill="none"
+                      aria-hidden="true"
+                    >
+                      <g stroke="#ff9a00" strokeWidth="1.2">
+                        <line x1="40" y1="60" x2="100" y2="40" />
+                        <line x1="40" y1="60" x2="90" y2="110" />
+                        <line x1="100" y1="40" x2="150" y2="70" />
+                        <line x1="90" y1="110" x2="150" y2="70" />
+                        <line x1="90" y1="110" x2="60" y2="160" />
+                        <line x1="150" y1="70" x2="160" y2="130" />
+                        <line x1="90" y1="110" x2="160" y2="130" />
+                        <line x1="160" y1="130" x2="130" y2="170" />
+                      </g>
+                      <g>
+                        <circle cx="40" cy="60" r="5" fill="#ffffff" />
+                        <circle cx="100" cy="40" r="7" fill="#ff9a00" />
+                        <circle cx="150" cy="70" r="5" fill="#ffffff" />
+                        <circle cx="90" cy="110" r="9" fill="#ff9a00" />
+                        <circle cx="160" cy="130" r="5" fill="#ffffff" />
+                        <circle cx="60" cy="160" r="6" fill="#ffffff" />
+                        <circle cx="130" cy="170" r="7" fill="#ff9a00" />
+                      </g>
+                    </svg>
+
+                    <span className="relative z-10 inline-flex w-10 h-10 rounded-full border border-white/30 items-center justify-center self-end group-hover:bg-primary group-hover:border-primary transition-colors">
+                      <svg
+                        className="w-4 h-4 text-white"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth={2}
+                        viewBox="0 0 24 24"
+                        aria-hidden="true"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M17 8l4 4m0 0l-4 4m4-4H3"
+                        />
+                      </svg>
+                    </span>
+
+                    <div className="relative z-10">
+                      <p className="text-[11px] uppercase tracking-[0.15em] text-primary font-semibold mb-2">
+                        Jeres tur
+                      </p>
+                      <h3 className="text-xl lg:text-2xl font-bold tracking-heading text-white leading-snug">
+                        Bliv den næste case
+                      </h3>
+                    </div>
+                  </div>
+                </Link>
+              </FadeIn>
             </div>
           </div>
         </section>
