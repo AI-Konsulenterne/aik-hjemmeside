@@ -188,7 +188,10 @@ export async function POST(req: NextRequest) {
     const body = (await req.json()) as Partial<AnalysePayload>;
     const email = body.email?.trim().toLowerCase();
     const company = body.company?.trim();
-    const challenge = body.message?.trim();
+    // Udfordrings-feltet er valgfrit — fald tilbage til en generel formulering
+    const challenge =
+      body.message?.trim() ||
+      "De har ikke uddybet, hvor de bruger mest tid - giv en generel AI-analyse ud fra virksomhedens navn og branche.";
 
     if (!email || !EMAIL_REGEX.test(email)) {
       return NextResponse.json(
@@ -196,9 +199,9 @@ export async function POST(req: NextRequest) {
         { status: 400 },
       );
     }
-    if (!company || !challenge) {
+    if (!company) {
       return NextResponse.json(
-        { error: "Udfyld venligst virksomhed og beskrivelse" },
+        { error: "Udfyld venligst jeres virksomhedsnavn" },
         { status: 400 },
       );
     }

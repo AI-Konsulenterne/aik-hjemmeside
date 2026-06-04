@@ -97,20 +97,6 @@ export default function GuideForm() {
 
         <div>
           <label className="block text-sm font-semibold text-gray-700 mb-1.5">
-            Hvor bruger I mest tid på manuelt arbejde i dag?
-          </label>
-          <textarea
-            required
-            rows={3}
-            placeholder="Fx kundeservice, ordrehåndtering, rapportering, bogføring …"
-            value={challenge}
-            onChange={(e) => setChallenge(e.target.value)}
-            className="w-full border border-gray-200 rounded-xl px-5 py-3 text-black placeholder:text-gray-400 focus:outline-none focus:border-primary transition-colors resize-none"
-          />
-        </div>
-
-        <div>
-          <label className="block text-sm font-semibold text-gray-700 mb-1.5">
             Arbejdsmail
           </label>
           <input
@@ -120,6 +106,20 @@ export default function GuideForm() {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             className="w-full border border-gray-200 rounded-xl px-5 py-3 text-black placeholder:text-gray-400 focus:outline-none focus:border-primary transition-colors"
+          />
+        </div>
+
+        <div>
+          <label className="block text-sm font-semibold text-gray-700 mb-1.5">
+            Hvor trykker skoene mest?{" "}
+            <span className="font-normal text-gray-400">(valgfri)</span>
+          </label>
+          <textarea
+            rows={3}
+            placeholder="Fx kundeservice, ordrehåndtering, rapportering, bogføring …"
+            value={challenge}
+            onChange={(e) => setChallenge(e.target.value)}
+            className="w-full border border-gray-200 rounded-xl px-5 py-3 text-black placeholder:text-gray-400 focus:outline-none focus:border-primary transition-colors resize-none"
           />
         </div>
 
@@ -133,7 +133,7 @@ export default function GuideForm() {
           {loading ? "Genererer jeres analyse…" : "Få min gratis AI-analyse"}
         </button>
         <p className="text-xs text-gray-400 text-center">
-          Ingen forpligtelser — vi sælger ikke jeres data.
+          Tager 30 sekunder. Vi vender tilbage inden for 24 timer.
         </p>
       </form>
     </>
