@@ -45,7 +45,7 @@ export default function CaseHighlight() {
                 </div>
                 <div>
                   <p className="text-sm font-bold tracking-heading text-gray-900">
-                    AI HR-agent
+                    HR-agent
                   </p>
                   <p className="text-xs text-gray-400 flex items-center gap-1.5">
                     <span className="inline-block w-2 h-2 rounded-full bg-green-500" />
