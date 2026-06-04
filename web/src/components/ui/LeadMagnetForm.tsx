@@ -196,6 +196,16 @@ export default function LeadMagnetForm() {
   // ── Formular ──
   return (
     <div>
+      {/* Headline */}
+      <div className="mb-6">
+        <h2 className="text-2xl font-bold tracking-heading text-gray-900">
+          Få jeres 3 use cases
+        </h2>
+        <p className="text-sm text-gray-500 mt-1.5">
+          Fortæl os kort om jer - så får I forslagene direkte i indbakken.
+        </p>
+      </div>
+
       {/* Progress */}
       <div className="flex items-center justify-between mb-1">
         <p className="text-xs font-semibold text-primary uppercase tracking-widest">
@@ -387,8 +397,10 @@ export default function LeadMagnetForm() {
         </div>
 
         {step === 4 && (
-          <p className="text-xs text-gray-400 text-center mt-4">
-            Tager 30 sekunder. Vi sender rapporten på mail inden for få minutter.
+          <p className="text-xs text-gray-400 text-center mt-4 leading-relaxed">
+            Tager 30 sekunder. Vi sender rapporten på mail inden for en time.
+            <br />
+            Også når der ikke lige er en faktura imellem.
           </p>
         )}
       </form>
