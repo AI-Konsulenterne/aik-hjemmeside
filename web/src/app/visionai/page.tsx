@@ -146,7 +146,7 @@ const integrations = [
 ];
 const models = [
   { name: "ChatGPT", logo: "/logos/integrations/chatgpt.svg" },
-  { name: "Claude", logo: "/logos/integrations/claude.svg" },
+  { name: "Claude", logo: "/logos/integrations/claude.svg", hideName: true },
   { name: "Gemini", logo: "/logos/integrations/gemini.svg" },
   { name: "Azure OpenAI", logo: "/logos/integrations/azure.svg" },
 ];
@@ -334,7 +334,7 @@ export default function VisionAI() {
                       className="h-5 w-auto object-contain"
                     />
                   )}
-                  {item.name}
+                  {!("hideName" in item && item.hideName) && item.name}
                 </span>
               ))}
             </div>
