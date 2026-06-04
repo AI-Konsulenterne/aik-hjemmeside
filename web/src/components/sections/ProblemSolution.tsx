@@ -66,7 +66,7 @@ export default function ProblemSolution() {
                   års AI-erfaring og fandt, at over 80% af AI-projekter ikke
                   leverer den værdi virksomheden forventede - dobbelt så høj
                   fejlrate som almindelige IT-projekter. Derfor arbejder vi som
-                  vi gør.
+                  vi gør, så I ikke ender i den statistik.
                 </p>
                 <p className="text-xs text-gray-400 mt-2">Kilde: RAND, 2024</p>
               </div>
