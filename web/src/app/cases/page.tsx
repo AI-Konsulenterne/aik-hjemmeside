@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import FadeIn from "@/components/ui/FadeIn";
 import SubpageCTA from "@/components/sections/SubpageCTA";
-import { getCases, type Case } from "@/lib/strapi";
+import { getCases, strapiImageUrl, type Case } from "@/lib/strapi";
 
 export const metadata: Metadata = {
   title: "AI Cases Danske Virksomheder | Konkrete Resultater",
@@ -33,73 +34,90 @@ const categoryLabels: Record<Case["category"], string> = {
   andet: "AI-løsning",
 };
 
-function splitResult(result: string): string[] {
-  return result
-    .split(/\n+/)
-    .map((s) => s.replace(/^[-•*]\s*/, "").trim())
-    .filter((s) => s.length > 0)
-    .slice(0, 3);
+// Kunde-logoer vi har liggende
+const logoMap: { match: string; logo: string }[] = [
+  { match: "lavazza", logo: "/logos/lavazza.png" },
+  { match: "indkom", logo: "/logos/indkom.png" },
+  { match: "j.m band", logo: "/logos/jmband.png" },
+  { match: "jmband", logo: "/logos/jmband.png" },
+  { match: "wunderwear", logo: "/logos/wunderwear.svg" },
+  { match: "stretchfit", logo: "/logos/stretchfit.png" },
+];
+
+function logoFor(customer: string): string | null {
+  const k = customer.toLowerCase();
+  return logoMap.find((m) => k.includes(m.match))?.logo ?? null;
 }
 
-function CaseCard({ c }: { c: Case }) {
-  return (
-    <Link
-      href={`/cases/${c.slug}`}
-      className="group block bg-white rounded-2xl p-8 lg:p-10 ring-1 ring-gray-100 hover:ring-primary/40 hover:shadow-lg transition-all duration-300"
-    >
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-10">
-        {/* Left — customer + challenge + solution */}
-        <div className="lg:col-span-2">
-          <p className="text-[11px] uppercase tracking-[0.15em] text-primary font-semibold mb-3">
-            {categoryLabels[c.category]}
-          </p>
-          <h3 className="text-2xl lg:text-3xl font-bold tracking-heading text-gray-900 group-hover:text-primary transition-colors">
-            {c.customer}
-          </h3>
-          <div className="mt-5 space-y-3 text-gray-500 leading-relaxed text-[15px]">
-            <p>
-              <span className="font-semibold text-gray-900">Udfordring: </span>
-              {c.challenge}
-            </p>
-            <p>
-              <span className="font-semibold text-gray-900">Løsning: </span>
-              {c.solution}
-            </p>
-          </div>
-          <span className="inline-flex items-center gap-1.5 text-sm text-primary font-semibold mt-6 group-hover:gap-2.5 transition-all">
-            Læs hele casen
-            <svg
-              className="w-4 h-4"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth={2.5}
-              viewBox="0 0 24 24"
-              aria-hidden="true"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M17 8l4 4m0 0l-4 4m4-4H3"
-              />
-            </svg>
-          </span>
-        </div>
+// Bløde, brand-venlige kort-farver der roterer
+const cardColors = ["bg-primary/10", "bg-gray-100", "bg-primary/5", "bg-gray-50"];
 
-        {/* Right — results */}
-        <div className="flex flex-col gap-3 lg:border-l lg:border-gray-100 lg:pl-8">
-          <p className="text-[11px] uppercase tracking-[0.15em] text-gray-400 font-semibold">
-            Resultater
-          </p>
-          {splitResult(c.result).map((line) => (
-            <div
-              key={line}
-              className="bg-gray-50 rounded-xl px-4 py-3.5"
-            >
-              <p className="text-[15px] lg:text-base font-bold text-gray-900 tracking-heading leading-snug">
-                {line}
-              </p>
-            </div>
-          ))}
+function CaseCard({ c, index }: { c: Case; index: number }) {
+  const logo = logoFor(c.customer);
+  const image = strapiImageUrl(c.image);
+  const color = cardColors[index % cardColors.length];
+
+  return (
+    <Link href={`/cases/${c.slug}`} className="group block h-full">
+      <div
+        className={`${color} rounded-3xl overflow-hidden h-full flex flex-col ring-1 ring-gray-100/50 hover:shadow-lg transition-shadow duration-300`}
+      >
+        {/* Billede (hvis uploadet i Strapi) */}
+        {image && (
+          <div className="relative aspect-[16/10] overflow-hidden">
+            <Image
+              src={image}
+              alt={c.customer}
+              fill
+              className="object-cover transition-transform duration-500 group-hover:scale-105"
+            />
+          </div>
+        )}
+
+        <div className="p-8 flex flex-col flex-grow min-h-[280px]">
+          {/* Top: logo/navn + pil */}
+          <div className="flex items-start justify-between gap-4">
+            {logo ? (
+              <div className="relative h-8 w-32">
+                <Image
+                  src={logo}
+                  alt={c.customer}
+                  fill
+                  className="object-contain object-left"
+                />
+              </div>
+            ) : (
+              <span className="text-lg font-bold tracking-heading text-gray-900">
+                {c.customer}
+              </span>
+            )}
+            <span className="flex-shrink-0 w-10 h-10 rounded-full border border-gray-900/20 flex items-center justify-center group-hover:bg-gray-900 group-hover:border-gray-900 transition-colors">
+              <svg
+                className="w-4 h-4 text-gray-900 group-hover:text-white transition-colors"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth={2}
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M17 8l4 4m0 0l-4 4m4-4H3"
+                />
+              </svg>
+            </span>
+          </div>
+
+          {/* Bund: kategori + titel */}
+          <div className="mt-auto pt-10">
+            <p className="text-[11px] uppercase tracking-[0.15em] text-primary font-semibold mb-2">
+              {categoryLabels[c.category]}
+            </p>
+            <h3 className="text-xl lg:text-2xl font-bold tracking-heading text-gray-900 leading-snug">
+              {c.title}
+            </h3>
+          </div>
         </div>
       </div>
     </Link>
@@ -143,14 +161,14 @@ export default async function Cases() {
         </section>
       )}
 
-      {/* All cases — unified design */}
+      {/* Cases — farvede kort i grid */}
       {allCases.length > 0 && (
         <section className="pb-[clamp(3rem,8vw,6rem)]">
-          <div className="max-w-6xl mx-auto px-6 lg:px-8">
-            <div className="flex flex-col gap-5 lg:gap-6">
+          <div className="max-w-7xl mx-auto px-6 lg:px-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {allCases.map((c, i) => (
                 <FadeIn key={c.id} delay={i * 80}>
-                  <CaseCard c={c} />
+                  <CaseCard c={c} index={i} />
                 </FadeIn>
               ))}
             </div>
