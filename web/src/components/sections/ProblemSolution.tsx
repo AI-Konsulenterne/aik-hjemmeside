@@ -40,7 +40,7 @@ export default function ProblemSolution() {
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* Header over begge kolonner */}
         <FadeIn>
-          <div className="max-w-3xl mb-12 lg:mb-16">
+          <div className="max-w-3xl mx-auto text-center mb-12 lg:mb-16">
             <h2 className="text-3xl lg:text-4xl xl:text-5xl font-bold tracking-heading text-gray-900 leading-[1.1]">
               Vi hjælper jer hele vejen
             </h2>
