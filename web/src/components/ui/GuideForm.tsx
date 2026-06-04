@@ -116,8 +116,8 @@ export default function GuideForm() {
           Tak! Jeres AI-analyse er på vej.
         </h2>
         <p className="text-gray-500">
-          Tjek din indbakke om et øjeblik — vi har sendt en konkret AI-analyse
-          baseret på jeres svar. Alexander følger op hurtigst muligt.
+          Tjek din indbakke om et øjeblik - vi har sendt en konkret AI-analyse
+          baseret på jeres svar.
         </p>
       </div>
     );
