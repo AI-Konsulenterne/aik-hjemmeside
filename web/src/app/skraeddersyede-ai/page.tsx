@@ -215,8 +215,8 @@ export default function SkraeddersyedeAI() {
       </section>
 
       <SubpageCTA
-        heading="Ikke klar til at automatisere? Skal vi tage en snak?"
-        description="Book en gratis 45-minutters AI-afklaring. Vi finder ud af præcis hvor AI kan spare jer tid - uden forpligtelser."
+        heading="Skal vi tage en snak?"
+        description="Book en gratis 45-minutters AI-afklaring. Vi finder ud af præcis hvor AI kan gavne jer bedst muligt."
       />
     </>
   );

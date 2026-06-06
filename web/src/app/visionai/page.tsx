@@ -151,6 +151,34 @@ const models = [
   { name: "Azure OpenAI", logo: "/logos/integrations/azure.svg" },
 ];
 
+type IntegrationItem = { name: string; logo: string | null; hideName?: boolean };
+
+function IntegrationCard({ item }: { item: IntegrationItem }) {
+  return (
+    <div className="group flex flex-col items-center justify-center gap-3 bg-white rounded-2xl ring-1 ring-gray-100 px-3 py-6 shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:shadow-lg hover:ring-primary/30">
+      <div className="h-8 flex items-center justify-center">
+        {item.logo ? (
+          /* eslint-disable-next-line @next/next/no-img-element */
+          <img
+            src={item.logo}
+            alt={item.name}
+            className="h-7 w-auto max-w-[130px] object-contain grayscale opacity-60 transition-all duration-300 group-hover:grayscale-0 group-hover:opacity-100"
+          />
+        ) : (
+          <span className="text-base font-bold text-gray-400 transition-colors duration-300 group-hover:text-gray-800">
+            {item.name}
+          </span>
+        )}
+      </div>
+      {item.logo && !item.hideName && (
+        <span className="text-xs font-semibold text-gray-500 transition-colors duration-300 group-hover:text-gray-900">
+          {item.name}
+        </span>
+      )}
+    </div>
+  );
+}
+
 export default function VisionAI() {
   return (
     <>
@@ -230,8 +258,16 @@ export default function VisionAI() {
                 &ldquo;VisionAI har hjulpet os i HR-afdelingen med at frigøre tid
                 fra rutineopgaver.&rdquo;
               </blockquote>
-              <figcaption className="text-primary font-semibold mt-4 text-sm">
-                HR · Lavazza
+              <figcaption className="mt-6 flex flex-col items-center gap-2.5">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/logos/lavazza.png"
+                  alt="Lavazza"
+                  className="h-6 w-auto object-contain brightness-0 invert opacity-90"
+                />
+                <span className="text-primary font-semibold text-sm">
+                  HR-afdelingen
+                </span>
               </figcaption>
             </figure>
           </FadeIn>
@@ -284,8 +320,8 @@ export default function VisionAI() {
       </section>
 
       {/* Integrations */}
-      <section className="py-[clamp(4rem,10vw,7rem)]">
-        <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">
+      <section className="py-[clamp(4rem,10vw,7rem)] bg-gray-50">
+        <div className="max-w-5xl mx-auto px-6 lg:px-8 text-center">
           <FadeIn>
             <h2 className="text-3xl lg:text-4xl font-bold tracking-heading text-gray-900 leading-[1.1]">
               Integrér direkte med jeres systemer
@@ -295,47 +331,27 @@ export default function VisionAI() {
               så al jeres viden bliver nemt tilgængelig.
             </p>
           </FadeIn>
+
           <FadeIn delay={100}>
-            <p className="text-[11px] uppercase tracking-widest text-gray-400 font-semibold mt-10 mb-4">
+            <p className="text-[11px] uppercase tracking-widest text-gray-400 font-semibold mt-12 mb-5">
               Datakilder
             </p>
-            <div className="flex flex-wrap justify-center gap-3">
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4">
               {integrations.map((item) => (
-                <span
-                  key={item.name}
-                  className="inline-flex items-center gap-2.5 bg-white ring-1 ring-gray-100 shadow-sm rounded-xl px-4 py-3 text-sm font-semibold text-gray-700"
-                >
-                  {item.logo && (
-                    /* eslint-disable-next-line @next/next/no-img-element */
-                    <img
-                      src={item.logo}
-                      alt={item.name}
-                      className="h-5 w-auto object-contain"
-                    />
-                  )}
-                  {!("hideName" in item && item.hideName) && item.name}
-                </span>
+                <IntegrationCard key={item.name} item={item} />
               ))}
             </div>
-            <p className="text-[11px] uppercase tracking-widest text-gray-400 font-semibold mt-10 mb-4">
-              AI-modeller
-            </p>
-            <div className="flex flex-wrap justify-center gap-3">
+
+            <div className="flex items-center gap-4 max-w-md mx-auto mt-12 mb-5">
+              <span className="h-px flex-1 bg-gray-200" />
+              <p className="text-[11px] uppercase tracking-widest text-gray-400 font-semibold whitespace-nowrap">
+                AI-modeller
+              </p>
+              <span className="h-px flex-1 bg-gray-200" />
+            </div>
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 max-w-2xl mx-auto">
               {models.map((item) => (
-                <span
-                  key={item.name}
-                  className="inline-flex items-center gap-2.5 bg-white ring-1 ring-gray-100 shadow-sm rounded-xl px-4 py-3 text-sm font-semibold text-gray-700"
-                >
-                  {item.logo && (
-                    /* eslint-disable-next-line @next/next/no-img-element */
-                    <img
-                      src={item.logo}
-                      alt={item.name}
-                      className="h-5 w-auto object-contain"
-                    />
-                  )}
-                  {!("hideName" in item && item.hideName) && item.name}
-                </span>
+                <IntegrationCard key={item.name} item={item} />
               ))}
             </div>
           </FadeIn>
@@ -461,14 +477,14 @@ export default function VisionAI() {
       </section>
 
       {/* Final CTA */}
-      <section className="bg-gray-900 text-white py-[clamp(3rem,8vw,6rem)]">
+      <section className="bg-white py-[clamp(3rem,8vw,6rem)]">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center">
           <FadeIn>
             <div className="max-w-2xl mx-auto">
-              <h2 className="text-3xl lg:text-4xl font-bold tracking-heading">
+              <h2 className="text-3xl lg:text-4xl font-bold tracking-heading text-gray-900">
                 Klar til at transformere jeres virksomhed?
               </h2>
-              <p className="text-white/60 mt-4 leading-relaxed">
+              <p className="text-gray-500 mt-4 leading-relaxed">
                 Lad os vise jer, hvordan VisionAI kan styrke jeres medarbejdere
                 og frigøre tid til det, der virkelig skaber værdi.
               </p>
@@ -478,12 +494,12 @@ export default function VisionAI() {
                 </Button>
                 <a
                   href="tel:+4525547074"
-                  className="text-sm font-semibold text-white/80 hover:text-white transition-colors"
+                  className="text-sm font-semibold text-gray-600 hover:text-gray-900 transition-colors"
                 >
                   Eller ring: +45 25 54 70 74
                 </a>
               </div>
-              <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 mt-8 text-xs text-white/50">
+              <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 mt-8 text-xs text-gray-400">
                 <span>Ingen binding</span>
                 <span>GDPR-compliant</span>
                 <span>Hurtig opsætning</span>

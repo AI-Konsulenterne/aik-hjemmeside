@@ -191,27 +191,6 @@ export default async function VidenOmAI() {
         </div>
       </section>
 
-      {/* Lead magnet */}
-      <section className="bg-gray-900 text-white py-[clamp(3rem,8vw,6rem)]">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center">
-          <FadeIn>
-            <div className="max-w-2xl mx-auto">
-              <h2 className="text-3xl lg:text-4xl font-bold tracking-heading">
-                Vil du have det hele samlet?
-              </h2>
-              <p className="text-white/60 mt-4 leading-relaxed">
-                Download vores gratis AI-guide og få en komplet introduktion til
-                AI for danske virksomheder.
-              </p>
-              <div className="mt-8">
-                <Button variant="primary" size="lg" href="/ai-guide">
-                  Hent gratis AI-guide
-                </Button>
-              </div>
-            </div>
-          </FadeIn>
-        </div>
-      </section>
     </>
   );
 }
