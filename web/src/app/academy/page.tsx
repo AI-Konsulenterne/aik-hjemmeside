@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import FadeIn from "@/components/ui/FadeIn";
 
 const SKOOL_URL = "https://www.skool.com/aik-academy-9764";
@@ -121,35 +122,51 @@ export default function Academy() {
       {/* Hero */}
       <section className="pt-[clamp(4rem,12vw,8rem)] pb-[clamp(3rem,8vw,6rem)]">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <FadeIn>
-            <div className="max-w-3xl">
-              <p className="text-xs uppercase tracking-widest text-primary font-semibold mb-4">
-                AIK Academy
-              </p>
-              <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold tracking-heading text-gray-900 leading-[1.05]">
-                AI-træning til hele teamet - i øjenhøjde
-              </h1>
-              <p className="text-lg lg:text-xl text-gray-500 mt-6 leading-relaxed">
-                Et online læringsunivers hvor jeres medarbejdere lærer at bruge
-                AI til deres faktiske arbejde. Ingen jargon, ingen 40-timers
-                kurser. Korte videoer, konkrete use cases og et community der
-                svarer på spørgsmål.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 mt-10">
-                <a
-                  href={SKOOL_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={primaryBtn}
-                >
-                  Se Academy →
-                </a>
-                <a href="#kontakt" className={secondaryBtn}>
-                  Book demo til teamet
-                </a>
+          <div className="grid grid-cols-1 lg:grid-cols-[1.05fr_1fr] gap-10 lg:gap-14 items-center">
+            <FadeIn>
+              <div>
+                <p className="text-xs uppercase tracking-widest text-primary font-semibold mb-4">
+                  AIK Academy
+                </p>
+                <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold tracking-heading text-gray-900 leading-[1.05]">
+                  AI-træning til hele teamet - i øjenhøjde
+                </h1>
+                <p className="text-lg lg:text-xl text-gray-500 mt-6 leading-relaxed">
+                  Et online læringsunivers hvor jeres medarbejdere lærer at bruge
+                  AI til deres faktiske arbejde. Ingen jargon, ingen 40-timers
+                  kurser. Korte videoer, konkrete use cases og et community der
+                  svarer på spørgsmål.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 mt-10">
+                  <a
+                    href={SKOOL_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={primaryBtn}
+                  >
+                    Se Academy →
+                  </a>
+                  <a href="#kontakt" className={secondaryBtn}>
+                    Book demo til teamet
+                  </a>
+                </div>
               </div>
-            </div>
-          </FadeIn>
+            </FadeIn>
+
+            <FadeIn delay={200}>
+              <div className="relative rounded-2xl overflow-hidden shadow-xl ring-1 ring-gray-100">
+                <Image
+                  src="/screenshots/academy-modules.png"
+                  alt="AIK Academy moduler - Copilot, ChatGPT, Claude, AI Grundlæggende og Q&A"
+                  width={1870}
+                  height={1258}
+                  priority
+                  className="w-full h-auto"
+                  sizes="(max-width: 1024px) 100vw, 48vw"
+                />
+              </div>
+            </FadeIn>
+          </div>
         </div>
       </section>
 

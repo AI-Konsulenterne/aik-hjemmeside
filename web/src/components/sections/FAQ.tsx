@@ -18,7 +18,7 @@ const faqs = [
   },
   {
     q: "Er det GDPR-sikkert?",
-    a: "Ja. Det er faktisk en af de første ting vi tjekker af. Vi bygger altid setups der overholder GDPR - jeres data ender ikke i åbne modeller, og bliver ikke brugt til at træne noget. Kort version: jeres data går ikke ud at vandre. Hvor strengt setuppet skal være, kommer an på jer - nogle kører fint med en cloud-løsning og en tydelig databehandleraftale, andre vil have alt liggende internt. Vi finder ud af hvad der passer til jer.",
+    a: "Ja. Når vi bygger AI, er det vigtigt for os, at det overholder GDPR, og at jeres data ikke ender hos hele verden. Det betyder konkret, at jeres data ikke ender i åbne modeller og ikke bliver brugt til at træne på.",
   },
   {
     q: "Hvad koster det?",

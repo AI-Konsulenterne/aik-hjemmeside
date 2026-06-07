@@ -162,7 +162,7 @@ function IntegrationCard({ item }: { item: IntegrationItem }) {
           <img
             src={item.logo}
             alt={item.name}
-            className="h-7 w-auto max-w-[130px] object-contain grayscale opacity-60 transition-all duration-300 group-hover:grayscale-0 group-hover:opacity-100"
+            className="h-7 w-auto max-w-[130px] object-contain transition-transform duration-300 group-hover:scale-105"
           />
         ) : (
           <span className="text-base font-bold text-gray-400 transition-colors duration-300 group-hover:text-gray-800">

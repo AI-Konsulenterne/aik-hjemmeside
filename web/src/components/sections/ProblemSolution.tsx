@@ -13,12 +13,12 @@ const steps = [
   {
     number: "02",
     title: "Vi finder den løsning der passer til jer",
-    body: "Nogle skal have alt kørende på egne servere. For andre passer en cloud løsning bedre. Vi finder ud af hvad der giver bedst mening hos jer - og bygger altid compliant AI, der overholder GDPR.",
+    body: "Her bliver det lidt mere teknisk - for det er nu, vi finder den rigtige ramme for jer.\n\nHvilken problemstilling løser AI for jer?\n\nSkal det hele køre på jeres egne servere, eller passer en cloud-løsning bedre?\n\nHvor følsomme er jeres data, og hvor må de ligge? Hvilke systemer skal løsningen tale sammen med - økonomisystem, mail, jeres dokumenter? Hvor meget skal køre automatisk, og hvor skal et menneske ind over?\n\nDet er de spørgsmål, vi stiller, så vi rammer rigtigt fra start.",
   },
   {
     number: "03",
-    title: "Vi bygger første version - hurtigt",
-    body: "Det her trin handler mindre om at opfinde AI og mere om at gøre den nyttig hos jer. De stærkeste modeller findes allerede - Claude, GPT, Gemini og en lang række andre. Vores arbejde er at vælge den rette til opgaven og koble den sammen med jeres data, jeres systemer og jeres arbejdsgange, så I får noget der passer ind i jeres hverdag og skaber forretningsværdi.",
+    title: "Vi udvikler første version",
+    body: "I den her fase udvikler vi første version. Vi kobler modellen sammen med jeres data, systemer og får teknikken til at spille.\n\nVi tror på, at vi lærer mest om produktet og behovet, når I får det i hænderne. Derfor gør vi en dyd ud af at levere en POC hurtigt, så vi kan iterere og tilpasse undervejs.",
   },
   {
     number: "04",
@@ -27,8 +27,8 @@ const steps = [
   },
   {
     number: "05",
-    title: "Vi tager én ting ad gangen",
-    body: "Når den første løsning fungerer i praksis og vi kan se at den skaber forretningsmæssig værdi, kigger vi på hvad det næste skridt er.",
+    title: "Vi er med jer hele vejen",
+    body: "Når løsningen er i luften, forsvinder vi ikke. Vi drifter den naturligvis sammen med jer, står klar med support, og er der, hver gang noget skal justeres eller bygges videre på. Vi vil hellere være dem, I ringer til, end en leverandør, der laver ét projekt og forsvinder.",
   },
 ];
 
@@ -151,7 +151,7 @@ export default function ProblemSolution() {
                       }`}
                     >
                       <div className="overflow-hidden">
-                        <p className="px-6 pb-6 pl-[3.75rem] text-gray-500 leading-relaxed">
+                        <p className="px-6 pb-6 pl-[3.75rem] text-gray-500 leading-relaxed whitespace-pre-line">
                           {step.body}
                         </p>
                       </div>
