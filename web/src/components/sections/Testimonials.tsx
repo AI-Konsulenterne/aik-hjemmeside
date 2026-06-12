@@ -62,7 +62,7 @@ export default async function Testimonials() {
 
                   <figcaption className="mt-6 pt-5 border-t border-gray-100 flex items-center gap-3">
                     {photo ? (
-                      <div className="relative w-11 h-11 rounded-full overflow-hidden bg-gray-100 flex-shrink-0">
+                      <div className="relative w-16 h-16 lg:w-[72px] lg:h-[72px] rounded-xl overflow-hidden bg-gray-100 flex-shrink-0 ring-1 ring-gray-200">
                         <Image
                           src={photo}
                           alt={t.authorName}
