@@ -13,7 +13,7 @@ const steps = [
   {
     number: "02",
     title: "Vi finder den løsning der passer til jer",
-    body: "Her bliver det lidt mere teknisk - for det er nu, vi finder den rigtige ramme for jer.\n\nHvilken problemstilling løser AI for jer?\n\nSkal det hele køre på jeres egne servere, eller passer en cloud-løsning bedre?\n\nHvor følsomme er jeres data, og hvor må de ligge? Hvilke systemer skal løsningen tale sammen med - økonomisystem, mail, jeres dokumenter? Hvor meget skal køre automatisk, og hvor skal et menneske ind over?\n\nDet er de spørgsmål, vi stiller, så vi rammer rigtigt fra start.",
+    body: "Det er her det bliver lidt mere teknisk. Vi definerer den udfordring vi står overfor og hvad formål med vores AI løsning er. Efterfølgende skal vi have afklaret det tekniske setup og arbejdet omkring jeres data, hvilke systemer der skal tale sammen.",
   },
   {
     number: "03",
@@ -28,7 +28,7 @@ const steps = [
   {
     number: "05",
     title: "Vi er med jer hele vejen",
-    body: "Når løsningen er i luften, forsvinder vi ikke. Vi drifter den naturligvis sammen med jer, står klar med support, og er der, hver gang noget skal justeres eller bygges videre på. Vi vil hellere være dem, I ringer til, end en leverandør, der laver ét projekt og forsvinder.",
+    body: "Når løsningen er i luften, forsvinder vi ikke bare væk. Vi drifter den naturligvis sammen med jer, står klar med support, og er der, når noget skal justeres eller udvikles. Vi ser det mere som en rejse, vi tager del i sammen.",
   },
 ];
 
