@@ -8,7 +8,7 @@ import Button from "./Button";
 const serviceLinks = [
   { label: "Skræddersyede AI-løsninger", href: "/skraeddersyede-ai" },
   { label: "AI Workshop", href: "/workshop" },
-  { label: "VisionAI", href: "/visionai" },
+  { label: "AIK Workspace", href: "/visionai" },
 ];
 
 const navLinks = [
@@ -54,12 +54,12 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-6 lg:px-8 flex items-center justify-between h-16 lg:h-20">
         <Link href="/" className="flex items-center" aria-label="AI Konsulenterne — forside">
           <Image
-            src="/logo-aik.png"
+            src="/logo-aik-mark.png"
             alt="AI Konsulenterne"
-            width={589}
-            height={97}
+            width={153}
+            height={89}
             priority
-            className="h-7 lg:h-8 w-auto"
+            className="h-8 lg:h-9 w-auto"
           />
         </Link>
 

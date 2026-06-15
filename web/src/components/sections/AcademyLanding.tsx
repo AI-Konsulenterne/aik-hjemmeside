@@ -405,8 +405,9 @@ export default function AcademyLanding() {
             </h2>
             <p className="text-xl text-gray-600 mt-6 leading-relaxed">
               I har købt licenser. I har gjort opmærksom på at de eksisterer.
-              Men ingen bruger dem? Ikke fordi folk er dovne - men fordi ingen
-              har vist dem hvordan de gør.
+              Men ingen bruger dem? Derfor har vi bygget AIK Academy, der gør
+              læring omkring AI nemt og tilgængeligt. Med små, korte og konkrete
+              moduler har vi opbygget vores læringsunivers, så alle kan være med.
             </p>
           </FadeIn>
         </div>

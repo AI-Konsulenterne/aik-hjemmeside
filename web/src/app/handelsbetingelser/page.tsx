@@ -31,7 +31,7 @@ export default function Handelsbetingelser() {
         <li>Rådgivning og AI-afklaring</li>
         <li>Udvikling af skræddersyede AI-løsninger</li>
         <li>AI-workshops og uddannelse</li>
-        <li>VisionAI — business intelligence løsning</li>
+        <li>AIK Workspace - jeres eget AI-system til hele virksomheden</li>
       </ul>
       <p>
         Omfang, pris og leveringstid aftales skriftligt i hver enkelt aftale.

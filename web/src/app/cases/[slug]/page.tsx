@@ -214,7 +214,20 @@ export default async function CaseDetail({
                   {renderMarkdown(caseData.solution)}
                 </div>
                 <div className="mt-8">
-                  <SolutionDiagram category={caseData.category} />
+                  {slug === "jm-band-ai-agent" ? (
+                    <div className="rounded-2xl overflow-hidden ring-1 ring-gray-100 shadow-sm">
+                      <Image
+                        src="/screenshots/jmband-ai-support.png"
+                        alt="AI Support-agent bygget til JM Band - søger i vidensbasen og foreslår løsninger"
+                        width={2880}
+                        height={1580}
+                        className="w-full h-auto"
+                        sizes="(max-width: 768px) 100vw, 768px"
+                      />
+                    </div>
+                  ) : (
+                    <SolutionDiagram category={caseData.category} />
+                  )}
                 </div>
               </div>
             </FadeIn>

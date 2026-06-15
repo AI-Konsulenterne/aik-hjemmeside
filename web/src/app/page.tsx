@@ -58,9 +58,9 @@ const organizationJsonLd = {
         "@type": "Offer",
         itemOffered: {
           "@type": "Service",
-          name: "VisionAI",
+          name: "AIK Workspace",
           description:
-            "AI-drevet business intelligence dashboard på tværs af jeres systemer.",
+            "Jeres eget AI-system til hele virksomheden - chat, agenter, vidensbase og styring i én platform.",
         },
       },
     ],

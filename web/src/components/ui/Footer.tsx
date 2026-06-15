@@ -6,7 +6,7 @@ import CookieConsentLink from "./CookieConsentLink";
 const serviceLinks = [
   { label: "Skræddersyede AI", href: "/skraeddersyede-ai" },
   { label: "Workshop", href: "/workshop" },
-  { label: "VisionAI", href: "/visionai" },
+  { label: "AIK Workspace", href: "/visionai" },
   { label: "AIK Academy", href: "/academy" },
 ];
 
@@ -32,11 +32,11 @@ export default function Footer() {
           {/* Brand + Newsletter */}
           <div>
             <Image
-              src="/logo-aik.png"
+              src="/logo-aik-mark.png"
               alt="AI Konsulenterne"
-              width={589}
-              height={97}
-              className="h-8 w-auto"
+              width={153}
+              height={89}
+              className="h-10 w-auto"
             />
             <p className="mt-3 text-sm text-gray-400 leading-relaxed">
               Vi bygger skræddersyede AI-løsninger til danske virksomheder.

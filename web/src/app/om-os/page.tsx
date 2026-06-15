@@ -98,50 +98,8 @@ export default async function OmOs() {
         </div>
       </section>
 
-      {/* Values */}
-      <section className="bg-gray-50 py-[clamp(3rem,8vw,6rem)]">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <FadeIn>
-            <h2 className="text-3xl lg:text-4xl font-bold tracking-heading text-gray-900 text-center mb-12">
-              Sådan er vi at arbejde med
-            </h2>
-          </FadeIn>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            {values.map((value, i) => (
-              <FadeIn key={value.title} delay={i * 100}>
-                <div className="flex gap-4">
-                  <div className="w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center shrink-0">
-                    <svg
-                      className="w-5 h-5 text-primary"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth={1.5}
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d={value.iconPath}
-                      />
-                    </svg>
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-bold tracking-heading mb-2">
-                      {value.title}
-                    </h3>
-                    <p className="text-gray-500 leading-relaxed">
-                      {value.description}
-                    </p>
-                  </div>
-                </div>
-              </FadeIn>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Team */}
-      <section className="py-[clamp(3rem,8vw,6rem)]">
+      <section className="bg-gray-50 py-[clamp(3rem,8vw,6rem)]">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <FadeIn>
             <h2 className="text-3xl lg:text-4xl font-bold tracking-heading text-gray-900 text-center mb-4">
@@ -189,6 +147,48 @@ export default async function OmOs() {
                         </a>
                       )}
                     </div>
+                  </div>
+                </div>
+              </FadeIn>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Values */}
+      <section className="py-[clamp(3rem,8vw,6rem)]">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <FadeIn>
+            <h2 className="text-3xl lg:text-4xl font-bold tracking-heading text-gray-900 text-center mb-12">
+              Sådan er vi at arbejde med
+            </h2>
+          </FadeIn>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            {values.map((value, i) => (
+              <FadeIn key={value.title} delay={i * 100}>
+                <div className="flex gap-4">
+                  <div className="w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center shrink-0">
+                    <svg
+                      className="w-5 h-5 text-primary"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth={1.5}
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d={value.iconPath}
+                      />
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-bold tracking-heading mb-2">
+                      {value.title}
+                    </h3>
+                    <p className="text-gray-500 leading-relaxed">
+                      {value.description}
+                    </p>
                   </div>
                 </div>
               </FadeIn>
