@@ -111,8 +111,8 @@ export default function SkraeddersyedeAI() {
             <div className="hero-copy">
               <p className="eyebrow">AI-konsulenterne</p>
               <h1 className="display hero-title">
-                AI løsninger der passer ind i jeres forretning
-                <span className="accent">.</span>
+                AI løsninger der passer ind i{" "}
+                <span className="accent">jeres forretning.</span>
               </h1>
               <p className="lead hero-lead">
                 Vi bygger AI, der passer til jer. Ikke en standardløsning - vi
@@ -179,7 +179,7 @@ export default function SkraeddersyedeAI() {
                 sjældent teknologien, den er gal med. Studiet viser, at det oftest
                 skyldes en manglende plan, data, der aldrig blev klargjort, og mål,
                 der aldrig blev sat.{" "}
-                <strong>Det er præcis dér, vi kommer ind.</strong>
+                <strong>Det er præcis dér, vi kommer ind i billedet.</strong>
               </p>
             </div>
           </FadeIn>
@@ -211,8 +211,8 @@ export default function SkraeddersyedeAI() {
                 &apos;ai i <span className="accent">øjenhøjde&apos;</span>
               </p>
               <p className="sp-foot">
-                Vi gør det komplicerede håndgribeligt. Forklarer vi noget, og I
-                ikke kan gentage det bagefter, er det vores fejl - ikke jeres.
+                Løsninger bliver bedst, når vi forstår hinanden. Derfor forsøger
+                vi altid at gøre AI så lavpraktisk og jordnært som muligt.
               </p>
             </aside>
           </FadeIn>

@@ -185,8 +185,9 @@
   }
   .hero-visual { position: relative; }
 
-  /* Hero photo (placeholder indtil rigtigt billede) */
+  /* Hero photo */
   .ws-hero-photo {
+    position: relative;
     display: block;
     width: 100%;
     height: clamp(300px, 40vw, 460px);
@@ -194,8 +195,8 @@
     border: 1px solid var(--border);
     box-shadow: var(--shadow-window);
     overflow: hidden;
-    object-fit: cover;
   }
+  .ws-hero-photo img { object-fit: cover; }
   .ws-hero-ph {
     position: relative;
     display: flex;

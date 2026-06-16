@@ -7,7 +7,7 @@ import Button from "./Button";
 
 const serviceLinks = [
   { label: "Skræddersyede AI-løsninger", href: "/skraeddersyede-ai" },
-  { label: "AI Workshop", href: "/workshop" },
+  { label: "AIK Workshop", href: "/workshop" },
   { label: "AIK Workspace", href: "/visionai" },
 ];
 

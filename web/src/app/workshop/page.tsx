@@ -135,11 +135,15 @@ export default function Workshop() {
 
           <FadeIn delay={150}>
             <div className="hero-visual">
-              <div className="ws-hero-photo ws-hero-ph">
-                <span className="ws-hero-ph-ic">
-                  <Icon name="users" />
-                </span>
-                <span>Billede fra en workshop</span>
+              <div className="ws-hero-photo">
+                <Image
+                  src="/workshop-hero.webp"
+                  alt="AI Konsulenterne i dialog med en kunde"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 980px) 100vw, 48vw"
+                  priority
+                />
               </div>
               <div className="hero-takeaway">
                 <Icon name="files" size={22} className="ht-ic" />
