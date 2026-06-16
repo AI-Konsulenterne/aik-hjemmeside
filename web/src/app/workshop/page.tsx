@@ -2,8 +2,10 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Button from "@/components/ui/Button";
 import FadeIn from "@/components/ui/FadeIn";
-import SubpageCTA from "@/components/sections/SubpageCTA";
 import JsonLd from "@/components/ui/JsonLd";
+import { Icon } from "@/components/sections/workshop-landing/icons";
+import WorkshopEmner from "@/components/sections/workshop-landing/WorkshopEmner";
+import "./workshop.css";
 
 const workshopSchema = {
   "@context": "https://schema.org",
@@ -37,7 +39,7 @@ const workshopSchema = {
 export const metadata: Metadata = {
   title: "AI Workshop for Virksomheder | Hands-on AI Kursus",
   description:
-    "AI-workshop for danske virksomheder. Hands-on kursus i ChatGPT, prompt engineering og AI-værktøjer — så medarbejderne kan bruge AI fra dag 1.",
+    "En AI-workshop bygget op om jeres egne opgaver - ikke en standardpakke. I går hjem med skabeloner, konkrete use cases og en plan for, hvad I gør bagefter.",
   alternates: { canonical: "/workshop" },
   keywords: [
     "AI workshop virksomhed",
@@ -47,132 +49,201 @@ export const metadata: Metadata = {
     "AI træning medarbejdere",
   ],
   openGraph: {
-    title: "AI Workshop for Virksomheder — Hands-on Kursus",
+    title: "AI Workshop for Virksomheder — bygget til jer",
     description:
-      "AI-workshop til danske virksomheder. Fra ChatGPT til skræddersyede AI-løsninger.",
+      "En AI-workshop bygget op om jeres egne opgaver. I går hjem med skabeloner, use cases og en plan.",
     url: "/workshop",
   },
 };
 
-const includes = [
+const HOW = [
   {
-    title: "En workshop bygget om jeres behov",
-    description:
-      "Skal I have det grundlæggende på plads? Lære at prompte ordentligt? Eller springe direkte til konkrete use cases I allerede har i tankerne? Vi snakker det igennem med jer på forhånd og bygger dagen omkring det - med den rigtige blanding af oplæg og hands-on.",
-    iconPath: "M15.59 14.37a6 6 0 01-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 006.16-12.12A14.98 14.98 0 009.631 8.41m5.96 5.96a14.926 14.926 0 01-5.841 2.58m-.119-8.54a6 6 0 00-7.381 5.84h4.8m2.581-5.84a14.927 14.927 0 00-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 01-2.448-2.448 14.9 14.9 0 01.06-.312m-2.24 2.39a4.493 4.493 0 00-1.757 4.306 4.493 4.493 0 004.306-1.758M16.5 9a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z",
+    n: "01",
+    h: "Jeres mål og hverdag",
+    p: "Vi tager udgangspunkt i jeres opgaver, udfordringer og niveau, så det giver mening for jer fra start.",
   },
   {
-    title: "Tilpasset jer, ikke en standardpakke",
-    description:
-      "En workshop for et marketingsbureau ligner ikke en for et byggefirma - og det skal den heller ikke. Vi bygger om jeres branche, jeres opgaver og jeres niveau.",
-    iconPath: "M10.5 6h9.75M10.5 6a1.5 1.5 0 11-3 0m3 0a1.5 1.5 0 10-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-9.75 0h9.75",
+    n: "02",
+    h: "Træning med hænderne i bolden",
+    p: "I arbejder med konkrete øvelser og skabeloner, så AI bliver noget, I faktisk kan bruge - ikke bare høre om.",
   },
   {
-    title: "Værktøjer I kan bruge dagen efter",
-    description:
-      "Alle går hjem med en konkret plan for deres egne opgaver og adgang til de værktøjer vi har gennemgået.",
-    iconPath: "M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z",
+    n: "03",
+    h: "Næste skridt",
+    p: "Vi samler op og prioriterer de bedste use cases, så I ved præcis, hvad I kan gøre, når workshoppen er slut.",
   },
 ];
 
-const formats = [
+const STEPS = [
   {
-    title: "Halv dag (3 timer)",
-    description:
-      "En god første smagsprøve. Vi gennemgår de vigtigste AI-værktøjer og prøver dem af på et par konkrete opgaver fra jeres hverdag.",
-    suited: "Bedst til: Teams på 5-15 personer der vil i gang",
-    highlight: false,
+    n: "1",
+    h: "Kort afklaring",
+    p: "60 minutter. Vi afdækker jeres behov og lægger en plan.",
   },
   {
-    title: "Hel dag (6 timer)",
-    description:
-      "Vi går mere i dybden. Halv dag oplæg og hands-on, halv dag på jeres egne use cases. Alle går hjem med en plan for hvad de selv kan bruge AI til.",
-    suited: "Bedst til: Afdelinger og ledergrupper",
-    highlight: true,
+    n: "2",
+    h: "Vi tilpasser indholdet",
+    p: "Vi sætter moduler og øvelser sammen, så det passer til jeres branche og mål.",
+  },
+  {
+    n: "3",
+    h: "Selve workshoppen",
+    p: "Træning, øvelser og konkrete eksempler - med plads til spørgsmål undervejs.",
+  },
+  {
+    n: "4",
+    h: "Opsamling og næste skridt",
+    p: "I får en kort opsamling og en plan for, hvad I gør de næste 2-4 uger.",
   },
 ];
 
 export default function Workshop() {
   return (
-    <>
+    <div className="aik-ws-shop">
       <JsonLd data={workshopSchema} />
-      {/* Hero */}
-      <section className="pt-[clamp(4rem,12vw,8rem)] pb-[clamp(3rem,8vw,6rem)]">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-10 lg:gap-16 items-center">
-            <FadeIn>
-              <div>
-                <p className="text-xs uppercase tracking-widest text-primary font-semibold mb-4">
-                  AI Workshop
-                </p>
-                <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold tracking-heading text-gray-900 leading-[1.05]">
-                  En dag hvor jeres team prøver kræfter med AI
-                </h1>
-                <p className="text-lg lg:text-xl text-gray-500 mt-6 leading-relaxed">
-                  Vi tilpasser dagen til jer - fra generel AI-forståelse og
-                  prompt school til konkrete use cases I sidder med lige nu. Vi
-                  snakker sammen med jer om hvor I står, og finder den rigtige
-                  blanding af teori og praksis.
-                </p>
-                <div className="flex flex-col sm:flex-row gap-4 mt-10">
-                  <Button variant="primary" size="lg" href="/kontakt" cal>
-                    Book en workshop
-                  </Button>
-                </div>
-              </div>
-            </FadeIn>
 
-            <FadeIn delay={200}>
-              <div className="relative aspect-[4/5] max-w-sm mx-auto lg:mx-0 lg:ml-auto w-full rounded-2xl overflow-hidden shadow-xl ring-1 ring-gray-100">
-                <Image
-                  src="/team/alexander-hero.png"
-                  alt="AI-workshop med AI Konsulenterne"
-                  fill
-                  priority
-                  className="object-cover"
-                  sizes="(max-width: 1024px) 100vw, 40vw"
-                />
+      {/* ── Hero ── */}
+      <section className="hero" id="top">
+        <div className="hero-glow" aria-hidden="true" />
+        <div className="container hero-grid">
+          <FadeIn>
+            <div className="hero-copy">
+              <p className="eyebrow">AI-konsulenterne</p>
+              <h1 className="display hero-title">
+                En AI-workshop, der passer til jer{" "}
+                <span className="accent">ikke en standardpakke.</span>
+              </h1>
+              <p className="lead hero-lead">
+                Vi afdækker først, hvad I står med, og bygger workshoppen op om
+                jeres egne opgaver. I går hjem med skabeloner, konkrete use cases
+                og en plan for, hvad I gør bagefter.
+              </p>
+              <div className="hero-cta">
+                <Button variant="primary" size="lg" cal>
+                  Book et møde
+                </Button>
+                <a href="#emner" className="btn btn-ghost btn-lg">
+                  Se emnerne
+                </a>
               </div>
-            </FadeIn>
+              <p className="hero-micro">
+                <Icon name="phone" /> En kort snak først - så finder vi ud af,
+                hvad der passer til jer.
+              </p>
+            </div>
+          </FadeIn>
+
+          <FadeIn delay={150}>
+            <div className="hero-visual">
+              <div className="ws-hero-photo ws-hero-ph">
+                <span className="ws-hero-ph-ic">
+                  <Icon name="users" />
+                </span>
+                <span>Billede fra en workshop</span>
+              </div>
+              <div className="hero-takeaway">
+                <Icon name="files" size={22} className="ht-ic" />
+                <p>
+                  I går hjem med noget konkret.
+                  <span className="ht-sub">Skabeloner · use cases · en plan</span>
+                </p>
+              </div>
+            </div>
+          </FadeIn>
+        </div>
+      </section>
+
+      {/* ── Problem ── */}
+      <section className="section problem-section">
+        <div className="container">
+          <FadeIn>
+            <div className="problem-wrap">
+              <h2 className="h2">De fleste AI-kurser bliver glemt ugen efter.</h2>
+              <p className="problem-body">
+                Man sidder en dag og hører om &ldquo;AI&apos;s potentiale&rdquo;,
+                nikker - og er tilbage i de gamle vaner om mandagen. Det sker,
+                fordi det aldrig handlede om jeres opgaver.{" "}
+                <strong>
+                  Vores workshop tager udgangspunkt i det, I rent faktisk sidder
+                  med
+                </strong>
+                , så det, I lærer, hænger ved.
+              </p>
+            </div>
+          </FadeIn>
+        </div>
+      </section>
+
+      {/* ── Sådan gør vi ── */}
+      <section className="section how-section" id="metode">
+        <div className="container">
+          <FadeIn>
+            <div className="section-head">
+              <p className="eyebrow">Sådan gør vi</p>
+              <h2 className="h2">Bygget op om jer - men med en fast ramme.</h2>
+              <p className="lead">
+                Vi starter med jeres hverdag og sætter workshoppen sammen derfra.
+                I får et klart udbytte og noget, der kan bruges i praksis - ikke
+                en pakke, vi trækker ned fra hylden.
+              </p>
+            </div>
+          </FadeIn>
+          <div className="how-grid">
+            {HOW.map((c, i) => (
+              <FadeIn key={c.n} delay={i * 90}>
+                <article className="card how-card">
+                  <span className="how-num">{c.n}</span>
+                  <h3 className="h3">{c.h}</h3>
+                  <p>{c.p}</p>
+                </article>
+              </FadeIn>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* What's included — list-stil for at adskille fra format-kortene */}
-      <section className="bg-gray-50 py-[clamp(3rem,8vw,6rem)]">
-        <div className="max-w-3xl mx-auto px-6 lg:px-8">
+      {/* ── Emner (interaktiv) ── */}
+      <section className="section" id="emner">
+        <div className="container">
           <FadeIn>
-            <h2 className="text-3xl lg:text-4xl font-bold tracking-heading text-gray-900 mb-10 lg:mb-12">
-              Hvad får I med hjem?
-            </h2>
+            <div className="section-head">
+              <p className="eyebrow">Emner</p>
+              <h2 className="h2">Typiske emner, vi kan bygge workshoppen af</h2>
+              <p className="lead">
+                I vælger ikke en færdig pakke - vi udvælger og vægter emnerne
+                sammen med jer.
+              </p>
+            </div>
           </FadeIn>
-          <div className="flex flex-col divide-y divide-gray-200">
-            {includes.map((item, i) => (
-              <FadeIn key={item.title} delay={i * 120}>
-                <div className="flex items-start gap-5 py-6 lg:py-7">
-                  <div className="w-11 h-11 flex-shrink-0 bg-primary/10 rounded-xl flex items-center justify-center">
-                    <svg
-                      className="w-5 h-5 text-primary"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth={1.5}
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d={item.iconPath}
-                      />
-                    </svg>
-                  </div>
-                  <div>
-                    <h3 className="text-lg lg:text-xl font-bold tracking-heading mb-1.5">
-                      {item.title}
+          <FadeIn delay={100}>
+            <WorkshopEmner />
+          </FadeIn>
+        </div>
+      </section>
+
+      {/* ── Proces ── */}
+      <section className="section process-section" id="proces">
+        <div className="container">
+          <FadeIn>
+            <div className="section-head">
+              <p className="eyebrow">Proces</p>
+              <h2 className="h2">Sådan foregår det</h2>
+              <p className="lead">
+                Fra første samtale til workshop og næste skridt.
+              </p>
+            </div>
+          </FadeIn>
+          <div className="ptl">
+            {STEPS.map((s, i) => (
+              <FadeIn key={s.n} delay={i * 80}>
+                <div className={"pstep" + (i % 2 ? " right" : "")}>
+                  <div className="pnode">{s.n}</div>
+                  <article className="pcard">
+                    <h3 className="pc-h">
+                      <span className="pc-num">{s.n}</span> · {s.h}
                     </h3>
-                    <p className="text-gray-500 leading-relaxed">
-                      {item.description}
-                    </p>
-                  </div>
+                    <p>{s.p}</p>
+                  </article>
                 </div>
               </FadeIn>
             ))}
@@ -180,49 +251,45 @@ export default function Workshop() {
         </div>
       </section>
 
-      {/* Formats */}
-      <section className="py-[clamp(3rem,8vw,6rem)]">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      {/* ── Final CTA ── */}
+      <section className="section final-section" id="kontakt">
+        <div className="container">
           <FadeIn>
-            <h2 className="text-3xl lg:text-4xl font-bold tracking-heading text-gray-900 text-center mb-12">
-              Vælg det format der passer jer
-            </h2>
-          </FadeIn>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            {formats.map((format, i) => (
-              <FadeIn key={format.title} delay={i * 150}>
-                <div
-                  className={`rounded-2xl p-8 h-full transition-colors ${
-                    format.highlight
-                      ? "border-2 border-primary bg-primary/5"
-                      : "border-2 border-gray-200 hover:border-primary"
-                  }`}
-                >
-                  {format.highlight && (
-                    <p className="text-xs uppercase tracking-widest text-primary font-semibold mb-3">
-                      Mest populær
-                    </p>
-                  )}
-                  <h3 className="text-xl font-bold tracking-heading mb-3">
-                    {format.title}
-                  </h3>
-                  <p className="text-gray-500 leading-relaxed mb-4">
-                    {format.description}
-                  </p>
-                  <p className="text-sm text-primary font-semibold">
-                    {format.suited}
-                  </p>
+            <div className="final-card">
+              <div className="final-glow" aria-hidden="true" />
+              <p className="eyebrow">Næste skridt</p>
+              <h2 className="h2 final-title">
+                Vil du høre, hvad der passer til jer?
+              </h2>
+              <p className="final-lead">
+                Vi starter med en kort snak, hvor vi finder ud af, hvad I har brug
+                for - og siger ærligt, om en workshop er det rigtige for jer lige
+                nu.
+              </p>
+              <div className="final-cta">
+                <Button variant="primary" size="lg" cal>
+                  Book en snak
+                </Button>
+                <div className="final-phone">
+                  <Image
+                    src="/alexander.png"
+                    alt="Alexander, AI Konsulenterne"
+                    width={58}
+                    height={58}
+                    className="fp-av"
+                  />
+                  <span className="fp-text">
+                    <span className="fp-label">Snak med et menneske</span>
+                    <a href="tel:+4525547074" className="fp-num">
+                      <Icon name="phone" /> +45 25 54 70 74
+                    </a>
+                  </span>
                 </div>
-              </FadeIn>
-            ))}
-          </div>
+              </div>
+            </div>
+          </FadeIn>
         </div>
       </section>
-
-      <SubpageCTA
-        heading="Klar til at løfte jeres team?"
-        description="Kontakt os for en uforpligtende snak om hvilken workshop der passer til jeres virksomhed."
-      />
-    </>
+    </div>
   );
 }
