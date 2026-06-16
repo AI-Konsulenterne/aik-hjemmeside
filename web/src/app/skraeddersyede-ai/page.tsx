@@ -2,8 +2,10 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Button from "@/components/ui/Button";
 import FadeIn from "@/components/ui/FadeIn";
-import SubpageCTA from "@/components/sections/SubpageCTA";
 import JsonLd from "@/components/ui/JsonLd";
+import { Icon } from "@/components/sections/skraeddersyede/icons";
+import SkraeddersyedeFaq from "@/components/sections/skraeddersyede/SkraeddersyedeFaq";
+import "./ai-landing.css";
 
 const serviceSchema = {
   "@context": "https://schema.org",
@@ -25,7 +27,7 @@ const serviceSchema = {
 export const metadata: Metadata = {
   title: "Skræddersyede AI-løsninger til SMV'er | Custom AI Udvikling",
   description:
-    "Vi bygger skræddersyede AI-løsninger til danske SMV'er — integreret med jeres CRM, ERP og webshop. Platformsuafhængig rådgivning. Gratis AI-afklaring.",
+    "Vi bygger AI, der passer ind i jeres forretning - forankret i jeres udfordringer, systemer og måde at arbejde på. Platformsuafhængig rådgivning. Gratis AI-afklaring.",
   alternates: { canonical: "/skraeddersyede-ai" },
   keywords: [
     "skræddersyede AI-løsninger",
@@ -38,147 +40,245 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Skræddersyede AI-løsninger til SMV'er",
     description:
-      "Custom AI til danske SMV'er — integreret med jeres systemer. Gratis AI-afklaring.",
+      "Custom AI til danske SMV'er - integreret med jeres systemer. Gratis AI-afklaring.",
     url: "/skraeddersyede-ai",
   },
 };
 
-const benefits = [
+const PROOF_LOGOS = ["Lavazza", "Indkom", "Manyt", "CETC", "Stretchfit"];
+
+const STEPS = [
   {
-    title: "Bygget til jeres virksomhed",
-    description:
-      "Vi analyserer jeres arbejdsgange og bygger AI der passer præcis til jeres behov — ikke en one-size-fits-all løsning.",
-    iconPath: "M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 11-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 004.486-6.336l-3.276 3.277a3.004 3.004 0 01-2.25-2.25l3.276-3.276a4.5 4.5 0 00-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085",
+    n: "01",
+    h: "Vi finder ud af, hvor skoen trykker",
+    p: "Vi starter med forretningen, ikke teknologien. Vi kigger på, hvordan I arbejder i dag, og hvor der bliver brugt tid på det forkerte.",
+    gain: "et klart billede af, hvor det giver mest mening at gå i gang.",
   },
   {
-    title: "Integration med jeres systemer",
-    description:
-      "Vi integrerer AI direkte i de systemer I allerede bruger. CRM, ERP, e-commerce, kundeservice — vi binder det hele sammen.",
-    iconPath: "M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244",
+    n: "02",
+    h: "Vi lægger en plan",
+    p: "Så finder vi ud af, hvad der skal bygges, hvordan det skal spille sammen med jeres systemer, og at jeres data er i sikre hænder. Intet overlades til tilfældighederne.",
+    gain: "en klar plan for, hvad vi bygger, og hvordan.",
   },
   {
-    title: "Ingen IT-afdeling krævet",
-    description:
-      "Vi tager os af alt det tekniske. I skal ikke have en IT-afdeling eller teknisk viden for at komme i gang.",
-    iconPath: "M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z",
+    n: "03",
+    h: "Vi bygger og får det i gang",
+    p: "Vi bygger løsningen i korte spring og får den hurtigt i brug, så I kan mærke forskellen tidligt - i stedet for at vente på et stort projekt, der aldrig bliver helt færdigt.",
+    gain: "en AI-løsning, der kører i jeres hverdag.",
   },
   {
-    title: "Målbare resultater fra dag 1",
-    description:
-      "Vi definerer klare KPI'er fra start, så I kan se præcis hvad AI gør for jeres bundlinje.",
-    iconPath: "M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z",
+    n: "04",
+    h: "Vi ser, hvad der virker",
+    p: "Når jeres folk begynder at bruge den, ser vi sammen på, hvad der rammer plet, og hvad der skal justeres. Vi retter til undervejs.",
+    gain: "en løsning, der bliver bedre, jo længere I har den.",
+  },
+  {
+    n: "05",
+    h: "Vi sørger for, at det bliver hos jer",
+    p: "Når løsningen kører og gør en forskel, hjælper vi med at få den helt ind i hverdagen - så det ikke står og falder med én person, men bliver en del af måden, I arbejder på.",
+    gain: "en løsning, jeres egen organisation kan stå på selv.",
   },
 ];
 
-const processSteps = [
+const WHY = [
   {
-    step: 1,
-    title: "Afklaring",
-    description:
-      "Vi starter med en gratis 45-minutters samtale om jeres virksomhed, udfordringer og muligheder med AI.",
+    ic: "message",
+    h: "Vi bliver hængende.",
+    p: "Vi vil hellere være dem, I ringer til, end en leverandør, der bygger ét projekt og forsvinder.",
   },
   {
-    step: 2,
-    title: "Analyse & forslag",
-    description:
-      "Vi dykker ned i jeres arbejdsgange og præsenterer et konkret forslag med forventet ROI og tidsplan.",
+    ic: "lock",
+    h: "Jeres data bliver hos jer.",
+    p: "Vi bygger inden for jeres egne rammer - det ryger ikke ud i et åbent AI-system.",
   },
   {
-    step: 3,
-    title: "Udvikling",
-    description:
-      "Vi bygger løsningen i tæt samarbejde med jer. I får løbende opdateringer og kan teste undervejs.",
-  },
-  {
-    step: 4,
-    title: "Lancering & support",
-    description:
-      "Vi implementerer løsningen i jeres hverdag og sikrer at alt kører. Vi står klar med support bagefter.",
+    ic: "users",
+    h: "Ingen teknisk jargon.",
+    p: "Vi gør en dyd ud af at gøre AI så håndgribeligt som muligt, derfor minimerer vi også brugen af teknisk jargon - så det bliver i øjenhøjde.",
   },
 ];
 
 export default function SkraeddersyedeAI() {
   return (
-    <>
+    <div className="aik-ai">
       <JsonLd data={serviceSchema} />
-      {/* Hero */}
-      <section className="pt-[clamp(4rem,12vw,8rem)] pb-[clamp(3rem,8vw,6rem)]">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_1fr] gap-10 lg:gap-16 items-center">
-            <FadeIn>
-              <div>
-                <p className="text-xs uppercase tracking-widest text-primary font-semibold mb-4">
-                  Skræddersyede løsninger
-                </p>
-                <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold tracking-heading text-gray-900 leading-[1.05]">
-                  AI der passer præcis til jeres virksomhed
-                </h1>
-                <p className="text-lg lg:text-xl text-gray-500 mt-6 leading-relaxed">
-                  Vi bygger ikke standardløsninger. Vi bygger AI der løser jeres
-                  specifikke udfordringer - og som integrerer med de systemer I
-                  allerede bruger.
-                </p>
-                <div className="flex flex-col sm:flex-row gap-4 mt-10">
-                  <Button variant="primary" size="lg" href="/kontakt" cal>
-                    Book et møde i dag
-                  </Button>
-                  <Button variant="secondary" size="lg" href="/cases">
-                    Se eksempler
-                  </Button>
+
+      {/* ── Hero ── */}
+      <section className="hero" id="top">
+        <div className="hero-glow" aria-hidden="true" />
+        <div className="container hero-grid">
+          <FadeIn>
+            <div className="hero-copy">
+              <p className="eyebrow">AI-konsulenterne</p>
+              <h1 className="display hero-title">
+                AI løsninger der passer ind i jeres forretning
+                <span className="accent">.</span>
+              </h1>
+              <p className="lead hero-lead">
+                Vi bygger AI, der passer til jer. Ikke en standardløsning - vi
+                tager udgangspunkt i jeres udfordringer, jeres systemer og jeres
+                måde at arbejde på.
+              </p>
+              <div className="hero-cta">
+                <Button variant="primary" size="lg" cal>
+                  Tag en snak med os
+                </Button>
+                <a href="#cases" className="btn btn-ghost btn-lg">
+                  Se vores cases
+                </a>
+              </div>
+              <p className="hero-micro">
+                <Icon name="phone" /> Vi ringer én gang - ikke en sælgerkæde.
+              </p>
+            </div>
+          </FadeIn>
+
+          <FadeIn delay={150}>
+            <div className="hero-visual">
+              <div className="appwin">
+                <div className="appwin-bar">
+                  <span className="dot" />
+                  <span className="dot" />
+                  <span className="dot" />
+                  <div className="appwin-url">ai-konsulenterne.dk</div>
+                </div>
+                <div className="appwin-screen">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src="/screenshots/skraeddersyede-dashboard.png"
+                    alt="Et AI-system bygget til en virksomhed - forankret i deres egne data og systemer"
+                    width={2632}
+                    height={1616}
+                    draggable={false}
+                  />
                 </div>
               </div>
-            </FadeIn>
-
-            <FadeIn delay={200}>
-              <div className="relative rounded-2xl overflow-hidden shadow-xl ring-1 ring-gray-100">
-                <Image
-                  src="/screenshots/aik-gpt.png"
-                  alt="AI Konsulenternes egen AI-assistent"
-                  width={768}
-                  height={502}
-                  priority
-                  className="w-full h-auto"
-                  sizes="(max-width: 1024px) 100vw, 48vw"
-                />
+              <div className="hero-quote-card">
+                <Icon name="shield-check" size={22} className="qmark" />
+                <p>
+                  Forankret i jeres forretningslogik
+                  <span className="qrole">Koblet til jeres egne systemer</span>
+                </p>
               </div>
-            </FadeIn>
-          </div>
+            </div>
+          </FadeIn>
         </div>
       </section>
 
-      {/* Benefits */}
-      <section className="bg-gray-50 py-[clamp(3rem,8vw,6rem)]">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      {/* ── Problemet ── */}
+      <section className="section problem-section">
+        <div className="container">
           <FadeIn>
-            <h2 className="text-3xl lg:text-4xl font-bold tracking-heading text-gray-900 text-center mb-12">
-              Hvad gør vores løsninger anderledes?
-            </h2>
+            <div className="problem-wrap">
+              <h2 className="h2">
+                Det er ikke teknologien, der dræber AI-projekter
+              </h2>
+              <p className="problem-body">
+                Der bliver brugt milliarder på AI, og alligevel viste MIT i 2025,
+                at 95% af projekterne ikke gav noget målbart resultat igen. Det er
+                sjældent teknologien, den er gal med. Studiet viser, at det oftest
+                skyldes en manglende plan, data, der aldrig blev klargjort, og mål,
+                der aldrig blev sat.{" "}
+                <strong>Det er præcis dér, vi kommer ind.</strong>
+              </p>
+            </div>
           </FadeIn>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {benefits.map((benefit, i) => (
-              <FadeIn key={benefit.title} delay={i * 100}>
-                <div className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow h-full">
-                  <div className="w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center mb-4">
-                    <svg
-                      className="w-5 h-5 text-primary"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth={1.5}
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d={benefit.iconPath}
-                      />
-                    </svg>
-                  </div>
-                  <h3 className="text-xl font-bold tracking-heading mb-3">
-                    {benefit.title}
-                  </h3>
-                  <p className="text-gray-500 leading-relaxed">
-                    {benefit.description}
-                  </p>
+        </div>
+      </section>
+
+      {/* ── Tilgang ── */}
+      <section className="section" id="tilgang">
+        <div className="container approach-grid">
+          <FadeIn>
+            <div className="approach-copy">
+              <p className="eyebrow">Vores tilgang</p>
+              <h2 className="h2">Mål to gange og sav én gang</h2>
+              <p className="lead">
+                Vi bruger tiden på at forstå jeres forretning, før vi bygger. Vi
+                afdækker hvordan I arbejder, hvor skoen trykker, og hvor AI kan
+                gøre den største forskel. Det er den del, de fleste springer over,
+                og derfor ender så mange projekter med en løsning, ingen rigtig
+                bruger. Vi vil hellere bruge en uge ekstra på at forstå end et
+                halvt år på at bygge det forkerte.
+              </p>
+            </div>
+          </FadeIn>
+          <FadeIn delay={120}>
+            <aside className="slogan-panel">
+              <div className="sp-glow" aria-hidden="true" />
+              <p className="sp-label">AI Konsulenterne</p>
+              <p className="sp-quote">
+                &apos;ai i <span className="accent">øjenhøjde&apos;</span>
+              </p>
+              <p className="sp-foot">
+                Vi gør det komplicerede håndgribeligt. Forklarer vi noget, og I
+                ikke kan gentage det bagefter, er det vores fejl - ikke jeres.
+              </p>
+            </aside>
+          </FadeIn>
+        </div>
+      </section>
+
+      {/* ── Bevis (cases) ── */}
+      <section className="section proof-section" id="cases">
+        <div className="container">
+          <FadeIn>
+            <div className="proof-head">
+              <p className="eyebrow">Stol på vores kunder</p>
+              <h2 className="h2">Vi har bygget til</h2>
+            </div>
+          </FadeIn>
+          <FadeIn delay={80}>
+            <div className="proof-logos">
+              {PROOF_LOGOS.map((l) => (
+                <span className="proof-logo" key={l}>
+                  {l}
+                </span>
+              ))}
+            </div>
+          </FadeIn>
+          <FadeIn delay={120}>
+            <figure className="proof-quote">
+              <Icon name="quote" size={36} className="qmark" />
+              <blockquote>
+                Vi er rigtig glade for både samarbejdet og den løsning vi er endt
+                ud med. Jeres AI-assistent anbefaler produkter fra vores webshop,
+                og det fungerer virkelig godt.
+              </blockquote>
+              <figcaption className="ph-tag">
+                Claus Damsgaard · Direktør, INDKOM ApS
+              </figcaption>
+            </figure>
+          </FadeIn>
+        </div>
+      </section>
+
+      {/* ── Proces ── */}
+      <section className="section process-section" id="proces">
+        <div className="container">
+          <FadeIn>
+            <div className="section-head">
+              <p className="eyebrow">Sådan arbejder vi</p>
+              <h2 className="h2">Trin for trin - hånd i hånd</h2>
+            </div>
+          </FadeIn>
+          <div className="ptl">
+            {STEPS.map((s, i) => (
+              <FadeIn key={s.n} delay={i * 70}>
+                <div className={"pstep" + (i % 2 ? " right" : "")}>
+                  <div className="pnode">{s.n}</div>
+                  <article className="pcard">
+                    <h3 className="pc-h">
+                      <span className="pc-num">{s.n}</span> · {s.h}
+                    </h3>
+                    <p>{s.p}</p>
+                    <span className="pc-gain">
+                      <Icon name="check" />{" "}
+                      <span>
+                        <b>I får:</b> {s.gain}
+                      </span>
+                    </span>
+                  </article>
                 </div>
               </FadeIn>
             ))}
@@ -186,38 +286,83 @@ export default function SkraeddersyedeAI() {
         </div>
       </section>
 
-      {/* Process */}
-      <section className="py-[clamp(3rem,8vw,6rem)]">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      {/* ── Hvorfor os ── */}
+      <section className="section" id="hvorfor">
+        <div className="container">
           <FadeIn>
-            <h2 className="text-3xl lg:text-4xl font-bold tracking-heading text-gray-900 text-center mb-12">
-              Fra idé til løsning
-            </h2>
+            <div className="section-head">
+              <p className="eyebrow">Hvorfor os</p>
+              <h2 className="h2">Vi vil være dem I ringer til</h2>
+            </div>
           </FadeIn>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {processSteps.map((item, i) => (
-              <FadeIn key={item.step} delay={i * 150}>
-                <div className="text-center">
-                  <div className="w-10 h-10 rounded-full bg-primary text-white font-bold flex items-center justify-center text-lg mx-auto mb-4">
-                    {item.step}
+          <div className="why-grid">
+            {WHY.map((c, i) => (
+              <FadeIn key={c.h} delay={i * 90}>
+                <article className="card why-card">
+                  <div className="icon-tile">
+                    <Icon name={c.ic} />
                   </div>
-                  <h3 className="text-lg font-bold tracking-heading mb-2">
-                    {item.title}
-                  </h3>
-                  <p className="text-gray-500 leading-relaxed">
-                    {item.description}
-                  </p>
-                </div>
+                  <h3 className="h3">{c.h}</h3>
+                  <p>{c.p}</p>
+                </article>
               </FadeIn>
             ))}
           </div>
         </div>
       </section>
 
-      <SubpageCTA
-        heading="Skal vi tage en snak?"
-        description="Book en gratis 45-minutters AI-afklaring. Vi finder ud af præcis hvor AI kan gavne jer bedst muligt."
-      />
-    </>
+      {/* ── FAQ ── */}
+      <section className="section faq-section" id="faq">
+        <div className="container faq-container">
+          <FadeIn>
+            <div className="section-head">
+              <p className="eyebrow">FAQ</p>
+              <h2 className="h2">Hvad spørger vores kunder om?</h2>
+            </div>
+          </FadeIn>
+          <FadeIn delay={100}>
+            <SkraeddersyedeFaq />
+          </FadeIn>
+        </div>
+      </section>
+
+      {/* ── Afsluttende CTA ── */}
+      <section className="section final-section" id="kontakt">
+        <div className="container">
+          <FadeIn>
+            <div className="final-card">
+              <div className="final-glow" aria-hidden="true" />
+              <p className="eyebrow">Næste skridt</p>
+              <h2 className="h2 final-title">Skal vi tage en snak?</h2>
+              <p className="final-lead">
+                Ring til Alexander på +45 25 54 70 74, eller skriv til os. Vi
+                finder ud af, hvor I står, og giver jer et konkret bud på næste
+                skridt - og siger ærligt, om vi er de rette til opgaven.
+              </p>
+              <div className="final-cta">
+                <Button variant="primary" size="lg" cal>
+                  Tag en snak med os
+                </Button>
+                <div className="final-phone">
+                  <Image
+                    src="/alexander.png"
+                    alt="Alexander, AI Konsulenterne"
+                    width={58}
+                    height={58}
+                    className="fp-av"
+                  />
+                  <span className="fp-text">
+                    <span className="fp-label">Snak med et menneske</span>
+                    <a href="tel:+4525547074" className="fp-num">
+                      <Icon name="phone" /> +45 25 54 70 74
+                    </a>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </FadeIn>
+        </div>
+      </section>
+    </div>
   );
 }
