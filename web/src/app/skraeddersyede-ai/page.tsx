@@ -45,12 +45,18 @@ export const metadata: Metadata = {
   },
 };
 
-const PROOF_LOGOS: { name: string; logo: string | null; w: number; h: number }[] = [
+const PROOF_LOGOS: {
+  name: string;
+  logo: string;
+  w: number;
+  h: number;
+  light?: boolean;
+}[] = [
   { name: "Lavazza", logo: "/logos/lavazza.png", w: 140, h: 88 },
-  { name: "Indkom", logo: "/logos/indkom.png", w: 140, h: 26 },
-  { name: "Manyt", logo: null, w: 0, h: 0 },
-  { name: "CETC", logo: null, w: 0, h: 0 },
+  { name: "Indkom", logo: "/logos/indkom.png", w: 200, h: 38, light: true },
   { name: "Stretchfit", logo: "/logos/stretchfit.png", w: 150, h: 45 },
+  { name: "J.M Band", logo: "/logos/jmband.png", w: 120, h: 59 },
+  { name: "Fregat", logo: "/logos/fregat.png", w: 400, h: 112 },
 ];
 
 const STEPS = [
@@ -89,8 +95,8 @@ const STEPS = [
 const WHY = [
   {
     ic: "message",
-    h: "Vi bliver hængende.",
-    p: "Vi vil hellere være dem, I ringer til, end en leverandør, der bygger ét projekt og forsvinder.",
+    h: "25+ års erfaring med AI.",
+    p: "Med over 25 års erfaring med AI ved vi godt, hvordan man skal arbejde, udvikle, implementere og drifte AI.",
   },
   {
     ic: "lock",
@@ -237,22 +243,16 @@ export default function SkraeddersyedeAI() {
           </FadeIn>
           <FadeIn delay={80}>
             <div className="proof-logos">
-              {PROOF_LOGOS.map((c) =>
-                c.logo ? (
-                  <Image
-                    key={c.name}
-                    src={c.logo}
-                    alt={c.name}
-                    width={c.w}
-                    height={c.h}
-                    className="proof-logo-img"
-                  />
-                ) : (
-                  <span className="proof-logo" key={c.name}>
-                    {c.name}
-                  </span>
-                ),
-              )}
+              {PROOF_LOGOS.map((c) => (
+                <Image
+                  key={c.name}
+                  src={c.logo}
+                  alt={c.name}
+                  width={c.w}
+                  height={c.h}
+                  className={`proof-logo-img${c.light ? " is-light" : ""}`}
+                />
+              ))}
             </div>
           </FadeIn>
           <FadeIn delay={120}>

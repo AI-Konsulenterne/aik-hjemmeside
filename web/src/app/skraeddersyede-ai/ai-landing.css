@@ -354,6 +354,8 @@
     transition: opacity 0.25s ease, filter 0.25s ease;
   }
   .proof-logo-img:hover { opacity: 1; filter: grayscale(0); }
+  .proof-logo-img.is-light { filter: brightness(0); }
+  .proof-logo-img.is-light:hover { filter: brightness(0); opacity: 1; }
   .proof-quote {
     max-width: 720px;
     margin: clamp(44px, 6vw, 64px) auto 0;
