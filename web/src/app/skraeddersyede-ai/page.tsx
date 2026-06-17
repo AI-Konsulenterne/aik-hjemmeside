@@ -295,9 +295,7 @@ export default function SkraeddersyedeAI() {
                 <div className={"pstep" + (i % 2 ? " right" : "")}>
                   <div className="pnode">{s.n}</div>
                   <article className="pcard">
-                    <h3 className="pc-h">
-                      <span className="pc-num">{s.n}</span> · {s.h}
-                    </h3>
+                    <h3 className="pc-h">{s.h}</h3>
                     <p>{s.p}</p>
                     <span className="pc-gain">
                       <Icon name="check" />{" "}
