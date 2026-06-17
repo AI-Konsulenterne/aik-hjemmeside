@@ -294,10 +294,8 @@ export default function AcademyLanding() {
               <div>
                 <Eyebrow>AIK Academy</Eyebrow>
                 <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold tracking-heading text-gray-900 leading-[1.04] mt-4 text-balance">
-                  I betaler allerede for AI licenser,{" "}
-                  <span className="text-primary">
-                    nu skal jeres medarbejdere også bruge dem
-                  </span>
+                  Et AI læringsunivers{" "}
+                  <span className="text-primary">til hele organisationen</span>
                 </h1>
                 <p className="text-lg lg:text-xl text-gray-500 mt-6 leading-relaxed max-w-xl">
                   Et online læringsunivers, hvor jeres medarbejdere lærer at
