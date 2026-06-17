@@ -82,7 +82,7 @@ export default async function Testimonials() {
                         {t.authorName}
                       </p>
                       <p className="text-xs text-gray-500 mt-0.5 truncate">
-                        {t.authorTitle} · {t.company}
+                        {[t.authorTitle, t.company].filter(Boolean).join(" · ")}
                       </p>
                     </div>
                     {logo && (
