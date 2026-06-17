@@ -81,12 +81,12 @@ const STEPS = [
   {
     n: "04",
     h: "Vi ser, hvad der virker",
-    p: "Når jeres folk begynder at bruge den, ser vi sammen på, hvad der rammer plet, og hvad der skal justeres. Vi retter til undervejs.",
+    p: "Når jeres medarbejdere begynder at bruge løsningen, ser vi sammen på, hvad der rammer plet, og hvad der skal justeres, og så retter vi til undervejs.",
     gain: "en løsning, der bliver bedre, jo længere I har den.",
   },
   {
     n: "05",
-    h: "Vi sørger for, at det bliver hos jer",
+    h: "Vi er med jer hele vejen",
     p: "Når løsningen kører og gør en forskel, hjælper vi med at få den helt ind i hverdagen - så det ikke står og falder med én person, men bliver en del af måden, I arbejder på.",
     gain: "en løsning, jeres egen organisation kan stå på selv.",
   },
@@ -379,29 +379,12 @@ export default function SkraeddersyedeAI() {
               <p className="eyebrow">Næste skridt</p>
               <h2 className="h2 final-title">Skal vi tage en snak?</h2>
               <p className="final-lead">
-                Ring til Alexander på +45 25 54 70 74, eller skriv til os. Vi
-                finder ud af, hvor I står, og giver jer et konkret bud på næste
-                skridt - og siger ærligt, om vi er de rette til opgaven.
+                Få tilsendt jeres første use case lige her.
               </p>
               <div className="final-cta">
                 <Button variant="primary" size="lg" cal>
-                  Tag en snak med os
+                  Kom i gang med AI i dag
                 </Button>
-                <div className="final-phone">
-                  <Image
-                    src="/alexander.png"
-                    alt="Alexander, AI Konsulenterne"
-                    width={58}
-                    height={58}
-                    className="fp-av"
-                  />
-                  <span className="fp-text">
-                    <span className="fp-label">Snak med et menneske</span>
-                    <a href="tel:+4525547074" className="fp-num">
-                      <Icon name="phone" /> +45 25 54 70 74
-                    </a>
-                  </span>
-                </div>
               </div>
             </div>
           </FadeIn>
