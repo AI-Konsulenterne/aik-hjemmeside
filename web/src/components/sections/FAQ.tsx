@@ -13,11 +13,7 @@ const faqs = [
     a: "Vi er ikke gift med én leverandør. Vi bruger det der passer bedst til opgaven - Azure OpenAI, Claude, Gemini, åbne modeller, eller en kombination. Vi sælger ikke licenser, vi løser opgaver. Så vi vælger det værktøj der gør jobbet bedst.",
   },
   {
-    q: "Hvordan sikrer I at medarbejderne faktisk bruger løsningen?",
-    a: "Det er nok det sværeste i hele AI-historien - og det er der de fleste projekter falder fra hinanden. Vi bygger løsningen ind i de værktøjer folk bruger i forvejen, så den ikke ligger som en ekstra fane de skal huske at åbne. Efter lancering kigger vi sammen på hvem der bruger det, hvem der ikke gør, og hvor der skal justeres.",
-  },
-  {
-    q: "Er det GDPR-sikkert?",
+    q: "Hvad med GDPR?",
     a: "Ja. Når vi bygger AI, er det vigtigt for os, at det overholder GDPR, og at jeres data ikke ender hos hele verden. Det betyder konkret, at jeres data ikke ender i åbne modeller og ikke bliver brugt til at træne på.",
   },
   {

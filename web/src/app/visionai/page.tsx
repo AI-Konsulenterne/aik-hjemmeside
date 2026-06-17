@@ -31,7 +31,6 @@ export const metadata: Metadata = {
 };
 
 const HERO_CHIPS: [string, string][] = [
-  ["users", "400+ daglige brugere"],
   ["shield-check", "GDPR-compliant"],
   ["flag", "Data i EU"],
   ["zap", "Hurtig opsætning"],

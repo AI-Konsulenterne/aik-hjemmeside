@@ -35,7 +35,7 @@ export default function Barriers() {
             Det er ikke AI der er svært. Det er at vide hvor man skal starte.
           </h2>
           <p className="text-gray-500 text-center max-w-2xl mx-auto mt-4 leading-relaxed">
-            De fleste virksomheder vi møder, sidder med de samme fem udfordringer - genkender I nogen?
+            De fleste virksomheder vi møder, sidder med de samme fem udfordringer - Kan du genkende nogen?
           </p>
         </FadeIn>
 

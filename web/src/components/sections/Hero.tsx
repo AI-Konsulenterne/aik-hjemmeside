@@ -68,9 +68,6 @@ export default function Hero() {
                   Få en gratis AI-analyse
                 </Button>
               </div>
-              <p className="text-xs text-gray-400 mt-4">
-                45 min · Gratis · Ingen forberedelse · Uforpligtende
-              </p>
             </FadeIn>
           </div>
 
