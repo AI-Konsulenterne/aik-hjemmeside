@@ -111,7 +111,7 @@ const faqJsonLd = {
       name: "Hvordan sikrer I at medarbejderne faktisk bruger løsningen?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Det er nok det sværeste i hele AI-historien - og det er der de fleste projekter falder fra hinanden. Vi bygger løsningen ind i de værktøjer folk bruger i forvejen. Efter lancering kigger vi sammen på hvem der bruger det, og hvor der skal justeres. Hvis ingen bruger løsningen, har vi ikke leveret den.",
+        text: "Det er nok det sværeste i hele AI-historien - og det er der de fleste projekter falder fra hinanden. Vi bygger løsningen ind i de værktøjer folk bruger i forvejen. Efter lancering kigger vi sammen på hvem der bruger det, og hvor der skal justeres.",
       },
     },
     {

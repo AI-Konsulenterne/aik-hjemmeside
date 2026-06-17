@@ -19,7 +19,7 @@ const barriers = [
   },
   {
     quote: "Vores medarbejdere kommer aldrig til at bruge det",
-    answer: "Hvis jeres medarbejdere ikke ser værdi i værktøjerne bruger de dem ikke, derfor hjælper vi jer med at lægge en konkret plan for at få AI ud at leve i organisationen",
+    answer: "Hvis jeres medarbejdere ikke ser værdi i værktøjerne bruger de det ikke, derfor hjælper vi jer med at lægge en konkret plan for at få AI ud at leve i organisationen",
   },
 ];
 
@@ -69,7 +69,7 @@ export default function Barriers() {
                 I behøver ikke have svarene.
               </p>
               <p className="text-white/60 text-sm leading-relaxed">
-                Det er præcis derfor vi findes. 45 minutter med os - så lægger vi en plan
+                Det er præcis derfor vi findes. Så lad os tage en god snak og se hvor I står.
               </p>
             </div>
           </FadeIn>

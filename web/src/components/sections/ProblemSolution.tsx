@@ -13,12 +13,12 @@ const steps = [
   {
     number: "02",
     title: "Vi finder den løsning der passer til jer",
-    body: "Det er her det bliver lidt mere teknisk. Vi definerer den udfordring vi står overfor og hvad formål med vores AI løsning er. Efterfølgende skal vi have afklaret det tekniske setup og arbejdet omkring jeres data, hvilke systemer der skal tale sammen.",
+    body: "Her bliver det lidt mere teknisk. Først definerer vi udfordringen, vi står over for, og hvad formålet med løsningen er. Derefter afklarer vi det tekniske setup: hvordan jeres data skal håndteres, arkitekturen og hvilke systemer der skal tale sammen.",
   },
   {
     number: "03",
     title: "Vi udvikler første version",
-    body: "I den her fase udvikler vi første version. Vi kobler modellen sammen med jeres data, systemer og får teknikken til at spille.\n\nVi tror på, at vi lærer mest om produktet og behovet, når I får det i hænderne. Derfor gør vi en dyd ud af at levere en POC hurtigt, så vi kan iterere og tilpasse undervejs.",
+    body: "I den her fase udvikler vi den første version. Vi kobler modellen sammen med jeres data og systemer og får teknikken til at spille. Vi tror på, at vi lærer mest om produktet og behovet, når I får det i hænderne. Derfor gør vi en dyd ud af at levere en POC hurtigt, så vi kan iterere og tilpasse undervejs.",
   },
   {
     number: "04",
@@ -28,7 +28,7 @@ const steps = [
   {
     number: "05",
     title: "Vi er med jer hele vejen",
-    body: "Når løsningen er i luften, forsvinder vi ikke bare væk. Vi drifter den naturligvis sammen med jer, står klar med support, og er der, når noget skal justeres eller udvikles. Vi ser det mere som en rejse, vi tager del i sammen.",
+    body: "Når løsningen er i luften, forsvinder vi ikke bare. Vi drifter den naturligvis sammen med jer, står klar med support og er der, når noget skal justeres eller udvikles.",
   },
 ];
 

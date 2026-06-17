@@ -6,7 +6,7 @@ import FadeIn from "@/components/ui/FadeIn";
 const faqs = [
   {
     q: "Vi har ikke en IT-afdeling - kan vi stadig få AI?",
-    a: "Ja - og I er faktisk i godt selskab. Det er størstedelen af vores kunder. I behøver hverken IT-folk eller intern AI-viden for at komme i gang, det er det vi er her til. Vi sætter det op, viser jer hvordan det bruges, og er der hvis noget driller. Når I efter et stykke tid selv har styr på det, er det også fint.",
+    a: "Ja - og I er faktisk i godt selskab. Det er størstedelen af vores kunder. I behøver hverken IT-folk eller intern AI-viden for at komme i gang, det er det vi er her til. Vi sætter det op, viser jer hvordan det bruges, og er der hvis noget driller.",
   },
   {
     q: "Hvilke platforme bruger I?",
@@ -14,7 +14,7 @@ const faqs = [
   },
   {
     q: "Hvordan sikrer I at medarbejderne faktisk bruger løsningen?",
-    a: "Det er nok det sværeste i hele AI-historien - og det er der de fleste projekter falder fra hinanden. Vi bygger løsningen ind i de værktøjer folk bruger i forvejen, så den ikke ligger som en ekstra fane de skal huske at åbne. Efter lancering kigger vi sammen på hvem der bruger det, hvem der ikke gør, og hvor der skal justeres. Hvis ingen bruger løsningen, har vi ikke leveret den.",
+    a: "Det er nok det sværeste i hele AI-historien - og det er der de fleste projekter falder fra hinanden. Vi bygger løsningen ind i de værktøjer folk bruger i forvejen, så den ikke ligger som en ekstra fane de skal huske at åbne. Efter lancering kigger vi sammen på hvem der bruger det, hvem der ikke gør, og hvor der skal justeres.",
   },
   {
     q: "Er det GDPR-sikkert?",
@@ -26,7 +26,7 @@ const faqs = [
   },
   {
     q: "Kan vi ikke bare bruge ChatGPT?",
-    a: "Selvfølgelig kan I det - vi bruger den også selv. ChatGPT er fin til de hurtige opgaver: en mail, et resumé, et oplæg. Men når I rammer et reelt behov i forretningen - noget der kræver jeres egne data, jeres systemer eller en proces der skal køre af sig selv - så er en standardchat ikke nok. Der bygger vi noget der løser den specifikke ting, ikke en generisk chat oveni.",
+    a: "Selvfølgelig kan I det - vi bruger den også selv. ChatGPT er fin til de hurtige opgaver: en mail, et resumé, et oplæg. Men når I rammer et reelt behov i forretningen - noget der kræver jeres egne data, jeres systemer eller en proces der skal køre af sig selv - så er en standardchat ikke nok. Der bygger vi noget der løser den specifikke udfordring, ikke en generisk chat oveni.",
   },
 ];
 

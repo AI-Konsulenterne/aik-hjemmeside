@@ -45,7 +45,13 @@ export const metadata: Metadata = {
   },
 };
 
-const PROOF_LOGOS = ["Lavazza", "Indkom", "Manyt", "CETC", "Stretchfit"];
+const PROOF_LOGOS: { name: string; logo: string | null; w: number; h: number }[] = [
+  { name: "Lavazza", logo: "/logos/lavazza.png", w: 140, h: 88 },
+  { name: "Indkom", logo: "/logos/indkom.png", w: 140, h: 26 },
+  { name: "Manyt", logo: null, w: 0, h: 0 },
+  { name: "CETC", logo: null, w: 0, h: 0 },
+  { name: "Stretchfit", logo: "/logos/stretchfit.png", w: 150, h: 45 },
+];
 
 const STEPS = [
   {
@@ -115,9 +121,9 @@ export default function SkraeddersyedeAI() {
                 <span className="accent">jeres forretning.</span>
               </h1>
               <p className="lead hero-lead">
-                Vi bygger AI, der passer til jer. Ikke en standardløsning - vi
-                tager udgangspunkt i jeres udfordringer, jeres systemer og jeres
-                måde at arbejde på.
+                Vi bygger AI, der passer til jer, ikke bare en standardløsning.
+                Vi tager udgangspunkt i jeres udfordringer, jeres systemer og
+                jeres måde at arbejde på.
               </p>
               <div className="hero-cta">
                 <Button variant="primary" size="lg" cal>
@@ -171,7 +177,8 @@ export default function SkraeddersyedeAI() {
           <FadeIn>
             <div className="problem-wrap">
               <h2 className="h2">
-                Det er ikke teknologien, der dræber AI-projekter
+                Det er ikke teknologien, der{" "}
+                <span className="accent">dræber AI-projekter</span>
               </h2>
               <p className="problem-body">
                 Der bliver brugt milliarder på AI, og alligevel viste MIT i 2025,
@@ -230,11 +237,22 @@ export default function SkraeddersyedeAI() {
           </FadeIn>
           <FadeIn delay={80}>
             <div className="proof-logos">
-              {PROOF_LOGOS.map((l) => (
-                <span className="proof-logo" key={l}>
-                  {l}
-                </span>
-              ))}
+              {PROOF_LOGOS.map((c) =>
+                c.logo ? (
+                  <Image
+                    key={c.name}
+                    src={c.logo}
+                    alt={c.name}
+                    width={c.w}
+                    height={c.h}
+                    className="proof-logo-img"
+                  />
+                ) : (
+                  <span className="proof-logo" key={c.name}>
+                    {c.name}
+                  </span>
+                ),
+              )}
             </div>
           </FadeIn>
           <FadeIn delay={120}>
@@ -245,8 +263,17 @@ export default function SkraeddersyedeAI() {
                 ud med. Jeres AI-assistent anbefaler produkter fra vores webshop,
                 og det fungerer virkelig godt.
               </blockquote>
-              <figcaption className="ph-tag">
-                Claus Damsgaard · Direktør, INDKOM ApS
+              <figcaption className="proof-author">
+                <Image
+                  src="/workshop-hero.webp"
+                  alt="Alexander fra AI Konsulenterne og Claus Damsgaard, INDKOM"
+                  width={120}
+                  height={120}
+                  className="proof-author-img"
+                />
+                <span className="proof-author-name">
+                  Claus Damsgaard · Direktør, INDKOM ApS
+                </span>
               </figcaption>
             </figure>
           </FadeIn>

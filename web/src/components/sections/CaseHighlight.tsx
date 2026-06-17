@@ -11,12 +11,12 @@ export default function CaseHighlight() {
               Kundecase — Lavazza
             </p>
             <h2 className="text-3xl lg:text-4xl xl:text-5xl font-bold tracking-heading text-gray-900 leading-[1.1]">
-              HR-agent der svarer<br className="hidden sm:block" /> så medarbejderne{" "}
+              HR-agenten der svarer<br className="hidden sm:block" /> så medarbejderne{" "}
               <span className="text-primary">ikke skal</span>
             </h2>
             <p className="text-gray-500 text-lg lg:text-xl mt-4 max-w-2xl mx-auto">
-              Datasikker AI der frigør tid i HR-afdelingen ved at besvare
-              medarbejdernes spørgsmål automatisk.
+              AI der frigør tid i HR-afdelingen ved at besvare medarbejdernes
+              spørgsmål automatisk.
             </p>
           </div>
         </FadeIn>
@@ -45,7 +45,7 @@ export default function CaseHighlight() {
                 </div>
                 <div>
                   <p className="text-sm font-bold tracking-heading text-gray-900">
-                    HR-agent
+                    HR-agenten
                   </p>
                   <p className="text-xs text-gray-400 flex items-center gap-1.5">
                     <span className="inline-block w-2 h-2 rounded-full bg-green-500" />
@@ -58,13 +58,14 @@ export default function CaseHighlight() {
               <div className="space-y-3 pt-4">
                 <div className="flex justify-end">
                   <p className="bg-gray-100 text-gray-700 text-sm rounded-2xl rounded-br-sm px-4 py-2.5 max-w-[82%] leading-snug">
-                    Hvor mange feriedage har jeg tilbage i år?
+                    &ldquo;Hvor mange feriedage har jeg tilbage i år?&rdquo;
                   </p>
                 </div>
                 <div className="flex justify-start">
                   <p className="bg-primary/10 text-gray-800 text-sm rounded-2xl rounded-bl-sm px-4 py-2.5 max-w-[88%] leading-snug">
-                    Du har 12 feriedage tilbage. Ifølge personalehåndbogen kan op
-                    til 5 overføres til næste år. Skal jeg vise reglerne?
+                    &ldquo;Du har 12 feriedage tilbage. Ifølge personalehåndbogen
+                    kan op til 5 overføres til næste år. Skal jeg vise
+                    reglerne?&rdquo;
                   </p>
                 </div>
               </div>
@@ -80,11 +81,11 @@ export default function CaseHighlight() {
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 text-center mb-10">
               <div>
                 <p className="text-2xl font-bold tracking-heading text-gray-900">Lavazza</p>
-                <p className="text-sm text-gray-400 mt-1">HR / Intern AI</p>
+                <p className="text-sm text-gray-400 mt-1">HR / intern AI</p>
               </div>
               <div>
                 <p className="text-2xl font-bold tracking-heading text-gray-900">Datasikker</p>
-                <p className="text-sm text-gray-400 mt-1">GDPR-compliant AI-agent</p>
+                <p className="text-sm text-gray-400 mt-1">Lever op til GDPR</p>
               </div>
               <div>
                 <p className="text-2xl font-bold tracking-heading text-primary">Frigjort tid</p>
@@ -94,10 +95,10 @@ export default function CaseHighlight() {
 
             <div className="border-t border-gray-200 pt-8">
               <p className="text-gray-500 leading-relaxed text-center">
-                Lavazzas HR-afdeling brugte uforholdsmæssigt mange timer på at
-                besvare de samme medarbejderspørgsmål igen og igen. Vi byggede en
-                datasikker AI-agent der automatisk besvarer HR-relaterede spørgsmål
-                — så teamet kan fokusere på det der virkelig kræver et menneske.
+                Lavazzas HR-afdeling brugte alt for mange timer på at besvare de
+                samme spørgsmål igen og igen. Vi byggede en datasikker AI-agent,
+                der automatisk besvarer HR-spørgsmålene — så teamet kan bruge
+                tiden på det, der virkelig kræver et menneske.
               </p>
             </div>
 

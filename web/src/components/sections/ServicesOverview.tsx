@@ -92,7 +92,7 @@ export default function ServicesOverview() {
                       </h3>
                     </div>
                     <p className="text-gray-500 text-sm leading-relaxed">
-                      En dag hvor jeres team prøver AI af i praksis - på deres egne opgaver. I går hjem med konkrete værktøjer I kan bruge dagen efter, ikke en bunke slides.
+                      En hel dag hvor jeres team får lov at prøve kræfter med AI med afsæt i jeres egne opgaver. I går hjem med konkrete værktøjer, teknikker og nye måder at arbejde med AI på.
                     </p>
                   </div>
                   <div className="flex items-center gap-2 text-sm font-semibold text-gray-400 group-hover:text-primary transition-colors mt-4">
@@ -121,7 +121,7 @@ export default function ServicesOverview() {
                       </h3>
                     </div>
                     <p className="text-gray-500 text-sm leading-relaxed">
-                      Jeres eget AI-system - forankret i jeres data, jeres systemer og jeres måde at gøre tingene på. Føles som ChatGPT, men svarene kommer fra jeres egen forretning. Frit valg mellem Claude, GPT og andre modeller. Bruges af 400+ medarbejdere hver dag.
+                      Jeres helt eget AI-system, som er forankret i jeres data, jeres systemer og jeres måde at gøre tingene på.
                     </p>
                   </div>
                   <div className="flex items-center gap-2 text-sm font-semibold text-gray-400 group-hover:text-primary transition-colors mt-4">
