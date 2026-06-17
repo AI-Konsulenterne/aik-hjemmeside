@@ -33,7 +33,10 @@
   --container: 1200px;
 
   color: var(--ink);
+}
 
+/* Nested rules i separat blok — så variabel-blokken ovenfor ikke dropppes af compileren */
+.aik-ws-shop {
   .container {
     max-width: var(--container);
     margin: 0 auto;

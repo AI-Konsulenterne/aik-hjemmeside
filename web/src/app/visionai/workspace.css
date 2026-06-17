@@ -41,7 +41,10 @@
   --font-mono: "SF Mono", "JetBrains Mono", ui-monospace, Menlo, monospace;
 
   color: var(--ink);
+}
 
+/* Nested rules i separat blok — så variabel-blokken ovenfor ikke droppes af compileren */
+.aik-ws {
   /* ── Layout ── */
   .container {
     max-width: var(--container);
