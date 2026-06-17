@@ -137,8 +137,8 @@ export default function Workshop() {
             <div className="hero-visual">
               <div className="ws-hero-photo">
                 <Image
-                  src="/workshop-hero.webp"
-                  alt="AI Konsulenterne i dialog med en kunde"
+                  src="/martin.webp"
+                  alt="Martin Tvedesøe, AI Konsulenterne"
                   fill
                   className="object-cover"
                   sizes="(max-width: 980px) 100vw, 48vw"

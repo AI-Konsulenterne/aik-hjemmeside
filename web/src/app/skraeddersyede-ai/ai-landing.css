@@ -408,6 +408,36 @@
     padding: 6px 14px;
   }
 
+  /* ── J.M Band case ── */
+  .jm-case {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: clamp(36px, 5vw, 64px);
+    align-items: center;
+    max-width: 1080px;
+    margin: clamp(44px, 6vw, 64px) auto 0;
+  }
+  .jm-case-copy .eyebrow { margin-bottom: 14px; }
+  .jm-case-title {
+    font-size: clamp(1.6rem, 2.6vw, 2.2rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.12;
+    color: var(--ink);
+    margin: 0 0 18px;
+  }
+  .jm-case-copy p {
+    color: var(--muted);
+    font-size: 1.05rem;
+    line-height: 1.6;
+    margin: 0 0 14px;
+  }
+  .jm-case-copy p:last-child { margin-bottom: 0; }
+  .jm-case-copy strong { color: var(--ink); font-weight: 700; }
+  @media (max-width: 900px) {
+    .jm-case { grid-template-columns: 1fr; gap: 32px; }
+  }
+
   /* ── Proces — timeline ── */
   .process-section { background: var(--cream-2); }
   .ptl { position: relative; max-width: 1000px; margin: clamp(48px, 7vw, 72px) auto 0; }

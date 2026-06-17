@@ -188,7 +188,7 @@ export default function SkraeddersyedeAI() {
               </h2>
               <p className="problem-body">
                 Der bliver brugt milliarder på AI, og alligevel viste MIT i 2025,
-                at 95% af projekterne ikke gav noget målbart resultat igen. Det er
+                at 80% af projekterne ikke gav noget målbart resultat igen. Det er
                 sjældent teknologien, den er gal med. Studiet viser, at det oftest
                 skyldes en manglende plan, data, der aldrig blev klargjort, og mål,
                 der aldrig blev sat.{" "}
@@ -256,26 +256,45 @@ export default function SkraeddersyedeAI() {
             </div>
           </FadeIn>
           <FadeIn delay={120}>
-            <figure className="proof-quote">
-              <Icon name="quote" size={36} className="qmark" />
-              <blockquote>
-                Vi er rigtig glade for både samarbejdet og den løsning vi er endt
-                ud med. Jeres AI-assistent anbefaler produkter fra vores webshop,
-                og det fungerer virkelig godt.
-              </blockquote>
-              <figcaption className="proof-author">
-                <Image
-                  src="/workshop-hero.webp"
-                  alt="Alexander fra AI Konsulenterne og Claus Damsgaard, INDKOM"
-                  width={120}
-                  height={120}
-                  className="proof-author-img"
-                />
-                <span className="proof-author-name">
-                  Claus Damsgaard · Direktør, INDKOM ApS
-                </span>
-              </figcaption>
-            </figure>
+            <div className="jm-case">
+              <div className="jm-case-media">
+                <div className="appwin">
+                  <div className="appwin-bar">
+                    <span className="dot" />
+                    <span className="dot" />
+                    <span className="dot" />
+                    <div className="appwin-url">jmband.dk/support</div>
+                  </div>
+                  <div className="appwin-screen">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src="/screenshots/jmband-ai-support.png"
+                      alt="Kundeservice-AI bygget til J.M Band - foreslår svar fra deres egen vidensbase"
+                      width={2880}
+                      height={1580}
+                    />
+                  </div>
+                </div>
+              </div>
+              <div className="jm-case-copy">
+                <p className="eyebrow">Case · J.M Band</p>
+                <h3 className="jm-case-title">
+                  Kundeservice-AI, kunden selv kan forbedre
+                </h3>
+                <p>
+                  J.M Band sælger i flere lande og får de samme kundespørgsmål
+                  igen og igen. Vi byggede en AI, der hjælper med at svare på
+                  supporten - bygget på deres egne svar og koblet til deres
+                  helpdesk.
+                </p>
+                <p>
+                  <strong>Det særlige:</strong> når AI&apos;en rammer ved siden
+                  af, skal de ikke vente på en udvikler. De retter den selv.
+                  AI&apos;en foreslår, de godkender, og den bliver lidt bedre for
+                  hver gang.
+                </p>
+              </div>
+            </div>
           </FadeIn>
         </div>
       </section>
