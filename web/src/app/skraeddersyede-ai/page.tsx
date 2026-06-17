@@ -279,7 +279,7 @@ export default function SkraeddersyedeAI() {
               <div className="jm-case-copy">
                 <p className="eyebrow">Case · J.M Band</p>
                 <h3 className="jm-case-title">
-                  Kundeservice-AI, kunden selv kan forbedre
+                  Kundeserviceagenten der lærer af sine fejl
                 </h3>
                 <p>
                   J.M Band sælger i flere lande og får de samme kundespørgsmål
