@@ -157,27 +157,6 @@ export default function Workshop() {
         </div>
       </section>
 
-      {/* ── Problem ── */}
-      <section className="section problem-section">
-        <div className="container">
-          <FadeIn>
-            <div className="problem-wrap">
-              <h2 className="h2">De fleste AI-kurser bliver glemt ugen efter.</h2>
-              <p className="problem-body">
-                Man sidder en dag og hører om &ldquo;AI&apos;s potentiale&rdquo;,
-                nikker - og er tilbage i de gamle vaner om mandagen. Det sker,
-                fordi det aldrig handlede om jeres opgaver.{" "}
-                <strong>
-                  Vores workshop tager udgangspunkt i det, I rent faktisk sidder
-                  med
-                </strong>
-                , så det, I lærer, hænger ved.
-              </p>
-            </div>
-          </FadeIn>
-        </div>
-      </section>
-
       {/* ── Sådan gør vi ── */}
       <section className="section how-section" id="metode">
         <div className="container">
@@ -252,6 +231,27 @@ export default function Workshop() {
               </FadeIn>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* ── Problem ── */}
+      <section className="section">
+        <div className="container">
+          <FadeIn>
+            <div className="problem-wrap">
+              <h2 className="h2">De fleste AI-kurser bliver glemt ugen efter.</h2>
+              <p className="problem-body">
+                Man sidder en dag og hører om &ldquo;AI&apos;s potentiale&rdquo;,
+                nikker - og er tilbage i de gamle vaner om mandagen. Det sker,
+                fordi det aldrig handlede om jeres opgaver.{" "}
+                <strong>
+                  Vores workshop tager udgangspunkt i det, I rent faktisk sidder
+                  med
+                </strong>
+                , så det, I lærer, hænger ved.
+              </p>
+            </div>
+          </FadeIn>
         </div>
       </section>
 

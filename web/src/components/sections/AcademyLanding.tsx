@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Button from "@/components/ui/Button";
 import FadeIn from "@/components/ui/FadeIn";
 
@@ -856,9 +857,13 @@ export default function AcademyLanding() {
 
               <div className="relative bg-white rounded-[22px] p-9 shadow-[0_30px_60px_-28px_rgba(0,0,0,.5)]">
                 <div className="flex items-center gap-4">
-                  <span className="w-16 h-16 rounded-full bg-primary/10 text-primary flex items-center justify-center text-2xl font-bold shrink-0">
-                    A
-                  </span>
+                  <Image
+                    src="/alexander.png"
+                    alt="Alexander, AI Konsulenterne"
+                    width={64}
+                    height={64}
+                    className="w-16 h-16 rounded-full object-cover shrink-0"
+                  />
                   <div>
                     <div className="text-lg font-bold text-gray-900">
                       Alexander

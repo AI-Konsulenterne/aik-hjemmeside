@@ -100,8 +100,8 @@ const WHY = [
   },
   {
     ic: "lock",
-    h: "Jeres data bliver hos jer.",
-    p: "Vi bygger inden for jeres egne rammer - det ryger ikke ud i et åbent AI-system.",
+    h: "Jeres data bliver i EU.",
+    p: "Vi vægter datasuverænitet rigtig højt hos AIK, derfor hoster vi kun jeres data på svenske servere. Det betyder, at jeres data ikke bliver delt med USA, Rusland og resten af verden.",
   },
   {
     ic: "users",
@@ -238,7 +238,7 @@ export default function SkraeddersyedeAI() {
           <FadeIn>
             <div className="proof-head">
               <p className="eyebrow">Stol på vores kunder</p>
-              <h2 className="h2">Vi har bygget til</h2>
+              <h2 className="h2">Vi har udviklet AI-løsninger til:</h2>
             </div>
           </FadeIn>
           <FadeIn delay={80}>
