@@ -37,7 +37,7 @@ export default function Hero() {
           <div className="text-center lg:text-left">
             <FadeIn>
               <h1 className="text-[2.5rem] sm:text-5xl lg:text-[4rem] xl:text-[4.5rem] font-bold tracking-heading text-gray-900 leading-[1.05]">
-                Spar 10+ timer om ugen på{" "}
+                Spar 100+ timer om ugen på{" "}
                 <span className="relative inline-block">
                   <span
                     className={`text-primary transition-all duration-400 ${
@@ -54,7 +54,7 @@ export default function Hero() {
             </FadeIn>
             <FadeIn delay={150}>
               <p className="text-base sm:text-lg lg:text-xl text-gray-500 mt-6 lg:mt-8 max-w-xl mx-auto lg:mx-0 leading-relaxed">
-                Vi hjælper danske SMV'er med at komme i gang med AI -
+                Vi hjælper danske virksomheder med at komme i gang med AI -
                 også jer der ikke ved hvor I skal starte, eller ikke har en
                 IT-afdeling at læne jer op ad.
               </p>

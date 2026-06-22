@@ -224,12 +224,17 @@
     flex-shrink: 0;
   }
 
-  /* Hero photo */
+  /* Hero photos (to side om side) */
+  .ws-hero-photos {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
   .ws-hero-photo {
     position: relative;
     display: block;
     width: 100%;
-    height: clamp(300px, 40vw, 460px);
+    height: clamp(320px, 42vw, 480px);
     border-radius: var(--radius-lg);
     border: 1px solid var(--border);
     box-shadow: var(--shadow-window);

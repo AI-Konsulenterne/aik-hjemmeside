@@ -141,15 +141,26 @@ export default function Workshop() {
                 <Icon name="flag" />
                 Fysiske og online workshops i hele Danmark
               </span>
-              <div className="ws-hero-photo">
-                <Image
-                  src="/martin.webp"
-                  alt="Martin Tvedesøe, AI Konsulenterne"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 980px) 100vw, 48vw"
-                  priority
-                />
+              <div className="ws-hero-photos">
+                <div className="ws-hero-photo">
+                  <Image
+                    src="/workshop-1.jpg"
+                    alt="AI-workshop hos kunde - oplæg foran teamet"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 980px) 50vw, 24vw"
+                    priority
+                  />
+                </div>
+                <div className="ws-hero-photo">
+                  <Image
+                    src="/workshop-2.jpg"
+                    alt="AI Konsulenterne holder workshop for en gruppe"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 980px) 50vw, 24vw"
+                  />
+                </div>
               </div>
               <div className="hero-takeaway">
                 <Icon name="files" size={22} className="ht-ic" />
