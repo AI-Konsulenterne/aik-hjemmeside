@@ -300,10 +300,11 @@ export default function AcademyLanding() {
                 </h1>
                 <p className="text-lg lg:text-xl text-gray-500 mt-6 leading-relaxed max-w-xl">
                   Et online læringsunivers, hvor jeres medarbejdere lærer at
-                  bruge AI til deres faktiske arbejde - på dansk og i øjenhøjde.
-                  Ingen teknisk jargon, ingen 40-timers lange kurser. Bare korte
-                  og konkrete videoer, specifikke use cases og et community, der
-                  hjælper hinanden.
+                  bruge AI til deres faktiske arbejde - fra Microsoft Copilot til
+                  ChatGPT og Claude, på dansk og i øjenhøjde. Ingen teknisk
+                  jargon, ingen 40-timers lange kurser. Bare korte og konkrete
+                  videoer, specifikke use cases og et community, der hjælper
+                  hinanden.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 mt-9">
                   <Button variant="primary" size="lg" cal>
@@ -426,7 +427,7 @@ export default function AcademyLanding() {
               </div>
               <p className="text-[17px] text-gray-600 max-w-[380px]">
                 Start med Grundlæggende AI - eller dyk direkte ned i det værktøj,
-                jeres folk bruger til dagligt.
+                jeres folk bruger til dagligt, oftest Microsoft Copilot.
               </p>
             </div>
           </FadeIn>

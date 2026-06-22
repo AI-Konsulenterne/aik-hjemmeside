@@ -115,8 +115,10 @@ export default function Workshop() {
               </h1>
               <p className="lead hero-lead">
                 Vi afdækker først, hvad I står med, og bygger workshoppen op om
-                jeres egne opgaver. I går hjem med skabeloner, konkrete use cases
-                og en plan for, hvad I gør bagefter.
+                jeres egne opgaver. Vi opgraderer jer i de værktøjer, I allerede
+                har - især Microsoft Copilot, men også ChatGPT og Claude. I går
+                hjem med skabeloner, konkrete use cases og en plan for, hvad I
+                gør bagefter.
               </p>
               <div className="hero-cta">
                 <Button variant="primary" size="lg" cal>
@@ -165,9 +167,10 @@ export default function Workshop() {
               <p className="eyebrow">Sådan gør vi</p>
               <h2 className="h2">Bygget op om jer - men med en fast ramme.</h2>
               <p className="lead">
-                Vi starter med jeres hverdag og sætter workshoppen sammen derfra.
-                I får et klart udbytte og noget, der kan bruges i praksis - ikke
-                en pakke, vi trækker ned fra hylden.
+                Vi starter med jeres hverdag og sætter workshoppen sammen derfra
+                - med hands-on træning i Microsoft Copilot, ChatGPT og Claude. I
+                får et klart udbytte og noget, der kan bruges i praksis, ikke en
+                pakke vi trækker ned fra hylden.
               </p>
             </div>
           </FadeIn>
@@ -290,6 +293,31 @@ export default function Workshop() {
                   </span>
                 </div>
               </div>
+            </div>
+          </FadeIn>
+        </div>
+      </section>
+
+      {/* ── Fortsæt i Academy ── */}
+      <section className="section" style={{ paddingTop: 0 }}>
+        <div className="container">
+          <FadeIn>
+            <div className="ws-academy">
+              <p className="eyebrow">Efter workshoppen</p>
+              <h2>Fortsæt hvor I slap</h2>
+              <p>
+                Få AI ind i dagligdagen med vores læringsunivers, AIK Academy -
+                korte videoer, konkrete use cases og et community, der hjælper
+                hinanden.
+              </p>
+              <a
+                href="https://www.skool.com/aik-academy-9764/classroom"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-primary btn-lg"
+              >
+                Gå til AIK Academy →
+              </a>
             </div>
           </FadeIn>
         </div>
