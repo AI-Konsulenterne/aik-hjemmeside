@@ -137,6 +137,10 @@ export default function Workshop() {
 
           <FadeIn delay={150}>
             <div className="hero-visual">
+              <span className="hero-locbadge">
+                <Icon name="flag" />
+                Fysiske og online workshops i hele Danmark
+              </span>
               <div className="ws-hero-photo">
                 <Image
                   src="/martin.webp"
