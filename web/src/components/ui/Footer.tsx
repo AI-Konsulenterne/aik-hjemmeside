@@ -11,6 +11,12 @@ const serviceLinks = [
   { label: "AIK Academy", href: "/academy" },
 ];
 
+const solutionLinks = [
+  { label: "AI til kundeservice", href: "/ai-kundeservice" },
+  { label: "AI i HR", href: "/ai-i-hr" },
+  { label: "AI til e-commerce", href: "/ai-i-e-commerce" },
+];
+
 const companyLinks = [
   { label: "Cases", href: "/cases" },
   { label: "Viden om AI", href: "/viden-om-ai" },
@@ -52,6 +58,21 @@ export default function Footer() {
             </p>
             <nav className="flex flex-col gap-2.5">
               {serviceLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="text-sm text-gray-400 hover:text-white transition-colors"
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </nav>
+
+            <p className="text-xs uppercase tracking-widest text-gray-500 font-semibold mb-4 mt-7">
+              Løsninger
+            </p>
+            <nav className="flex flex-col gap-2.5">
+              {solutionLinks.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
