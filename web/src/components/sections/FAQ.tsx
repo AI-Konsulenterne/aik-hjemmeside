@@ -5,10 +5,6 @@ import FadeIn from "@/components/ui/FadeIn";
 
 const faqs = [
   {
-    q: "Vi har ikke en IT-afdeling - kan vi stadig få AI?",
-    a: "Ja - og I er faktisk i godt selskab. Det er størstedelen af vores kunder. I behøver hverken IT-folk eller intern AI-viden for at komme i gang, det er det vi er her til. Vi sætter det op, viser jer hvordan det bruges, og er der hvis noget driller.",
-  },
-  {
     q: "Hvilke platforme bruger I?",
     a: "Vi er ikke gift med én leverandør. Vi bruger det der passer bedst til opgaven - Azure OpenAI, Claude, Gemini, åbne modeller, eller en kombination. Vi sælger ikke licenser, vi løser opgaver. Så vi vælger det værktøj der gør jobbet bedst.",
   },

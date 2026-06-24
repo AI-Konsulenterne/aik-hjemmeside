@@ -38,7 +38,7 @@ export default async function Team() {
             Fire mennesker. Én mission.
           </h2>
           <p className="text-gray-500 text-center max-w-2xl mx-auto mt-4 leading-relaxed">
-            At gøre AI til en konkurrencefordel for danske SMV'er uanset størrelse eller teknisk niveau.
+            At gøre AI til en konkurrencefordel for danske virksomheder uanset størrelse eller teknisk niveau.
           </p>
         </FadeIn>
 

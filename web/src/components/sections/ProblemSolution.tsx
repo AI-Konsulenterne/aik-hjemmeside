@@ -23,12 +23,12 @@ const steps = [
   {
     number: "04",
     title: "Vi kigger på hvad der virker",
-    body: "Når jeres medarbejdere er begyndt at bruge det, ser vi sammen på hvad der rammer plet, og hvor der skal justeres. AI-løsninger er ikke perfekte fra starten og derfor tilpasser vi undervejs.",
+    body: "Når jeres medarbejdere er begyndt at bruge løsningen, ser vi sammen på hvad der rammer plet, og hvor der skal justeres. AI-løsninger er ikke perfekte fra starten og derfor tilpasser vi undervejs.",
   },
   {
     number: "05",
     title: "Vi er med jer hele vejen",
-    body: "Når løsningen er i luften, forsvinder vi ikke bare. Vi drifter den naturligvis sammen med jer, står klar med support og er der, når noget skal justeres eller udvikles.",
+    body: "Når løsningen er i luften, forsvinder vi ikke bare. Vi drifter den naturligvis sammen med jer, står klar med support og er der, når noget skal justeres eller udvikles. Vi vil være jeres AI-samarbejdspartner, der altid står ved siden af på jeres rejse med AI.",
   },
 ];
 

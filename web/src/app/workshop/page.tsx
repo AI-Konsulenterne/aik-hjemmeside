@@ -250,7 +250,7 @@ export default function Workshop() {
                     className="fp-av"
                   />
                   <span className="fp-text">
-                    <span className="fp-label">Snak med et menneske</span>
+                    <span className="fp-label">Tal med Alexander</span>
                     <a href="tel:+4525547074" className="fp-num">
                       <Icon name="phone" /> +45 25 54 70 74
                     </a>

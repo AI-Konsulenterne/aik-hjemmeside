@@ -76,19 +76,19 @@ const STEPS = [
     n: "03",
     h: "Vi bygger og får det i gang",
     p: "Vi bygger løsningen i korte spring og får den hurtigt i brug, så I kan mærke forskellen tidligt - i stedet for at vente på et stort projekt, der aldrig bliver helt færdigt.",
-    gain: "en AI-løsning, der kører i jeres hverdag.",
+    gain: "en POC, som vi tilpasser undervejs.",
   },
   {
     n: "04",
     h: "Vi ser, hvad der virker",
     p: "Når jeres medarbejdere begynder at bruge løsningen, ser vi sammen på, hvad der rammer plet, og hvad der skal justeres, og så retter vi til undervejs.",
-    gain: "en løsning, der bliver bedre, jo længere I har den.",
+    gain: "en løsning, der kører i drift.",
   },
   {
     n: "05",
     h: "Vi er med jer hele vejen",
     p: "Når løsningen kører og gør en forskel, hjælper vi med at få den helt ind i hverdagen - så det ikke står og falder med én person, men bliver en del af måden, I arbejder på.",
-    gain: "en løsning, jeres egen organisation kan stå på selv.",
+    gain: "en AI-partner, der er med jer på jeres AI-rejse.",
   },
 ];
 
@@ -288,7 +288,7 @@ export default function SkraeddersyedeAI() {
                   helpdesk.
                 </p>
                 <p>
-                  <strong>Det særlige:</strong> når AI&apos;en rammer ved siden
+                  <strong>Det særlige:</strong>{" "}når AI&apos;en rammer ved siden
                   af, skal de ikke vente på en udvikler. De retter den selv.
                   AI&apos;en foreslår, de godkender, og den bliver lidt bedre for
                   hver gang.
