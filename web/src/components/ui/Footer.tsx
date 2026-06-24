@@ -4,6 +4,7 @@ import NewsletterForm from "./NewsletterForm";
 import CookieConsentLink from "./CookieConsentLink";
 
 const serviceLinks = [
+  { label: "AI-strategi", href: "/ai-strategi" },
   { label: "Skræddersyede AI", href: "/skraeddersyede-ai" },
   { label: "AIK Workshop", href: "/workshop" },
   { label: "AIK Workspace", href: "/visionai" },

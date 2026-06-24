@@ -25,22 +25,22 @@ const serviceSchema = {
 };
 
 export const metadata: Metadata = {
-  title: "Skræddersyede AI-løsninger til SMV'er | Custom AI Udvikling",
+  title: { absolute: "AI-løsninger & AI-automatisering til virksomheder | AI Konsulenterne" },
   description:
-    "Vi bygger AI, der passer ind i jeres forretning - forankret i jeres udfordringer, systemer og måde at arbejde på. Platformsuafhængig rådgivning. Gratis AI-afklaring.",
+    "Vi bygger AI-løsninger og AI-automatisering, der passer ind i jeres forretning - integreret med jeres CRM og systemer. AI-implementering uden intern AI-viden.",
   alternates: { canonical: "/skraeddersyede-ai" },
   keywords: [
-    "skræddersyede AI-løsninger",
-    "custom AI løsning",
-    "AI udvikling virksomhed",
-    "AI til SMV",
-    "AI integration CRM",
-    "AI implementering Danmark",
+    "AI løsninger",
+    "AI automatisering",
+    "AI implementering",
+    "AI udvikling",
+    "skræddersyet AI",
+    "AI integration",
   ],
   openGraph: {
-    title: "Skræddersyede AI-løsninger til SMV'er",
+    title: "AI-løsninger & AI-automatisering til virksomheder",
     description:
-      "Custom AI til danske SMV'er - integreret med jeres systemer. Gratis AI-afklaring.",
+      "Vi bygger AI-løsninger og AI-automatisering, der passer ind i jeres forretning - integreret med jeres systemer. Gratis AI-afklaring.",
     url: "/skraeddersyede-ai",
   },
 };

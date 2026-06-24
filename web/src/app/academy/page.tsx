@@ -1,27 +1,59 @@
 import type { Metadata } from "next";
 import AcademyLanding from "@/components/sections/AcademyLanding";
+import JsonLd from "@/components/ui/JsonLd";
+
+const academySchema = {
+  "@context": "https://schema.org",
+  "@type": "Course",
+  name: "AI kursus og AI-uddannelse til virksomheder",
+  description:
+    "Online AI-kursus og AI-uddannelse for danske virksomheder. Lær ChatGPT, Microsoft Copilot og Claude gennem korte videoer, konkrete use cases og et community.",
+  provider: {
+    "@type": "Organization",
+    name: "AI Konsulenterne",
+    sameAs: "https://ai-konsulenterne.dk",
+  },
+  inLanguage: "da",
+  hasCourseInstance: {
+    "@type": "CourseInstance",
+    courseMode: "online",
+    courseWorkload: "PT2H",
+  },
+  offers: {
+    "@type": "Offer",
+    priceCurrency: "DKK",
+    category: "Subscription",
+    availability: "https://schema.org/InStock",
+  },
+};
 
 export const metadata: Metadata = {
-  title: "AIK Academy — AI-træning til danske SMV'er | AI-Konsulenterne",
+  title: { absolute: "AI kursus & AI-uddannelse til virksomheder | AIK Academy" },
   description:
-    "I betaler allerede for AI - nu skal jeres folk bruge det. AIK Academy er vores online læringsunivers: korte videoer, konkrete use cases og et community. På dansk, i øjenhøjde.",
+    "AI kursus og AI-uddannelse til virksomheder - online og i øjenhøjde. Lær ChatGPT, Copilot og Claude med korte videoer, konkrete use cases og et community.",
   alternates: { canonical: "/academy" },
   keywords: [
-    "AI træning",
-    "AI kursus dansk",
-    "Copilot kursus",
-    "ChatGPT kursus virksomhed",
-    "AI læring SMV",
+    "AI kursus",
+    "AI uddannelse",
+    "AI kursus online",
+    "AI kursus for virksomheder",
+    "AI kursus københavn",
+    "generativ AI kursus",
     "AIK Academy",
   ],
   openGraph: {
-    title: "AIK Academy — AI-træning til danske SMV'er",
+    title: "AI kursus & AI-uddannelse til virksomheder | AIK Academy",
     description:
-      "Et online læringsunivers for danske virksomheder. Lær Copilot, ChatGPT og Claude - på dansk, i øjenhøjde.",
+      "AI kursus og AI-uddannelse til virksomheder - online og i øjenhøjde. Lær ChatGPT, Copilot og Claude med korte videoer og konkrete use cases.",
     url: "/academy",
   },
 };
 
 export default function Academy() {
-  return <AcademyLanding />;
+  return (
+    <>
+      <JsonLd data={academySchema} />
+      <AcademyLanding />
+    </>
+  );
 }

@@ -2,8 +2,5 @@
 User-agent: *
 Allow: /
 
-# Host
-Host: https://ai-konsulenterne.dk
-
 # Sitemaps
 Sitemap: https://ai-konsulenterne.dk/sitemap.xml

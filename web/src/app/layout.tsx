@@ -17,41 +17,40 @@ const raleway = Raleway({
 
 export const metadata: Metadata = {
   title: {
-    default: "AI Konsulent til Danske SMV'er | Skræddersyede AI-Løsninger — AI Konsulenterne",
-    template: "%s — AI Konsulenterne",
+    default: "AI konsulent til danske virksomheder | AI Konsulenterne",
+    template: "%s | AI Konsulenterne",
   },
   description:
-    "AI-konsulent for danske SMV'er. Vi bygger skræddersyede AI-løsninger — også uden intern AI-viden eller IT-afdeling. Gratis AI-afklaring. Finder vi ikke en mulighed, koster det ingenting.",
+    "AI-konsulent og AI-rådgivning til danske virksomheder. Vi bygger AI-løsninger, der sparer jer tid - også uden intern AI-viden eller IT-afdeling. Gratis AI-afklaring, ingen forpligtelse.",
   metadataBase: new URL("https://ai-konsulenterne.dk"),
   alternates: {
     canonical: "/",
   },
   keywords: [
     "AI konsulent",
-    "AI konsulenthus",
-    "AI løsninger virksomhed",
-    "skræddersyet AI",
-    "AI til SMV",
+    "AI konsulenter",
     "AI rådgivning",
-    "AI implementering Danmark",
+    "AI hjælp",
+    "AI løsninger",
     "AI automatisering",
-    "kunstig intelligens virksomhed",
-    "AI workshop",
+    "AI konsulenthus",
+    "AI ekspert",
+    "AI til virksomheder",
   ],
   openGraph: {
     type: "website",
     locale: "da_DK",
     url: "https://ai-konsulenterne.dk",
     siteName: "AI Konsulenterne",
-    title: "AI Konsulent til Danske SMV'er | Skræddersyede AI-Løsninger",
+    title: "AI konsulent til danske virksomheder | AI Konsulenterne",
     description:
-      "Vi bygger skræddersyede AI-løsninger til danske SMV'er — også dem uden intern AI-viden eller IT-afdeling. Gratis AI-afklaring.",
+      "AI-konsulent og AI-rådgivning til danske virksomheder. Vi bygger AI-løsninger, der sparer jer tid. Gratis AI-afklaring, ingen forpligtelse.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "AI Konsulent til Danske SMV'er — AI Konsulenterne",
+    title: "AI konsulent til danske virksomheder | AI Konsulenterne",
     description:
-      "Skræddersyede AI-løsninger til danske SMV'er. Gratis AI-afklaring — ingen forpligtelse.",
+      "AI-rådgivning og AI-løsninger til danske virksomheder. Gratis AI-afklaring, ingen forpligtelse.",
   },
   robots: {
     index: true,

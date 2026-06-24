@@ -37,15 +37,16 @@ const workshopSchema = {
 };
 
 export const metadata: Metadata = {
-  title: "AI Workshop for Virksomheder | Hands-on AI Kursus",
+  title: { absolute: "AI workshop for virksomheder | hands-on AI-kursus" },
   description:
-    "En AI-workshop bygget op om jeres egne opgaver - ikke en standardpakke. I går hjem med skabeloner, konkrete use cases og en plan for, hvad I gør bagefter.",
+    "AI workshop og AI-kursus for virksomheder - bygget op om jeres egne opgaver. I går hjem med skabeloner, konkrete use cases og en plan for, hvad I gør bagefter.",
   alternates: { canonical: "/workshop" },
   keywords: [
-    "AI workshop virksomhed",
-    "AI kursus",
+    "AI workshop",
+    "AI workshop for virksomheder",
+    "AI kursus virksomhed",
+    "AI kursus for virksomheder",
     "ChatGPT kursus virksomhed",
-    "prompt engineering kursus",
     "AI træning medarbejdere",
   ],
   openGraph: {
@@ -114,11 +115,12 @@ export default function Workshop() {
                 <span className="accent">ikke en standardpakke.</span>
               </h1>
               <p className="lead hero-lead">
-                Vi afdækker først, hvad I står med, og bygger workshoppen op om
-                jeres egne opgaver. Vi opgraderer jer i de værktøjer, I allerede
-                har - især Microsoft Copilot, men også ChatGPT og Claude. I går
-                hjem med skabeloner, konkrete use cases og en plan for, hvad I
-                gør bagefter.
+                Vi kan godt lide at gøre vores arbejde så konkret som muligt, så
+                vi starter med at afdække, hvor I står henne på nuværende
+                tidspunkt. Derefter opbygger vi en workshop, som tager
+                udgangspunkt i det, så I får mest muligt ud af workshoppen. Vi er
+                eksperter i Copilot og ChatGPT, og I går hjem med skabeloner, use
+                cases og en plan.
               </p>
               <div className="hero-cta">
                 <Button variant="primary" size="lg" cal>
@@ -287,27 +289,6 @@ export default function Workshop() {
               </FadeIn>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* ── Problem ── */}
-      <section className="section">
-        <div className="container">
-          <FadeIn>
-            <div className="problem-wrap">
-              <h2 className="h2">De fleste AI-kurser bliver glemt ugen efter.</h2>
-              <p className="problem-body">
-                Man sidder en dag og hører om &ldquo;AI&apos;s potentiale&rdquo;,
-                nikker - og er tilbage i de gamle vaner om mandagen. Det sker,
-                fordi det aldrig handlede om jeres opgaver.{" "}
-                <strong>
-                  Vores workshop tager udgangspunkt i det, I rent faktisk sidder
-                  med
-                </strong>
-                , så det, I lærer, hænger ved.
-              </p>
-            </div>
-          </FadeIn>
         </div>
       </section>
 
