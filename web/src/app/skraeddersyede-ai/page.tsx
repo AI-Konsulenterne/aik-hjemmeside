@@ -355,21 +355,6 @@ export default function SkraeddersyedeAI() {
         </div>
       </section>
 
-      {/* ── FAQ ── */}
-      <section className="section faq-section" id="faq">
-        <div className="container faq-container">
-          <FadeIn>
-            <div className="section-head">
-              <p className="eyebrow">FAQ</p>
-              <h2 className="h2">Hvad spørger vores kunder om?</h2>
-            </div>
-          </FadeIn>
-          <FadeIn delay={100}>
-            <SkraeddersyedeFaq />
-          </FadeIn>
-        </div>
-      </section>
-
       {/* ── Afsluttende CTA ── */}
       <section className="section final-section" id="kontakt">
         <div className="container">
@@ -387,6 +372,21 @@ export default function SkraeddersyedeAI() {
                 </Button>
               </div>
             </div>
+          </FadeIn>
+        </div>
+      </section>
+
+      {/* ── FAQ ── */}
+      <section className="section faq-section" id="faq">
+        <div className="container faq-container">
+          <FadeIn>
+            <div className="section-head">
+              <p className="eyebrow">FAQ</p>
+              <h2 className="h2">Hvad spørger vores kunder om?</h2>
+            </div>
+          </FadeIn>
+          <FadeIn delay={100}>
+            <SkraeddersyedeFaq />
           </FadeIn>
         </div>
       </section>

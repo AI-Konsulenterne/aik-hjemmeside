@@ -222,57 +222,6 @@ export default function Workshop() {
         </div>
       </section>
 
-      {/* ── Proces ── */}
-      <section className="section process-section" id="proces">
-        <div className="container">
-          <FadeIn>
-            <div className="section-head">
-              <p className="eyebrow">Proces</p>
-              <h2 className="h2">Sådan foregår det</h2>
-              <p className="lead">
-                Fra første samtale til workshop og næste skridt.
-              </p>
-            </div>
-          </FadeIn>
-          <div className="ptl">
-            {STEPS.map((s, i) => (
-              <FadeIn key={s.n} delay={i * 80}>
-                <div className={"pstep" + (i % 2 ? " right" : "")}>
-                  <div className="pnode">{s.n}</div>
-                  <article className="pcard">
-                    <h3 className="pc-h">
-                      <span className="pc-num">{s.n}</span> · {s.h}
-                    </h3>
-                    <p>{s.p}</p>
-                  </article>
-                </div>
-              </FadeIn>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── Problem ── */}
-      <section className="section">
-        <div className="container">
-          <FadeIn>
-            <div className="problem-wrap">
-              <h2 className="h2">De fleste AI-kurser bliver glemt ugen efter.</h2>
-              <p className="problem-body">
-                Man sidder en dag og hører om &ldquo;AI&apos;s potentiale&rdquo;,
-                nikker - og er tilbage i de gamle vaner om mandagen. Det sker,
-                fordi det aldrig handlede om jeres opgaver.{" "}
-                <strong>
-                  Vores workshop tager udgangspunkt i det, I rent faktisk sidder
-                  med
-                </strong>
-                , så det, I lærer, hænger ved.
-              </p>
-            </div>
-          </FadeIn>
-        </div>
-      </section>
-
       {/* ── Final CTA ── */}
       <section className="section final-section" id="kontakt">
         <div className="container">
@@ -308,6 +257,55 @@ export default function Workshop() {
                   </span>
                 </div>
               </div>
+            </div>
+          </FadeIn>
+        </div>
+      </section>
+
+      {/* ── Proces ── */}
+      <section className="section process-section" id="proces">
+        <div className="container">
+          <FadeIn>
+            <div className="section-head">
+              <p className="eyebrow">Proces</p>
+              <h2 className="h2">Sådan foregår det</h2>
+              <p className="lead">
+                Fra første samtale til workshop og næste skridt.
+              </p>
+            </div>
+          </FadeIn>
+          <div className="ptl">
+            {STEPS.map((s, i) => (
+              <FadeIn key={s.n} delay={i * 80}>
+                <div className={"pstep" + (i % 2 ? " right" : "")}>
+                  <div className="pnode">{s.n}</div>
+                  <article className="pcard">
+                    <h3 className="pc-h">{s.h}</h3>
+                    <p>{s.p}</p>
+                  </article>
+                </div>
+              </FadeIn>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Problem ── */}
+      <section className="section">
+        <div className="container">
+          <FadeIn>
+            <div className="problem-wrap">
+              <h2 className="h2">De fleste AI-kurser bliver glemt ugen efter.</h2>
+              <p className="problem-body">
+                Man sidder en dag og hører om &ldquo;AI&apos;s potentiale&rdquo;,
+                nikker - og er tilbage i de gamle vaner om mandagen. Det sker,
+                fordi det aldrig handlede om jeres opgaver.{" "}
+                <strong>
+                  Vores workshop tager udgangspunkt i det, I rent faktisk sidder
+                  med
+                </strong>
+                , så det, I lærer, hænger ved.
+              </p>
             </div>
           </FadeIn>
         </div>

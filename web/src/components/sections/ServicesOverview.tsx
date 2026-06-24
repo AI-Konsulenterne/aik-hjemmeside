@@ -88,7 +88,7 @@ export default function ServicesOverview() {
                         </svg>
                       </div>
                       <h3 className="text-lg font-bold tracking-heading group-hover:text-primary transition-colors">
-                        AI Workshop
+                        AIK Workshop
                       </h3>
                     </div>
                     <p className="text-gray-500 text-sm leading-relaxed">
