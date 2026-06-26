@@ -15,6 +15,7 @@ const solutionLinks = [
   { label: "AI til kundeservice", href: "/ai-kundeservice" },
   { label: "AI i HR", href: "/ai-i-hr" },
   { label: "AI til e-commerce", href: "/ai-i-e-commerce" },
+  { label: "AI til analyse", href: "/ai-analyse" },
 ];
 
 const companyLinks = [
