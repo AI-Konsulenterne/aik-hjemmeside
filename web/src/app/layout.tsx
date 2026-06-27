@@ -4,6 +4,7 @@ import Header from "@/components/ui/Header";
 import Footer from "@/components/ui/Footer";
 import BottomBar from "@/components/BottomBar";
 import PopupPhone from "@/components/PopupPhone";
+import TrackingEvents from "@/components/TrackingEvents";
 import Analytics from "@/components/Analytics";
 import ScrollToTop from "@/components/ui/ScrollToTop";
 import "./globals.css";
@@ -85,6 +86,7 @@ export default function RootLayout({
         <BottomBar />
         <ScrollToTop />
         <PopupPhone />
+        <TrackingEvents />
       </body>
     </html>
   );

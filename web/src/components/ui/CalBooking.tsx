@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { registerCalBookingTracking } from "@/lib/analytics";
 
 type CalBookingProps = {
   calUsername?: string;
@@ -116,6 +117,7 @@ export default function CalBooking({
         hideEventTypeDetails: false,
         layout,
       });
+      registerCalBookingTracking();
     } catch (e) {
       setError(e instanceof Error ? e.message : "Kunne ikke indlæse booking");
     }

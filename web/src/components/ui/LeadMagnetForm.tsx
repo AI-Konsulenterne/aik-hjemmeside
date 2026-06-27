@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import CalBooking from "./CalBooking";
+import { trackEvent } from "@/lib/analytics";
 
 const BRANCHER = [
   "Produktion",
@@ -160,6 +161,7 @@ export default function LeadMagnetForm() {
         throw new Error(d.error || "Noget gik galt");
       }
       setSubmitted(true);
+      trackEvent("lead_form_submit", { form: "lead-magnet", book_call: bookCall });
     } catch (err) {
       setError(err instanceof Error ? err.message : "Noget gik galt. Prøv igen.");
     } finally {

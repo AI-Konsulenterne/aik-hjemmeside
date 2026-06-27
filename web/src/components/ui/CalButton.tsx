@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { registerCalBookingTracking } from "@/lib/analytics";
 
 type CalFn = ((...args: unknown[]) => void) & {
   loaded?: boolean;
@@ -103,6 +104,7 @@ export default function CalButton({
       hideEventTypeDetails: false,
       layout: "month_view",
     });
+    registerCalBookingTracking();
   }, [username]);
 
   if (!username) {

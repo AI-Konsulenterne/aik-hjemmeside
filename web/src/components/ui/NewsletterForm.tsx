@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { trackEvent } from "@/lib/analytics";
 
 type NewsletterFormProps = {
   source?: string;
@@ -34,6 +35,7 @@ export default function NewsletterForm({
       if (!res.ok) throw new Error(data.error || "Noget gik galt");
       setStatus("success");
       setEmail("");
+      trackEvent("newsletter_signup", { source });
     } catch (err) {
       setStatus("error");
       setError(err instanceof Error ? err.message : "Noget gik galt");

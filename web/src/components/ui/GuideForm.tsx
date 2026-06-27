@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import { trackEvent } from "@/lib/analytics";
 
 type CvrMatch = {
   found: boolean;
@@ -87,6 +88,7 @@ export default function GuideForm() {
       }
 
       setSubmitted(true);
+      trackEvent("lead_form_submit", { form: "ai-analyse-guide" });
     } catch (err) {
       setError(err instanceof Error ? err.message : "Noget gik galt. Prøv igen.");
     } finally {
