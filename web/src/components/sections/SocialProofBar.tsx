@@ -9,6 +9,7 @@ const clients = [
   { name: "Stretchfit", logo: "/logos/stretchfit.png", width: 150, height: 45, cls: "h-7 lg:h-9" },
   { name: "J.M Band", logo: "/logos/jmband.png", width: 120, height: 59, cls: "h-9 lg:h-11" },
   { name: "Fregat", logo: "/logos/fregat.png", width: 400, height: 112, cls: "h-7 lg:h-8" },
+  { name: "Retail Partner", logo: "/logos/retail-partner.png", width: 324, height: 46, cls: "h-6 lg:h-7" },
 ];
 
 // Duplicate for seamless infinite scroll
