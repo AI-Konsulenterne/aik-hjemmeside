@@ -176,6 +176,29 @@ export default function Workshop() {
         </div>
       </section>
 
+      {/* ── Referencer ── */}
+      <section
+        className="section"
+        style={{ paddingTop: "clamp(1.5rem, 4vw, 2.5rem)", paddingBottom: 0 }}
+      >
+        <div className="container">
+          <FadeIn>
+            <div className="ws-refs">
+              <p className="eyebrow">Virksomheder vi har holdt workshop for</p>
+              <div className="ws-refs-logos">
+                <Image
+                  src="/logos/retail-partner.png"
+                  alt="Retail Partner"
+                  width={324}
+                  height={46}
+                  className="ws-ref-logo"
+                />
+              </div>
+            </div>
+          </FadeIn>
+        </div>
+      </section>
+
       {/* ── Sådan gør vi ── */}
       <section className="section how-section" id="metode">
         <div className="container">

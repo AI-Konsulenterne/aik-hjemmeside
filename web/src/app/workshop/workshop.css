@@ -611,6 +611,33 @@
     line-height: 1.6;
   }
 
+  /* ── Referencer ── */
+  .ws-refs {
+    max-width: 1080px;
+    margin: 0 auto;
+    text-align: center;
+    background: var(--ink);
+    border-radius: var(--radius-xl);
+    padding: clamp(30px, 4.5vw, 46px) clamp(28px, 5vw, 56px);
+  }
+  .ws-refs .eyebrow { margin-bottom: 26px; }
+  .ws-refs-logos {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(36px, 6vw, 72px);
+    flex-wrap: wrap;
+  }
+  .ws-ref-logo {
+    height: 32px;
+    width: auto;
+    max-width: 220px;
+    object-fit: contain;
+    opacity: 0.92;
+    transition: opacity 0.2s ease;
+  }
+  .ws-ref-logo:hover { opacity: 1; }
+
   /* ── Responsive ── */
   @media (max-width: 980px) {
     .hero-grid { grid-template-columns: 1fr; gap: 48px; }
