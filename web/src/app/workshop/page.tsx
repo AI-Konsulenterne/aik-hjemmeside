@@ -330,57 +330,38 @@ export default function Workshop() {
                   <p>
                     Retail Partner arbejder hver dag med produktstamdata,
                     kampagner og kommunikation på tværs af mange principaler og
-                    tusindvis af varenumre - opgaver med masser af gentagelse
-                    og manuel datahåndtering. Medarbejderne stod meget
-                    forskelligt: nogle brugte AI dagligt, andre havde aldrig
-                    åbnet et værktøj.
-                  </p>
-                  <p>
-                    Og under overfladen lå de bekymringer, vi møder alle
-                    steder: &rdquo;Overtager AI mit job?&rdquo;, usikkerhed om
-                    følsomme data og tvivl om, hvorvidt man kan stole på det,
-                    værktøjerne spytter ud. De havde ikke brug for endnu et
-                    teoretisk AI-oplæg - de havde brug for konkrete værktøjer,
-                    de kunne bruge dagen efter.
+                    tusindvis af varenumre. Nogle medarbejdere brugte AI
+                    dagligt, andre havde aldrig åbnet et værktøj - og
+                    bekymringerne var de klassiske: &rdquo;Overtager AI mit
+                    job?&rdquo; og hvad med de følsomme data?
                   </p>
                 </div>
                 <div className="ws-case-block">
                   <span className="ws-case-label">Løsningen</span>
                   <p>
                     En hands-on workshop bygget op om ét princip: AI i
-                    øjenhøjde. Ikke buzzwords - men AI brugt direkte på deres
-                    egne opgaver. Hver fase sluttede med en øvefase, hvor
-                    medarbejderne selv løste opgaver fra deres egen hverdag -
-                    stamdata-berigelse, konkurrent- og prisovervågning,
-                    oversættelser og mailhåndtering. Til sidst delte de
-                    løsninger på tværs, så alle gik hjem med mere end deres
-                    eget.
+                    øjenhøjde. Hver fase sluttede med øvelser på opgaver fra
+                    deres egen hverdag:
                   </p>
-                  <p>
-                    Bekymringerne mødte vi direkte i stedet for at tale udenom:
-                    hvad AI ikke skal have adgang til, hvornår man skal være
-                    kritisk over for output, og hvordan man bevarer kontrollen
-                    selv.
-                  </p>
+                  <ul>
+                    <li>Stamdata-berigelse og produktdata</li>
+                    <li>Konkurrent- og prisovervågning</li>
+                    <li>Oversættelser og mailhåndtering</li>
+                  </ul>
                   <div className="ws-case-example">
-                    <strong>Konkret eksempel:</strong> vi byggede et sæt
-                    prompts til deres faktiske stamdata-flow. Ét der beriger
-                    produktdata ud fra EAN, og ét der mapper et produktfaktaark
-                    ind i deres stamdata-skabelon - med kildehenvisning og
-                    &rdquo;verificér&rdquo;-markering på hvert felt, så intet
-                    bliver gættet og importeret ved en fejl.
+                    <strong>Konkret eksempel:</strong>{" "}et sæt prompts til
+                    deres stamdata-flow - ét beriger produktdata ud fra EAN, ét
+                    mapper faktaark ind i deres skabelon med
+                    &rdquo;verificér&rdquo;-markering på hvert felt.
                   </div>
                 </div>
                 <div className="ws-case-block">
                   <span className="ws-case-label">Resultatet</span>
                   <p>
-                    16 medarbejdere - fra nybegyndere til daglige brugere -
-                    forlod workshoppen med konkrete værktøjer bygget på deres
-                    egne opgaver, ikke generiske eksempler. De gik fra
-                    &rdquo;hvad kan AI?&rdquo; til færdige prompts klar til
-                    brug med det samme - og de klassiske bekymringer om
-                    jobsikkerhed og datasikkerhed blev vendt til noget
-                    håndgribeligt, medarbejderne selv kan styre.
+                    16 medarbejdere gik fra &rdquo;hvad kan AI?&rdquo; til
+                    færdige prompts, klar til brug dagen efter - og
+                    bekymringerne blev vendt til noget håndgribeligt, de selv
+                    kan styre.
                   </p>
                 </div>
               </div>
