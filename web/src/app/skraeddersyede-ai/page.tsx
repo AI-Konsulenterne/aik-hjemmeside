@@ -5,6 +5,7 @@ import FadeIn from "@/components/ui/FadeIn";
 import JsonLd from "@/components/ui/JsonLd";
 import { Icon } from "@/components/sections/skraeddersyede/icons";
 import SkraeddersyedeFaq from "@/components/sections/skraeddersyede/SkraeddersyedeFaq";
+import DeveloperExperience from "@/components/sections/DeveloperExperience";
 import "./ai-landing.css";
 
 const serviceSchema = {
@@ -377,6 +378,8 @@ export default function SkraeddersyedeAI() {
       </section>
 
       {/* ── FAQ ── */}
+      <DeveloperExperience />
+
       <section className="section faq-section" id="faq">
         <div className="container faq-container">
           <FadeIn>

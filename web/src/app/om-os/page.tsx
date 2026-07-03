@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import FadeIn from "@/components/ui/FadeIn";
 import SubpageCTA from "@/components/sections/SubpageCTA";
+import DeveloperExperience from "@/components/sections/DeveloperExperience";
 import {
   getTeamMembers,
   strapiImageUrl,
@@ -154,6 +155,8 @@ export default async function OmOs() {
           </div>
         </div>
       </section>
+
+      <DeveloperExperience />
 
       {/* Values */}
       <section className="py-[clamp(3rem,8vw,6rem)]">
