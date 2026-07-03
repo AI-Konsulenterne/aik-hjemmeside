@@ -271,7 +271,7 @@ export default function Workshop() {
                 <span className="ws-pack-badge">Halv dag</span>
                 <h3>Microsoft 365 Copilot - kickstart</h3>
                 <p>
-                  A-Z undervisning i de vigtigste funktioner, så hele teamet
+                  Undervisning i de vigtigste funktioner, så hele teamet
                   kommer i gang med de licenser, I allerede betaler for.
                 </p>
                 <ul>
