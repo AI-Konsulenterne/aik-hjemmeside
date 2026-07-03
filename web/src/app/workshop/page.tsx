@@ -65,7 +65,7 @@ const HOW = [
   },
   {
     n: "02",
-    h: "Træning med hænderne i bolden",
+    h: "Undervisning med hænderne i bolledejen",
     p: "I arbejder med konkrete øvelser og skabeloner, så AI bliver noget, I faktisk kan bruge - ikke bare høre om.",
   },
   {
