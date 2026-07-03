@@ -194,6 +194,9 @@ export default function Workshop() {
                   className="ws-ref-logo"
                 />
               </div>
+              <a href="#case" className="ws-refs-link">
+                Læs hvordan vi hjalp Retail Partner ↓
+              </a>
             </div>
           </FadeIn>
         </div>
@@ -244,6 +247,122 @@ export default function Workshop() {
           <FadeIn delay={100}>
             <WorkshopEmner />
           </FadeIn>
+        </div>
+      </section>
+
+      {/* ── Case: Retail Partner ── */}
+      <section className="section" id="case">
+        <div className="container">
+          <FadeIn>
+            <div className="section-head">
+              <p className="eyebrow">Case: Retail Partner</p>
+              <h2 className="h2">
+                Fra &rdquo;hvad kan AI?&rdquo; til færdige prompts - på én dag
+              </h2>
+              <p className="lead">
+                En hands-on workshop bygget op om Retail Partners egne opgaver -
+                stamdata, kampagner og kommunikation på tværs af mange
+                principaler og tusindvis af varenumre.
+              </p>
+            </div>
+          </FadeIn>
+          <div className="ws-case">
+            <FadeIn>
+              <div>
+                <div className="ws-case-block">
+                  <span className="ws-case-label">Udfordringen</span>
+                  <p>
+                    Retail Partner arbejder hver dag med produktstamdata,
+                    kampagner og kommunikation på tværs af mange principaler og
+                    tusindvis af varenumre - opgaver med masser af gentagelse
+                    og manuel datahåndtering. Medarbejderne stod meget
+                    forskelligt: nogle brugte AI dagligt, andre havde aldrig
+                    åbnet et værktøj.
+                  </p>
+                  <p>
+                    Og under overfladen lå de bekymringer, vi møder alle
+                    steder: &rdquo;Overtager AI mit job?&rdquo;, usikkerhed om
+                    følsomme data og tvivl om, hvorvidt man kan stole på det,
+                    værktøjerne spytter ud. De havde ikke brug for endnu et
+                    teoretisk AI-oplæg - de havde brug for konkrete værktøjer,
+                    de kunne bruge dagen efter.
+                  </p>
+                </div>
+                <div className="ws-case-block">
+                  <span className="ws-case-label">Løsningen</span>
+                  <p>
+                    En hands-on workshop bygget op om ét princip: AI i
+                    øjenhøjde. Ikke buzzwords - men AI brugt direkte på deres
+                    egne opgaver. Hver fase sluttede med en øvefase, hvor
+                    medarbejderne selv løste opgaver fra deres egen hverdag -
+                    stamdata-berigelse, konkurrent- og prisovervågning,
+                    oversættelser og mailhåndtering. Til sidst delte de
+                    løsninger på tværs, så alle gik hjem med mere end deres
+                    eget.
+                  </p>
+                  <p>
+                    Bekymringerne mødte vi direkte i stedet for at tale udenom:
+                    hvad AI ikke skal have adgang til, hvornår man skal være
+                    kritisk over for output, og hvordan man bevarer kontrollen
+                    selv.
+                  </p>
+                  <div className="ws-case-example">
+                    <strong>Konkret eksempel:</strong> vi byggede et sæt
+                    prompts til deres faktiske stamdata-flow. Ét der beriger
+                    produktdata ud fra EAN, og ét der mapper et produktfaktaark
+                    ind i deres stamdata-skabelon - med kildehenvisning og
+                    &rdquo;verificér&rdquo;-markering på hvert felt, så intet
+                    bliver gættet og importeret ved en fejl.
+                  </div>
+                </div>
+                <div className="ws-case-block">
+                  <span className="ws-case-label">Resultatet</span>
+                  <p>
+                    16 medarbejdere - fra nybegyndere til daglige brugere -
+                    forlod workshoppen med konkrete værktøjer bygget på deres
+                    egne opgaver, ikke generiske eksempler. De gik fra
+                    &rdquo;hvad kan AI?&rdquo; til færdige prompts klar til
+                    brug med det samme - og de klassiske bekymringer om
+                    jobsikkerhed og datasikkerhed blev vendt til noget
+                    håndgribeligt, medarbejderne selv kan styre.
+                  </p>
+                </div>
+              </div>
+            </FadeIn>
+            <FadeIn delay={120}>
+              <aside className="ws-case-aside">
+                <Image
+                  src="/logos/retail-partner.png"
+                  alt="Retail Partner"
+                  width={324}
+                  height={46}
+                  className="ws-case-logo"
+                />
+                <h3>Dagens fire faser</h3>
+                <ol className="ws-case-fases">
+                  <li>
+                    <span className="num">1</span>Afmystificering og live-demoer
+                  </li>
+                  <li>
+                    <span className="num">2</span>Dybdegående promptteknik
+                  </li>
+                  <li>
+                    <span className="num">3</span>Assistenter
+                  </li>
+                  <li>
+                    <span className="num">4</span>Agenter
+                  </li>
+                </ol>
+                <div className="ws-case-stat">
+                  <span className="big">16</span>
+                  <span className="desc">
+                    medarbejdere - fra nybegyndere til daglige brugere - gik
+                    hjem med færdige prompts til deres egne opgaver
+                  </span>
+                </div>
+              </aside>
+            </FadeIn>
+          </div>
         </div>
       </section>
 
