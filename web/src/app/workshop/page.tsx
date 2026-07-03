@@ -250,6 +250,62 @@ export default function Workshop() {
         </div>
       </section>
 
+      {/* ── Copilot-standardpakker ── */}
+      <section className="section" id="pakker">
+        <div className="container">
+          <FadeIn>
+            <div className="section-head">
+              <p className="eyebrow">Standardpakker</p>
+              <h2 className="h2">Til jer der bare gerne vil i gang</h2>
+              <p className="lead">
+                Rigtig mange af vores kunder sidder med ubrugte
+                Copilot-licenser. Det her er jeres chance for at systematisere
+                jeres Copilot-brug, effektivisere hverdagen og skabe reel værdi
+                med AI i jeres teams.
+              </p>
+            </div>
+          </FadeIn>
+          <div className="ws-packs">
+            <FadeIn>
+              <article className="ws-pack">
+                <span className="ws-pack-badge">Halv dag</span>
+                <h3>Microsoft 365 Copilot - kickstart</h3>
+                <p>
+                  A-Z undervisning i de vigtigste funktioner, så hele teamet
+                  kommer i gang med de licenser, I allerede betaler for.
+                </p>
+                <ul>
+                  <li>Copilot i Outlook, Word, Teams og Excel</li>
+                  <li>Hands-on øvelser på jeres egne opgaver</li>
+                  <li>Prompts og skabeloner I kan bruge dagen efter</li>
+                </ul>
+                <Button variant="primary" cal>
+                  Book en halv dag
+                </Button>
+              </article>
+            </FadeIn>
+            <FadeIn delay={100}>
+              <article className="ws-pack">
+                <span className="ws-pack-badge">Hel dag</span>
+                <h3>Microsoft 365 Copilot - A til Z</h3>
+                <p>
+                  Hele paletten med tid til at gå i dybden - fra de daglige
+                  værktøjer til jeres konkrete arbejdsgange.
+                </p>
+                <ul>
+                  <li>Alt fra halvdagen - med mere tid til øvelser</li>
+                  <li>Copilot Chat, assistenter og automatisering</li>
+                  <li>Plan for forankring, så det bliver brugt bagefter</li>
+                </ul>
+                <Button variant="primary" cal>
+                  Book en hel dag
+                </Button>
+              </article>
+            </FadeIn>
+          </div>
+        </div>
+      </section>
+
       {/* ── Case: Retail Partner ── */}
       <section className="section" id="case">
         <div className="container">
