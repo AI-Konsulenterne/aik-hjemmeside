@@ -213,7 +213,7 @@ export async function getBlogPosts(limit?: number): Promise<BlogPost[]> {
   });
   if (limit) query.set("pagination[pageSize]", String(limit));
   return strapiFetch<BlogPost[]>(`blog-posts?${query.toString()}`, {
-    next: { tags: ["blog"] },
+    next: { tags: ["blog"], revalidate: 60 },
   });
 }
 
