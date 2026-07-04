@@ -484,7 +484,7 @@ export default function Workshop() {
                 hinanden.
               </p>
               <a
-                href="https://www.skool.com/aik-academy-9764/classroom"
+                href="https://www.skool.com/aiminds/classroom"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn btn-primary btn-lg"

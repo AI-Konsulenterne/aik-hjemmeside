@@ -2,7 +2,7 @@ import Image from "next/image";
 import Button from "@/components/ui/Button";
 import FadeIn from "@/components/ui/FadeIn";
 
-const SKOOL_URL = "https://www.skool.com/aik-academy-9764";
+const SKOOL_URL = "https://www.skool.com/aiminds";
 
 // Knap-klasser til eksterne <a>-links (matcher Button-komponenten)
 const ghostBtn =
