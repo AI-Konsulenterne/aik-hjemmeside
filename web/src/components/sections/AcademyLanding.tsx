@@ -412,8 +412,8 @@ export default function AcademyLanding() {
           <FadeIn>
             <Eyebrow>Lyder det bekendt?</Eyebrow>
             <h2 className="text-3xl lg:text-5xl font-bold tracking-heading text-gray-900 leading-[1.08] mt-4 text-balance">
-              I har købt licenserne.{" "}
-              <span className="text-primary">Men hvem bruger dem?</span>
+              Få reel forretningsværdi{" "}
+              <span className="text-primary">ud af jeres licenser</span>
             </h2>
             <p className="text-xl text-gray-600 mt-6 leading-relaxed">
               I har købt licenser. I har gjort opmærksom på at de eksisterer.

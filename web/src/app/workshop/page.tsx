@@ -111,8 +111,8 @@ export default function Workshop() {
             <div className="hero-copy">
               <p className="eyebrow">AI-konsulenterne</p>
               <h1 className="display hero-title">
-                En AI-workshop, der passer til jer{" "}
-                <span className="accent">ikke en standardpakke.</span>
+                En AI-workshop, der{" "}
+                <span className="accent">passer til jer.</span>
               </h1>
               <p className="lead hero-lead">
                 Vi kan godt lide at gøre vores arbejde så konkret som muligt, så
