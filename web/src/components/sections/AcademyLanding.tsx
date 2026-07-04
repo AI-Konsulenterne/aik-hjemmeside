@@ -293,7 +293,7 @@ export default function AcademyLanding() {
           <div className="grid grid-cols-1 lg:grid-cols-[1.05fr_0.95fr] gap-10 lg:gap-16 items-center">
             <FadeIn>
               <div>
-                <Eyebrow>AIK Academy</Eyebrow>
+                <Eyebrow>AI-Minds</Eyebrow>
                 <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold tracking-heading text-gray-900 leading-[1.04] mt-4 text-balance">
                   AI-kursus og AI-uddannelse{" "}
                   <span className="text-primary">til hele organisationen</span>
@@ -317,7 +317,7 @@ export default function AcademyLanding() {
                     rel="noopener noreferrer"
                     className={ghostBtn}
                   >
-                    Se Academy
+                    Se AI-Minds
                   </a>
                 </div>
               </div>
@@ -325,10 +325,7 @@ export default function AcademyLanding() {
 
             {/* Floating course cards */}
             <FadeIn delay={200}>
-              <div
-                className="relative hidden lg:block min-h-[500px]"
-                aria-hidden="true"
-              >
+              <div className="relative hidden lg:block">
                 <div
                   className="pointer-events-none absolute -inset-10"
                   style={{
@@ -336,7 +333,18 @@ export default function AcademyLanding() {
                       "radial-gradient(circle at 66% 34%, rgba(255,154,0,.18), transparent 58%)",
                   }}
                 />
-                <div className="absolute -top-2 right-8 z-[4] flex items-center gap-2 bg-primary text-white text-[13px] font-bold tracking-wide px-[18px] py-[11px] rounded-full shadow-[0_18px_32px_-10px_rgba(255,154,0,.55)]">
+
+                {/* AI-Minds hero-billede */}
+                <div className="relative z-[1]">
+                  <Image
+                    src="/ai-minds.jpg"
+                    alt="AI-Minds forløbet"
+                    width={720}
+                    height={383}
+                    priority
+                    className="w-full rounded-[24px] shadow-[0_34px_64px_-26px_rgba(0,0,0,.4)]"
+                  />
+                <div className="absolute -top-3 -right-3 z-[4] flex items-center gap-2 bg-primary text-white text-[13px] font-bold tracking-wide px-[18px] py-[11px] rounded-full shadow-[0_18px_32px_-10px_rgba(255,154,0,.55)]">
                   <svg
                     className="w-4 h-4"
                     viewBox="0 0 24 24"
@@ -352,8 +360,11 @@ export default function AcademyLanding() {
                   </svg>
                   4 moduler
                 </div>
+                </div>
 
-                <div className="absolute top-[18px] left-1.5 z-[2] w-[322px] flex items-center gap-4 bg-white border border-gray-200 rounded-[20px] p-5 shadow-[0_34px_64px_-26px_rgba(0,0,0,.32)] rotate-[-4deg] hover:rotate-0 hover:-translate-y-1 hover:z-[5] transition-transform duration-300">
+                {/* Modul-kort under billedet */}
+                <div className="relative mt-8 h-[380px]" aria-hidden="true">
+                <div className="absolute top-0 left-1.5 z-[2] w-[322px] flex items-center gap-4 bg-white border border-gray-200 rounded-[20px] p-5 shadow-[0_34px_64px_-26px_rgba(0,0,0,.32)] rotate-[-4deg] hover:rotate-0 hover:-translate-y-1 hover:z-[5] transition-transform duration-300">
                   {glyphTile("orange", <NetworkIcon className="w-6 h-6" />)}
                   <span>
                     <span className="block text-[17px] font-bold tracking-tight text-gray-900">
@@ -365,7 +376,7 @@ export default function AcademyLanding() {
                   </span>
                 </div>
 
-                <div className="absolute top-[176px] right-0 z-[3] w-[322px] flex items-center gap-4 bg-white border border-gray-200 rounded-[20px] p-5 shadow-[0_34px_64px_-26px_rgba(0,0,0,.32)] rotate-[3deg] hover:rotate-0 hover:-translate-y-1 hover:z-[5] transition-transform duration-300">
+                <div className="absolute top-[132px] right-0 z-[3] w-[322px] flex items-center gap-4 bg-white border border-gray-200 rounded-[20px] p-5 shadow-[0_34px_64px_-26px_rgba(0,0,0,.32)] rotate-[3deg] hover:rotate-0 hover:-translate-y-1 hover:z-[5] transition-transform duration-300">
                   {glyphTile("dark", <ChatIcon className="w-6 h-6" />)}
                   <span>
                     <span className="block text-[17px] font-bold tracking-tight text-gray-900">
@@ -377,7 +388,7 @@ export default function AcademyLanding() {
                   </span>
                 </div>
 
-                <div className="absolute top-[332px] left-6 z-[2] w-[322px] flex items-center gap-4 bg-white border border-gray-200 rounded-[20px] p-5 shadow-[0_34px_64px_-26px_rgba(0,0,0,.32)] rotate-[-2deg] hover:rotate-0 hover:-translate-y-1 hover:z-[5] transition-transform duration-300">
+                <div className="absolute top-[264px] left-6 z-[2] w-[322px] flex items-center gap-4 bg-white border border-gray-200 rounded-[20px] p-5 shadow-[0_34px_64px_-26px_rgba(0,0,0,.32)] rotate-[-2deg] hover:rotate-0 hover:-translate-y-1 hover:z-[5] transition-transform duration-300">
                   {glyphTile("dark", <SparkleIcon className="w-6 h-6" />)}
                   <span>
                     <span className="block text-[17px] font-bold tracking-tight text-gray-900">
@@ -387,6 +398,7 @@ export default function AcademyLanding() {
                       Fra nybegynder til ekspert
                     </span>
                   </span>
+                </div>
                 </div>
               </div>
             </FadeIn>
@@ -405,7 +417,7 @@ export default function AcademyLanding() {
             </h2>
             <p className="text-xl text-gray-600 mt-6 leading-relaxed">
               I har købt licenser. I har gjort opmærksom på at de eksisterer.
-              Men ingen bruger dem? Derfor har vi bygget AIK Academy, der gør
+              Men ingen bruger dem? Derfor har vi bygget AI-Minds, der gør
               læring omkring AI nemt og tilgængeligt. Med små, korte og konkrete
               moduler har vi opbygget vores læringsunivers, så alle kan være med.
             </p>
@@ -612,7 +624,7 @@ export default function AcademyLanding() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <FadeIn>
             <div className="max-w-2xl">
-              <Eyebrow>Hvorfor AIK Academy</Eyebrow>
+              <Eyebrow>Hvorfor AI-Minds</Eyebrow>
               <h2 className="text-3xl lg:text-5xl font-bold tracking-heading text-gray-900 leading-[1.08] mt-4">
                 AI-undervisning <span className="text-primary">i øjenhøjde</span>.
               </h2>
@@ -693,7 +705,7 @@ export default function AcademyLanding() {
                 </h3>
                 <p className="relative mt-5 text-[16px] leading-relaxed text-gray-400">
                   Vi viser jer det hellere, end vi fortæller om det. Book et
-                  opkald, så går vi gennem konkrete eksempler fra Academy - og
+                  opkald, så går vi gennem konkrete eksempler fra AI-Minds - og
                   hvad jeres team kan få ud af det.
                 </p>
                 <div className="relative mt-7">
@@ -837,7 +849,7 @@ export default function AcademyLanding() {
                   Book en <span className="text-primary">kort snak</span>.
                 </h2>
                 <p className="text-[19px] leading-relaxed text-gray-400 mt-5 max-w-md">
-                  Vi viser jer Academy, taler om, hvad jeres team har brug for, og
+                  Vi viser jer AI-Minds, taler om, hvad jeres team har brug for, og
                   siger ærligt, om det er den rigtige løsning for jer.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 mt-9">
@@ -851,7 +863,7 @@ export default function AcademyLanding() {
                     rel="noopener noreferrer"
                     className={lightBtn}
                   >
-                    Se Academy
+                    Se AI-Minds
                   </a>
                 </div>
               </div>
@@ -881,7 +893,7 @@ export default function AcademyLanding() {
                 <ul className="mt-6 flex flex-col gap-3.5">
                   {[
                     "30 minutter",
-                    "Vi viser jer Academy live",
+                    "Vi viser jer AI-Minds live",
                     "Ærlig vurdering af om det passer til jer",
                   ].map((li) => (
                     <li

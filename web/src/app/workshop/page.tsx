@@ -479,7 +479,7 @@ export default function Workshop() {
               <p className="eyebrow">Efter workshoppen</p>
               <h2>Fortsæt hvor I slap</h2>
               <p>
-                Få AI ind i dagligdagen med vores læringsunivers, AIK Academy -
+                Få AI ind i dagligdagen med vores læringsunivers, AI-Minds -
                 korte videoer, konkrete use cases og et community, der hjælper
                 hinanden.
               </p>
@@ -489,7 +489,7 @@ export default function Workshop() {
                 rel="noopener noreferrer"
                 className="btn btn-primary btn-lg"
               >
-                Gå til AIK Academy →
+                Gå til AI-Minds →
               </a>
             </div>
           </FadeIn>

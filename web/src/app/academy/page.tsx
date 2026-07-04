@@ -28,7 +28,7 @@ const academySchema = {
 };
 
 export const metadata: Metadata = {
-  title: { absolute: "AI kursus & AI-uddannelse til virksomheder | AIK Academy" },
+  title: { absolute: "AI kursus & AI-uddannelse til virksomheder | AI-Minds" },
   description:
     "AI kursus og AI-uddannelse til virksomheder - online og i øjenhøjde. Lær ChatGPT, Copilot og Claude med korte videoer, konkrete use cases og et community.",
   alternates: { canonical: "/academy" },
@@ -39,10 +39,10 @@ export const metadata: Metadata = {
     "AI kursus for virksomheder",
     "AI kursus københavn",
     "generativ AI kursus",
-    "AIK Academy",
+    "AI-Minds",
   ],
   openGraph: {
-    title: "AI kursus & AI-uddannelse til virksomheder | AIK Academy",
+    title: "AI kursus & AI-uddannelse til virksomheder | AI-Minds",
     description:
       "AI kursus og AI-uddannelse til virksomheder - online og i øjenhøjde. Lær ChatGPT, Copilot og Claude med korte videoer og konkrete use cases.",
     url: "/academy",
