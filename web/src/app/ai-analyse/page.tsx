@@ -3,7 +3,7 @@ import JsonLd from "@/components/ui/JsonLd";
 import UseCaseLanding from "@/components/sections/UseCaseLanding";
 
 export const metadata: Metadata = {
-  title: { absolute: "AI til analyse og dataindsigt | beslutningsstøtte | AI Konsulenterne" },
+  title: { absolute: "AI til analyse og dataindsigt | AI Konsulenterne" },
   description:
     "AI til analyse der samler og analyserer jeres data på tværs af systemer - så I får indsigt og beslutningsstøtte i hverdagen. Se vores cases med J.M Band og INDKOM.",
   alternates: { canonical: "/ai-analyse" },

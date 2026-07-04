@@ -10,7 +10,7 @@ import {
 } from "@/lib/strapi";
 
 export const metadata: Metadata = {
-  title: "Viden om AI | AI Guides, Artikler og Indsigter for SMV'er",
+  title: "Viden om AI - guides og artikler",
   description:
     "Praktiske AI-guides og artikler til danske virksomheder. Lær om AI-implementering, GDPR, ChatGPT vs skræddersyet AI, ROI-beregning og meget mere.",
   alternates: { canonical: "/viden-om-ai" },

@@ -26,7 +26,7 @@ const serviceSchema = {
 };
 
 export const metadata: Metadata = {
-  title: { absolute: "AI-løsninger & AI-automatisering til virksomheder | AI Konsulenterne" },
+  title: { absolute: "AI-løsninger & AI-automatisering | AI Konsulenterne" },
   description:
     "Vi bygger AI-løsninger og AI-automatisering, der passer ind i jeres forretning - integreret med jeres CRM og systemer. AI-implementering uden intern AI-viden.",
   alternates: { canonical: "/skraeddersyede-ai" },

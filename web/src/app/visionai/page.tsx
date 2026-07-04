@@ -10,7 +10,7 @@ import {
 import "./workspace.css";
 
 export const metadata: Metadata = {
-  title: "AIK Workspace - Jeres eget AI-system til hele virksomheden",
+  title: "AIK Workspace - jeres eget AI-system",
   description:
     "AIK Workspace er jeres eget AI-system. Chat, agenter, vidensbase og styring i én platform - forankret i jeres data, GDPR-sikkert og med frit valg af AI-model.",
   alternates: { canonical: "/visionai" },

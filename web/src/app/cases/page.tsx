@@ -6,7 +6,7 @@ import SubpageCTA from "@/components/sections/SubpageCTA";
 import { getCases, strapiImageUrl, type Case } from "@/lib/strapi";
 
 export const metadata: Metadata = {
-  title: "AI Cases Danske Virksomheder | Konkrete Resultater",
+  title: "AI-cases fra danske virksomheder",
   description:
     "Se konkrete AI-cases fra danske virksomheder: Lavazza HR-agent, Wunderwear webshop-automatisering, INDKOM og flere. Resultater I kan måle.",
   alternates: { canonical: "/cases" },

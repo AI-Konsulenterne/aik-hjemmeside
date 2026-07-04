@@ -3,7 +3,7 @@ import LeadMagnetForm from "@/components/ui/LeadMagnetForm";
 import FadeIn from "@/components/ui/FadeIn";
 
 export const metadata: Metadata = {
-  title: "Gratis AI-analyse — find jeres første use case",
+  title: "Gratis AI-analyse til jeres virksomhed",
   description:
     "Mange virksomheder ved ikke hvor de skal starte med AI. Få en gratis AI-analyse og konkrete forslag til hvor AI kan spare jer tid — uden buzzwords.",
   alternates: { canonical: "/ai-guide" },

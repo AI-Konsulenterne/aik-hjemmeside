@@ -5,7 +5,7 @@ import FadeIn from "@/components/ui/FadeIn";
 import JsonLd from "@/components/ui/JsonLd";
 
 export const metadata: Metadata = {
-  title: { absolute: "AI-strategi til virksomheder | AI-analyse & roadmap | AI Konsulenterne" },
+  title: { absolute: "AI-strategi til virksomheder | AI Konsulenterne" },
   description:
     "Få en AI-strategi, der bliver til noget. Vi laver AI-analysen, lægger en konkret roadmap og hjælper jer hele vejen til implementering. Gratis AI-afklaring.",
   alternates: { canonical: "/ai-strategi" },

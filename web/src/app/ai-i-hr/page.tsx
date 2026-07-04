@@ -3,7 +3,7 @@ import JsonLd from "@/components/ui/JsonLd";
 import UseCaseLanding from "@/components/sections/UseCaseLanding";
 
 export const metadata: Metadata = {
-  title: { absolute: "AI i HR | automatisér HR-spørgsmål og frigør tid | AI Konsulenterne" },
+  title: { absolute: "AI i HR - svar på sekunder | AI Konsulenterne" },
   description:
     "AI i HR der svarer medarbejderne på sekunder - trænet på jeres egne politikker og kørt i et datasikkert, lukket miljø. Se hvordan vi hjalp Lavazzas HR-afdeling.",
   alternates: { canonical: "/ai-i-hr" },

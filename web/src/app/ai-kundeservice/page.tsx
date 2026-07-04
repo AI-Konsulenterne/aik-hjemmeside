@@ -3,7 +3,7 @@ import JsonLd from "@/components/ui/JsonLd";
 import UseCaseLanding from "@/components/sections/UseCaseLanding";
 
 export const metadata: Metadata = {
-  title: { absolute: "AI til kundeservice | automatisér support og svartider | AI Konsulenterne" },
+  title: { absolute: "AI til kundeservice - svar 24/7 | AI Konsulenterne" },
   description:
     "AI til kundeservice der besvarer de gentagne spørgsmål automatisk - integreret med jeres egne systemer. Se hvordan vi byggede en AI-agent, der tager 80% af henvendelserne.",
   alternates: { canonical: "/ai-kundeservice" },

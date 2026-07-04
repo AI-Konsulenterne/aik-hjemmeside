@@ -3,7 +3,7 @@ import CalBooking from "@/components/ui/CalBooking";
 import FadeIn from "@/components/ui/FadeIn";
 
 export const metadata: Metadata = {
-  title: "Kontakt AI Konsulenterne | Book Gratis AI-Afklaring",
+  title: { absolute: "Kontakt AI Konsulenterne - book gratis AI-afklaring" },
   description:
     "Book en gratis 45-minutters AI-afklaring med Alexander. Ingen forpligtelse — finder vi ikke en mulighed, koster det ingenting. Ring +45 25 54 70 74.",
   alternates: { canonical: "/kontakt" },

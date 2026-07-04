@@ -3,7 +3,7 @@ import JsonLd from "@/components/ui/JsonLd";
 import UseCaseLanding from "@/components/sections/UseCaseLanding";
 
 export const metadata: Metadata = {
-  title: { absolute: "AI til e-commerce og webshops | automatisering der skalerer | AI Konsulenterne" },
+  title: { absolute: "AI til e-commerce og webshops | AI Konsulenterne" },
   description:
     "AI til e-commerce der automatiserer ordrehåndtering og kundeservice i jeres webshop - integreret med Shopify og CRM. Se hvordan vi hjalp Wunderwear skalere uden flere hænder.",
   alternates: { canonical: "/ai-i-e-commerce" },
