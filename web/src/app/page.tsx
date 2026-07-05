@@ -19,7 +19,7 @@ const organizationJsonLd = {
   alternateName: "AIK",
   url: "https://ai-konsulenterne.dk",
   description:
-    "Dansk AI-konsulenthus der bygger skræddersyede AI-løsninger til SMV'er.",
+    "Dansk AI-konsulenthus der bygger skræddersyede AI-løsninger til danske virksomheder.",
   telephone: "+4525547074",
   email: "kontakt@ai-konsulenterne.dk",
   priceRange: "$$",

@@ -26,7 +26,7 @@ function imageForMember(m: TeamMember, i: number): string {
 export const metadata: Metadata = {
   title: "Om Os | Mød Holdet Bag AI Konsulenterne",
   description:
-    "AI Konsulenterne er et dansk AI-konsulenthus i København med fokus på SMV'er. Mød Alexander og resten af teamet der bygger skræddersyede AI-løsninger.",
+    "AI Konsulenterne er et dansk AI-konsulenthus i København med fokus på danske virksomheder. Mød Alexander og resten af teamet der bygger skræddersyede AI-løsninger.",
   alternates: { canonical: "/om-os" },
   keywords: [
     "AI konsulenter Danmark",
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Om Os — AI Konsulenterne",
     description:
-      "Mød holdet bag AI Konsulenterne. Et lille, dansk hold med fokus på SMV'er.",
+      "Mød holdet bag AI Konsulenterne. Et lille, dansk hold med fokus på danske virksomheder.",
     url: "/om-os",
   },
 };
@@ -90,8 +90,9 @@ export default async function OmOs() {
                 Vi gør AI tilgængeligt for danske virksomheder
               </h1>
               <p className="text-lg lg:text-xl text-gray-500 mt-6 leading-relaxed">
-                AI Konsulenterne er et dansk AI-konsulenthus der hjælper SMV&apos;er
-                med at spare tid og penge med skræddersyede AI-løsninger. Vi
+                AI Konsulenterne er et dansk AI-konsulenthus der hjælper danske
+                virksomheder med at spare tid og penge med skræddersyede
+                AI-løsninger. Vi
                 tror på at AI skal være nede på jorden - ikke raketvidenskab.
               </p>
             </div>
@@ -108,7 +109,7 @@ export default async function OmOs() {
             </h2>
             <p className="text-gray-500 text-center max-w-2xl mx-auto mb-12 leading-relaxed">
               Fire mennesker med én mission - at gøre AI konkret og nyttigt for
-              danske SMV&apos;er.
+              danske virksomheder.
             </p>
           </FadeIn>
 

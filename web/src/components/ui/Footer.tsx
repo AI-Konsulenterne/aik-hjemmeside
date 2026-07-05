@@ -1,6 +1,5 @@
 import Link from "next/link";
 import Image from "next/image";
-import NewsletterForm from "./NewsletterForm";
 import CookieConsentLink from "./CookieConsentLink";
 
 const serviceLinks = [
@@ -103,18 +102,12 @@ export default function Footer() {
             </nav>
           </div>
 
-          {/* Newsletter + kontakt */}
+          {/* Kontakt */}
           <div>
             <p className="text-xs uppercase tracking-widest text-gray-500 font-semibold mb-4">
-              Kort brief i indbakken
+              Kontakt
             </p>
-            <p className="text-sm text-gray-400 leading-relaxed mb-4">
-              1-2 gange om måneden: praktiske AI-indsigter til danske SMV&apos;er.
-              Ingen spam.
-            </p>
-            <NewsletterForm source="footer-newsletter" dark />
-
-            <div className="mt-7 pt-6 border-t border-white/10 space-y-2.5 text-sm text-gray-400">
+            <div className="space-y-2.5 text-sm text-gray-400">
               <a
                 href="tel:+4525547074"
                 className="block hover:text-white transition-colors"

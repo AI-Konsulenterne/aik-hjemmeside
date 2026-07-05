@@ -14,7 +14,7 @@ const serviceSchema = {
   name: "Skræddersyede AI-løsninger",
   serviceType: "AI Consulting & Development",
   description:
-    "Skræddersyede AI-løsninger til danske SMV'er. Custom AI bygget og integreret med jeres CRM, ERP og eksisterende systemer.",
+    "Skræddersyede AI-løsninger til danske virksomheder. Custom AI bygget og integreret med jeres CRM, ERP og eksisterende systemer.",
   provider: { "@id": "https://ai-konsulenterne.dk/#organization" },
   areaServed: { "@type": "Country", name: "Denmark" },
   url: "https://ai-konsulenterne.dk/skraeddersyede-ai",
@@ -96,8 +96,8 @@ const STEPS = [
 const WHY = [
   {
     ic: "message",
-    h: "25+ års erfaring med AI.",
-    p: "Med over 25 års erfaring med AI ved vi godt, hvordan man skal arbejde, udvikle, implementere og drifte AI.",
+    h: "Erfaring med AI siden 2016.",
+    p: "Vi har arbejdet med AI siden 2016 og ved godt, hvordan man skal udvikle, implementere og drifte AI i praksis.",
   },
   {
     ic: "lock",
