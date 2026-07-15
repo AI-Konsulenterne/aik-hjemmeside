@@ -1,67 +1,4 @@
-"use client";
-
 import Link from "next/link";
-import { useEffect, useRef } from "react";
-
-type CalFn = ((...args: unknown[]) => void) & {
-  loaded?: boolean;
-  q?: unknown[];
-  ns?: Record<string, CalFn>;
-};
-
-declare global {
-  interface Window {
-    Cal?: CalFn;
-  }
-}
-
-function loadCalScript() {
-  if (typeof window === "undefined" || window.Cal) return;
-  (function (C: Window, A: string, L: string) {
-    const p = function (a: CalFn, ar: IArguments) {
-      a.q = a.q || [];
-      a.q.push(ar);
-    };
-    const d = C.document;
-    C.Cal =
-      C.Cal ||
-      function () {
-        const cal = C.Cal as CalFn;
-        // eslint-disable-next-line prefer-rest-params
-        const ar = arguments;
-        if (!cal.loaded) {
-          cal.ns = {};
-          cal.q = cal.q || [];
-          const s = d.createElement("script");
-          s.src = A;
-          d.head.appendChild(s);
-          cal.loaded = true;
-        }
-        if (ar[0] === L) {
-          const api = function (this: unknown) {
-            // eslint-disable-next-line prefer-rest-params
-            p(api as CalFn, arguments);
-          } as CalFn;
-          const namespace = ar[1];
-          api.q = api.q || [];
-          if (typeof namespace === "string") {
-            cal.ns = cal.ns || {};
-            cal.ns[namespace] = cal.ns[namespace] || api;
-            p(cal.ns[namespace], ar);
-            p(cal, ["initNamespace", namespace] as unknown as IArguments);
-          } else {
-            p(cal, ar);
-          }
-          return;
-        }
-        p(cal, ar);
-      };
-  })(
-    window,
-    process.env.NEXT_PUBLIC_CAL_EMBED_URL || "https://app.cal.com/embed/embed.js",
-    "init",
-  );
-}
 
 type ButtonProps = {
   variant?: "primary" | "secondary" | "white";
@@ -70,8 +7,8 @@ type ButtonProps = {
   children: React.ReactNode;
   className?: string;
   /**
-   * Når true: knappen åbner Cal.com booking-modal i stedet for at navigere.
-   * Fallback til href hvis Cal.com ikke er konfigureret.
+   * Bevaret for kompatibilitet. Cal-booking er parkeret — knapper med cal=true
+   * fører til kontaktsiden, hvor booking sker via telefon og email.
    */
   cal?: boolean;
 } & React.ButtonHTMLAttributes<HTMLButtonElement>;
@@ -98,51 +35,14 @@ export default function Button({
   cal = false,
   ...props
 }: ButtonProps) {
-  const initialized = useRef(false);
-  const username = process.env.NEXT_PUBLIC_CAL_USERNAME;
-
-  useEffect(() => {
-    if (!cal || !username || initialized.current) return;
-    initialized.current = true;
-    loadCalScript();
-    const calApi = window.Cal;
-    if (!calApi) return;
-    calApi("init", {
-      origin: process.env.NEXT_PUBLIC_CAL_ORIGIN || "https://app.cal.com",
-    });
-    calApi("ui", {
-      theme: "light",
-      cssVarsPerTheme: {
-        light: { "cal-brand": "#ff9a00" },
-      },
-      hideEventTypeDetails: false,
-      layout: "month_view",
-    });
-  }, [cal, username]);
-
   const classes = `inline-flex items-center justify-center font-semibold rounded-full transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg ${variantClasses[variant]} ${sizeClasses[size]} ${className}`;
 
-  // MIDLERTIDIGT: Cal-embed slået fra (blokeret af Cookiebot) — knappen linker
-  // direkte til booking-siden i en ny fane. Rul tilbage til popup-embedden når
-  // Cookiebot-fixet er på plads.
-  if (cal && username) {
-    const calOrigin =
-      process.env.NEXT_PUBLIC_CAL_ORIGIN || "https://app.cal.com";
-    return (
-      <a
-        href={`${calOrigin}/${username}`}
-        target="_blank"
-        rel="noopener noreferrer"
-        className={classes}
-      >
-        {children}
-      </a>
-    );
-  }
+  // Booking sker via telefon/email → kontaktsiden.
+  const target = cal ? href || "/kontakt" : href;
 
-  if (href) {
+  if (target) {
     return (
-      <Link href={href} className={classes}>
+      <Link href={target} className={classes}>
         {children}
       </Link>
     );

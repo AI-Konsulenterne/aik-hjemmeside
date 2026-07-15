@@ -189,7 +189,7 @@ export default function LeadMagnetForm() {
           <p className="text-sm text-gray-500 mb-5">
             Så går vi dybere ind i den case I synes lyder mest interessant.
           </p>
-          <CalBooking className="min-h-[520px]" layout="month_view" />
+          <CalBooking />
         </div>
       </div>
     );
