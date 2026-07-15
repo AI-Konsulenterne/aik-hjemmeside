@@ -122,17 +122,21 @@ export default function Button({
 
   const classes = `inline-flex items-center justify-center font-semibold rounded-full transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg ${variantClasses[variant]} ${sizeClasses[size]} ${className}`;
 
-  // Cal.com booking mode — åbner kalender i popup
+  // MIDLERTIDIGT: Cal-embed slået fra (blokeret af Cookiebot) — knappen linker
+  // direkte til booking-siden i en ny fane. Rul tilbage til popup-embedden når
+  // Cookiebot-fixet er på plads.
   if (cal && username) {
+    const calOrigin =
+      process.env.NEXT_PUBLIC_CAL_ORIGIN || "https://app.cal.com";
     return (
-      <button
+      <a
+        href={`${calOrigin}/${username}`}
+        target="_blank"
+        rel="noopener noreferrer"
         className={classes}
-        data-cal-link={username}
-        data-cal-config='{"layout":"month_view","theme":"light"}'
-        {...props}
       >
         {children}
-      </button>
+      </a>
     );
   }
 

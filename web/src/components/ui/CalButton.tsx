@@ -115,14 +115,16 @@ export default function CalButton({
     );
   }
 
+  // MIDLERTIDIGT: Cal-embed slået fra (blokeret af Cookiebot) — direkte link i ny fane.
+  const calOrigin = process.env.NEXT_PUBLIC_CAL_ORIGIN || "https://app.cal.com";
   return (
-    <button
-      type="button"
+    <a
+      href={`${calOrigin}/${username}`}
+      target="_blank"
+      rel="noopener noreferrer"
       className={className}
-      data-cal-link={username}
-      data-cal-config='{"layout":"month_view","theme":"light"}'
     >
       {children}
-    </button>
+    </a>
   );
 }
