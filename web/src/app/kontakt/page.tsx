@@ -44,7 +44,7 @@ export default function Kontakt() {
       {/* Contact options */}
       <section className="pb-[clamp(3rem,8vw,6rem)]">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-2xl mx-auto">
             {/* Phone */}
             <a
               href="tel:+4525547074"
@@ -102,33 +102,6 @@ export default function Kontakt() {
               </p>
             </a>
 
-            {/* Book */}
-            <a
-              href="#booking"
-              className="bg-primary/5 border-2 border-primary rounded-2xl p-8 text-center hover:shadow-md transition-shadow group block"
-            >
-              <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mx-auto mb-4">
-                <svg
-                  className="w-6 h-6 text-primary"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth={2}
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5"
-                  />
-                </svg>
-              </div>
-              <h2 className="text-lg font-bold tracking-heading mb-1">
-                Book et møde
-              </h2>
-              <p className="text-sm text-gray-500">
-                Gratis 45-minutters AI-afklaring
-              </p>
-            </a>
           </div>
         </div>
       </section>
@@ -137,16 +110,6 @@ export default function Kontakt() {
       <section id="booking" className="pb-[clamp(3rem,8vw,6rem)] scroll-mt-24">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <FadeIn>
-            <div className="max-w-3xl mx-auto text-center mb-10">
-              <h2 className="text-2xl lg:text-3xl font-bold tracking-heading text-gray-900">
-                Book din gratis AI-afklaring
-              </h2>
-              <p className="text-gray-500 mt-3">
-                Vælg en tid der passer dig — mødet tager 45 minutter.
-              </p>
-            </div>
-          </FadeIn>
-          <FadeIn delay={150}>
             <CalBooking className="max-w-2xl mx-auto" />
           </FadeIn>
         </div>
