@@ -68,6 +68,7 @@ function CaseCard({ c, index }: { c: Case; index: number }) {
               src={image}
               alt={c.customer}
               fill
+              sizes="(max-width: 768px) 100vw, 500px"
               className="object-cover transition-transform duration-500 group-hover:scale-105"
             />
           </div>
@@ -82,6 +83,7 @@ function CaseCard({ c, index }: { c: Case; index: number }) {
                   src={logo}
                   alt={c.customer}
                   fill
+                  sizes="(max-width: 768px) 100vw, 500px"
                   className="object-contain object-left"
                 />
               </div>

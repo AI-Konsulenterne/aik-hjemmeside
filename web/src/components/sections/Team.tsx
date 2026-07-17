@@ -52,6 +52,7 @@ export default async function Team() {
                     src={getImageForMember(person, i)}
                     alt={person.name}
                     fill
+                    sizes="(max-width: 640px) 100vw, 360px"
                     className="object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                 </div>

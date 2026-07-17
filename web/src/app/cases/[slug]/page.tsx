@@ -150,6 +150,7 @@ export default async function CaseDetail({
                     src={logo}
                     alt={caseData.customer}
                     fill
+                    sizes="(max-width: 768px) 100vw, 500px"
                     className="object-contain p-2"
                   />
                 </div>
@@ -181,6 +182,7 @@ export default async function CaseDetail({
                   src={image}
                   alt={caseData.title}
                   fill
+                  sizes="(max-width: 768px) 100vw, 500px"
                   priority
                   className="object-cover"
                 />

@@ -67,6 +67,7 @@ export default async function Testimonials() {
                           src={photo}
                           alt={t.authorName}
                           fill
+                          sizes="72px"
                           className="object-cover"
                         />
                       </div>
@@ -91,6 +92,7 @@ export default async function Testimonials() {
                           src={logo}
                           alt={t.company}
                           fill
+                          sizes="48px"
                           className="object-contain object-right"
                         />
                       </div>

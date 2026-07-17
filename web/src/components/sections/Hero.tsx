@@ -81,6 +81,7 @@ export default function Hero() {
                   alt="Alexander, AI-konsulent hos AI Konsulenterne"
                   fill
                   priority
+                  sizes="(max-width: 1024px) 90vw, 384px"
                   className="object-cover"
                 />
               </div>
