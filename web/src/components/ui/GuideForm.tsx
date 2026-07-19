@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { trackEvent } from "@/lib/analytics";
 
 type CvrMatch = {
@@ -25,33 +25,24 @@ export default function GuideForm() {
   // CVR-opslag / enrichment
   const [cvr, setCvr] = useState<CvrMatch | null>(null);
   const [confirmedCvr, setConfirmedCvr] = useState<CvrMatch | null>(null);
-  const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  // Debounced CVR-opslag når virksomhedsnavnet ændres
+  // Debounced CVR-opslag når virksomhedsnavnet ændres. Ingen synkron setState i
+  // effekten — forslaget skjules via render-guarden nedenfor.
+  const alreadyConfirmed = !!confirmedCvr && confirmedCvr.name === company;
   useEffect(() => {
-    if (debounceRef.current) clearTimeout(debounceRef.current);
-    // Skjul forslag hvis allerede bekræftet med samme navn
-    if (confirmedCvr && confirmedCvr.name === company) {
-      setCvr(null);
-      return;
-    }
-    if (company.trim().length < 2) {
-      setCvr(null);
-      return;
-    }
-    debounceRef.current = setTimeout(async () => {
+    const q = company.trim();
+    if (alreadyConfirmed || q.length < 2) return;
+    const timer = setTimeout(async () => {
       try {
-        const res = await fetch(`/api/cvr?q=${encodeURIComponent(company.trim())}`);
+        const res = await fetch(`/api/cvr?q=${encodeURIComponent(q)}`);
         const data: CvrMatch = await res.json();
         setCvr(data.found ? data : null);
       } catch {
         setCvr(null);
       }
     }, 500);
-    return () => {
-      if (debounceRef.current) clearTimeout(debounceRef.current);
-    };
-  }, [company, confirmedCvr]);
+    return () => clearTimeout(timer);
+  }, [company, alreadyConfirmed]);
 
   function selectCvr(match: CvrMatch) {
     setCompany(match.name || company);
@@ -150,7 +141,7 @@ export default function GuideForm() {
           />
 
           {/* CVR-forslag */}
-          {cvr && cvr.found && (
+          {cvr && cvr.found && !alreadyConfirmed && company.trim().length >= 2 && (
             <button
               type="button"
               onClick={() => selectCvr(cvr)}

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Button from "@/components/ui/Button";
 import FadeIn from "@/components/ui/FadeIn";
+import JsonLd from "@/components/ui/JsonLd";
 import { Icon, Logo } from "@/components/sections/workspace/parts";
 import {
   McpView,
@@ -102,9 +103,50 @@ const DEPTS: [string, string, string][] = [
   ],
 ];
 
+const softwareJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "AIK Workspace",
+  applicationCategory: "BusinessApplication",
+  operatingSystem: "Web",
+  description:
+    "AIK Workspace er jeres eget AI-system. Chat, agenter, vidensbase og styring i én platform - forankret i jeres data, GDPR-sikkert og med frit valg af AI-model.",
+  url: "https://ai-konsulenterne.dk/visionai",
+  inLanguage: "da",
+  offers: {
+    "@type": "Offer",
+    priceCurrency: "DKK",
+    availability: "https://schema.org/InStock",
+  },
+  provider: {
+    "@id": "https://ai-konsulenterne.dk/#organization",
+  },
+};
+
+const breadcrumbJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Forside",
+      item: "https://ai-konsulenterne.dk/",
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "AIK Workspace",
+      item: "https://ai-konsulenterne.dk/visionai",
+    },
+  ],
+};
+
 export default function VisionAI() {
   return (
     <div className="aik-ws">
+      <JsonLd data={softwareJsonLd} />
+      <JsonLd data={breadcrumbJsonLd} />
       {/* ── Hero ── */}
       <section className="hero" id="top">
         <div className="hero-glow" aria-hidden="true" />

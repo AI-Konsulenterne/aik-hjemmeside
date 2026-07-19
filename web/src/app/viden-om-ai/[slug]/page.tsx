@@ -102,9 +102,35 @@ export default async function BlogPostPage({
     keywords: post.keywords?.join(", "),
   };
 
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Forside",
+        item: "https://ai-konsulenterne.dk/",
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Viden om AI",
+        item: "https://ai-konsulenterne.dk/viden-om-ai",
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: post.title,
+        item: `https://ai-konsulenterne.dk/viden-om-ai/${post.slug}`,
+      },
+    ],
+  };
+
   return (
     <>
       <JsonLd data={articleJsonLd} />
+      <JsonLd data={breadcrumbJsonLd} />
 
       {/* Hero */}
       <section className="pt-[clamp(4rem,12vw,8rem)] pb-[clamp(2rem,6vw,4rem)]">

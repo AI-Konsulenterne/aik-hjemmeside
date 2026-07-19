@@ -8,6 +8,8 @@ import Team from "@/components/sections/Team";
 import DeveloperExperience from "@/components/sections/DeveloperExperience";
 import Testimonials from "@/components/sections/Testimonials";
 import MidCTA from "@/components/sections/MidCTA";
+import RiskReversal from "@/components/sections/RiskReversal";
+import FinalCTA from "@/components/sections/FinalCTA";
 import FAQ from "@/components/sections/FAQ";
 import JsonLd from "@/components/ui/JsonLd";
 
@@ -172,7 +174,9 @@ export default function Forside() {
       <MidCTA />
       <Team />
       <DeveloperExperience />
+      <RiskReversal />
       <FAQ />
+      <FinalCTA />
     </>
   );
 }

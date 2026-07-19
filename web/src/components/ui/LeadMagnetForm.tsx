@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import CalBooking from "./CalBooking";
 import { trackEvent } from "@/lib/analytics";
 
@@ -74,6 +74,7 @@ export default function LeadMagnetForm() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [bookCall, setBookCall] = useState(false);
+  const [phone, setPhone] = useState("");
 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -81,25 +82,20 @@ export default function LeadMagnetForm() {
 
   // CVR-opslag på virksomhedsfeltet
   const [cvr, setCvr] = useState<{ name: string; industry?: string | null; city?: string | null } | null>(null);
-  const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   useEffect(() => {
-    if (debounceRef.current) clearTimeout(debounceRef.current);
-    if (company.trim().length < 2) {
-      setCvr(null);
-      return;
-    }
-    debounceRef.current = setTimeout(async () => {
+    const q = company.trim();
+    // Ingen synkron setState i effekten — forslaget skjules via render-guarden nedenfor
+    if (q.length < 2) return;
+    const timer = setTimeout(async () => {
       try {
-        const res = await fetch(`/api/cvr?q=${encodeURIComponent(company.trim())}`);
+        const res = await fetch(`/api/cvr?q=${encodeURIComponent(q)}`);
         const d = await res.json();
         setCvr(d.found ? d : null);
       } catch {
         setCvr(null);
       }
     }, 500);
-    return () => {
-      if (debounceRef.current) clearTimeout(debounceRef.current);
-    };
+    return () => clearTimeout(timer);
   }, [company]);
 
   function toggle(arr: string[], setArr: (v: string[]) => void, value: string, max?: number) {
@@ -153,6 +149,7 @@ export default function LeadMagnetForm() {
           name,
           email,
           bookCall,
+          phone: bookCall ? phone : "",
           source: "ai-analyse",
         }),
       });
@@ -319,7 +316,7 @@ export default function LeadMagnetForm() {
                 autoComplete="organization"
                 className="w-full border border-gray-200 rounded-xl px-4 py-3 text-black placeholder:text-gray-400 focus:outline-none focus:border-primary"
               />
-              {cvr && cvr.name !== company && (
+              {cvr && company.trim().length >= 2 && cvr.name !== company && (
                 <button
                   type="button"
                   onClick={() => { setCompany(cvr.name); setCvr(null); }}
@@ -363,6 +360,22 @@ export default function LeadMagnetForm() {
               />
               <span className="text-sm text-gray-600">Ring mig op og book direkte</span>
             </label>
+            {bookCall && (
+              <div>
+                <label htmlFor="leadmagnet-phone" className="block text-sm font-semibold text-gray-700 mb-1.5">
+                  Telefonnummer
+                </label>
+                <input
+                  id="leadmagnet-phone"
+                  type="tel"
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
+                  placeholder="Fx 12 34 56 78"
+                  autoComplete="tel"
+                  className="w-full border border-gray-200 rounded-xl px-4 py-3 text-black placeholder:text-gray-400 focus:outline-none focus:border-primary"
+                />
+              </div>
+            )}
           </div>
         )}
 

@@ -1,10 +1,13 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 
 export default function PopupPhone() {
   const [visible, setVisible] = useState(false);
+  const dialogRef = useRef<HTMLDivElement>(null);
+  const closeRef = useRef<HTMLButtonElement>(null);
+  const prevFocusRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
     if (sessionStorage.getItem("aik-popup-dismissed")) return;
@@ -35,7 +38,41 @@ export default function PopupPhone() {
   function dismiss() {
     sessionStorage.setItem("aik-popup-dismissed", "true");
     setVisible(false);
+    // Giv fokus tilbage til det element der havde det før popup'en åbnede
+    prevFocusRef.current?.focus?.();
   }
+
+  // Fokusstyring + tastatur (Escape luk, Tab-fælde) mens dialogen er åben
+  useEffect(() => {
+    if (!visible) return;
+    prevFocusRef.current = document.activeElement as HTMLElement | null;
+    closeRef.current?.focus();
+
+    function onKeyDown(e: KeyboardEvent) {
+      if (e.key === "Escape") {
+        e.preventDefault();
+        dismiss();
+        return;
+      }
+      if (e.key !== "Tab") return;
+      const focusables = dialogRef.current?.querySelectorAll<HTMLElement>(
+        'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
+      );
+      if (!focusables || focusables.length === 0) return;
+      const first = focusables[0];
+      const last = focusables[focusables.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    }
+
+    document.addEventListener("keydown", onKeyDown);
+    return () => document.removeEventListener("keydown", onKeyDown);
+  }, [visible]);
 
   if (!visible) return null;
 
@@ -45,11 +82,16 @@ export default function PopupPhone() {
       onClick={dismiss}
     >
       <div
+        ref={dialogRef}
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="popup-phone-title"
         className="bg-black rounded-2xl shadow-2xl max-w-4xl w-full overflow-hidden animate-popup-in relative grid grid-cols-1 md:grid-cols-2"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Close button */}
         <button
+          ref={closeRef}
           onClick={dismiss}
           aria-label="Luk popup"
           className="absolute top-4 right-4 z-10 text-white hover:text-primary transition-colors"
@@ -76,7 +118,6 @@ export default function PopupPhone() {
             src="/team/alexander.png"
             alt="Alexander, AI-konsulent hos AI Konsulenterne"
             fill
-            priority
             className="object-cover object-center"
             sizes="(max-width: 768px) 100vw, 50vw"
           />
@@ -85,7 +126,10 @@ export default function PopupPhone() {
         {/* Right — copy + CTA */}
         <div className="p-8 lg:p-10 flex flex-col justify-between text-white">
           <div>
-            <h2 className="text-2xl lg:text-3xl font-bold tracking-heading text-primary leading-tight">
+            <h2
+              id="popup-phone-title"
+              className="text-2xl lg:text-3xl font-bold tracking-heading text-primary leading-tight"
+            >
               Giv mig et kald og lad os starte jeres AI rejse
             </h2>
             <p className="mt-6 text-gray-300 leading-relaxed text-sm lg:text-base">

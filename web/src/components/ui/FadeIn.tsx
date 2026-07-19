@@ -20,6 +20,16 @@ export default function FadeIn({
     const el = ref.current;
     if (!el) return;
 
+    // Brugere med "reduced motion", eller browsere uden IntersectionObserver,
+    // får indholdet vist med det samme — aldrig skjult indhold.
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+    if (prefersReducedMotion || typeof IntersectionObserver === "undefined") {
+      const id = requestAnimationFrame(() => setIsVisible(true));
+      return () => cancelAnimationFrame(id);
+    }
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {

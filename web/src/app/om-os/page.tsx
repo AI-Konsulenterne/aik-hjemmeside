@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import FadeIn from "@/components/ui/FadeIn";
+import JsonLd from "@/components/ui/JsonLd";
 import SubpageCTA from "@/components/sections/SubpageCTA";
 import DeveloperExperience from "@/components/sections/DeveloperExperience";
 import {
@@ -76,8 +77,39 @@ export default async function OmOs() {
   // Alexander (primary) først, derefter resten — så Alexander + Martin står øverst
   const ordered = primary ? [primary, ...others] : others;
 
+  const aboutJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    name: "Om AI Konsulenterne",
+    url: "https://ai-konsulenterne.dk/om-os",
+    description:
+      "AI Konsulenterne er et dansk AI-konsulenthus i København der bygger skræddersyede AI-løsninger til danske virksomheder.",
+    mainEntity: { "@id": "https://ai-konsulenterne.dk/#organization" },
+  };
+
+  const teamJsonLd =
+    ordered.length > 0
+      ? {
+          "@context": "https://schema.org",
+          "@type": "ItemList",
+          itemListElement: ordered.map((person, i) => ({
+            "@type": "ListItem",
+            position: i + 1,
+            item: {
+              "@type": "Person",
+              name: person.name,
+              jobTitle: person.role,
+              worksFor: { "@id": "https://ai-konsulenterne.dk/#organization" },
+              ...(person.linkedinUrl ? { sameAs: [person.linkedinUrl] } : {}),
+            },
+          })),
+        }
+      : null;
+
   return (
     <>
+      <JsonLd data={aboutJsonLd} />
+      {teamJsonLd && <JsonLd data={teamJsonLd} />}
       {/* Hero */}
       <section className="pt-[clamp(4rem,12vw,8rem)] pb-[clamp(3rem,8vw,6rem)]">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">

@@ -80,12 +80,17 @@ export default function LeadMagnet() {
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+                  <label htmlFor="leadmagnet-email" className="sr-only">
+                    Din arbejdsmail
+                  </label>
                   <input
+                    id="leadmagnet-email"
                     type="email"
                     required
                     placeholder="Din arbejdsmail"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
+                    autoComplete="email"
                     className="bg-white/10 border border-white/20 rounded-full px-6 py-3.5 text-white placeholder:text-white/40 w-full focus:outline-none focus:border-primary transition-colors"
                   />
                   {error && (

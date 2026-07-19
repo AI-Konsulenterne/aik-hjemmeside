@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import CalBooking from "@/components/ui/CalBooking";
 import FadeIn from "@/components/ui/FadeIn";
+import JsonLd from "@/components/ui/JsonLd";
 
 export const metadata: Metadata = {
   title: { absolute: "Kontakt AI Konsulenterne - book gratis AI-afklaring" },
@@ -21,9 +22,42 @@ export const metadata: Metadata = {
   },
 };
 
+const contactJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  name: "Kontakt AI Konsulenterne",
+  url: "https://ai-konsulenterne.dk/kontakt",
+  description:
+    "Book en gratis 45-minutters AI-afklaring med Alexander. Ring +45 25 54 70 74 eller skriv til kontakt@ai-konsulenterne.dk.",
+  mainEntity: {
+    "@id": "https://ai-konsulenterne.dk/#organization",
+  },
+};
+
+const breadcrumbJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Forside",
+      item: "https://ai-konsulenterne.dk/",
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "Kontakt",
+      item: "https://ai-konsulenterne.dk/kontakt",
+    },
+  ],
+};
+
 export default function Kontakt() {
   return (
     <>
+      <JsonLd data={contactJsonLd} />
+      <JsonLd data={breadcrumbJsonLd} />
       {/* Hero */}
       <section className="pt-[clamp(4rem,12vw,8rem)] pb-[clamp(3rem,8vw,6rem)]">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">

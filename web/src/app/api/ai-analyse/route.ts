@@ -40,6 +40,7 @@ type Payload = AnalyseInput & {
   name: string;
   email: string;
   bookCall?: boolean;
+  phone?: string;
 };
 
 async function generateReport(input: AnalyseInput): Promise<string> {
@@ -197,6 +198,7 @@ export async function POST(req: NextRequest) {
       friTekst: body.friTekst?.trim() || undefined,
     };
     const bookCall = !!body.bookCall;
+    const phone = body.phone?.trim() || "";
     const sourceUrl = req.headers.get("referer") || "https://ai-konsulenterne.dk/ai-guide";
 
     const leadSummary =
@@ -204,6 +206,7 @@ export async function POST(req: NextRequest) {
       `Tidsforbrug: ${input.tidsforbrug.join(", ") || "-"}\n` +
       `Systemer: ${input.systemer.join(", ") || "-"}\n` +
       `Booket samtale: ${bookCall ? "ja" : "nej"}` +
+      (bookCall && phone ? `\nRing på: ${phone}` : "") +
       (input.friTekst ? `\nVil helst løse: ${input.friTekst}` : "");
 
     // 1. Generér rapport
@@ -214,7 +217,7 @@ export async function POST(req: NextRequest) {
       console.error("[AI-analyse] Generering fejlede:", err);
       // Fallback: gem lead + send fallback-mail + høj-prioritet Slack
       await sendToLeadAgent({
-        company, name, email, domain: email.split("@")[1],
+        company, name, email, phone: phone || undefined, domain: email.split("@")[1],
         message: `[RAPPORT FEJLEDE - følg op manuelt]\n${leadSummary}`,
         source: "ai-analyse", source_url: sourceUrl,
       });
@@ -247,7 +250,7 @@ export async function POST(req: NextRequest) {
     // 3. Slack-notifikation
     await notifySlack(
       `:tada: Nyt lead: *${company}* (${input.branche}, ${input.stoerrelse})\n` +
-      `Kontakt: ${name} · ${email}\n` +
+      `Kontakt: ${name} · ${email}${bookCall && phone ? ` · ${phone}` : ""}\n` +
       `Tidsforbrug: ${input.tidsforbrug.join(", ") || "-"}\n` +
       `Systemer: ${input.systemer.join(", ") || "-"}\n` +
       `Booket samtale: ${bookCall ? "ja" : "nej"}` +
@@ -256,7 +259,7 @@ export async function POST(req: NextRequest) {
 
     // 4. Lead i LeadAgent med rapport vedhæftet
     await sendToLeadAgent({
-      company, name, email, domain: email.split("@")[1],
+      company, name, email, phone: phone || undefined, domain: email.split("@")[1],
       message: `${leadSummary}\n\n— Genereret rapport —\n${report}`,
       source: "ai-analyse", source_url: sourceUrl,
     });
