@@ -158,7 +158,7 @@ const checklist = [
 const faqs = [
   {
     q: "Hvad koster det?",
-    a: "Fra 249 kr. pr. medarbejder om måneden. I får et samlet ark med priser, I kan tage med til resten af ledelsen.",
+    a: "Det afhænger af jeres størrelse og behov. Vi giver jer et samlet prisark, I kan tage med til resten af ledelsen.",
   },
   {
     q: "Hvor meget af mine folks tid tager det?",
@@ -510,36 +510,6 @@ export default function AcademyLanding() {
                           {[40, 80, 120, 200, 240, 280].map((x) => (
                             <circle key={`b${x}`} cx={x} cy="150" r="3" />
                           ))}
-                        </g>
-                      </svg>
-                    }
-                  />
-                }
-              />
-            </FadeIn>
-
-            <FadeIn delay={160}>
-              <CourseCard
-                tag="Værktøj · OpenAI"
-                title="ChatGPT"
-                desc="Forstå at bruge og få optimalt udbytte af ChatGPT - hvad den er særligt god til, og hvilke begrænsninger den har."
-                cover={
-                  <CourseCover
-                    variant="dark"
-                    logo="/logos/integrations/chatgpt.svg"
-                    logoAlt="ChatGPT"
-                    motif={
-                      <svg
-                        className="absolute inset-0 w-full h-full"
-                        viewBox="0 0 320 180"
-                        preserveAspectRatio="xMidYMid slice"
-                        fill="none"
-                        aria-hidden="true"
-                      >
-                        <g stroke="#ff9a00" opacity="0.22" fill="none">
-                          <circle cx="160" cy="90" r="30" />
-                          <circle cx="160" cy="90" r="55" />
-                          <circle cx="160" cy="90" r="80" />
                         </g>
                       </svg>
                     }
