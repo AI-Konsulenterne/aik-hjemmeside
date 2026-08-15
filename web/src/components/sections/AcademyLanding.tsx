@@ -1,6 +1,8 @@
 import Image from "next/image";
+import { Fragment } from "react";
 import Button from "@/components/ui/Button";
 import FadeIn from "@/components/ui/FadeIn";
+import ValueCalculator from "@/components/sections/ValueCalculator";
 
 const SKOOL_URL = "https://www.skool.com/aiminds";
 
@@ -10,9 +12,9 @@ const ghostBtn =
 const lightBtn =
   "inline-flex items-center justify-center gap-2 font-semibold rounded-full transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg bg-white text-gray-900 hover:bg-gray-100 px-7 py-3 text-sm lg:px-8 lg:py-3.5 lg:text-base";
 
-const ArrowRight = () => (
+const ArrowRight = ({ className = "w-[18px] h-[18px]" }: { className?: string }) => (
   <svg
-    className="w-[18px] h-[18px]"
+    className={className}
     viewBox="0 0 24 24"
     fill="none"
     stroke="currentColor"
@@ -32,79 +34,6 @@ const Eyebrow = ({ children }: { children: React.ReactNode }) => (
   </span>
 );
 
-// ── Ikoner ────────────────────────────────────────────────
-const NetworkIcon = ({ className = "w-7 h-7" }: { className?: string }) => (
-  <svg
-    className={className}
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth={1.6}
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    aria-hidden="true"
-  >
-    <circle cx="5" cy="6" r="2" />
-    <circle cx="19" cy="6" r="2" />
-    <circle cx="12" cy="12" r="2.4" />
-    <circle cx="5" cy="18" r="2" />
-    <circle cx="19" cy="18" r="2" />
-    <line x1="6.7" y1="7" x2="10" y2="11" />
-    <line x1="17.3" y1="7" x2="14" y2="11" />
-    <line x1="6.7" y1="17" x2="10" y2="13" />
-    <line x1="17.3" y1="17" x2="14" y2="13" />
-  </svg>
-);
-
-const ChatIcon = ({ className = "w-7 h-7" }: { className?: string }) => (
-  <svg
-    className={className}
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth={1.6}
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    aria-hidden="true"
-  >
-    <path d="M4 12a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4 4 4 0 0 1-4 4H8a4 4 0 0 1-4-4z" />
-    <circle cx="9.5" cy="12" r="1.1" fill="currentColor" stroke="none" />
-    <circle cx="14.5" cy="12" r="1.1" fill="currentColor" stroke="none" />
-  </svg>
-);
-
-const SparkleIcon = ({ className = "w-7 h-7" }: { className?: string }) => (
-  <svg
-    className={className}
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth={1.6}
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    aria-hidden="true"
-  >
-    <path d="M12 3a3 3 0 0 1 2.6 1.5 3 3 0 0 1 3.9 3.9A3 3 0 0 1 21 12a3 3 0 0 1-2.5 2.6 3 3 0 0 1-3.9 3.9A3 3 0 0 1 12 21a3 3 0 0 1-2.6-1.5 3 3 0 0 1-3.9-3.9A3 3 0 0 1 3 12a3 3 0 0 1 2.5-2.6 3 3 0 0 1 3.9-3.9A3 3 0 0 1 12 3z" />
-    <polyline points="9 12 11 14 15 10" />
-  </svg>
-);
-
-const ShieldIcon = ({ className = "w-7 h-7" }: { className?: string }) => (
-  <svg
-    className={className}
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth={1.6}
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    aria-hidden="true"
-  >
-    <path d="M12 3l7 3v5c0 4.4-3 8-7 9-4-1-7-4.6-7-9V6l7-3z" />
-    <polyline points="9 12 11 14 15 10" />
-  </svg>
-);
-
 const Check = ({ className = "w-4 h-4" }: { className?: string }) => (
   <svg
     className={className}
@@ -120,182 +49,282 @@ const Check = ({ className = "w-4 h-4" }: { className?: string }) => (
   </svg>
 );
 
-const values = [
+const Cross = ({ className = "w-4 h-4" }: { className?: string }) => (
+  <svg
+    className={className}
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth={2.5}
+    strokeLinecap="round"
+    aria-hidden="true"
+  >
+    <line x1="6" y1="6" x2="18" y2="18" />
+    <line x1="18" y1="6" x2="6" y2="18" />
+  </svg>
+);
+
+// ── Værdikæden: Licens → Læring → Anvendelse → Værdi ──────
+function ValueChain({ dark = false }: { dark?: boolean }) {
+  const steps = ["Licens", "Læring", "Anvendelse", "Værdi"];
+  return (
+    <div className="flex flex-wrap items-center gap-2.5" aria-label="Licens til læring til anvendelse til værdi">
+      {steps.map((step, i) => {
+        const isLast = i === steps.length - 1;
+        return (
+          <Fragment key={step}>
+            <span
+              className={`px-4 py-2 rounded-full text-[12px] font-bold tracking-[0.12em] uppercase ${
+                isLast
+                  ? "bg-primary text-white"
+                  : dark
+                    ? "border border-white/25 text-white"
+                    : "border border-gray-300 text-gray-700"
+              }`}
+            >
+              {step}
+            </span>
+            {!isLast && (
+              <ArrowRight
+                className={`w-4 h-4 ${dark ? "text-white/50" : "text-gray-400"}`}
+              />
+            )}
+          </Fragment>
+        );
+      })}
+    </div>
+  );
+}
+
+// ── Indhold ───────────────────────────────────────────────
+const problemCards = [
   {
-    title: "På dansk",
-    description:
-      "Hele platformen, alle videoer og alt materiale er på dansk - bygget til den måde, danske virksomheder arbejder på.",
-    iconPath:
-      "M10.5 21l5.25-11.25L21 21m-9-3h7.5M3 5.621a48.474 48.474 0 016-.371m0 0c1.12 0 2.233.038 3.334.114M9 5.25V3m3.334 2.364C11.176 10.658 7.69 15.08 3 17.502m9.334-12.138c.896.061 1.785.147 2.666.257m-4.589 8.495a18.023 18.023 0 01-3.827-5.802",
+    nr: "01",
+    quote: "“Hvad kan jeg egentlig bruge det til?”",
+    body: "Medarbejderne har ikke brug for endnu en præsentation om AI. De har brug for konkrete eksempler på deres egne arbejdsopgaver.",
+    highlight: null,
   },
   {
-    title: "Konkret, ikke abstrakt",
-    description:
-      "Hver video viser en konkret use case live på skærmen. Ingen slides om “AI’s potentiale”.",
-    iconPath: "M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z",
+    nr: "02",
+    quote: "“Jeg har ikke tid til et helt kursus.”",
+    body: "Det er de færreste, der har lyst til at afsætte en hel dag til AI-uddannelse. Derfor er AI-Minds bygget til en travl arbejdsdag.",
+    highlight: "En lektion. Få minutter. Én konkret ting at lære.",
   },
   {
-    title: "Bygget til hverdagen",
-    description:
-      "Korte og praktiske videoer under 15 minutter.",
-    iconPath: "M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z",
-  },
-  {
-    title: "Levende community",
-    description:
-      "Månedlig live Q&A og et forum, hvor I får svar inden for 24 timer.",
-    iconPath:
-      "M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z",
-  },
-  {
-    title: "Rollebaserede moduler",
-    description:
-      "Find moduler der passer til din specifikke arbejdssituation, så du får undervisning i at bruge AI som fx sælger, marketingchef osv.",
-    iconPath:
-      "M6 6.878V6a2.25 2.25 0 012.25-2.25h7.5A2.25 2.25 0 0118 6v.878m-12 0c.235-.083.487-.128.75-.128h10.5c.263 0 .515.045.75.128m-12 0A2.25 2.25 0 004.5 9v.878m13.5-3A2.25 2.25 0 0119.5 9v.878m0 0a2.246 2.246 0 00-.75-.128H5.25c-.263 0-.515.045-.75.128m15 0A2.25 2.25 0 0121 12v6a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 18v-6c0-.98.626-1.813 1.5-2.122",
-  },
-  {
-    title: "Værktøjer til hver lektion",
-    description:
-      "Prompt-ark, Excel-skabeloner og tjeklister. Materialet bliver brugt længe efter, videoen er set.",
-    iconPath:
-      "M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 11-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 004.486-6.336l-3.276 3.277a3.004 3.004 0 01-2.25-2.25l3.276-3.276a4.5 4.5 0 00-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085m-1.745 1.437L5.909 7.5H4.5L2.25 3.75l1.5-1.5L7.5 4.5v1.409l4.26 4.26m-1.745 1.437l1.745-1.437m6.615 8.206L15.75 15.75M4.867 19.125h.008v.008h-.008v-.008z",
+    nr: "03",
+    quote: "“Hvem skal holde øje med alt det nye?”",
+    body: "Copilot udvikler sig hele tiden. Nye funktioner kommer til, muligheder ændrer sig, og det, der var relevant for nogle måneder siden, er ikke nødvendigvis det vigtigste i dag.",
+    highlight: null,
   },
 ];
 
-const checklist = [
-  "Adgang til alle moduler og alle fremtidige opdateringer",
-  "Månedlig live Q&A - stil spørgsmål direkte til AIK-teamet",
-  "Prompt-bibliotek, der opdateres løbende",
-  "Et forum med andre danske virksomheder, der bruger AI",
-  "Nye moduler hver måned - også når AI-landskabet rykker",
+const howSteps = [
+  {
+    nr: "01",
+    title: "Se",
+    body: "Korte videoer på under 15 minutter. Vi viser én konkret funktion, metode eller arbejdsgang ad gangen.",
+  },
+  {
+    nr: "02",
+    title: "Prøv",
+    body: "Medarbejderen prøver det af på en rigtig opgave. Ikke et tænkt skoleeksempel. Deres egen mail. Deres eget dokument. Deres eget møde.",
+  },
+  {
+    nr: "03",
+    title: "Brug",
+    body: "Næste gang den samme opgave dukker op, ved medarbejderen, hvad Copilot kan hjælpe med. Det er sådan, nye vaner bliver til.",
+  },
+];
+
+const productAnnotations = [
+  { title: "Korte moduler", body: "Lær én konkret ting ad gangen." },
+  { title: "Tydelig progression", body: "Start enkelt og byg videre, når du er klar." },
+  { title: "Praktiske guides", body: "Brug det, du lærer, direkte i arbejdet." },
+  { title: "Q&A", body: "Få hjælp, når du sidder fast." },
+  { title: "Løbende nyt indhold", body: "Når Copilot udvikler sig, gør AI-Minds det også." },
+];
+
+const copilotModules = [
+  {
+    title: "Kom godt fra start",
+    body: "Forstå de grundlæggende principper, og lær at skrive prompts, der giver brugbare resultater.",
+  },
+  {
+    title: "Outlook",
+    body: "Brug Copilot til mails, opsummeringer, svar og forberedelse.",
+  },
+  {
+    title: "Word",
+    body: "Kom hurtigere fra tom side til første udkast. Få hjælp til at skrive, omskrive og opsummere dokumenter.",
+  },
+  {
+    title: "Excel",
+    body: "Brug Copilot til at forstå data, finde mønstre og komme videre med opgaver.",
+  },
+  {
+    title: "PowerPoint",
+    body: "Arbejd hurtigere med præsentationer, struktur og indhold.",
+  },
+  {
+    title: "Teams",
+    body: "Få mere ud af møder med opsummeringer, overblik og opfølgning.",
+  },
+  {
+    title: "Research & analyse",
+    body: "Lær at bruge de mere avancerede Copilot-muligheder, når medarbejderne er klar.",
+  },
+  {
+    title: "AI-agenter",
+    body: "Gå fra at bruge Copilot som assistent til at bygge agenter, der kan hjælpe med konkrete opgaver og processer.",
+  },
+];
+
+const pillars = [
+  {
+    nr: "01",
+    title: "Lav friktion",
+    lead: "Under 15 minutter ad gangen.",
+    body: "Ingen kursusdage. Ingen lange undervisningsforløb. Medarbejderne kan lære, når det passer ind i arbejdsdagen.",
+  },
+  {
+    nr: "02",
+    title: "Høj relevans",
+    lead: "Lær på de værktøjer og opgaver, medarbejderne allerede bruger.",
+    body: "Vi tager udgangspunkt i Microsoft 365 og den virkelighed, medarbejderne står i.",
+  },
+  {
+    nr: "03",
+    title: "Løbende udvikling",
+    lead: "Copilot ændrer sig. AI-Minds følger med.",
+    body: "Når Microsoft lancerer nye funktioner og muligheder, omsætter vi dem til korte, praktiske lektioner.",
+  },
+];
+
+const notYourJob = [
+  "bygge interne AI-kurser",
+  "finde de nyeste Copilot-funktioner",
+  "producere undervisningsmateriale",
+  "holde oplæg for medarbejderne",
+  "svare på alle spørgsmål",
+  "følge med i alle Microsoft-opdateringer",
+];
+
+const buyChecklist = [
+  "En samlet Copilot-uddannelse",
+  "Korte, praktiske lektioner med øvelser",
+  "Nye lektioner løbende - også når Copilot ændrer sig",
+  "Månedlig live Q&A med AIK-teamet",
+  "Guides, templates og prompts",
+  "Et community med andre danske virksomheder",
+  "Flere AI-forløb: ChatGPT, Claude, AI-grundlæggende og AI-sikkerhed",
+];
+
+const bonusTracks = [
+  {
+    title: "Claude",
+    body: "Lær at bygge AI-assistenter og arbejde mere avanceret med AI.",
+  },
+  {
+    title: "ChatGPT",
+    body: "Lær at bruge ChatGPT til blandt andet research, idéudvikling, skrivning og problemløsning.",
+  },
+  {
+    title: "AI-grundlæggende",
+    body: "Et enkelt fundament for medarbejdere, der gerne vil forstå AI uden teknisk jargon.",
+  },
+  {
+    title: "AI-sikkerhed",
+    body: "Lær, hvad medarbejderne skal være opmærksomme på, når de bruger AI-værktøjer.",
+  },
+  {
+    title: "Guides & templates",
+    body: "Få konkrete skabeloner, prompts og workflows, der kan bruges direkte.",
+  },
+];
+
+const courseFlow = ["Én kursusdag", "Alle får det samme", "Kurset slutter"];
+const mindsFlow = [
+  "Korte lektioner",
+  "Egen arbejdsdag",
+  "Løbende hjælp",
+  "Nyt indhold",
+  "Nye kompetencer",
+];
+
+const processSteps = [
+  {
+    nr: "01",
+    title: "Vi tager en snak",
+    body: "På 30 minutter viser vi jer AI-Minds live. Vi taler om jeres organisation, jeres medarbejdere og jeres brug af Copilot.",
+    result: "En live demo, svar på jeres spørgsmål og en konkret pris.",
+  },
+  {
+    nr: "02",
+    title: "Vi hjælper jer i gang",
+    body: "Vi hjælper jer med at få medarbejderne godt introduceret til platformen. Intet stort IT-projekt. Ingen lange implementeringsforløb.",
+    result: null,
+  },
+  {
+    nr: "03",
+    title: "Medarbejderne lærer i deres eget tempo",
+    body: "De starter med korte lektioner og arbejder sig gennem Copilot-forløbet - på deres egne opgaver og med hjælp undervejs.",
+    result: null,
+  },
+  {
+    nr: "04",
+    title: "Vi holder det levende",
+    body: "Copilot udvikler sig. Det gør AI-Minds også. Vi følger udviklingen, laver nye lektioner og holder platformen relevant.",
+    result: null,
+  },
 ];
 
 const faqs = [
   {
-    q: "Hvad koster det?",
-    a: "Det afhænger af jeres størrelse og behov. Vi giver jer et samlet prisark, I kan tage med til resten af ledelsen.",
+    q: "Hvad koster AI-Minds?",
+    a: "Prisen er pr. medarbejder og afhænger af, hvor mange I er. Vi giver jer et konkret prisforslag efter demoen - og et samlet prisark, I kan tage med til resten af ledelsen.",
   },
   {
-    q: "Hvor meget tid skal vi bruge på det?",
-    a: "Videoer på under 15 minutter, set i deres eget tempo. De øver på opgaver, de alligevel sidder med - så det koster ikke en hel arbejdsdag.",
+    q: "Skal vi have Copilot-licenser i forvejen?",
+    a: "I får mest ud af Copilot-forløbet, hvis medarbejderne allerede har adgang til Copilot. Har I ikke licenser endnu, kan medarbejderne starte med AI-grundlæggende, ChatGPT og Claude - og tage Copilot-forløbet, når licenserne er på plads.",
+  },
+  {
+    q: "Hvor meget tid skal medarbejderne bruge?",
+    a: "Lektionerne er korte videoer på under 15 minutter, som medarbejderne tager i deres eget tempo. Mange øvelser tager udgangspunkt i opgaver, de alligevel sidder med. Ingen kursusdage. Ingen lange undervisningsforløb.",
+  },
+  {
+    q: "Er AI-Minds bare et onlinekursus?",
+    a: "Nej. AI-Minds er en løbende læringsplatform med Copilot-lektioner, live Q&A, guides, templates, community og løbende opdateringer. Copilot ændrer sig hele tiden - derfor skal læringen også gøre det.",
+  },
+  {
+    q: "Hvad sker der, når Microsoft lancerer nye Copilot-funktioner?",
+    a: "Vi følger udviklingen og laver nye lektioner, når der kommer funktioner, som er relevante for medarbejdernes hverdag. I behøver ikke selv holde øje med alle ændringer.",
+  },
+  {
+    q: "Kan medarbejderne stille spørgsmål?",
+    a: "Ja. Der er månedlig live Q&A, og i forummet får de svar inden for 24 timer.",
+  },
+  {
+    q: "Hvad med medarbejdere, der allerede er gode til Copilot?",
+    a: "De kan gå direkte til de mere avancerede dele af forløbet - blandt andet research, analyse og AI-agenter. Og når de vil videre end Copilot, har de også adgang til vores øvrige AI-forløb.",
+  },
+  {
+    q: "Hvad med sikkerhed og GDPR?",
+    a: "AI-Minds indeholder et selvstændigt forløb i AI-sikkerhed, hvor medarbejderne lærer, hvad de må dele med en AI - og hvad der skal blive internt.",
   },
   {
     q: "Er vi bundet til noget?",
     a: "Nej, der er ingen binding. Det kører løbende måned + 1 måned, så I kan opsige, når det passer jer.",
   },
   {
-    q: "Bruger de det overhovedet bagefter?",
-    a: "Det er præcis derfor, det er korte videoer med rigtige opgaver og en månedlig Q&A - i stedet for ét langt kursus, der er glemt ugen efter.",
+    q: "Kan vi prøve det, før vi beslutter os?",
+    a: "Ja. Book en 30 minutters demo, hvor vi viser jer platformen live og går gennem konkrete lektioner sammen med jer.",
   },
 ];
-
-// ── Course-cover komponent ────────────────────────────────
-function CourseCover({
-  variant,
-  word,
-  glyph,
-  motif,
-  logo,
-  logoAlt,
-}: {
-  variant: "dark" | "soft" | "tint";
-  word?: string;
-  glyph?: React.ReactNode;
-  motif: React.ReactNode;
-  logo?: string;
-  logoAlt?: string;
-}) {
-  const bg =
-    variant === "dark"
-      ? "bg-gray-900"
-      : variant === "soft"
-        ? "bg-[#f1ede8]"
-        : "bg-gradient-to-br from-[#2a2521] to-[#1a1714]";
-  const wordColor = variant === "soft" ? "text-gray-900" : "text-white";
-  return (
-    <div
-      className={`relative h-[180px] overflow-hidden border-b border-gray-200 ${bg}`}
-    >
-      {motif}
-      <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
-        {logo ? (
-          <div className="relative z-[2] w-[74%] max-w-[230px] h-[84px] bg-white rounded-2xl px-6 py-4 shadow-[0_14px_30px_-12px_rgba(0,0,0,.30)] flex items-center justify-center">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src={logo}
-              alt={logoAlt ?? ""}
-              className="max-h-full max-w-full object-contain"
-            />
-          </div>
-        ) : (
-          <>
-            {glyph}
-            <span
-              className={`text-[22px] font-bold tracking-tight leading-none text-center ${wordColor}`}
-            >
-              {word}
-              <span className="block w-10 h-[3px] bg-primary rounded-sm mx-auto mt-2.5" />
-            </span>
-          </>
-        )}
-      </div>
-    </div>
-  );
-}
-
-function CourseCard({
-  badge,
-  tag,
-  title,
-  desc,
-  cover,
-}: {
-  badge?: string;
-  tag: string;
-  title: string;
-  desc: string;
-  cover: React.ReactNode;
-}) {
-  return (
-    <div className="flex flex-col rounded-[22px] border border-gray-200 overflow-hidden transition-all duration-200 hover:border-gray-300 hover:-translate-y-1 hover:shadow-lg">
-      <div className="relative">
-        {badge && (
-          <span className="absolute top-4 left-4 z-10 text-[11px] font-bold tracking-[0.12em] uppercase px-3 py-1.5 rounded-full bg-primary text-white shadow-md">
-            {badge}
-          </span>
-        )}
-        {cover}
-      </div>
-      <div className="flex flex-col flex-1 p-7 pb-8">
-        <span className="text-xs font-bold tracking-[0.18em] uppercase text-primary">
-          {tag}
-        </span>
-        <h3 className="text-[23px] font-bold tracking-tight text-gray-900 mt-3">
-          {title}
-        </h3>
-        <p className="text-[15px] leading-relaxed text-gray-500 mt-2.5">
-          {desc}
-        </p>
-      </div>
-    </div>
-  );
-}
-
-const glyphTile = (variant: "orange" | "dark", icon: React.ReactNode) => (
-  <span
-    className={`w-14 h-14 rounded-[15px] flex items-center justify-center text-white ${
-      variant === "orange" ? "bg-primary" : "bg-gray-900"
-    }`}
-  >
-    {icon}
-  </span>
-);
 
 export default function AcademyLanding() {
   return (
     <>
-      {/* ══════════ HERO ══════════ */}
+      {/* ══════════ 01 · HERO ══════════ */}
       <section className="relative overflow-hidden pt-[clamp(3.5rem,9vw,6rem)] pb-[clamp(3rem,8vw,5.5rem)]">
         <div
           className="pointer-events-none absolute -top-[380px] -right-[260px] w-[900px] h-[900px] rounded-full"
@@ -309,20 +338,23 @@ export default function AcademyLanding() {
           <div className="grid grid-cols-1 lg:grid-cols-[1.05fr_0.95fr] gap-10 lg:gap-16 items-center">
             <FadeIn>
               <div>
-                <Eyebrow>AI-Minds</Eyebrow>
-                <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold tracking-heading text-gray-900 leading-[1.04] mt-4 text-balance">
-                  AI-uddannelse{" "}
-                  <span className="text-primary">til hele organisationen</span>
+                <Eyebrow>AI-Minds Copilot Academy</Eyebrow>
+                <h1 className="text-4xl lg:text-5xl xl:text-[3.4rem] font-bold tracking-heading text-gray-900 leading-[1.06] mt-4 text-balance">
+                  I har allerede Copilot.{" "}
+                  <span className="text-primary">
+                    Nu skal medarbejderne have det i hænderne.
+                  </span>
                 </h1>
                 <p className="text-lg lg:text-xl text-gray-500 mt-6 leading-relaxed max-w-xl">
-                  Jeres medarbejdere lærer at bruge AI på dansk og i øjenhøjde.
-                  Ingen teknisk jargon, ingen 40-timers lange kurser. Bare korte
-                  og konkrete videoer, specifikke use cases og et community, der
-                  hjælper hinanden.
+                  AI-Minds hjælper jeres medarbejdere med at få Copilot ind i
+                  hverdagen gennem korte, praktiske lektioner på dansk - som de
+                  kan tage, når de har tid. Under 15 minutter ad gangen.
+                  Konkrete arbejdsopgaver. Løbende opdateringer. Og I skal ikke
+                  selv drive endnu et AI-projekt.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 mt-9">
                   <Button variant="primary" size="lg" cal>
-                    Book en snak
+                    Få en 30 min. demo
                     <ArrowRight />
                   </Button>
                   <a
@@ -334,85 +366,42 @@ export default function AcademyLanding() {
                     Se AI-Minds
                   </a>
                 </div>
+                <p className="text-sm text-gray-500 mt-4">
+                  Vi viser jer platformen, taler om jeres organisation og giver
+                  jer et konkret prisforslag.
+                </p>
+                <div className="mt-8">
+                  <ValueChain />
+                </div>
               </div>
             </FadeIn>
 
-            {/* Floating course cards */}
             <FadeIn delay={200}>
-              <div className="relative hidden lg:block">
+              <div className="relative max-w-xl mx-auto lg:mx-0 lg:ml-auto w-full">
                 <div
                   className="pointer-events-none absolute -inset-10"
                   style={{
                     background:
-                      "radial-gradient(circle at 66% 34%, rgba(255,154,0,.18), transparent 58%)",
+                      "radial-gradient(circle at 66% 34%, rgba(255,154,0,.16), transparent 58%)",
                   }}
+                  aria-hidden="true"
                 />
-
-                {/* AI-Minds hero-billede */}
                 <div className="relative z-[1]">
                   <Image
                     src="/ai-minds.jpg"
-                    alt="AI-Minds forløbet"
+                    alt="AI-Minds læringsplatformen"
                     width={720}
                     height={383}
                     priority
                     className="w-full rounded-[24px] shadow-[0_34px_64px_-26px_rgba(0,0,0,.4)]"
                   />
-                <div className="absolute -top-3 -right-3 z-[4] flex items-center gap-2 bg-primary text-white text-[13px] font-bold tracking-wide px-[18px] py-[11px] rounded-full shadow-[0_18px_32px_-10px_rgba(255,154,0,.55)]">
-                  <svg
-                    className="w-4 h-4"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth={2}
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <polygon points="12 2 2 7 12 12 22 7 12 2" />
-                    <polyline points="2 17 12 22 22 17" />
-                    <polyline points="2 12 12 17 22 12" />
-                  </svg>
-                  4 moduler
-                </div>
-                </div>
-
-                {/* Modul-kort under billedet */}
-                <div className="relative mt-8 h-[380px]" aria-hidden="true">
-                <div className="absolute top-0 left-1.5 z-[2] w-[322px] flex items-center gap-4 bg-white border border-gray-200 rounded-[20px] p-5 shadow-[0_34px_64px_-26px_rgba(0,0,0,.32)] rotate-[-4deg] hover:rotate-0 hover:-translate-y-1 hover:z-[5] transition-transform duration-300">
-                  {glyphTile("orange", <NetworkIcon className="w-6 h-6" />)}
-                  <span>
-                    <span className="block text-[17px] font-bold tracking-tight text-gray-900">
-                      AI Grundlæggende
-                    </span>
-                    <span className="block text-[13px] text-gray-500 mt-0.5">
-                      Fundamentet - uden jargon
-                    </span>
-                  </span>
-                </div>
-
-                <div className="absolute top-[132px] right-0 z-[3] w-[322px] flex items-center gap-4 bg-white border border-gray-200 rounded-[20px] p-5 shadow-[0_34px_64px_-26px_rgba(0,0,0,.32)] rotate-[3deg] hover:rotate-0 hover:-translate-y-1 hover:z-[5] transition-transform duration-300">
-                  {glyphTile("dark", <ChatIcon className="w-6 h-6" />)}
-                  <span>
-                    <span className="block text-[17px] font-bold tracking-tight text-gray-900">
-                      Copilot
-                    </span>
-                    <span className="block text-[13px] text-gray-500 mt-0.5">
-                      Fra agenter til daglige værktøjer
-                    </span>
-                  </span>
-                </div>
-
-                <div className="absolute top-[264px] left-6 z-[2] w-[322px] flex items-center gap-4 bg-white border border-gray-200 rounded-[20px] p-5 shadow-[0_34px_64px_-26px_rgba(0,0,0,.32)] rotate-[-2deg] hover:rotate-0 hover:-translate-y-1 hover:z-[5] transition-transform duration-300">
-                  {glyphTile("dark", <SparkleIcon className="w-6 h-6" />)}
-                  <span>
-                    <span className="block text-[17px] font-bold tracking-tight text-gray-900">
-                      ChatGPT &amp; Claude
-                    </span>
-                    <span className="block text-[13px] text-gray-500 mt-0.5">
-                      Fra nybegynder til ekspert
-                    </span>
-                  </span>
-                </div>
+                  <div className="absolute -bottom-4 left-5 z-[4] flex items-center gap-2 bg-white text-gray-900 text-[13px] font-bold tracking-wide px-[18px] py-[11px] rounded-full shadow-[0_18px_36px_-12px_rgba(0,0,0,.35)] ring-1 ring-gray-100">
+                    <span
+                      className="w-2 h-2 rounded-full bg-primary shrink-0"
+                      aria-hidden="true"
+                    />
+                    Allerede brugt af 25+ virksomheder
+                  </div>
                 </div>
               </div>
             </FadeIn>
@@ -420,352 +409,248 @@ export default function AcademyLanding() {
         </div>
       </section>
 
-      {/* ══════════ PAIN ══════════ */}
+      {/* ══════════ 02 · PROBLEM ══════════ */}
       <section className="bg-gray-50 py-[clamp(4rem,10vw,7rem)]">
-        <div className="max-w-3xl mx-auto px-6 lg:px-8 text-center">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <FadeIn>
-            <Eyebrow>Lyder det bekendt?</Eyebrow>
-            <h2 className="text-3xl lg:text-5xl font-bold tracking-heading text-gray-900 leading-[1.08] mt-4 text-balance">
-              Få réel forretningsværdi{" "}
-              <span className="text-primary">ud af jeres licenser</span>
-            </h2>
-            <p className="text-xl text-gray-600 mt-6 leading-relaxed">
-              I har købt licenser. I har gjort opmærksom på at de eksisterer.
-              Men ingen bruger dem? Derfor har vi bygget AI-Minds, der gør
-              læring omkring AI nemt og tilgængeligt. Med små, korte og konkrete
-              moduler har vi opbygget vores læringsunivers, så alle kan være med.
+            <div className="max-w-3xl">
+              <Eyebrow>Har I allerede Copilot?</Eyebrow>
+              <h2 className="text-3xl lg:text-5xl font-bold tracking-heading text-gray-900 leading-[1.08] mt-4 text-balance">
+                Så er det næste spørgsmål ikke, om medarbejderne har adgang.{" "}
+                <span className="text-primary">
+                  Det er, om de får nok ud af det.
+                </span>
+              </h2>
+              <p className="text-lg lg:text-xl text-gray-600 mt-6 leading-relaxed">
+                Nogle medarbejdere bruger Copilot hver dag. Andre har prøvet det
+                et par gange. Og nogle ved måske stadig ikke helt, hvad de skal
+                bruge det til. Det er helt normalt. Adgang til Copilot er nemlig
+                kun første skridt - medarbejderne skal også lære, hvornår det
+                giver mening at bruge det, og hvordan de får et godt resultat.
+                Det er dét, AI-Minds er bygget til.
+              </p>
+            </div>
+          </FadeIn>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-14">
+            {problemCards.map((card, i) => (
+              <FadeIn key={card.nr} delay={i * 80}>
+                <div className="h-full bg-white rounded-[20px] border border-gray-200 p-8 flex flex-col">
+                  <span className="text-[13px] font-bold tracking-[0.18em] text-primary">
+                    {card.nr}
+                  </span>
+                  <h3 className="text-xl font-bold tracking-tight text-gray-900 mt-3 leading-snug">
+                    {card.quote}
+                  </h3>
+                  <p className="text-[15px] text-gray-600 leading-relaxed mt-3 flex-grow">
+                    {card.body}
+                  </p>
+                  {card.highlight && (
+                    <p className="mt-5 border-l-[3px] border-primary bg-primary/10 rounded-r-xl px-4 py-3 text-[15px] font-semibold text-gray-900">
+                      {card.highlight}
+                    </p>
+                  )}
+                </div>
+              </FadeIn>
+            ))}
+          </div>
+
+          <FadeIn>
+            <p className="mt-10 text-xl lg:text-2xl font-bold tracking-tight text-gray-900">
+              I skal ikke selv følge med i det hele.{" "}
+              <span className="text-primary">Det gør vi.</span>
             </p>
           </FadeIn>
         </div>
       </section>
 
-      {/* ══════════ CURRICULUM ══════════ */}
+      {/* ══════════ 03 · SÅDAN VIRKER DET ══════════ */}
+      <section className="py-[clamp(4rem,10vw,7rem)]">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <FadeIn>
+            <div className="max-w-2xl">
+              <Eyebrow>Sådan virker det</Eyebrow>
+              <h2 className="text-3xl lg:text-5xl font-bold tracking-heading text-gray-900 leading-[1.08] mt-4">
+                Se. Prøv. <span className="text-primary">Brug.</span>
+              </h2>
+              <p className="text-lg text-gray-600 mt-5 leading-relaxed">
+                AI-Minds er ikke bygget til, at medarbejderne skal sidde og se
+                lange videoer. Det er bygget til, at de lærer noget konkret og
+                bruger det bagefter.
+              </p>
+            </div>
+          </FadeIn>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-14">
+            {howSteps.map((step, i) => (
+              <FadeIn key={step.nr} delay={i * 80}>
+                <div className="h-full rounded-[20px] border border-gray-200 p-8">
+                  <span className="text-[13px] font-bold tracking-[0.18em] uppercase text-primary">
+                    {step.nr} · {step.title}
+                  </span>
+                  <p className="text-[16px] text-gray-600 leading-relaxed mt-4">
+                    {step.body}
+                  </p>
+                </div>
+              </FadeIn>
+            ))}
+          </div>
+
+          <FadeIn>
+            <p className="mt-10 max-w-[820px] text-xl lg:text-2xl leading-snug tracking-tight text-gray-900">
+              Målet er ikke, at medarbejderne skal vide alt om Copilot.{" "}
+              <strong className="font-bold">
+                Målet er, at de bruger det, når det giver mening.
+              </strong>
+            </p>
+          </FadeIn>
+        </div>
+      </section>
+
+      {/* ══════════ 04 · PRODUKTOPLEVELSE ══════════ */}
+      <section className="bg-gray-50 py-[clamp(4rem,10vw,7rem)]">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <FadeIn>
+            <div className="max-w-2xl">
+              <Eyebrow>AI-Minds i praksis</Eyebrow>
+              <h2 className="text-3xl lg:text-5xl font-bold tracking-heading text-gray-900 leading-[1.08] mt-4">
+                En læringsplatform, der er{" "}
+                <span className="text-primary">nem at gå til</span>.
+              </h2>
+            </div>
+          </FadeIn>
+
+          <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_0.8fr] gap-10 lg:gap-14 items-center mt-14">
+            <FadeIn>
+              <Image
+                src="/ai-minds.jpg"
+                alt="Skærmbillede af AI-Minds platformen med moduler"
+                width={720}
+                height={383}
+                className="w-full rounded-[24px] shadow-[0_34px_64px_-26px_rgba(0,0,0,.35)] ring-1 ring-gray-200"
+              />
+            </FadeIn>
+            <FadeIn delay={120}>
+              <ul className="flex flex-col">
+                {productAnnotations.map((a) => (
+                  <li
+                    key={a.title}
+                    className="grid grid-cols-[14px_1fr] gap-4 items-baseline py-4 border-t border-gray-200 first:border-t-0"
+                  >
+                    <span
+                      className="w-[10px] h-[10px] rounded-full bg-primary translate-y-[1px]"
+                      aria-hidden="true"
+                    />
+                    <span>
+                      <span className="block text-[15px] font-bold tracking-[0.08em] uppercase text-gray-900">
+                        {a.title}
+                      </span>
+                      <span className="block text-[15px] text-gray-600 mt-1">
+                        {a.body}
+                      </span>
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </FadeIn>
+          </div>
+        </div>
+      </section>
+
+      {/* ══════════ 05 · COPILOT-FORLØBET ══════════ */}
       <section id="curriculum" className="py-[clamp(4rem,10vw,7rem)] scroll-mt-24">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <FadeIn>
             <div className="flex items-end justify-between gap-10 flex-wrap">
               <div className="max-w-2xl">
-                <Eyebrow>Det lærer jeres team</Eyebrow>
-                <h2 className="text-3xl lg:text-4xl font-bold tracking-heading text-gray-900 leading-[1.1] mt-4">
-                  Moduler der er bygget til en{" "}
-                  <span className="text-primary">travl hverdag</span>.
+                <Eyebrow>Microsoft Copilot</Eyebrow>
+                <h2 className="text-3xl lg:text-5xl font-bold tracking-heading text-gray-900 leading-[1.08] mt-4">
+                  Fra første prompt til{" "}
+                  <span className="text-primary">egne AI-agenter</span>.
                 </h2>
               </div>
               <p className="text-[17px] text-gray-600 max-w-[380px]">
-                Start med Grundlæggende AI - eller dyk direkte ned i det værktøj,
-                jeres folk bruger til dagligt, oftest Microsoft Copilot.
+                AI-Minds starter med det, medarbejderne har brug for i hverdagen
+                - og giver dem mulighed for at bygge videre.
               </p>
             </div>
           </FadeIn>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7 mt-14">
-            <FadeIn>
-              <CourseCard
-                badge="Start her"
-                tag="Fundament"
-                title="Grundlæggende AI"
-                desc="Forstå hvordan AI fungerer, og hvad man kan bruge det til."
-                cover={
-                  <CourseCover
-                    variant="dark"
-                    word="AI Grundlæggende"
-                    glyph={glyphTile("orange", <NetworkIcon />)}
-                    motif={
-                      <svg
-                        className="absolute inset-0 w-full h-full"
-                        viewBox="0 0 320 180"
-                        preserveAspectRatio="xMidYMid slice"
-                        fill="none"
-                        aria-hidden="true"
-                      >
-                        <g stroke="#ff9a00" strokeWidth="1" opacity="0.30">
-                          <line x1="60" y1="40" x2="160" y2="90" />
-                          <line x1="260" y1="40" x2="160" y2="90" />
-                          <line x1="60" y1="140" x2="160" y2="90" />
-                          <line x1="260" y1="140" x2="160" y2="90" />
-                          <line x1="60" y1="40" x2="60" y2="140" />
-                          <line x1="260" y1="40" x2="260" y2="140" />
-                        </g>
-                        <g fill="#ff9a00" opacity="0.5">
-                          <circle cx="60" cy="40" r="4" />
-                          <circle cx="260" cy="40" r="4" />
-                          <circle cx="60" cy="140" r="4" />
-                          <circle cx="260" cy="140" r="4" />
-                        </g>
-                      </svg>
-                    }
-                  />
-                }
-              />
-            </FadeIn>
-
-            <FadeIn delay={80}>
-              <CourseCard
-                tag="Værktøj"
-                title="Microsoft Copilot"
-                desc="Outlook, Teams, Word, Excel og PowerPoint. Konkrete use cases, jeres medarbejdere kan bruge mandag morgen."
-                cover={
-                  <CourseCover
-                    variant="soft"
-                    logo="/logos/integrations/copilot.svg"
-                    logoAlt="Microsoft Copilot"
-                    motif={
-                      <svg
-                        className="absolute inset-0 w-full h-full"
-                        viewBox="0 0 320 180"
-                        preserveAspectRatio="xMidYMid slice"
-                        fill="none"
-                        aria-hidden="true"
-                      >
-                        <g fill="#ff9a00" opacity="0.14">
-                          {[40, 80, 120, 200, 240, 280].map((x) => (
-                            <circle key={`t${x}`} cx={x} cy="30" r="3" />
-                          ))}
-                          {[40, 80, 120, 200, 240, 280].map((x) => (
-                            <circle key={`b${x}`} cx={x} cy="150" r="3" />
-                          ))}
-                        </g>
-                      </svg>
-                    }
-                  />
-                }
-              />
-            </FadeIn>
-
-            <FadeIn delay={80}>
-              <CourseCard
-                tag="Værktøj · Anthropic"
-                title="Claude"
-                desc="Lær at bruge en af de stærkeste modeller til kode, design og andre spændende ting."
-                cover={
-                  <CourseCover
-                    variant="tint"
-                    logo="/logos/integrations/claude.svg"
-                    logoAlt="Claude"
-                    motif={
-                      <svg
-                        className="absolute inset-0 w-full h-full"
-                        viewBox="0 0 320 180"
-                        preserveAspectRatio="xMidYMid slice"
-                        fill="none"
-                        aria-hidden="true"
-                      >
-                        <g stroke="#ff9a00" strokeWidth="1" opacity="0.28">
-                          <line x1="160" y1="20" x2="160" y2="160" />
-                          <line x1="90" y1="90" x2="230" y2="90" />
-                          <line x1="110" y1="40" x2="210" y2="140" />
-                          <line x1="210" y1="40" x2="110" y2="140" />
-                        </g>
-                        <circle cx="160" cy="90" r="6" fill="#ff9a00" opacity="0.4" />
-                      </svg>
-                    }
-                  />
-                }
-              />
-            </FadeIn>
-
-            <FadeIn delay={160}>
-              <CourseCard
-                tag="Tryghed"
-                title="AI-sikkerhed"
-                desc="Hvad må medarbejderne dele med en AI, og hvad skal blive internt? Lær at bruge AI trygt - uden at sætte data eller GDPR på spil."
-                cover={
-                  <CourseCover
-                    variant="tint"
-                    word="AI-sikkerhed"
-                    glyph={glyphTile("orange", <ShieldIcon />)}
-                    motif={
-                      <svg
-                        className="absolute inset-0 w-full h-full"
-                        viewBox="0 0 320 180"
-                        preserveAspectRatio="xMidYMid slice"
-                        fill="none"
-                        aria-hidden="true"
-                      >
-                        <g stroke="#ff9a00" strokeWidth="1" opacity="0.30">
-                          <path d="M160 34 L206 52 V94 c0 32 -24 52 -46 60 c-22 -8 -46 -28 -46 -60 V52 Z" />
-                        </g>
-                        <g stroke="#ff9a00" strokeWidth="1.6" opacity="0.55" strokeLinecap="round" strokeLinejoin="round">
-                          <polyline points="142 92 156 106 180 80" />
-                        </g>
-                      </svg>
-                    }
-                  />
-                }
-              />
-            </FadeIn>
-
-            {/* Coming soon */}
-            <FadeIn delay={240}>
-              <div className="flex flex-col items-center justify-center text-center gap-3.5 h-full rounded-[22px] border border-dashed border-gray-300 bg-gray-50 p-10">
-                <span className="w-[52px] h-[52px] rounded-[14px] bg-primary/10 text-primary flex items-center justify-center">
-                  <svg
-                    className="w-[26px] h-[26px]"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth={1.8}
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    aria-hidden="true"
-                  >
-                    <line x1="12" y1="5" x2="12" y2="19" />
-                    <line x1="5" y1="12" x2="19" y2="12" />
-                  </svg>
-                </span>
-                <div>
-                  <div className="text-[19px] font-bold tracking-tight text-gray-900">
-                    Nye moduler kommer løbende
-                  </div>
-                  <div className="text-[15px] text-gray-500 mt-1.5 max-w-[240px]">
-                    AI-landskabet bevæger sig med lynets hast - vi sørger for at
-                    holde jer opdateret.
-                  </div>
-                </div>
-              </div>
-            </FadeIn>
-          </div>
-
-          <div className="flex items-center gap-3.5 mt-7 text-[15px] text-gray-500">
-            <span className="w-[7px] h-[7px] rounded-full bg-primary" />
-            Usikker på hvor I skal starte? Book en snak, så finder vi det rette
-            forløb sammen.
-          </div>
-        </div>
-      </section>
-
-      {/* ══════════ HVORFOR AIK ══════════ */}
-      <section id="academy" className="py-[clamp(4rem,10vw,7rem)] scroll-mt-24">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <FadeIn>
-            <div className="max-w-2xl">
-              <Eyebrow>Hvorfor AI-Minds</Eyebrow>
-              <h2 className="text-3xl lg:text-5xl font-bold tracking-heading text-gray-900 leading-[1.08] mt-4">
-                AI-undervisning <span className="text-primary">i øjenhøjde</span>.
-              </h2>
-            </div>
-          </FadeIn>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 mt-16">
-            {values.map((v, i) => (
-              <FadeIn key={v.title} delay={i * 70}>
-                <div className="h-full rounded-[20px] border border-gray-200 p-9 transition-all duration-200 hover:border-gray-300 hover:-translate-y-1 hover:shadow-lg">
-                  <span className="w-14 h-14 rounded-[14px] bg-primary/10 text-primary flex items-center justify-center mb-6">
-                    <svg
-                      className="w-7 h-7"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth={1.6}
-                      viewBox="0 0 24 24"
-                      aria-hidden="true"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d={v.iconPath}
-                      />
-                    </svg>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-14">
+            {copilotModules.map((m, i) => (
+              <FadeIn key={m.title} delay={(i % 4) * 70}>
+                <div className="h-full rounded-[20px] border border-gray-200 p-7 transition-all duration-200 hover:border-gray-300 hover:-translate-y-1 hover:shadow-lg">
+                  <span className="text-[12px] font-bold tracking-[0.16em] text-primary tabular-nums">
+                    {String(i + 1).padStart(2, "0")}
                   </span>
-                  <h3 className="text-[22px] font-bold tracking-tight text-gray-900 mb-3">
-                    {v.title}
+                  <h3 className="text-[19px] font-bold tracking-tight text-gray-900 mt-2.5">
+                    {m.title}
                   </h3>
-                  <p className="text-gray-600 leading-relaxed">{v.description}</p>
+                  <p className="text-[14px] text-gray-600 leading-relaxed mt-2">
+                    {m.body}
+                  </p>
                 </div>
               </FadeIn>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* ══════════ SÅDAN SER DET UD I PRAKSIS ══════════ */}
-      <section className="bg-gray-50 py-[clamp(4rem,10vw,7rem)]">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <FadeIn>
-            <div className="max-w-2xl">
-              <Eyebrow>Sådan ser det ud i praksis</Eyebrow>
-              <h2 className="text-3xl lg:text-5xl font-bold tracking-heading text-gray-900 leading-[1.08] mt-4">
-                Det, I får <span className="text-primary">adgang til</span>.
-              </h2>
-            </div>
-          </FadeIn>
-
-          <div className="grid grid-cols-1 lg:grid-cols-[1.05fr_0.95fr] gap-14 items-start mt-14">
-            <ul>
-              {checklist.map((item, i) => (
-                <FadeIn key={item} delay={i * 60}>
-                  <li className="grid grid-cols-[30px_1fr] gap-[18px] items-start py-5 border-t border-gray-200 first:border-t-0 text-[19px] leading-snug text-gray-900">
-                    <span className="w-[30px] h-[30px] rounded-full bg-primary text-white flex items-center justify-center mt-0.5">
-                      <Check />
-                    </span>
-                    {item}
-                  </li>
-                </FadeIn>
-              ))}
-            </ul>
-
-            <FadeIn delay={120}>
-              <div className="relative overflow-hidden rounded-3xl bg-gray-900 text-white p-11">
-                <div
-                  className="pointer-events-none absolute -top-[190px] -right-[130px] w-[420px] h-[420px] rounded-full"
-                  style={{
-                    background:
-                      "radial-gradient(circle, rgba(255,154,0,.16), transparent 62%)",
-                  }}
-                  aria-hidden="true"
-                />
-                <span className="relative text-xs font-bold tracking-[0.22em] uppercase text-primary">
-                  Se det selv
-                </span>
-                <h3 className="relative text-[26px] font-bold tracking-tight leading-snug mt-4 text-balance">
-                  Det her er ikke teori - folk bruger det bagefter.
-                </h3>
-                <p className="relative mt-5 text-[16px] leading-relaxed text-gray-400">
-                  Vi viser jer det hellere, end vi fortæller om det. Book et
-                  opkald, så går vi gennem konkrete eksempler fra AI-Minds - og
-                  hvad jeres team kan få ud af det.
-                </p>
-                <div className="relative mt-7">
-                  <Button variant="white" size="lg" cal>
-                    Book en snak
-                    <ArrowRight />
-                  </Button>
-                </div>
-              </div>
-            </FadeIn>
-          </div>
 
           <FadeIn>
-            <p className="mt-10 max-w-[900px] border-l-[3px] border-primary bg-primary/10 rounded-r-2xl px-7 py-5 text-[19px] leading-snug text-gray-900 font-medium">
-              I skal ikke være en stor virksomhed for at få noget ud af det - I
-              skal bare have adgang til AI.
+            <p className="mt-10 text-lg font-semibold text-gray-900">
+              Copilot udvikler sig.{" "}
+              <span className="text-primary">Det gør jeres læring også.</span>
             </p>
           </FadeIn>
         </div>
       </section>
 
-      {/* ══════════ OUTCOME ══════════ */}
-      <section className="py-[clamp(4rem,10vw,7rem)]">
+      {/* ══════════ 06 · HVORFOR AI-MINDS ══════════ */}
+      <section className="bg-gray-50 py-[clamp(4rem,10vw,7rem)]">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <FadeIn>
-            <div className="grid grid-cols-1 lg:grid-cols-[0.75fr_1.25fr] gap-10 lg:gap-14 items-start">
-              <Eyebrow>Hvad I sidder tilbage med</Eyebrow>
-              <p className="text-[clamp(1.4rem,2.5vw,2rem)] leading-[1.42] tracking-tight text-gray-900 font-medium text-pretty">
-                AI går fra at blive brugt sporadisk til at blive anvendt{" "}
-                <span className="text-primary">
-                  systematisk og med et målrettet fokus
-                </span>
-                . Det er ikke længere noget, medarbejdere skal blive mindet om at
-                bruge.
-              </p>
+            <div className="max-w-2xl">
+              <Eyebrow>Det er kombinationen</Eyebrow>
+              <h2 className="text-3xl lg:text-5xl font-bold tracking-heading text-gray-900 leading-[1.08] mt-4 text-balance">
+                Lav friktion. Høj relevans.{" "}
+                <span className="text-primary">Løbende udvikling.</span>
+              </h2>
             </div>
+          </FadeIn>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-14">
+            {pillars.map((p, i) => (
+              <FadeIn key={p.nr} delay={i * 80}>
+                <div className="h-full bg-white rounded-[20px] border border-gray-200 p-8">
+                  <span className="text-[13px] font-bold tracking-[0.18em] uppercase text-primary">
+                    {p.nr} · {p.title}
+                  </span>
+                  <p className="text-[17px] font-bold text-gray-900 mt-4">
+                    {p.lead}
+                  </p>
+                  <p className="text-[15px] text-gray-600 leading-relaxed mt-2.5">
+                    {p.body}
+                  </p>
+                </div>
+              </FadeIn>
+            ))}
+          </div>
+
+          <FadeIn>
+            <p className="mt-10 max-w-[820px] text-lg text-gray-700 leading-relaxed">
+              <strong className="text-gray-900">
+                Det er kombinationen, der gør forskellen.
+              </strong>{" "}
+              Ikke mere AI-teori. Bare løbende læring, der bliver omsat til
+              brug.
+            </p>
           </FadeIn>
         </div>
       </section>
 
-      {/* ══════════ TIL LEDELSEN ══════════ */}
-      <section className="pb-[clamp(4rem,10vw,7rem)]">
+      {/* ══════════ 07 · TIL LEDELSEN ══════════ */}
+      <section className="py-[clamp(4rem,10vw,7rem)]">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <FadeIn>
-            <div className="relative overflow-hidden rounded-[28px] bg-gray-900 text-white px-9 py-12 lg:px-[72px] lg:py-16 grid grid-cols-1 lg:grid-cols-[0.8fr_1.2fr] gap-10 lg:gap-14 items-center">
+            <div className="relative overflow-hidden rounded-[28px] bg-gray-900 text-white px-9 py-12 lg:px-[72px] lg:py-16">
               <div
                 className="pointer-events-none absolute -bottom-[260px] -left-[120px] w-[500px] h-[500px] rounded-full"
                 style={{
@@ -774,38 +659,361 @@ export default function AcademyLanding() {
                 }}
                 aria-hidden="true"
               />
-              <div className="relative">
-                <Eyebrow>Til ledelsen</Eyebrow>
-                <h2 className="text-3xl lg:text-4xl font-bold tracking-heading leading-[1.1] mt-3.5 text-balance">
-                  I skal ikke selv være AI-eksperter.
-                </h2>
+              <div className="relative grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr] gap-10 lg:gap-14 items-start">
+                <div>
+                  <Eyebrow>Til ledelsen</Eyebrow>
+                  <h2 className="text-3xl lg:text-4xl font-bold tracking-heading leading-[1.1] mt-3.5 text-balance">
+                    I skal ikke være dem, der driver AI-uddannelsen.
+                  </h2>
+                  <p className="text-[17px] text-gray-400 mt-5 leading-relaxed">
+                    I har rigeligt at holde styr på. I giver medarbejderne
+                    adgang - vi giver dem et sted at lære, prøve ting af og få
+                    hjælp. Og vi holder indholdet relevant, når Copilot
+                    udvikler sig.
+                  </p>
+                </div>
+                <div>
+                  <p className="text-[15px] font-bold tracking-[0.12em] uppercase text-gray-500">
+                    I skal ikke:
+                  </p>
+                  <ul className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-x-8">
+                    {notYourJob.map((item) => (
+                      <li
+                        key={item}
+                        className="flex items-center gap-3 py-2.5 border-b border-white/10 text-[15px] text-gray-300"
+                      >
+                        <span className="text-gray-500 shrink-0">
+                          <Cross />
+                        </span>
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                  <p className="mt-6 text-xl font-bold text-white">
+                    Det gør vi.
+                  </p>
+                  <p className="mt-4 text-[17px] text-gray-400 leading-relaxed">
+                    <strong className="text-white font-semibold">
+                      AI-Minds er jeres løbende Copilot-uddannelse.
+                    </strong>{" "}
+                    Ikke endnu et projekt, I selv skal drive.
+                  </p>
+                </div>
               </div>
-              <p className="relative text-[19px] leading-relaxed text-gray-400">
-                Det er hele pointen. I skal ikke drive det, holde oplæg eller
-                svare på de svære spørgsmål.{" "}
-                <strong className="text-white font-semibold">
-                  Vi tager jeres medarbejdere i hånden
-                </strong>{" "}
-                - med korte videoer, månedlig live Q&amp;A og et forum, de altid
-                kan vende tilbage til.
-              </p>
             </div>
           </FadeIn>
         </div>
       </section>
 
-      {/* ══════════ FAQ ══════════ */}
+      {/* ══════════ 08 · DET ER DET, I KØBER ══════════ */}
+      <section className="bg-gray-50 py-[clamp(4rem,10vw,7rem)]">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-[0.95fr_1.05fr] gap-12 lg:gap-16 items-start">
+            <FadeIn>
+              <div>
+                <Eyebrow>Det er det, I køber</Eyebrow>
+                <h2 className="text-3xl lg:text-5xl font-bold tracking-heading text-gray-900 leading-[1.08] mt-4">
+                  I køber ikke bare{" "}
+                  <span className="text-primary">adgang til videoer</span>.
+                </h2>
+                <p className="text-lg text-gray-600 mt-5 leading-relaxed">
+                  I får en løsning, der hjælper jer med at få Copilot ud at leve
+                  i organisationen.
+                </p>
+              </div>
+            </FadeIn>
+            <FadeIn delay={100}>
+              <ul>
+                {buyChecklist.map((item, i) => (
+                  <li
+                    key={i}
+                    className="grid grid-cols-[30px_1fr] gap-[18px] items-start py-4 border-t border-gray-200 first:border-t-0 text-[17px] leading-snug text-gray-900"
+                  >
+                    <span className="w-[30px] h-[30px] rounded-full bg-primary text-white flex items-center justify-center mt-0.5">
+                      <Check />
+                    </span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </FadeIn>
+          </div>
+        </div>
+      </section>
+
+      {/* ══════════ 09 · MERE END COPILOT ══════════ */}
+      <section className="py-[clamp(4rem,10vw,7rem)]">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <FadeIn>
+            <div className="max-w-2xl">
+              <Eyebrow>Mere end Copilot</Eyebrow>
+              <h2 className="text-3xl lg:text-5xl font-bold tracking-heading text-gray-900 leading-[1.08] mt-4">
+                Copilot er kernen.{" "}
+                <span className="text-primary">AI-Minds stopper ikke dér.</span>
+              </h2>
+              <p className="text-lg text-gray-600 mt-5 leading-relaxed">
+                Når medarbejderne har styr på Copilot, kan de bygge videre. Som
+                en del af AI-Minds får de også adgang til vores øvrige
+                AI-forløb.
+              </p>
+            </div>
+          </FadeIn>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-14">
+            {bonusTracks.map((t, i) => (
+              <FadeIn key={t.title} delay={(i % 3) * 70}>
+                <div className="h-full rounded-[20px] border border-gray-200 p-7 transition-all duration-200 hover:border-gray-300 hover:-translate-y-1 hover:shadow-lg">
+                  <h3 className="text-[19px] font-bold tracking-tight text-gray-900">
+                    {t.title}
+                  </h3>
+                  <p className="text-[15px] text-gray-600 leading-relaxed mt-2">
+                    {t.body}
+                  </p>
+                </div>
+              </FadeIn>
+            ))}
+          </div>
+
+          <FadeIn>
+            <p className="mt-10 text-lg font-semibold text-gray-900">
+              Copilot er udgangspunktet.{" "}
+              <span className="text-gray-600 font-normal">
+                AI-Minds giver medarbejderne mulighed for at bygge videre
+                derfra.
+              </span>
+            </p>
+          </FadeIn>
+        </div>
+      </section>
+
+      {/* ══════════ 10 · FRA ADGANG TIL ADOPTION ══════════ */}
+      <section className="bg-gray-50 py-[clamp(4rem,10vw,7rem)]">
+        <div className="max-w-3xl mx-auto px-6 lg:px-8 text-center">
+          <FadeIn>
+            <Eyebrow>Fra adgang til adoption</Eyebrow>
+            <h2 className="text-3xl lg:text-5xl font-bold tracking-heading text-gray-900 leading-[1.08] mt-4 text-balance">
+              Det er ikke nok, at medarbejderne har adgang.{" "}
+              <span className="text-primary">
+                I skal kunne se, om de kommer i gang.
+              </span>
+            </h2>
+            <p className="text-lg lg:text-xl text-gray-600 mt-6 leading-relaxed">
+              For det er dét, ledelsen har brug for at vide: bliver det brugt?
+              I får indsigt i medarbejdernes aktivitet og progression på
+              platformen - så AI-Minds ikke bare giver adgang til læring, men
+              gør det muligt at følge, om organisationen faktisk kommer i gang.
+            </p>
+          </FadeIn>
+        </div>
+      </section>
+
+      {/* ══════════ 11 · REGN PÅ VÆRDIEN ══════════ */}
+      <section className="py-[clamp(4rem,10vw,7rem)]">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <FadeIn>
+            <div className="max-w-2xl">
+              <Eyebrow>Regn på værdien</Eyebrow>
+              <h2 className="text-3xl lg:text-5xl font-bold tracking-heading text-gray-900 leading-[1.08] mt-4">
+                Små forbedringer bliver hurtigt{" "}
+                <span className="text-primary">store i en organisation</span>.
+              </h2>
+              <p className="text-lg text-gray-600 mt-5 leading-relaxed">
+                Forestil jer 100 medarbejdere. Hvis hver medarbejder bare finder
+                15 minutter om ugen gennem smartere brug af Copilot, svarer det
+                til 25 arbejdstimer om ugen - og cirka 1.300 arbejdstimer på et
+                år. Det er ikke et løfte om, at AI-Minds skaber præcis den
+                besparelse. Det er et eksempel på, hvorfor selv små forbedringer
+                kan have betydning.
+              </p>
+            </div>
+          </FadeIn>
+
+          <FadeIn delay={120}>
+            <div className="mt-12">
+              <ValueCalculator />
+            </div>
+          </FadeIn>
+        </div>
+      </section>
+
+      {/* ══════════ 12 · PRIS ══════════ */}
+      <section className="bg-gray-50 py-[clamp(4rem,10vw,7rem)]">
+        <div className="max-w-3xl mx-auto px-6 lg:px-8 text-center">
+          <FadeIn>
+            <Eyebrow>Enkelt at komme i gang</Eyebrow>
+            <h2 className="text-3xl lg:text-5xl font-bold tracking-heading text-gray-900 leading-[1.08] mt-4 text-balance">
+              Én pris pr. medarbejder.{" "}
+              <span className="text-primary">Ingen lang binding.</span>
+            </h2>
+            <p className="text-lg lg:text-xl text-gray-600 mt-6 leading-relaxed">
+              Prisen er pr. medarbejder og afhænger af, hvor mange I er. Vi
+              giver jer et konkret prisforslag efter demoen - og et samlet
+              prisark, I kan tage med til resten af ledelsen.
+            </p>
+            <p className="mt-8 inline-block border-l-[3px] border-primary bg-primary/10 rounded-r-2xl px-7 py-4 text-[17px] leading-snug text-gray-900 font-medium text-left">
+              Ingen lang binding. Det kører løbende måned + 1 måned, så I kan
+              opsige, når det passer jer.
+            </p>
+            <p className="text-lg text-gray-600 mt-8 leading-relaxed">
+              I behøver ikke tage en stor beslutning. Start med jeres
+              organisation. Se, om medarbejderne kommer i gang. Fortsæt, hvis
+              AI-Minds skaber værdi for jer.
+            </p>
+            <div className="mt-9">
+              <Button variant="primary" size="lg" cal>
+                Få en konkret pris for jeres virksomhed
+                <ArrowRight />
+              </Button>
+            </div>
+          </FadeIn>
+        </div>
+      </section>
+
+      {/* ══════════ 13 · KURSUS VS. AI-MINDS ══════════ */}
+      <section className="py-[clamp(4rem,10vw,7rem)]">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <FadeIn>
+            <div className="max-w-2xl">
+              <Eyebrow>Den store forskel</Eyebrow>
+              <h2 className="text-3xl lg:text-5xl font-bold tracking-heading text-gray-900 leading-[1.08] mt-4">
+                Et kursus har en slutdato.{" "}
+                <span className="text-primary">Det har Copilot ikke.</span>
+              </h2>
+              <p className="text-lg text-gray-600 mt-5 leading-relaxed">
+                En kursusdag kan være en god start. Men Copilot ændrer sig.
+                Medarbejderne glemmer ting. Nye funktioner kommer til, og
+                behovene er forskellige fra medarbejder til medarbejder. Derfor
+                er AI-Minds bygget som en løbende Copilot-uddannelse.
+              </p>
+            </div>
+          </FadeIn>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-14 max-w-4xl">
+            <FadeIn>
+              <div className="h-full rounded-[20px] border border-gray-200 bg-gray-50 p-8">
+                <p className="text-[13px] font-bold tracking-[0.18em] uppercase text-gray-500">
+                  Traditionelt kursus
+                </p>
+                <ul className="mt-5">
+                  {courseFlow.map((item, i) => (
+                    <li key={item} className="text-[17px] text-gray-700">
+                      {i > 0 && (
+                        <span
+                          className="block text-gray-400 py-1.5 pl-1"
+                          aria-hidden="true"
+                        >
+                          ↓
+                        </span>
+                      )}
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </FadeIn>
+            <FadeIn delay={100}>
+              <div className="h-full rounded-[20px] bg-gray-900 text-white p-8">
+                <p className="text-[13px] font-bold tracking-[0.18em] uppercase text-primary">
+                  AI-Minds
+                </p>
+                <ul className="mt-5">
+                  {mindsFlow.map((item, i) => (
+                    <li key={item} className="text-[17px] text-gray-100">
+                      {i > 0 && (
+                        <span
+                          className="block text-primary py-1.5 pl-1"
+                          aria-hidden="true"
+                        >
+                          ↓
+                        </span>
+                      )}
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </FadeIn>
+          </div>
+
+          <FadeIn>
+            <p className="mt-10 max-w-[820px] text-lg font-semibold text-gray-900">
+              Det er forskellen på at lære Copilot én gang - og at blive bedre
+              til at bruge det over tid.
+            </p>
+          </FadeIn>
+        </div>
+      </section>
+
+      {/* ══════════ 15 · SOCIAL PROOF ══════════ */}
+      <section className="bg-gray-50 py-[clamp(4rem,10vw,7rem)]">
+        <div className="max-w-3xl mx-auto px-6 lg:px-8 text-center">
+          <FadeIn>
+            <Eyebrow>Allerede i brug hos 25+ virksomheder</Eyebrow>
+            <h2 className="text-3xl lg:text-5xl font-bold tracking-heading text-gray-900 leading-[1.08] mt-4">
+              Vi er allerede i gang hos{" "}
+              <span className="text-primary">virksomheder som jer</span>.
+            </h2>
+            <p className="text-lg lg:text-xl text-gray-600 mt-6 leading-relaxed">
+              Mere end 25 virksomheder har valgt AI-Minds som en del af deres
+              løbende AI-uddannelse. De bruger platformen til at give
+              medarbejderne en enkel måde at lære Copilot på - uden lange
+              kurser og uden selv at skulle bygge en intern AI-uddannelse.
+            </p>
+          </FadeIn>
+        </div>
+      </section>
+
+      {/* ══════════ 16 · SÅDAN KOMMER I I GANG ══════════ */}
+      <section className="py-[clamp(4rem,10vw,7rem)]">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <FadeIn>
+            <div className="max-w-2xl">
+              <Eyebrow>Nemt at komme i gang</Eyebrow>
+              <h2 className="text-3xl lg:text-5xl font-bold tracking-heading text-gray-900 leading-[1.08] mt-4">
+                Fra første samtale til medarbejdere,{" "}
+                <span className="text-primary">der er i gang</span>.
+              </h2>
+            </div>
+          </FadeIn>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-14">
+            {processSteps.map((step, i) => (
+              <FadeIn key={step.nr} delay={i * 80}>
+                <div className="h-full rounded-[20px] border border-gray-200 p-7 flex flex-col">
+                  <span className="text-3xl font-bold text-primary/30 tabular-nums">
+                    {step.nr}
+                  </span>
+                  <h3 className="text-[19px] font-bold tracking-tight text-gray-900 mt-3 leading-snug">
+                    {step.title}
+                  </h3>
+                  <p className="text-[14px] text-gray-600 leading-relaxed mt-2.5 flex-grow">
+                    {step.body}
+                  </p>
+                  {step.result && (
+                    <p className="mt-4 pt-4 border-t border-gray-100 text-[14px] leading-snug">
+                      <span className="font-bold text-primary">I får: </span>
+                      <span className="text-gray-700">{step.result}</span>
+                    </p>
+                  )}
+                </div>
+              </FadeIn>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ══════════ 17 · FAQ ══════════ */}
       <section id="faq" className="bg-gray-50 py-[clamp(4rem,10vw,7rem)] scroll-mt-24">
         <div className="max-w-3xl mx-auto px-6 lg:px-8">
           <FadeIn>
             <div>
-              <Eyebrow>FAQ</Eyebrow>
+              <Eyebrow>Spørgsmål?</Eyebrow>
               <h2 className="text-3xl lg:text-5xl font-bold tracking-heading text-gray-900 leading-[1.08] mt-4">
-                Spørgsmål{" "}
-                <span className="text-primary">vores kunder stiller.</span>
+                Det vil I sikkert{" "}
+                <span className="text-primary">gerne vide.</span>
               </h2>
               <p className="text-[17px] text-gray-600 mt-5 leading-relaxed">
-                Har du et spørgsmål, der ikke står her? Tag det med på opkaldet.
+                Har du et spørgsmål, der ikke står her? Tag det med på demoen.
               </p>
             </div>
           </FadeIn>
@@ -846,7 +1054,7 @@ export default function AcademyLanding() {
         </div>
       </section>
 
-      {/* ══════════ FINAL CTA ══════════ */}
+      {/* ══════════ 18 · FINAL CTA ══════════ */}
       <section id="kontakt" className="py-[clamp(4rem,10vw,7rem)] scroll-mt-24">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <FadeIn>
@@ -860,17 +1068,26 @@ export default function AcademyLanding() {
                 aria-hidden="true"
               />
               <div className="relative">
-                <Eyebrow>Klar til at få teamet i gang?</Eyebrow>
-                <h2 className="text-3xl lg:text-5xl font-bold tracking-heading text-white leading-[1.06] mt-4 text-balance">
-                  Book en <span className="text-primary">kort snak</span>.
+                <Eyebrow>I har allerede investeret i Copilot</Eyebrow>
+                <h2 className="text-3xl lg:text-[2.6rem] font-bold tracking-heading text-white leading-[1.1] mt-4 text-balance">
+                  Spørgsmålet er ikke, om medarbejderne skal have adgang.{" "}
+                  <span className="text-primary">
+                    Spørgsmålet er, om de får nok ud af den.
+                  </span>
                 </h2>
-                <p className="text-[19px] leading-relaxed text-gray-400 mt-5 max-w-md">
-                  Vi viser jer AI-Minds, taler om, hvad jeres team har brug for, og
-                  siger ærligt, om det er den rigtige løsning for jer.
+                <div className="mt-7">
+                  <ValueChain dark />
+                </div>
+                <p className="text-[17px] leading-relaxed text-gray-400 mt-6 max-w-md">
+                  Korte lektioner. Praktiske opgaver. Løbende opdateringer.
+                  Hjælp undervejs. Og en platform, I ikke selv skal drive.{" "}
+                  <strong className="text-white font-semibold">
+                    Allerede brugt af 25+ virksomheder.
+                  </strong>
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 mt-9">
                   <Button variant="primary" size="lg" cal>
-                    Book en snak
+                    Få en 30 min. demo
                     <ArrowRight />
                   </Button>
                   <a
@@ -882,6 +1099,10 @@ export default function AcademyLanding() {
                     Se AI-Minds
                   </a>
                 </div>
+                <p className="text-[15px] text-gray-500 mt-6">
+                  Ingen skal lære alt om AI. De skal bare lære det, der gør
+                  deres egen arbejdsdag lettere.
+                </p>
               </div>
 
               <div className="relative bg-white rounded-[22px] p-9 shadow-[0_30px_60px_-28px_rgba(0,0,0,.5)]">
