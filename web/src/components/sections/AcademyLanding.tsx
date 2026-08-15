@@ -161,7 +161,7 @@ const faqs = [
     a: "Det afhænger af jeres størrelse og behov. Vi giver jer et samlet prisark, I kan tage med til resten af ledelsen.",
   },
   {
-    q: "Hvor meget af mine folks tid tager det?",
+    q: "Hvor meget tid skal vi bruge på det?",
     a: "Videoer på 3-7 minutter, set i deres eget tempo. De øver på opgaver, de alligevel sidder med - så det koster ikke en hel arbejdsdag.",
   },
   {
