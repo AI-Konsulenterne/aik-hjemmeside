@@ -89,6 +89,22 @@ const SparkleIcon = ({ className = "w-7 h-7" }: { className?: string }) => (
   </svg>
 );
 
+const ShieldIcon = ({ className = "w-7 h-7" }: { className?: string }) => (
+  <svg
+    className={className}
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth={1.6}
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    aria-hidden="true"
+  >
+    <path d="M12 3l7 3v5c0 4.4-3 8-7 9-4-1-7-4.6-7-9V6l7-3z" />
+    <polyline points="9 12 11 14 15 10" />
+  </svg>
+);
+
 const Check = ({ className = "w-4 h-4" }: { className?: string }) => (
   <svg
     className={className}
@@ -412,7 +428,7 @@ export default function AcademyLanding() {
           <FadeIn>
             <Eyebrow>Lyder det bekendt?</Eyebrow>
             <h2 className="text-3xl lg:text-5xl font-bold tracking-heading text-gray-900 leading-[1.08] mt-4 text-balance">
-              Få reel forretningsværdi{" "}
+              Få réel forretningsværdi{" "}
               <span className="text-primary">ud af jeres licenser</span>
             </h2>
             <p className="text-xl text-gray-600 mt-6 leading-relaxed">
@@ -550,8 +566,39 @@ export default function AcademyLanding() {
               />
             </FadeIn>
 
-            {/* Coming soon */}
             <FadeIn delay={160}>
+              <CourseCard
+                tag="Tryghed"
+                title="AI-sikkerhed"
+                desc="Hvad må medarbejderne dele med en AI, og hvad skal blive internt? Lær at bruge AI trygt - uden at sætte data eller GDPR på spil."
+                cover={
+                  <CourseCover
+                    variant="tint"
+                    word="AI-sikkerhed"
+                    glyph={glyphTile("orange", <ShieldIcon />)}
+                    motif={
+                      <svg
+                        className="absolute inset-0 w-full h-full"
+                        viewBox="0 0 320 180"
+                        preserveAspectRatio="xMidYMid slice"
+                        fill="none"
+                        aria-hidden="true"
+                      >
+                        <g stroke="#ff9a00" strokeWidth="1" opacity="0.30">
+                          <path d="M160 34 L206 52 V94 c0 32 -24 52 -46 60 c-22 -8 -46 -28 -46 -60 V52 Z" />
+                        </g>
+                        <g stroke="#ff9a00" strokeWidth="1.6" opacity="0.55" strokeLinecap="round" strokeLinejoin="round">
+                          <polyline points="142 92 156 106 180 80" />
+                        </g>
+                      </svg>
+                    }
+                  />
+                }
+              />
+            </FadeIn>
+
+            {/* Coming soon */}
+            <FadeIn delay={240}>
               <div className="flex flex-col items-center justify-center text-center gap-3.5 h-full rounded-[22px] border border-dashed border-gray-300 bg-gray-50 p-10">
                 <span className="w-[52px] h-[52px] rounded-[14px] bg-primary/10 text-primary flex items-center justify-center">
                   <svg
@@ -751,12 +798,13 @@ export default function AcademyLanding() {
 
       {/* ══════════ FAQ ══════════ */}
       <section id="faq" className="bg-gray-50 py-[clamp(4rem,10vw,7rem)] scroll-mt-24">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-[0.7fr_1.3fr] gap-12 lg:gap-16 items-start">
+        <div className="max-w-3xl mx-auto px-6 lg:px-8">
           <FadeIn>
             <div>
               <Eyebrow>FAQ</Eyebrow>
               <h2 className="text-3xl lg:text-5xl font-bold tracking-heading text-gray-900 leading-[1.08] mt-4">
-                Relevant <span className="text-primary">viden.</span>
+                Spørgsmål{" "}
+                <span className="text-primary">vores kunder stiller.</span>
               </h2>
               <p className="text-[17px] text-gray-600 mt-5 leading-relaxed">
                 Har du et spørgsmål, der ikke står her? Tag det med på opkaldet.
@@ -765,7 +813,7 @@ export default function AcademyLanding() {
           </FadeIn>
 
           <FadeIn delay={100}>
-            <div className="border-t border-gray-200">
+            <div className="border-t border-gray-200 mt-12">
               {faqs.map((item, i) => (
                 <details
                   key={item.q}
