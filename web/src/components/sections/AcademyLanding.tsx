@@ -137,7 +137,7 @@ const values = [
   {
     title: "Bygget til hverdagen",
     description:
-      "Videoer på 3-7 minutter. Folk ser dem i kaffepausen og bruger dem samme dag.",
+      "Korte og praktiske videoer under 15 minutter.",
     iconPath: "M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z",
   },
   {
@@ -178,7 +178,7 @@ const faqs = [
   },
   {
     q: "Hvor meget tid skal vi bruge på det?",
-    a: "Videoer på 3-7 minutter, set i deres eget tempo. De øver på opgaver, de alligevel sidder med - så det koster ikke en hel arbejdsdag.",
+    a: "Videoer på under 15 minutter, set i deres eget tempo. De øver på opgaver, de alligevel sidder med - så det koster ikke en hel arbejdsdag.",
   },
   {
     q: "Er vi bundet til noget?",
