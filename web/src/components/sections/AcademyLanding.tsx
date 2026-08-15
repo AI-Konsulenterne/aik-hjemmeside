@@ -166,7 +166,7 @@ const faqs = [
   },
   {
     q: "Er vi bundet til noget?",
-    a: "I kan opsige når som helst.",
+    a: "Nej, der er ingen binding. Det kører løbende måned + 1 måned, så I kan opsige, når det passer jer.",
   },
   {
     q: "Bruger de det overhovedet bagefter?",
