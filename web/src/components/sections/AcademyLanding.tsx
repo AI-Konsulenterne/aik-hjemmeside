@@ -775,7 +775,7 @@ export default function AcademyLanding() {
                 aria-hidden="true"
               />
               <div className="relative">
-                <Eyebrow>Til ledelsen</Eyebrow>
+                <Eyebrow>Vi holder jer opdateret</Eyebrow>
                 <h2 className="text-3xl lg:text-4xl font-bold tracking-heading leading-[1.1] mt-3.5 text-balance">
                   I skal ikke selv være AI-eksperter.
                 </h2>
@@ -787,7 +787,8 @@ export default function AcademyLanding() {
                   Vi tager jeres medarbejdere i hånden
                 </strong>{" "}
                 - med korte videoer, månedlig live Q&amp;A og et forum, de altid
-                kan vende tilbage til.
+                kan vende tilbage til - og vi sørger for at holde dem opdateret
+                med den konstant nye viden, de skal forholde sig til.
               </p>
             </div>
           </FadeIn>
