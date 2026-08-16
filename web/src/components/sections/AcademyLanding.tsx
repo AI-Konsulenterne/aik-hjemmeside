@@ -311,16 +311,14 @@ export default function AcademyLanding() {
               <div>
                 <Eyebrow>AI-Minds</Eyebrow>
                 <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold tracking-heading text-gray-900 leading-[1.04] mt-4 text-balance">
-                  Copilot-uddannelse{" "}
+                  Uddannelse i Copilot{" "}
                   <span className="text-primary">til hele organisationen</span>
                 </h1>
                 <p className="text-lg lg:text-xl text-gray-500 mt-6 leading-relaxed max-w-xl">
-                  Et online læringsunivers, hvor jeres medarbejdere lærer at
-                  bruge AI til deres faktiske arbejde - fra Microsoft Copilot til
-                  ChatGPT og Claude, på dansk og i øjenhøjde. Ingen teknisk
-                  jargon, ingen 40-timers lange kurser. Bare korte og konkrete
-                  videoer, specifikke use cases og et community, der hjælper
-                  hinanden.
+                  Vi har bygget en online læringsplatform med 40+ moduler, der
+                  underviser jeres kollegaer i alt, hvad de har brug for inden
+                  for Copilot, Claude og AI Act. Modulerne er korte, hands-on
+                  og passer perfekt ind i en travl hverdag.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 mt-9">
                   <Button variant="primary" size="lg" cal>
