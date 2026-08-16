@@ -174,11 +174,11 @@ const checklist = [
 const faqs = [
   {
     q: "Hvad koster det?",
-    a: "Det afhænger af jeres størrelse og behov. Vi giver jer et samlet prisark, I kan tage med til resten af ledelsen.",
+    a: "Det afhænger af, hvor mange medarbejdere I ønsker at give adgang til. Ring eller book et møde med os, og lad os tage en snak.",
   },
   {
     q: "Hvor meget tid skal vi bruge på det?",
-    a: "Videoer på under 15 minutter, set i deres eget tempo. De øver på opgaver, de alligevel sidder med - så det koster ikke en hel arbejdsdag.",
+    a: "Vi har struktureret læringen fra A-Z, så I får det vigtigste serveret på en spiselig måde. Derfor varer vores videoer typisk under 15 minutter, så de passer ind i en kaffepause.",
   },
   {
     q: "Er vi bundet til noget?",
