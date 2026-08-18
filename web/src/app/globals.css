@@ -231,20 +231,24 @@ body {
   --film-ease: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+/* Klippene har deres eget kamera nu — én langsom sidelæns kørsel pr. shot.
+   Derfor ingen scale-animation her. Den gamle scale(1.04) -> scale(1) over
+   6000ms flyttede laget 0,09 px pr. frame ved 60fps, altså under én pixel.
+   Browseren runder af til hele pixels, så billedet stod stille og hoppede så
+   ét trin — det læste som rysten, værst mens man scrollede forbi. Oveni
+   skalerede den videoen med et konstant skiftende ikke-heltalsforhold, hvilket
+   får fine detaljer (kaffebønner, bilrækker) til at glimte.
+   Tilbage er kun overblændingen. */
 .film-shot {
   position: absolute;
   inset: 0;
   opacity: 0;
-  transform: scale(1.04);
-  transition:
-    opacity var(--film-fade) var(--film-ease),
-    transform 6000ms linear;
-  will-change: opacity, transform;
+  transition: opacity var(--film-fade) var(--film-ease);
+  will-change: opacity;
 }
 
 .film-shot[data-active="true"] {
   opacity: 1;
-  transform: scale(1);
 }
 
 /* Teksten bruger samme kurve som klippet — derfor føles skiftet som ét snit. */
@@ -294,7 +298,6 @@ body {
 @media (prefers-reduced-motion: reduce) {
   .film-shot {
     transition: opacity 1ms linear;
-    transform: none;
   }
   .film-line {
     transition: opacity 1ms linear;
