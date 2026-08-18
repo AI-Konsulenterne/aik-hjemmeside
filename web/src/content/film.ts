@@ -22,17 +22,29 @@ export type FilmShot = {
   label: string;
   /** Alt-tekst til posterframe. */
   alt: string;
+  /**
+   * Om shottet er i luften.
+   *
+   * Testrunden kører fire shots, valgt så de presser graden mest muligt:
+   * varmt interiør, koldt eksteriør i vidvinkel, blå time i silhuet, og
+   * koldt interiør i makro. Holder ét look på tværs af de fire, holder det
+   * på tværs af alle otte.
+   *
+   * Sæt til true når klippet er godkendt og ligger i public/film/.
+   */
+  enabled: boolean;
 };
 
 export const FILM_INTRO = "Vi har hjulpet dem, der";
 
-export const FILM_SHOTS: FilmShot[] = [
+const ALL_SHOTS: FilmShot[] = [
   {
     id: "kaffe",
     line: "brygger din kaffe",
     sector: "Kaffe-import og -brænding",
     label: "Fødevarer",
     alt: "Nybrændte kaffebønner falder fra en industriristers tromle ned i et køletruget.",
+    enabled: true,
   },
   {
     id: "bil",
@@ -40,6 +52,7 @@ export const FILM_SHOTS: FilmShot[] = [
     sector: "Bilimport og -distribution",
     label: "Mobilitet",
     alt: "Rækker af fabriksnye biler på en kaj ved daggry med rampen til et roro-skib i baggrunden.",
+    enabled: true,
   },
   {
     id: "mobilnet",
@@ -47,6 +60,7 @@ export const FILM_SHOTS: FilmShot[] = [
     sector: "Teleinfrastruktur",
     label: "Infrastruktur",
     alt: "En rigger arbejder på en antenne højt oppe i en telemast over et tågehav i blå time.",
+    enabled: true,
   },
   {
     id: "mejeri",
@@ -54,6 +68,7 @@ export const FILM_SHOTS: FilmShot[] = [
     sector: "Mejeri og fødevareproduktion",
     label: "Produktion",
     alt: "Polerede rustfrie tanke på række i et moderne mejeri med kondens på metallet.",
+    enabled: false,
   },
   {
     id: "staal",
@@ -61,6 +76,7 @@ export const FILM_SHOTS: FilmShot[] = [
     sector: "Stål og metaldistribution",
     label: "Industri",
     alt: "Stak af børstede rustfrie stålplader i en lagerhal med en travers-kran i baggrunden.",
+    enabled: false,
   },
   {
     id: "kirke",
@@ -68,6 +84,7 @@ export const FILM_SHOTS: FilmShot[] = [
     sector: "Restaurering og håndværk",
     label: "Byggeri",
     alt: "Stenhuggerhænder med mejsel mod en forvitret sandstensdetalje i en kalket landsbykirke under restaurering.",
+    enabled: false,
   },
   {
     id: "kontor",
@@ -75,6 +92,7 @@ export const FILM_SHOTS: FilmShot[] = [
     sector: "Arkitektur og rådgivning",
     label: "Rådgivning",
     alt: "Hvid arkitekturmodel af en kontorbygning på et bord i en tegnestue i skumringen.",
+    enabled: false,
   },
   {
     id: "telefon",
@@ -82,8 +100,20 @@ export const FILM_SHOTS: FilmShot[] = [
     sector: "Præcisionselektronik",
     label: "Elektronik",
     alt: "En handskeklædt hånd sænker et fræset aluminiumschassis ned i en fixtur på en CNC-maskine.",
+    enabled: true,
   },
 ];
+
+/**
+ * Kun de shots der faktisk er i luften. Resten bliver i ALL_SHOTS med
+ * enabled: false — teksten er skrevet, klippet mangler.
+ */
+export const FILM_SHOTS: FilmShot[] = ALL_SHOTS.filter((s) => s.enabled);
+
+/** Alt der endnu ikke er optaget. Bruges ikke i UI — kun til overblik. */
+export const FILM_SHOTS_PENDING: FilmShot[] = ALL_SHOTS.filter(
+  (s) => !s.enabled
+);
 
 /** Hvor længe hvert shot står, før det næste tager over. */
 export const FILM_SHOT_MS = 3600;

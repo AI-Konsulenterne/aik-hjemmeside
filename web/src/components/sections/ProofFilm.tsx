@@ -210,8 +210,8 @@ export default function ProofFilm({ variant = "band" }: { variant?: Variant }) {
 
           {isFull && (
             <p className="mt-8 max-w-[52ch] text-base leading-relaxed text-white/60">
-              Otte brancher, otte meget forskellige problemer. Ingen af dem løste
-              vi med den samme model — men alle otte startede med det samme
+              Forskellige brancher, meget forskellige problemer. Ingen af dem
+              løste vi med den samme model — men alle startede med det samme
               spørgsmål: hvor går tiden egentlig hen?
             </p>
           )}

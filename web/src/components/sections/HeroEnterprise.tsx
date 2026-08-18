@@ -24,7 +24,7 @@ export default function HeroEnterprise() {
           <FadeIn delay={80}>
             <h1 className="mt-8 max-w-[19ch] text-[clamp(2.75rem,7.2vw,6.5rem)] font-bold leading-[0.95] tracking-display text-gray-900">
               Vi bygger AI til Danmarks største virksomheder.{" "}
-              <span className="text-gray-300">Og et par af verdens.</span>
+              <span className="text-gray-300">Og et par af verdens største.</span>
             </h1>
           </FadeIn>
 

@@ -7,7 +7,7 @@ import { FILM_INTRO, FILM_SHOTS } from "@/content/film";
 export const metadata: Metadata = {
   title: "Referencer",
   description:
-    "Vi har bygget AI til virksomheder i otte brancher — fra kaffebrænding og bilimport til teleinfrastruktur og præcisionselektronik. Se hvad vi har bygget.",
+    "Vi har bygget AI til virksomheder på tværs af brancher — fra kaffebrænding og bilimport til teleinfrastruktur og præcisionselektronik. Se hvad vi har bygget.",
   alternates: { canonical: "/referencer" },
   openGraph: {
     type: "website",
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     siteName: "AI Konsulenterne",
     title: "Referencer | AI Konsulenterne",
     description:
-      "Otte brancher, otte meget forskellige problemer. Se hvad vi har bygget.",
+      "Forskellige brancher, meget forskellige problemer. Se hvad vi har bygget.",
   },
 };
 
