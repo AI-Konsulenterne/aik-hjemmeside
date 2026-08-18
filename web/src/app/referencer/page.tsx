@@ -7,7 +7,7 @@ import { FILM_INTRO, FILM_SHOTS, FILM_SHOTS_KUNDER } from "@/content/film";
 export const metadata: Metadata = {
   title: "Referencer",
   description:
-    "Vi har bygget AI til virksomheder på tværs af brancher — fra kaffebrænding og kirkevedligehold til vindmøller og lingeri. Se hvad vi har bygget.",
+    "Vi har bygget AI til virksomheder på tværs af brancher, fra kaffebrænding og kirkevedligehold til vindmøller og lingeri. Se hvad vi har bygget.",
   alternates: { canonical: "/referencer" },
   openGraph: {
     type: "website",
@@ -50,7 +50,7 @@ export default function Referencer() {
                 </p>
                 <p>
                   Så her står brancherne i stedet for navnene. Vil I hellere se
-                  konkrete forløb med navn, tal og hvad der gik galt undervejs —
+                  konkrete forløb med navn, tal og hvad der gik galt undervejs, så
                   dem har vi også.
                 </p>
                 <Link

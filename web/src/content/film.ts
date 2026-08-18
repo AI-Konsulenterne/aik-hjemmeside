@@ -20,7 +20,7 @@ export type FilmAct = "kunder" | "laering";
 /** Første halvdel af sætningen. Skifter når akten skifter. */
 export const FILM_INTRO: Record<FilmAct, string> = {
   kunder: "Vi har hjulpet dem, der",
-  laering: "Og nu lærer vi det fra os —",
+  laering: "Og nu lærer vi det fra os:",
 };
 
 export type FilmShot = {

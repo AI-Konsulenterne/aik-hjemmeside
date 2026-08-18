@@ -200,9 +200,12 @@ export default function ProofFilm({ variant = "band" }: { variant?: Variant }) {
             Referencer
           </p>
 
-          {/* Hele sætningen ligger i DOM'en for hvert shot — kun den aktive er
-              synlig. Det holder højden stabil, gør teksten indekserbar, og
-              lader indledningen skifte i takt med resten når akten skifter. */}
+          {/* Indledningen står stille. Den er den samme hele akten igennem, så
+              den skal ikke blinke ved hvert skift; kun den orange halvdel
+              skifter. Ved aktskiftet bytter indledningen én gang, og det er
+              meningen: det er der, påstanden bliver en anden.
+              Alle linjer ligger i DOM'en, kun den aktive er synlig. Det holder
+              højden stabil og gør teksten indekserbar. */}
           <p
             className={`mt-6 font-bold tracking-display text-white ${
               isFull
@@ -210,16 +213,16 @@ export default function ProofFilm({ variant = "band" }: { variant?: Variant }) {
                 : "text-[clamp(1.75rem,4.4vw,3.75rem)] leading-[1.08]"
             }`}
           >
-            <span className="relative grid">
+            <span className="text-white/55">{FILM_INTRO[shot.act]}</span>{" "}
+            <span className="relative inline-grid max-w-full align-top">
               {shots.map((s, i) => (
                 <span
                   key={s.id}
-                  className="film-line col-start-1 row-start-1"
+                  className="film-line col-start-1 row-start-1 text-primary"
                   data-active={i === index}
                   aria-hidden={i !== index}
                 >
-                  <span className="text-white/55">{FILM_INTRO[s.act]}</span>{" "}
-                  <span className="text-primary">{s.line}</span>
+                  {s.line}
                 </span>
               ))}
             </span>
@@ -228,7 +231,7 @@ export default function ProofFilm({ variant = "band" }: { variant?: Variant }) {
           {isFull && (
             <p className="mt-8 max-w-[52ch] text-base leading-relaxed text-white/60">
               Forskellige brancher, meget forskellige problemer. Ingen af dem
-              løste vi med den samme model — men alle startede med det samme
+              løste vi med den samme model, men alle startede med det samme
               spørgsmål: hvor går tiden egentlig hen?
             </p>
           )}
@@ -253,7 +256,11 @@ export default function ProofFilm({ variant = "band" }: { variant?: Variant }) {
                 />
               ))}
             </div>
-            <p className="hidden shrink-0 text-xs font-semibold tabular-nums tracking-widest text-white/40 sm:block">
+            {/* Højre padding holder tælleren fri af den faste "scroll til
+                top"-knap, der ligger viewport-forankret i samme hjørne. Uden
+                den bliver sidste bogstav i brancheordet klippet i vinduer
+                omkring 1400-1500 px, hvor containerens kant og knappen mødes. */}
+            <p className="hidden shrink-0 text-xs font-semibold tabular-nums tracking-widest text-white/40 sm:block sm:pr-12 lg:pr-14">
               {String(index + 1).padStart(2, "0")} / {String(count).padStart(2, "0")}
               <span className="ml-4 text-white/60">{shot.label}</span>
             </p>

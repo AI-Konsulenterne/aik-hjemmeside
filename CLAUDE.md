@@ -322,7 +322,10 @@ Claude skal læse denne sektion FØR hver opgave og aktivt undgå kendte fejlmø
 
 | # | Fejl Claude lavede | Hvad der skulle have været gjort |
 |---|---|---|
-| 1 | *(tilføjes løbende)* | *(tilføjes løbende)* |
+| 1 | Skalerede 5504×3072-plates (1,7917:1) til posterframes uden at rette sideforholdet, mens klippene var 1920×1080. Under `object-cover` croppede de forskelligt, og billedet hoppede ~3 px når videoen overtog posteren. | Posterframe og klip skal have **præcis** samme sideforhold. Tjek det med ffprobe frem for at antage at "16:9-ish" er 16:9. |
+| 2 | Graduerede video med `lutrgb`. Det halverede luminansen (107 → 58) på HEVC-kilder, fordi de er limited-range og RGB-konverteringen mangler range-metadata. | Brug `eq` (arbejder i YUV) til grade på video. Og mål altid outputtet mod målet bagefter — fejlen var usynlig i filstørrelsen alene. |
+| 3 | Skrev prompts fulde af negationer: `no flat blank strip across the top`, `no faces`. Modellen leverede præcis det forbudte — 4 søm ud af 7 billeder, og ansigter i to forsøg i træk. | Beskriv hvad der **er** i billedet. "Væggen fortsætter naturligt i perspektiv" i stedet for "intet fladt felt". "Beskåret i brysthøjde, så hænder og bordflade fylder" i stedet for "ingen ansigter". Gav 0 søm ud af 5. |
+| 4 | Sagde at en linje på `/referencer` var blevet misvisende, uden at kontrollere om den stadig var det efter vores egen ændring. Den var sand. | Tjek påstanden mod den nuværende tilstand før den meldes som fejl. |
 
 ### Sådan tilføjer du en fejl
 Når Claude laver en fejl, sig bare:
@@ -338,8 +341,10 @@ Claude skriver en kort log efter hver større opgave:
 
 | Dato | Opgave | Status | Noter |
 |---|---|---|---|
-| *(tilføjes løbende)* | | | |
+| 2026-08-18 | Referencefilmen: fire klip produceret, rysten fejlfundet, filmen bygget om til rigtige kunder | Færdig | Filmen sagde "Vi har hjulpet dem, der …" over Semler, TDC Net og Apple — leveret gennem et tidligere selskab, ikke AIK-kunder. Ude af filmen. Ti rigtige kunder ind, plus tre læringsklip under en anden sætning. Seks klip animeret (forsiden), syv står på posterframe. Graden lægges på **efter** generering: luminansspredning 91,6 → 12,7. |
+
+**Åbent efter 18/8:** sætningen til logostriben ("Før AIK byggede vi til…" vs "Vores stifter har leveret løsninger til…") mangler Benjamins valg. Registret på `/referencer` mangler én sætning pr. kunde om hvad vi konkret byggede — den skal skrives af AIK, ikke gættes. Vindmølleklippet bør skydes om; grade-passet slebet dens amber-lys næsten væk.
 
 ---
 
-*Version 1.2 — Opdateret: April 2026*
+*Version 1.3 — Opdateret: August 2026*
