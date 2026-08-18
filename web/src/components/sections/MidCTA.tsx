@@ -1,35 +1,47 @@
-import Button from "@/components/ui/Button";
+import Link from "next/link";
 import FadeIn from "@/components/ui/FadeIn";
 
+/**
+ * Midtvejs-CTA.
+ *
+ * Var en afrundet orange klods midt på siden. Nu: hårfine streger, venstrestillet
+ * type og orange kun som knapflade og streg. Filmen ovenfor er sidens ene mørke
+ * flade — en til ville stjæle fra den.
+ */
 export default function MidCTA() {
   return (
-    <section className="py-[clamp(3rem,8vw,5rem)]">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+    <section className="border-y border-black/10">
+      <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
         <FadeIn>
-          <div className="bg-primary rounded-3xl px-6 py-12 lg:px-12 lg:py-16 text-center relative overflow-hidden">
-            <div
-              className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-white/10 to-transparent pointer-events-none"
-              aria-hidden="true"
-            />
-            <div className="relative z-10 max-w-2xl mx-auto">
-              <h2 className="text-3xl lg:text-4xl font-bold tracking-heading text-white leading-[1.1]">
-                Klar til at komme i gang med AI?
-              </h2>
-              <p className="text-white/80 mt-4 leading-relaxed text-lg">
-                Tag en uforpligtende snak med os, så finder vi ud af hvor I skal
-                starte.
-              </p>
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8">
-                <Button variant="white" size="lg" href="/kontakt" cal>
-                  Book et møde i dag
-                </Button>
-                <a
-                  href="tel:+4525547074"
-                  className="text-sm font-semibold text-white/90 hover:text-white transition-colors"
-                >
-                  Eller ring: +45 25 54 70 74
-                </a>
+          <div className="grid gap-10 py-[clamp(3.5rem,7vw,6rem)] lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end lg:gap-20">
+            <div>
+              <div className="flex items-center gap-3">
+                <span className="lamp" data-lit="true" aria-hidden="true" />
+                <p className="kicker">Næste skridt</p>
               </div>
+              <h2 className="mt-8 max-w-[20ch] text-[clamp(1.9rem,3.6vw,3.25rem)] font-bold leading-[1.02] tracking-display text-gray-900">
+                Femogfyrre minutter. Ingen forberedelse. Ingen regning.
+              </h2>
+              <p className="mt-6 max-w-[46ch] text-base leading-relaxed text-gray-600">
+                Vi kigger på hvor jeres tid faktisk går hen, og siger ærligt om
+                der er noget at hente. Finder vi ikke en konkret mulighed,
+                koster mødet ingenting.
+              </p>
+            </div>
+
+            <div className="flex flex-wrap items-center gap-x-8 gap-y-4">
+              <Link
+                href="/kontakt"
+                className="inline-flex items-center justify-center bg-primary px-7 py-4 text-sm font-semibold text-white transition-colors duration-200 hover:bg-primary-dark"
+              >
+                Book en gratis AI-afklaring
+              </Link>
+              <a
+                href="tel:+4525547074"
+                className="text-sm font-semibold text-gray-600 transition-colors hover:text-gray-900"
+              >
+                Eller ring til Alexander på +45 25 54 70 74
+              </a>
             </div>
           </div>
         </FadeIn>

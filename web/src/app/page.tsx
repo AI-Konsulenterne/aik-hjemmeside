@@ -1,11 +1,10 @@
-import Hero from "@/components/sections/Hero";
-import SocialProofBar from "@/components/sections/SocialProofBar";
+import HeroEnterprise from "@/components/sections/HeroEnterprise";
+import ProofFilm from "@/components/sections/ProofFilm";
 import Barriers from "@/components/sections/Barriers";
 import ProblemSolution from "@/components/sections/ProblemSolution";
 import ServicesOverview from "@/components/sections/ServicesOverview";
 import CaseHighlight from "@/components/sections/CaseHighlight";
 import Team from "@/components/sections/Team";
-import DeveloperExperience from "@/components/sections/DeveloperExperience";
 import Testimonials from "@/components/sections/Testimonials";
 import MidCTA from "@/components/sections/MidCTA";
 import FAQ from "@/components/sections/FAQ";
@@ -162,8 +161,10 @@ export default function Forside() {
       <JsonLd data={serviceJsonLd} />
       <JsonLd data={faqJsonLd} />
       <JsonLd data={breadcrumbJsonLd} />
-      <Hero />
-      <SocialProofBar />
+      <HeroEnterprise />
+      {/* Filmen erstatter både logo-marqueen og "vores udviklere har erfaring
+          fra"-striben. Proof uden logoer. */}
+      <ProofFilm />
       <Barriers />
       <ProblemSolution />
       <ServicesOverview />
@@ -171,7 +172,6 @@ export default function Forside() {
       <Testimonials />
       <MidCTA />
       <Team />
-      <DeveloperExperience />
       <FAQ />
     </>
   );

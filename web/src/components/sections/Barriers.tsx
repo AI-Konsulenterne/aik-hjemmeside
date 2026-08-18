@@ -23,56 +23,48 @@ const barriers = [
   },
 ];
 
+/**
+ * Indvendingerne, sat som et register i stedet for kort.
+ * Venstre spalte er hvad kunden siger, højre er hvad vi svarer — adskilt af
+ * hårfine streger. Ingen kasser, ingen skygger, ingen ikoner.
+ */
 export default function Barriers() {
   return (
-    <section className="bg-gray-50 py-[clamp(4rem,10vw,7rem)]">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <FadeIn>
-          <p className="text-[11px] uppercase tracking-[0.2em] text-primary font-semibold text-center mb-3">
-            Kender du den her følelse?
-          </p>
-          <h2 className="text-3xl lg:text-4xl font-bold tracking-heading text-gray-900 text-center leading-[1.1] max-w-3xl mx-auto">
-            Det er ikke AI der er svært. Det er at vide hvor man skal starte.
-          </h2>
-          <p className="text-gray-500 text-center max-w-2xl mx-auto mt-4 leading-relaxed">
-            De fleste virksomheder vi møder, sidder med de samme fem udfordringer - Kan du genkende nogen?
-          </p>
-        </FadeIn>
-
-        <div className="mt-14 lg:mt-20 grid grid-cols-1 md:grid-cols-2 gap-5 lg:gap-6 max-w-5xl mx-auto">
-          {barriers.map((b, i) => (
-            <FadeIn key={i} delay={i * 80}>
-              <div className="bg-white rounded-2xl p-6 lg:p-7 h-full border border-gray-100 hover:border-primary/40 hover:shadow-sm transition-all duration-300">
-                <p className="text-gray-900 font-semibold italic leading-snug mb-4 text-[0.98rem] lg:text-base">
-                  &ldquo;{b.quote}&rdquo;
-                </p>
-                <div className="flex gap-3 items-start pt-4 border-t border-gray-100">
-                  <span className="flex-shrink-0 w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center mt-0.5">
-                    <svg className="w-3.5 h-3.5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="3">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                    </svg>
-                  </span>
-                  <p className="text-sm lg:text-[0.95rem] text-gray-600 leading-relaxed">
-                    {b.answer}
-                  </p>
-                </div>
+    <section className="section-y border-b border-black/10">
+      <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
+        <div className="grid gap-10 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:gap-20">
+          <FadeIn>
+            <div className="lg:sticky lg:top-32">
+              <div className="flex items-center gap-3">
+                <span className="lamp" data-lit="true" aria-hidden="true" />
+                <p className="kicker">Kender I den?</p>
               </div>
-            </FadeIn>
-          ))}
-          {/* Fill last slot on md with a summary card */}
-          <FadeIn delay={barriers.length * 80}>
-            <div className="bg-gray-900 text-white rounded-2xl p-6 lg:p-7 h-full flex flex-col justify-center">
-              <p className="text-primary text-xs uppercase tracking-widest font-semibold mb-3">
-                Vores tilgang
-              </p>
-              <p className="text-lg lg:text-xl font-bold tracking-heading leading-tight mb-3">
-                I behøver ikke have svarene.
-              </p>
-              <p className="text-white/60 text-sm leading-relaxed">
-                Det er præcis derfor vi findes. Så lad os tage en god snak og se hvor I står.
+              <h2 className="mt-8 max-w-[15ch] text-[clamp(2rem,3.6vw,3.25rem)] font-bold leading-[1.02] tracking-display text-gray-900">
+                Det svære er ikke AI. Det er at vide hvor man starter.
+              </h2>
+              <p className="mt-6 max-w-[38ch] text-base leading-relaxed text-gray-600">
+                Vi hører de samme fem sætninger i næsten hvert eneste første
+                møde. I behøver ikke have svarene — det er derfor vi findes.
               </p>
             </div>
           </FadeIn>
+
+          {/* Ingen nummerering: de fem indvendinger er en mængde, ikke en
+              rækkefølge. Et 01–05 ville hævde en logik der ikke findes. */}
+          <div>
+            {barriers.map((b, i) => (
+              <FadeIn key={i} delay={i * 70}>
+                <div className="border-t border-black/10 py-9 first:border-t-0 first:pt-0 lg:py-11">
+                  <p className="text-lg font-semibold leading-snug tracking-heading text-gray-900 lg:text-2xl">
+                    &ldquo;{b.quote}&rdquo;
+                  </p>
+                  <p className="mt-4 max-w-[54ch] text-[0.95rem] leading-relaxed text-gray-500">
+                    {b.answer}
+                  </p>
+                </div>
+              </FadeIn>
+            ))}
+          </div>
         </div>
       </div>
     </section>
