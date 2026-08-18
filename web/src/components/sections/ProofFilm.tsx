@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import {
   FILM_INTRO,
@@ -11,7 +12,7 @@ import {
   filmPoster,
 } from "@/content/film";
 
-type Variant = "band" | "full";
+type Variant = "band" | "full" | "hero";
 
 /**
  * Referencefilmen.
@@ -43,6 +44,10 @@ export default function ProofFilm({ variant = "band" }: { variant?: Variant }) {
   const startRef = useRef<number | null>(null);
 
   const isFull = variant === "full";
+  const isHero = variant === "hero";
+  /* Hero og full er begge fuldskaerm; hero er forsidens oeverste blok og
+     baerer sidens h1 og primaere CTA. */
+  const isTall = isFull || isHero;
   /* Båndet på forsiden er en kort udgave — samme datasæt, færre skud. */
   const shots = useMemo(
     () => (isFull ? FILM_SHOTS : FILM_SHOTS_BAND),
@@ -145,7 +150,9 @@ export default function ProofFilm({ variant = "band" }: { variant?: Variant }) {
       ref={sectionRef}
       aria-labelledby="film-heading"
       className={`relative w-full overflow-hidden bg-ink ${
-        isFull ? "min-h-[100svh]" : "h-[min(78svh,44rem)] min-h-[26rem]"
+        isTall
+          ? "min-h-[100svh]"
+          : "h-[min(78svh,44rem)] min-h-[26rem]"
       }`}
     >
       {/* --- Billedlag --- */}
@@ -182,19 +189,27 @@ export default function ProofFilm({ variant = "band" }: { variant?: Variant }) {
             </div>
           );
         })}
-        <div className="film-vignette" />
+        <div className="film-vignette" data-tall={isTall} />
       </div>
 
       {/* --- Tekstlag --- */}
       <div className="relative flex h-full flex-col justify-end">
         <div
           className={`mx-auto w-full max-w-[1400px] px-6 lg:px-10 ${
-            isFull ? "pb-[clamp(4rem,10vh,7rem)] pt-[clamp(6rem,18vh,12rem)]" : "pb-[clamp(2.5rem,5vw,4rem)] pt-24"
+            isTall
+              ? "pb-[clamp(4rem,10vh,7rem)] pt-[clamp(6rem,18vh,12rem)]"
+              : "pb-[clamp(2.5rem,5vw,4rem)] pt-24"
           }`}
         >
-          <h2 id="film-heading" className="sr-only">
-            Virksomheder vi har bygget AI til
-          </h2>
+          {isHero ? (
+            <h1 id="film-heading" className="sr-only">
+              AI Konsulenterne bygger AI til danske virksomheder
+            </h1>
+          ) : (
+            <h2 id="film-heading" className="sr-only">
+              Virksomheder vi har bygget AI til
+            </h2>
+          )}
 
           <p className="text-[0.6875rem] font-semibold uppercase leading-none tracking-[0.18em] text-white/50">
             Referencer
@@ -208,12 +223,14 @@ export default function ProofFilm({ variant = "band" }: { variant?: Variant }) {
               højden stabil og gør teksten indekserbar. */}
           <p
             className={`mt-6 font-bold tracking-display text-white ${
-              isFull
+              isTall
                 ? "text-[clamp(2rem,5.5vw,4.5rem)] leading-[1.05]"
                 : "text-[clamp(1.75rem,4.4vw,3.75rem)] leading-[1.08]"
             }`}
           >
-            <span className="text-white/55">{FILM_INTRO[shot.act]}</span>{" "}
+            <span className={isTall ? "text-white/70" : "text-white/55"}>
+              {FILM_INTRO[shot.act]}
+            </span>{" "}
             <span className="relative inline-grid max-w-full align-top">
               {shots.map((s, i) => (
                 <span
@@ -234,6 +251,36 @@ export default function ProofFilm({ variant = "band" }: { variant?: Variant }) {
               løste vi med den samme model, men alle startede med det samme
               spørgsmål: hvor går tiden egentlig hen?
             </p>
+          )}
+
+          {isHero && (
+            <div className="mt-8 flex flex-col gap-8 lg:mt-10 lg:flex-row lg:items-end lg:justify-between lg:gap-16">
+              <p className="max-w-[46ch] text-base leading-relaxed text-white/60 lg:text-lg">
+                Nogle af dem har tolv ansatte. Andre har tolv tusind. Det svære
+                ved AI er det samme begge steder: ikke modellen, men at få den
+                ind i en hverdag, hvor folk allerede har travlt.
+              </p>
+              <div className="flex flex-wrap items-center gap-x-8 gap-y-4">
+                <Link
+                  href="/kontakt"
+                  className="inline-flex items-center justify-center bg-primary px-7 py-4 text-sm font-semibold text-white transition-colors duration-200 hover:bg-primary-dark"
+                >
+                  Book en gratis AI-afklaring
+                </Link>
+                <Link
+                  href="/referencer"
+                  className="group inline-flex items-center gap-2 text-sm font-semibold text-white/80 transition-colors hover:text-white"
+                >
+                  Se hvad vi har bygget
+                  <span
+                    aria-hidden="true"
+                    className="transition-transform duration-200 ease-precise group-hover:translate-x-1"
+                  >
+                    →
+                  </span>
+                </Link>
+              </div>
+            </div>
           )}
 
           {/* --- Fremdrift --- */}

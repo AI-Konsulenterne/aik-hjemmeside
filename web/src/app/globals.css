@@ -251,19 +251,25 @@ body {
   opacity: 1;
 }
 
-/* Teksten bruger samme kurve som klippet — derfor føles skiftet som ét snit. */
+/* Teksten krydser IKKE. Den udgående linje er væk, før den næste kommer ind.
+   Klippene må gerne overblænde — to billeder oven i hinanden læses som dybde.
+   To linjer tekst oven i hinanden læses som rod, og ved hero-størrelse med
+   lange sætninger bliver det direkte ulæseligt. Derfor: ud på 200 ms, ind
+   efter 240 ms. Billedets overblænding kører uforstyrret videre bagved. */
 .film-line {
   display: inline-block;
   opacity: 0;
-  transform: translateY(0.5em);
+  transform: translateY(0.4em);
   transition:
-    opacity calc(var(--film-fade) * 0.7) var(--film-ease),
-    transform calc(var(--film-fade) * 0.7) var(--film-ease);
+    opacity 200ms var(--film-ease),
+    transform 200ms var(--film-ease);
 }
 
 .film-line[data-active="true"] {
   opacity: 1;
   transform: translateY(0);
+  transition-delay: 240ms;
+  transition-duration: 380ms;
 }
 
 /* Fremdriftsstreger — fortæller at det er en sekvens, ikke en løkke. */
@@ -285,7 +291,11 @@ body {
   transition: transform 200ms linear;
 }
 
-/* Filmisk dybde: en meget svag vignette, så hvid tekst altid har hold. */
+/* Filmisk dybde: en vignette, så hvid tekst altid har hold.
+   Båndet er ~700 px højt og teksten sidder tæt på bunden, så en kort
+   gradient rækker. Hero og fuldskærm er 100svh, og dér lander teksten
+   længere oppe i billedet, hvor den korte gradient er løbet ud — derfor
+   en egen, dybere kurve til de høje varianter. */
 .film-vignette {
   position: absolute;
   inset: 0;
@@ -293,6 +303,19 @@ body {
   background:
     linear-gradient(to top, rgba(10, 10, 10, 0.85) 0%, rgba(10, 10, 10, 0) 55%),
     radial-gradient(120% 90% at 50% 45%, rgba(10, 10, 10, 0) 40%, rgba(10, 10, 10, 0.6) 100%);
+}
+
+.film-vignette[data-tall="true"] {
+  background:
+    linear-gradient(
+      to top,
+      rgba(10, 10, 10, 0.93) 0%,
+      rgba(10, 10, 10, 0.72) 26%,
+      rgba(10, 10, 10, 0.34) 52%,
+      rgba(10, 10, 10, 0.08) 76%,
+      rgba(10, 10, 10, 0) 92%
+    ),
+    radial-gradient(130% 100% at 50% 38%, rgba(10, 10, 10, 0) 30%, rgba(10, 10, 10, 0.62) 100%);
 }
 
 @media (prefers-reduced-motion: reduce) {

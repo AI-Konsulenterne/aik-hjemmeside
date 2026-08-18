@@ -1,4 +1,3 @@
-import HeroEnterprise from "@/components/sections/HeroEnterprise";
 import ProofFilm from "@/components/sections/ProofFilm";
 import Barriers from "@/components/sections/Barriers";
 import ProblemSolution from "@/components/sections/ProblemSolution";
@@ -161,10 +160,13 @@ export default function Forside() {
       <JsonLd data={serviceJsonLd} />
       <JsonLd data={faqJsonLd} />
       <JsonLd data={breadcrumbJsonLd} />
-      <HeroEnterprise />
-      {/* Filmen erstatter både logo-marqueen og "vores udviklere har erfaring
-          fra"-striben. Proof uden logoer. */}
-      <ProofFilm />
+      {/* Filmen ER heroen. Der var to før: en typografisk header og filmen
+          lige under, begge i fuld bredde og begge i hero-skala. De slog
+          hinanden ihjel, og headerens overskrift ("Danmarks største
+          virksomheder. Og et par af verdens største") gentog netop den
+          påstand vi tog ud af filmen, fordi den pegede på Apple og TDC.
+          Filmens egen sætning siger positioneringen bedre og sandere. */}
+      <ProofFilm variant="hero" />
       <Barriers />
       <ProblemSolution />
       <ServicesOverview />
