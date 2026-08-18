@@ -5,6 +5,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import {
   FILM_INTRO,
   FILM_SHOTS,
+  FILM_SHOTS_BAND,
   FILM_SHOT_MS,
   filmClip,
   filmPoster,
@@ -20,8 +21,15 @@ type Variant = "band" | "full";
  * om. Klip og tekst deler den samme CSS-overgang (--film-fade), så skiftet
  * læses som ét snit i stedet for to ting der sker næsten samtidig.
  *
+ * Hele sætningen skifter under ét — også dens første halvdel. Filmen kører i
+ * to akter, og forskellen mellem "Vi har hjulpet dem, der …" og "Og nu lærer
+ * vi det fra os —" er ikke kosmetisk: den ene er en påstand om en kunde, den
+ * anden om os selv. Derfor ligger indledningen i datasættet og ikke i koden.
+ *
  * Ydelse: kun tre shots findes i DOM'en ad gangen (forrige, nuværende, næste),
- * og kun nuværende + næste får et <video>-element. Resten er posterframes.
+ * og kun nuværende + næste får et <video>-element — og kun hvis der findes et
+ * klip. Shots uden klip står på deres posterframe, hvilket er et valg og ikke
+ * en mangel.
  */
 export default function ProofFilm({ variant = "band" }: { variant?: Variant }) {
   const [index, setIndex] = useState(0);
@@ -34,8 +42,13 @@ export default function ProofFilm({ variant = "band" }: { variant?: Variant }) {
   const rafRef = useRef<number | null>(null);
   const startRef = useRef<number | null>(null);
 
-  const count = FILM_SHOTS.length;
   const isFull = variant === "full";
+  /* Båndet på forsiden er en kort udgave — samme datasæt, færre skud. */
+  const shots = useMemo(
+    () => (isFull ? FILM_SHOTS : FILM_SHOTS_BAND),
+    [isFull]
+  );
+  const count = shots.length;
 
   /* Respektér brugerens bevægelsesindstilling — og reagér hvis den ændres. */
   useEffect(() => {
@@ -71,11 +84,14 @@ export default function ProofFilm({ variant = "band" }: { variant?: Variant }) {
     return () => document.removeEventListener("visibilitychange", onVisibility);
   }, []);
 
-  const goTo = useCallback((next: number) => {
-    startRef.current = null;
-    setProgress(0);
-    setIndex(((next % FILM_SHOTS.length) + FILM_SHOTS.length) % FILM_SHOTS.length);
-  }, []);
+  const goTo = useCallback(
+    (next: number) => {
+      startRef.current = null;
+      setProgress(0);
+      setIndex(((next % count) + count) % count);
+    },
+    [count]
+  );
 
   /* Ét ur driver både fremdriftsstregen og skiftet, så de aldrig glider fra hinanden. */
   useEffect(() => {
@@ -87,7 +103,7 @@ export default function ProofFilm({ variant = "band" }: { variant?: Variant }) {
       if (elapsed >= FILM_SHOT_MS) {
         startRef.current = now;
         setProgress(0);
-        setIndex((i) => (i + 1) % FILM_SHOTS.length);
+        setIndex((i) => (i + 1) % count);
       } else {
         setProgress(elapsed / FILM_SHOT_MS);
       }
@@ -99,7 +115,7 @@ export default function ProofFilm({ variant = "band" }: { variant?: Variant }) {
       if (rafRef.current !== null) cancelAnimationFrame(rafRef.current);
       startRef.current = null;
     };
-  }, [active, reduced]);
+  }, [active, reduced, count]);
 
   /* Spol det aktive klip tilbage og afspil det; sæt alle andre på pause. */
   useEffect(() => {
@@ -122,7 +138,7 @@ export default function ProofFilm({ variant = "band" }: { variant?: Variant }) {
     return { prev, next, set: new Set([prev, index, next]) };
   }, [index, count]);
 
-  const shot = FILM_SHOTS[index];
+  const shot = shots[index];
 
   return (
     <section
@@ -134,10 +150,12 @@ export default function ProofFilm({ variant = "band" }: { variant?: Variant }) {
     >
       {/* --- Billedlag --- */}
       <div className="absolute inset-0" aria-hidden="true">
-        {FILM_SHOTS.map((s, i) => {
+        {shots.map((s, i) => {
           if (!near.set.has(i)) return null;
           const isActive = i === index;
-          const wantsVideo = i === index || i === near.next;
+          /* Nuværende + næste klip. Næste hentes helt, ellers er der
+             et hul i snittet når det skal ind. */
+          const wantsVideo = s.hasClip && (i === index || i === near.next);
           return (
             <div key={s.id} className="film-shot" data-active={isActive}>
               <Image
@@ -148,8 +166,6 @@ export default function ProofFilm({ variant = "band" }: { variant?: Variant }) {
                 priority={i === 0}
                 className="object-cover"
               />
-              {/* Nuværende + næste klip. Næste hentes helt, ellers er der
-                  et hul i snittet når det skal ind. */}
               {wantsVideo && (
                 <video
                   ref={(el) => {
@@ -184,6 +200,9 @@ export default function ProofFilm({ variant = "band" }: { variant?: Variant }) {
             Referencer
           </p>
 
+          {/* Hele sætningen ligger i DOM'en for hvert shot — kun den aktive er
+              synlig. Det holder højden stabil, gør teksten indekserbar, og
+              lader indledningen skifte i takt med resten når akten skifter. */}
           <p
             className={`mt-6 font-bold tracking-display text-white ${
               isFull
@@ -191,18 +210,16 @@ export default function ProofFilm({ variant = "band" }: { variant?: Variant }) {
                 : "text-[clamp(1.75rem,4.4vw,3.75rem)] leading-[1.08]"
             }`}
           >
-            <span className="text-white/55">{FILM_INTRO}</span>{" "}
-            {/* Alle linjer ligger i DOM'en — kun den aktive er synlig.
-                Det holder højden stabil og gør teksten indekserbar. */}
-            <span className="relative inline-grid max-w-full align-top">
-              {FILM_SHOTS.map((s, i) => (
+            <span className="relative grid">
+              {shots.map((s, i) => (
                 <span
                   key={s.id}
-                  className="film-line col-start-1 row-start-1 text-primary"
+                  className="film-line col-start-1 row-start-1"
                   data-active={i === index}
                   aria-hidden={i !== index}
                 >
-                  {s.line}
+                  <span className="text-white/55">{FILM_INTRO[s.act]}</span>{" "}
+                  <span className="text-primary">{s.line}</span>
                 </span>
               ))}
             </span>
@@ -219,12 +236,12 @@ export default function ProofFilm({ variant = "band" }: { variant?: Variant }) {
           {/* --- Fremdrift --- */}
           <div className="mt-10 flex items-center gap-6 lg:mt-14">
             <div className="flex flex-1 items-center gap-2">
-              {FILM_SHOTS.map((s, i) => (
+              {shots.map((s, i) => (
                 <button
                   key={s.id}
                   type="button"
                   onClick={() => goTo(i)}
-                  aria-label={`Vis ${s.label}: ${FILM_INTRO} ${s.line}`}
+                  aria-label={`Vis ${s.label}: ${FILM_INTRO[s.act]} ${s.line}`}
                   aria-current={i === index}
                   className="film-tick cursor-pointer"
                   style={
@@ -246,9 +263,9 @@ export default function ProofFilm({ variant = "band" }: { variant?: Variant }) {
 
       {/* Hele sætningsrækken, læsbar for skærmlæsere og søgemaskiner. */}
       <ul className="sr-only">
-        {FILM_SHOTS.map((s) => (
+        {shots.map((s) => (
           <li key={s.id}>
-            {FILM_INTRO} {s.line}. Branche: {s.label}. {s.alt}
+            {FILM_INTRO[s.act]} {s.line}. Branche: {s.label}. {s.alt}
           </li>
         ))}
       </ul>

@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import ProofFilm from "@/components/sections/ProofFilm";
 import FadeIn from "@/components/ui/FadeIn";
-import { FILM_INTRO, FILM_SHOTS } from "@/content/film";
+import { FILM_INTRO, FILM_SHOTS, FILM_SHOTS_KUNDER } from "@/content/film";
 
 export const metadata: Metadata = {
   title: "Referencer",
   description:
-    "Vi har bygget AI til virksomheder på tværs af brancher — fra kaffebrænding og bilimport til teleinfrastruktur og præcisionselektronik. Se hvad vi har bygget.",
+    "Vi har bygget AI til virksomheder på tværs af brancher — fra kaffebrænding og kirkevedligehold til vindmøller og lingeri. Se hvad vi har bygget.",
   alternates: { canonical: "/referencer" },
   openGraph: {
     type: "website",
@@ -79,12 +79,12 @@ export default function Referencer() {
           <div className="flex items-baseline justify-between border-b border-black/10 pb-6">
             <p className="kicker">Register</p>
             <p className="kicker tabular-nums">
-              {String(FILM_SHOTS.length).padStart(2, "0")} brancher
+              {String(FILM_SHOTS_KUNDER.length).padStart(2, "0")} brancher
             </p>
           </div>
 
           <ul>
-            {FILM_SHOTS.map((shot, i) => (
+            {FILM_SHOTS_KUNDER.map((shot, i) => (
               <li key={shot.id}>
                 <FadeIn delay={i * 60}>
                   <div className="grid grid-cols-[3rem_1fr] items-baseline gap-x-6 gap-y-2 border-b border-black/10 py-8 md:grid-cols-[4rem_14rem_1fr] lg:py-10">
@@ -97,7 +97,7 @@ export default function Referencer() {
                       {shot.label}
                     </span>
                     <span className="col-start-2 text-lg font-semibold leading-snug tracking-heading text-gray-900 md:col-start-3 lg:text-2xl">
-                      <span className="text-gray-400">{FILM_INTRO}</span>{" "}
+                      <span className="text-gray-400">{FILM_INTRO[shot.act]}</span>{" "}
                       {shot.line}
                     </span>
                   </div>

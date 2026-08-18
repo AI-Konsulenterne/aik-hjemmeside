@@ -1,20 +1,34 @@
 /**
- * Referencefilmen — "Vi har hjulpet dem, der …"
+ * Referencefilmen — to påstande, ét datasæt.
  *
- * Ét datasæt, to visninger: båndet på forsiden (ProofFilm) og fuldskærms-
- * versionen på /referencer. Rækkefølgen er bevidst: kaffe først, fordi den er
- * den mest hverdagsagtige og afvæbnende, telefon sidst, fordi den er den
- * største. Ingen logoer, ingen firmanavne — pointen er at man selv gætter.
+ * Filmen kører i to akter, fordi de to påstande ikke er den samme:
  *
- * ⚠️ Til Alexander: `sector` er den interne note om hvem shottet peger på.
- * Den vises ikke på sitet. Bekræft at hver linje er dækket af et reelt
- * kunde- eller medarbejderforhold, før det her går i luften.
+ *   kunder   "Vi har hjulpet dem, der …"      — virksomheder AIK har bygget til
+ *   laering  "Og nu lærer vi det fra os —"    — det AIK selv leverer
+ *
+ * ⚠️ Det er hele pointen med `act`. Læg aldrig en virksomhed ind under
+ * "kunder", som AIK ikke selv har haft som kunde. Steder hvor vores folk
+ * tidligere har leveret gennem et andet selskab (Apple, TDC Net, Semler,
+ * Arla, OK, Damstahl, Sonohaler, IDA) hører hjemme i logostriben under
+ * "erfaring fra" — ikke her.
+ *
+ * `sector` er en intern note om hvem shottet peger på. Den vises ikke.
  */
+
+export type FilmAct = "kunder" | "laering";
+
+/** Første halvdel af sætningen. Skifter når akten skifter. */
+export const FILM_INTRO: Record<FilmAct, string> = {
+  kunder: "Vi har hjulpet dem, der",
+  laering: "Og nu lærer vi det fra os —",
+};
 
 export type FilmShot = {
   /** Bruges som React-key og i filnavne. */
   id: string;
-  /** Anden halvdel af sætningen "Vi har hjulpet dem, der …" */
+  /** Hvilken påstand shottet står under. */
+  act: FilmAct;
+  /** Anden halvdel af sætningen. */
   line: string;
   /** Intern note — hvem shottet refererer til. Vises ikke. */
   sector: string;
@@ -23,92 +37,182 @@ export type FilmShot = {
   /** Alt-tekst til posterframe. */
   alt: string;
   /**
-   * Om shottet er i luften.
-   *
-   * Testrunden kører fire shots, valgt så de presser graden mest muligt:
-   * varmt interiør, koldt eksteriør i vidvinkel, blå time i silhuet, og
-   * koldt interiør i makro. Holder ét look på tværs af de fire, holder det
-   * på tværs af alle otte.
-   *
-   * Sæt til true når klippet er godkendt og ligger i public/film/.
+   * Om shottet er i luften. Posterframen skal ligge i public/film/<id>.webp.
    */
   enabled: boolean;
+  /**
+   * Om shottet også kører i båndet på forsiden. Båndet er kort med vilje —
+   * seks skud, valgt så spændvidden er størst muligt, og det sidste er vores
+   * eget tilbud. /referencer kører hele rækken.
+   */
+  inBand: boolean;
+  /**
+   * Om der findes en public/film/<id>.mp4. Er den false, står posterframen
+   * stille — og det er et fuldgyldigt valg, ikke en mangel. Uden flaget ville
+   * komponenten bede om en video der ikke findes.
+   */
+  hasClip: boolean;
 };
-
-export const FILM_INTRO = "Vi har hjulpet dem, der";
 
 const ALL_SHOTS: FilmShot[] = [
   {
     id: "kaffe",
+    act: "kunder",
     line: "brygger din kaffe",
-    sector: "Kaffe-import og -brænding",
+    sector: "Lavazza — HR-agent trænet på deres egne HR-dokumenter",
     label: "Fødevarer",
     alt: "Nybrændte kaffebønner falder fra en industriristers tromle ned i et køletruget.",
     enabled: true,
-  },
-  {
-    id: "bil",
-    line: "importerer din bil",
-    sector: "Bilimport og -distribution",
-    label: "Mobilitet",
-    alt: "Rækker af fabriksnye biler på en kaj ved daggry med rampen til et roro-skib i baggrunden.",
-    enabled: true,
-  },
-  {
-    id: "mobilnet",
-    line: "bygger mobilnettet, du ringer på",
-    sector: "Teleinfrastruktur",
-    label: "Infrastruktur",
-    alt: "En rigger arbejder på en antenne højt oppe i en telemast over et tågehav i blå time.",
-    enabled: true,
-  },
-  {
-    id: "mejeri",
-    line: "tapper mælken i dit køleskab",
-    sector: "Mejeri og fødevareproduktion",
-    label: "Produktion",
-    alt: "Polerede rustfrie tanke på række i et moderne mejeri med kondens på metallet.",
-    enabled: false,
-  },
-  {
-    id: "staal",
-    line: "leverer stålet til dit køkken",
-    sector: "Stål og metaldistribution",
-    label: "Industri",
-    alt: "Stak af børstede rustfrie stålplader i en lagerhal med en travers-kran i baggrunden.",
-    enabled: false,
+    inBand: true,
+    hasClip: true,
   },
   {
     id: "kirke",
-    line: "restaurerer vores kirker",
-    sector: "Restaurering og håndværk",
+    act: "kunder",
+    line: "holder kirken i byen ved lige",
+    sector: "VMB — vedligehold af kirker",
     label: "Byggeri",
-    alt: "Stenhuggerhænder med mejsel mod en forvitret sandstensdetalje i en kalket landsbykirke under restaurering.",
-    enabled: false,
+    alt: "Dagslys falder ned gennem et højt vindue på stengulvet i en kalket landsbykirke under restaurering.",
+    enabled: true,
+    inBand: true,
+    hasClip: true,
+  },
+  {
+    id: "armbaand",
+    act: "kunder",
+    line: "lavede armbåndet, du havde på til festival",
+    sector: "J.M Band — kundeservice-AI på deres egen vidensbase",
+    label: "Events",
+    alt: "Et vævet stofarmbånd om et håndled i skumringen med festivalens lyskæder ude af fokus bagved.",
+    enabled: true,
+    inBand: true,
+    hasClip: true,
+  },
+  {
+    id: "undertoej",
+    act: "kunder",
+    line: "finder den bh, der endelig passer",
+    sector: "Wunderwear — ordrebehandling automatiseret på tværs af Shopify og CRM",
+    label: "Detail",
+    alt: "En lingeributik efter lukketid med bøjlestang, prøverumsforhæng og et målebånd på disken.",
+    enabled: true,
+    inBand: true,
+    hasClip: true,
+  },
+  {
+    id: "vindmoelle",
+    act: "kunder",
+    line: "bygger møllen, din strøm kommer fra",
+    sector: "Siemens — R&D og produktudvikling",
+    label: "Energi",
+    alt: "Nacellen og vingeroden på en vindmølle set tæt nedefra mod en overskyet himmel.",
+    enabled: true,
+    inBand: true,
+    hasClip: true,
   },
   {
     id: "kontor",
+    act: "kunder",
     line: "har tegnet kontoret, du sidder i",
-    sector: "Arkitektur og rådgivning",
+    sector: "C.F. Møller — arkitekttegnestue",
     label: "Rådgivning",
-    alt: "Hvid arkitekturmodel af en kontorbygning på et bord i en tegnestue i skumringen.",
-    enabled: false,
+    alt: "En hvid arkitekturmodel på et egetræsbord i en tegnestue med morgenlys hen over betongulvet.",
+    enabled: true,
+    inBand: false,
+    hasClip: false,
   },
   {
-    id: "telefon",
-    line: "samler telefonen i din lomme",
-    sector: "Præcisionselektronik",
-    label: "Elektronik",
-    alt: "En handskeklædt hånd sænker et fræset aluminiumschassis ned i en fixtur på en CNC-maskine.",
+    id: "chokolade",
+    act: "kunder",
+    line: "er grunden til at chokoladen knækker rigtigt",
+    sector: "AAK — vegetabilske olier og fedtstoffer",
+    label: "Ingredienser",
+    alt: "En mørk chokoladeplade knækket i to på en kølig skiferflade med kakaokrummer omkring.",
     enabled: true,
+    inBand: false,
+    hasClip: false,
+  },
+  {
+    id: "koekken",
+    act: "kunder",
+    line: "har bygget køkkenet, du står i hver morgen",
+    sector: "Vordingborg Køkkenet",
+    label: "Bolig",
+    alt: "En hånd hælder kogende vand i en kop på en lys stenbordplade i et køkken om morgenen.",
+    enabled: true,
+    inBand: false,
+    hasClip: false,
+  },
+  {
+    id: "lift",
+    act: "kunder",
+    line: "lejer maskinen ud på byggepladsen",
+    sector: "Loxam — maskin- og materieludlejning",
+    label: "Udlejning",
+    alt: "En lift hævet højt op ad en betonfacade i skumringen med en arbejdslampe tændt i kurven.",
+    enabled: true,
+    inBand: false,
+    hasClip: false,
+  },
+  {
+    id: "panser",
+    act: "kunder",
+    line: "laver pladen, der beskytter dem, der rykker ud",
+    sector: "Integris Composites — kompositpanser",
+    label: "Materialer",
+    alt: "Den lagdelte kant af en kompositpanserplade på en børstet stålbænk.",
+    enabled: true,
+    inBand: false,
+    hasClip: false,
+  },
+
+  /* --- Akt 2: læring. Vores eget, ikke en kundes. --- */
+  {
+    id: "workshop",
+    act: "laering",
+    line: "ude hos jer",
+    sector: "Workshops hos kunder",
+    label: "Workshop",
+    alt: "Hænder omkring et langbord med notesbøger, laptops og kopper under en lav pendel.",
+    enabled: true,
+    inBand: true,
+    hasClip: true,
+  },
+  {
+    id: "live",
+    act: "laering",
+    line: "live på skærmen",
+    sector: "Online læring, live",
+    label: "Live",
+    alt: "En person set bagfra ved et skrivebord om aftenen med en lysende laptop og en tændt bordlampe.",
+    enabled: true,
+    inBand: false,
+    hasClip: false,
+  },
+  {
+    id: "ondemand",
+    act: "laering",
+    line: "eller når det passer jer",
+    sector: "On demand på vores egen læringsplatform",
+    label: "On demand",
+    alt: "Et tomt skrivebord i morgenlys med en tændt laptop og en tom stol trukket lidt tilbage.",
+    enabled: true,
+    inBand: false,
+    hasClip: false,
   },
 ];
 
-/**
- * Kun de shots der faktisk er i luften. Resten bliver i ALL_SHOTS med
- * enabled: false — teksten er skrevet, klippet mangler.
- */
+/** Alt der er i luften, i rækkefølge. Brugt af /referencer. */
 export const FILM_SHOTS: FilmShot[] = ALL_SHOTS.filter((s) => s.enabled);
+
+/** Kun kunderne. Registret på /referencer er en kundeliste — vores egne
+ *  læringsklip hører ikke til der. */
+export const FILM_SHOTS_KUNDER: FilmShot[] = FILM_SHOTS.filter(
+  (s) => s.act === "kunder"
+);
+
+/** Den korte version til forsiden. */
+export const FILM_SHOTS_BAND: FilmShot[] = FILM_SHOTS.filter((s) => s.inBand);
 
 /** Alt der endnu ikke er optaget. Bruges ikke i UI — kun til overblik. */
 export const FILM_SHOTS_PENDING: FilmShot[] = ALL_SHOTS.filter(
