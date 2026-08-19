@@ -7,6 +7,7 @@ import Testimonials from "@/components/sections/Testimonials";
 import MidCTA from "@/components/sections/MidCTA";
 import FAQ from "@/components/sections/FAQ";
 import JsonLd from "@/components/ui/JsonLd";
+import { FAQS } from "@/content/faq";
 
 const organizationJsonLd = {
   "@context": "https://schema.org",
@@ -84,59 +85,17 @@ const serviceJsonLd = {
   },
 };
 
+/* Spoergsmaalene stod baade her og i FAQ-komponenten, med forskellig
+   ordlyd og forskelligt antal. Nu laeser begge fra src/content/faq.ts, saa
+   struktureret data altid beskriver det der faktisk staar paa siden. */
 const faqJsonLd = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
-  mainEntity: [
-    {
-      "@type": "Question",
-      name: "Vi har ikke en IT-afdeling - kan vi stadig få AI?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Ja - og I er faktisk i godt selskab. Det er størstedelen af vores kunder. I behøver hverken IT-folk eller intern AI-viden for at komme i gang, det er det vi er her til. Vi sætter det op, viser jer hvordan det bruges, og er der hvis noget driller.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Hvilke platforme bruger I?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Vi er ikke gift med én leverandør. Vi bruger det der passer bedst til opgaven - Azure OpenAI, Claude, Gemini, åbne modeller, eller en kombination. Vi sælger ikke licenser, vi løser opgaver.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Hvordan sikrer I at medarbejderne faktisk bruger løsningen?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Det er nok det sværeste i hele AI-historien - og det er der de fleste projekter falder fra hinanden. Vi bygger løsningen ind i de værktøjer folk bruger i forvejen. Efter lancering kigger vi sammen på hvem der bruger det, og hvor der skal justeres.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Er det GDPR-sikkert?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Ja. Vi bygger altid setups der overholder GDPR - jeres data ender ikke i åbne modeller, og bliver ikke brugt til at træne noget. Hvor strengt setuppet skal være kommer an på jer - nogle kører fint med en cloud-løsning og en databehandleraftale, andre vil have alt liggende internt.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Hvad koster det?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Det kommer an på hvad vi bygger. Workshops starter typisk omkring 25.000 kr. Mindre AI-løsninger ligger fra 50.000 kr og opefter. Efter første snak giver vi jer en fast pris, så I ved præcis hvad I siger ja til.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Kan vi ikke bare bruge ChatGPT?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Selvfølgelig kan I det - vi bruger den også selv. ChatGPT er fin til de hurtige opgaver. Men når I rammer et reelt behov der kræver jeres egne data, jeres systemer eller en proces der skal køre af sig selv, så er en standardchat ikke nok. Der bygger vi noget der løser den specifikke ting.",
-      },
-    },
-  ],
+  mainEntity: FAQS.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
 };
 
 const breadcrumbJsonLd = {

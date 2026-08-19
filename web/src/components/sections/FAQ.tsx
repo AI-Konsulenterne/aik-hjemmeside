@@ -2,87 +2,97 @@
 
 import { useState } from "react";
 import FadeIn from "@/components/ui/FadeIn";
+import { FAQS } from "@/content/faq";
 
-const faqs = [
-  {
-    q: "Hvilke platforme bruger I?",
-    a: "Vi er ikke gift med én leverandør. Vi bruger det der passer bedst til opgaven - Azure OpenAI, Claude, Gemini, åbne modeller, eller en kombination. Vi sælger ikke licenser, vi løser opgaver. Så vi vælger det værktøj der gør jobbet bedst.",
-  },
-  {
-    q: "Hvad med GDPR?",
-    a: "Ja. Når vi bygger AI, er det vigtigt for os, at det overholder GDPR, og at jeres data ikke ender hos hele verden. Det betyder konkret, at jeres data ikke ender i åbne modeller og ikke bliver brugt til at træne på.",
-  },
-  {
-    q: "Hvad koster det?",
-    a: "Det kommer an på hvad vi bygger - og det ville være useriøst at give et tal her uden at have set jeres setup. Workshops starter typisk omkring 25.000 kr. Mindre AI-løsninger ligger fra 50.000 kr og opefter. Efter første snak ved vi nok til at give jer en fast pris, så I ved præcis hvad I siger ja til.",
-  },
-  {
-    q: "Kan vi ikke bare bruge ChatGPT?",
-    a: "Selvfølgelig kan I det - vi bruger den også selv. ChatGPT er fin til de hurtige opgaver: en mail, et resumé, et oplæg. Men når I rammer et reelt behov i forretningen - noget der kræver jeres egne data, jeres systemer eller en proces der skal køre af sig selv - så er en standardchat ikke nok. Der bygger vi noget der løser den specifikke udfordring, ikke en generisk chat oveni.",
-  },
-];
-
+/**
+ * Spørgsmål vi ofte får.
+ *
+ * Var seks afrundede kort med en grå cirkel og et plus i. Nu: hårfine
+ * streger og et typografisk plus. Ingen kasser, ingen skygger.
+ *
+ * Overskriften står i venstre spalte og bliver stående mens svarene folder
+ * sig ud — så er der noget at læse på begge sider af siden, og de lange
+ * svar behøver ikke være centrerede for at fylde bredden ud.
+ *
+ * Indholdet kommer fra src/content/faq.ts, som forsidens JSON-LD også
+ * læser fra.
+ */
 export default function FAQ() {
   const [open, setOpen] = useState<number | null>(0);
 
   return (
-    <section className="bg-gray-50 py-[clamp(4rem,10vw,7rem)]">
-      <div className="max-w-4xl mx-auto px-6 lg:px-8">
-        <FadeIn>
-          <p className="text-[11px] uppercase tracking-[0.2em] text-primary font-semibold text-center mb-3">
-            Spørgsmål vi ofte får
-          </p>
-          <h2 className="text-3xl lg:text-4xl font-bold tracking-heading text-gray-900 text-center leading-[1.1]">
-            Hvad er vores kunder nysgerrige på?
-          </h2>
-        </FadeIn>
+    <section className="section-y bg-gray-50">
+      <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
+        <div className="grid gap-12 lg:grid-cols-[minmax(0,0.75fr)_minmax(0,1.25fr)] lg:gap-20">
+          <FadeIn>
+            <div className="lg:sticky lg:top-32">
+              <div className="flex items-center gap-3">
+                <span className="lamp" data-lit="true" aria-hidden="true" />
+                <p className="kicker">Spørgsmål vi ofte får</p>
+              </div>
 
-        <div className="mt-12 lg:mt-14 flex flex-col gap-3">
-          {faqs.map((faq, i) => {
-            const isOpen = open === i;
-            return (
-              <FadeIn key={i} delay={i * 60}>
-                <div className="bg-white rounded-xl border border-gray-100 overflow-hidden">
-                  <button
-                    onClick={() => setOpen(isOpen ? null : i)}
-                    className="w-full flex items-center justify-between gap-4 px-6 py-5 text-left hover:bg-gray-50/50 transition-colors"
-                    aria-expanded={isOpen}
-                  >
-                    <span className="text-base lg:text-lg font-bold tracking-heading text-gray-900 leading-tight">
-                      {faq.q}
-                    </span>
-                    <span
-                      className={`flex-shrink-0 w-7 h-7 rounded-full bg-gray-100 flex items-center justify-center transition-transform duration-300 ${isOpen ? "rotate-45" : ""}`}
-                      aria-hidden="true"
+              <h2 className="mt-8 max-w-[14ch] text-[clamp(2rem,3.4vw,3rem)] font-bold leading-[1.02] tracking-display text-gray-900">
+                Det I plejer at spørge om
+              </h2>
+
+              <p className="mt-6 max-w-[34ch] text-base leading-relaxed text-gray-500">
+                Er der noget der ikke står her, så tager Alexander telefonen.
+              </p>
+
+              <a
+                href="tel:+4525547074"
+                className="mt-6 inline-block text-base font-semibold text-gray-900 transition-colors hover:text-primary"
+              >
+                +45 25 54 70 74
+              </a>
+            </div>
+          </FadeIn>
+
+          <div className="border-t border-gray-200">
+            {FAQS.map((faq, i) => {
+              const isOpen = open === i;
+              return (
+                <FadeIn key={faq.q} delay={i * 50}>
+                  <div className="border-b border-gray-200">
+                    <button
+                      type="button"
+                      onClick={() => setOpen(isOpen ? null : i)}
+                      aria-expanded={isOpen}
+                      className="group flex w-full cursor-pointer items-start justify-between gap-8 py-6 text-left"
                     >
-                      <svg className="w-3.5 h-3.5 text-gray-900" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="3">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M12 5v14M5 12h14" />
-                      </svg>
-                    </span>
-                  </button>
-                  <div
-                    className={`grid transition-all duration-300 ease-out ${isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"}`}
-                  >
-                    <div className="overflow-hidden">
-                      <p className="px-6 pb-6 text-gray-600 leading-relaxed">
-                        {faq.a}
-                      </p>
+                      <span className="text-base font-semibold leading-snug tracking-heading text-gray-900 transition-colors group-hover:text-primary lg:text-lg">
+                        {faq.q}
+                      </span>
+                      {/* Plusset er sat, ikke tegnet. Det drejer til et kryds. */}
+                      <span
+                        aria-hidden="true"
+                        className={`mt-0.5 shrink-0 text-xl leading-none text-gray-400 transition-transform duration-300 ease-precise ${
+                          isOpen ? "rotate-45 text-primary" : ""
+                        }`}
+                      >
+                        +
+                      </span>
+                    </button>
+
+                    <div
+                      className={`grid transition-all duration-300 ease-out ${
+                        isOpen
+                          ? "grid-rows-[1fr] opacity-100"
+                          : "grid-rows-[0fr] opacity-0"
+                      }`}
+                    >
+                      <div className="overflow-hidden">
+                        <p className="max-w-[62ch] pb-7 pr-8 text-[0.95rem] leading-relaxed text-gray-600">
+                          {faq.a}
+                        </p>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </FadeIn>
-            );
-          })}
+                </FadeIn>
+              );
+            })}
+          </div>
         </div>
-
-        <FadeIn delay={400}>
-          <p className="text-center mt-10 text-sm text-gray-500">
-            Har du andre spørgsmål?{" "}
-            <a href="tel:+4525547074" className="text-primary font-semibold hover-underline">
-              Ring til Alexander på +45 25 54 70 74
-            </a>
-          </p>
-        </FadeIn>
       </div>
     </section>
   );

@@ -1,139 +1,148 @@
 import Link from "next/link";
 import FadeIn from "@/components/ui/FadeIn";
 
+/**
+ * Hvad vi tilbyder.
+ *
+ * Den gamle udgave brød stort set alle husets regler på én gang: afrundede
+ * kort med skygge, en orange gradient ned over hjørnet, en pille der sagde
+ * "Mest populær", ikonfliser i primary/10 — og nederst til højre en tegnet
+ * neuralt netværk med noder og forbindelser. Præcis den generiske AI-æstetik
+ * vi ellers holder os fra, midt på forsiden.
+ *
+ * Her er de tre ydelser i stedet sat som tre spalter adskilt af hårfine
+ * streger. Substansen skal komme fra indholdet, ikke fra kasserne: hver
+ * spalte siger hvad man konkret får, punkt for punkt. Et kort med tre
+ * linjer blurb fylder lige så meget og siger mindre.
+ *
+ * Hver linje under "det får I" kan holdes op mod noget vi allerede siger
+ * andre steder på siden — i FAQ'en, i procesafsnittet eller i sidens
+ * strukturerede data. Ingen af dem er skrevet frit.
+ */
+
+const services = [
+  {
+    n: "01",
+    title: "Skræddersyede AI-løsninger",
+    href: "/skraeddersyede-ai",
+    lead: "Bygget til én opgave hos jer, ikke en standardpakke I skal tilpasse jer.",
+    items: [
+      "Koblet på jeres egne data",
+      "Integreret med de systemer I har",
+      "Første version hurtigt, og justeret derfra",
+      "Fast pris efter første møde",
+    ],
+  },
+  {
+    n: "02",
+    title: "AIK Workshop",
+    href: "/workshop",
+    lead: "En hel dag hos jer, hvor jeres eget arbejde er materialet.",
+    items: [
+      "Jeres egne opgaver som cases",
+      "Værktøjer I kan bruge dagen efter",
+      "Ingen forudsætninger, heller ikke en IT-afdeling",
+      "Hele teamet, ikke kun de teknisk stærke",
+    ],
+  },
+  {
+    n: "03",
+    title: "AIK Workspace",
+    href: "/visionai",
+    lead: "Ét AI-system til hele virksomheden i stedet for femten løse abonnementer.",
+    items: [
+      "Chat, agenter og vidensbase samlet ét sted",
+      "Jeres dokumenter som grundlag",
+      "Styring af hvem der har adgang til hvad",
+      "Setup der overholder GDPR",
+    ],
+  },
+];
+
 export default function ServicesOverview() {
   return (
-    <section className="bg-gray-50 py-[clamp(4rem,10vw,7rem)]">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+    <section className="section-y bg-gray-50">
+      <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
         <FadeIn>
-          <p className="text-[11px] uppercase tracking-[0.2em] text-primary font-semibold text-center mb-3">
-            Hvad vi tilbyder
-          </p>
-          <h2 className="text-3xl lg:text-4xl font-bold tracking-heading text-gray-900 text-center leading-[1.1]">
-            Tre veje til AI i jeres virksomhed
-          </h2>
+          <div className="flex items-center gap-3">
+            <span className="lamp" data-lit="true" aria-hidden="true" />
+            <p className="kicker">Hvad vi tilbyder</p>
+          </div>
+
+          <div className="mt-8 grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.8fr)] lg:items-end lg:gap-20">
+            {/* Første udkast sagde "de fleste starter med en workshop og
+                opdager undervejs hvad der er værd at bygge". Det lyder rigtigt,
+                men det er en påstand om AIKs egne kunder som ingen har talt
+                efter. Her står der i stedet hvad vi mener om opgaven, og det
+                kan vi stå inde for. */}
+            <h2 className="max-w-[18ch] text-[clamp(2rem,3.6vw,3.25rem)] font-bold leading-[1.02] tracking-display text-gray-900">
+              Det begynder sjældent med en model. Det begynder med en opgave.
+            </h2>
+            <p className="max-w-[46ch] text-base leading-relaxed text-gray-500">
+              Nogle ved præcis hvad de vil have bygget. Andre skal først se
+              hvad der overhovedet er muligt hos dem. Derfor er der tre
+              indgange og ikke én.
+            </p>
+          </div>
         </FadeIn>
 
-        {/* Bento grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 mt-14 lg:mt-16">
-          {/* Large featured card */}
-          <FadeIn delay={100}>
-            <Link href="/skraeddersyede-ai" className="group block h-full">
-              <div className="relative bg-gray-900 rounded-2xl p-8 lg:p-10 h-full min-h-[320px] flex flex-col justify-between overflow-hidden">
-                {/* Decorative gradient */}
-                <div className="absolute top-0 right-0 w-2/3 h-2/3 bg-gradient-to-bl from-primary/15 to-transparent rounded-bl-[6rem]" aria-hidden="true" />
+        {/* Tre spalter, ingen kasser. Stregerne gør arbejdet. */}
+        <div className="mt-16 grid border-t border-gray-200 lg:mt-20 lg:grid-cols-3">
+          {services.map((s, i) => (
+            <FadeIn
+              key={s.n}
+              delay={i * 90}
+              /* Stregerne er spaltens, ikke linkets: den lodrette skal stå
+                 mellem spalterne, og den vandrette kun så længe de ligger
+                 under hinanden. Yderkanterne har ingen indrykning, så
+                 første og sidste spalte flugter med resten af siden. */
+              className={`border-b border-gray-200 py-9 last:border-b-0 lg:border-b-0 lg:py-11 ${
+                i === 0
+                  ? "lg:pr-10 xl:pr-14"
+                  : i === services.length - 1
+                    ? "lg:border-l lg:border-gray-200 lg:pl-10 xl:pl-14"
+                    : "lg:border-l lg:border-gray-200 lg:px-10 xl:px-14"
+              }`}
+            >
+              <Link
+                href={s.href}
+                className="group flex h-full flex-col"
+              >
+                <span className="text-xs font-semibold tabular-nums tracking-widest text-gray-400">
+                  {s.n}
+                </span>
 
-                {/* Dekorativ AI-netværks-illustration (transparent) */}
-                <svg
-                  className="absolute -bottom-6 -right-4 w-72 h-72 lg:w-96 lg:h-96 opacity-[0.18] pointer-events-none"
-                  viewBox="0 0 200 200"
-                  fill="none"
-                  aria-hidden="true"
-                >
-                  {/* forbindelser */}
-                  <g stroke="#ffffff" strokeWidth="1">
-                    <line x1="40" y1="60" x2="100" y2="40" />
-                    <line x1="40" y1="60" x2="90" y2="110" />
-                    <line x1="100" y1="40" x2="150" y2="70" />
-                    <line x1="100" y1="40" x2="90" y2="110" />
-                    <line x1="90" y1="110" x2="150" y2="70" />
-                    <line x1="90" y1="110" x2="60" y2="160" />
-                    <line x1="150" y1="70" x2="160" y2="130" />
-                    <line x1="90" y1="110" x2="160" y2="130" />
-                    <line x1="60" y1="160" x2="130" y2="170" />
-                    <line x1="160" y1="130" x2="130" y2="170" />
-                  </g>
-                  {/* noder */}
-                  <g>
-                    <circle cx="40" cy="60" r="5" fill="#ffffff" />
-                    <circle cx="100" cy="40" r="7" fill="#ff9a00" />
-                    <circle cx="150" cy="70" r="5" fill="#ffffff" />
-                    <circle cx="90" cy="110" r="9" fill="#ff9a00" />
-                    <circle cx="160" cy="130" r="5" fill="#ffffff" />
-                    <circle cx="60" cy="160" r="6" fill="#ffffff" />
-                    <circle cx="130" cy="170" r="7" fill="#ff9a00" />
-                  </g>
-                </svg>
-                <div className="relative z-10">
-                  <span className="inline-block bg-primary/20 text-primary text-[11px] uppercase tracking-[0.15em] font-semibold px-3 py-1 rounded-full mb-4">
-                    Mest populær
-                  </span>
-                  <h3 className="text-2xl lg:text-3xl font-bold tracking-heading text-white leading-[1.15]">
-                    Skræddersyede AI-løsninger
-                  </h3>
-                  <p className="text-white/50 mt-3 leading-relaxed max-w-md">
-                    Vi bygger AI ind i jeres hverdag - med udgangspunkt i jeres data, jeres systemer og det I rent faktisk har brug for. Ikke bare en standardpakke.
-                  </p>
-                </div>
-                <div className="relative z-10 flex items-center gap-2 text-sm font-semibold text-white/60 group-hover:text-primary transition-colors mt-6">
+                <h3 className="mt-6 text-xl font-bold leading-snug tracking-heading text-gray-900 transition-colors group-hover:text-primary lg:text-2xl">
+                  {s.title}
+                </h3>
+
+                <p className="mt-4 max-w-[34ch] text-[0.95rem] leading-relaxed text-gray-500">
+                  {s.lead}
+                </p>
+
+                <ul className="mt-8 space-y-0">
+                  {s.items.map((it) => (
+                    <li
+                      key={it}
+                      className="border-t border-gray-200/80 py-3 text-[0.9rem] leading-snug text-gray-600"
+                    >
+                      {it}
+                    </li>
+                  ))}
+                </ul>
+
+                <span className="mt-auto flex items-center gap-2 pt-9 text-sm font-semibold text-gray-900 transition-colors group-hover:text-primary">
                   Læs mere
-                  <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-                  </svg>
-                </div>
-              </div>
-            </Link>
-          </FadeIn>
-
-          {/* Two stacked cards */}
-          <div className="grid grid-rows-2 gap-5">
-            <FadeIn delay={200}>
-              <Link href="/workshop" className="group block h-full">
-                <div className="bg-white border border-gray-200 rounded-2xl p-8 h-full flex flex-col justify-between hover:border-primary/30 hover:shadow-md transition-all duration-300">
-                  <div>
-                    <div className="flex items-center gap-3 mb-3">
-                      <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
-                        <svg className="w-5 h-5 text-primary" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" />
-                        </svg>
-                      </div>
-                      <h3 className="text-lg font-bold tracking-heading group-hover:text-primary transition-colors">
-                        AIK Workshop
-                      </h3>
-                    </div>
-                    <p className="text-gray-500 text-sm leading-relaxed">
-                      En hel dag hvor jeres team får lov at prøve kræfter med AI med afsæt i jeres egne opgaver. I går hjem med konkrete værktøjer, teknikker og nye måder at arbejde med AI på.
-                    </p>
-                  </div>
-                  <div className="flex items-center gap-2 text-sm font-semibold text-gray-400 group-hover:text-primary transition-colors mt-4">
-                    Læs mere
-                    <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-                    </svg>
-                  </div>
-                </div>
+                  <span
+                    aria-hidden="true"
+                    className="transition-transform duration-200 ease-precise group-hover:translate-x-1"
+                  >
+                    →
+                  </span>
+                </span>
               </Link>
             </FadeIn>
-
-            <FadeIn delay={300}>
-              <Link href="/visionai" className="group block h-full">
-                <div className="bg-white border border-gray-200 rounded-2xl p-8 h-full flex flex-col justify-between hover:border-primary/30 hover:shadow-md transition-all duration-300">
-                  <div>
-                    <div className="flex items-center gap-3 mb-3">
-                      <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
-                        <svg className="w-5 h-5 text-primary" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" />
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                        </svg>
-                      </div>
-                      <h3 className="text-lg font-bold tracking-heading group-hover:text-primary transition-colors">
-                        AIK Workspace
-                      </h3>
-                    </div>
-                    <p className="text-gray-500 text-sm leading-relaxed">
-                      Jeres helt eget AI-system, som er forankret i jeres data, jeres systemer og jeres måde at gøre tingene på.
-                    </p>
-                  </div>
-                  <div className="flex items-center gap-2 text-sm font-semibold text-gray-400 group-hover:text-primary transition-colors mt-4">
-                    Læs mere
-                    <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-                    </svg>
-                  </div>
-                </div>
-              </Link>
-            </FadeIn>
-          </div>
+          ))}
         </div>
       </div>
     </section>
