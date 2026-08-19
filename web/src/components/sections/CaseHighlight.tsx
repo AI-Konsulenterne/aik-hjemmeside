@@ -1,128 +1,126 @@
 import Link from "next/link";
 import FadeIn from "@/components/ui/FadeIn";
+import AgentConsole from "@/components/ui/AgentConsole";
+
+/**
+ * Kundecasen — og sidens eneste stykke software.
+ *
+ * Den gamle udgave var to afrundede chatbobler på hvid med skygge under.
+ * Den *påstod* at agenten fandtes: to færdige replikker, ingen bevægelse,
+ * ingen mekanik. Det er præcis den generiske AI-æstetik vi ellers holder os
+ * fra, og det var det tætteste siden kom på at vise et produkt.
+ *
+ * Her kører agenten i stedet, og man kan klikke sig videre i den.
+ *
+ * Sektionen er hvid og konsollen mørk. Det er med vilje: en mørk flade på
+ * hvidt læses som en overflade man kigger ind i, ikke som en illustration
+ * på siden. Ingen skygge under den — huset bruger streger.
+ *
+ * Layoutet er tre celler, ikke to kolonner. På bred skærm står historien i
+ * venstre spalte og konsollen i højre over begge rækker. På smal skærm
+ * falder de i kildeorden, og det er derfor overskriften er sin egen celle:
+ * så kommer konsollen umiddelbart efter den i stedet for efter hele
+ * historien og et sektionsafsluttende link.
+ *
+ * Tallene under er væk. De sagde "Datasikker" og "Frigjort tid" sat i
+ * displaygrad, og det er ikke resultater, det er ord. I stedet står der
+ * hvad der konkret er bygget, og hver linje kan holdes op mod noget vi
+ * allerede siger andre steder på siden.
+ */
+
+const spec = [
+  {
+    k: "Vidensbase",
+    v: "Lavazzas egne HR-dokumenter, ikke en generel model",
+  },
+  {
+    k: "Hvert svar",
+    v: "Peger tilbage til det afsnit det kom fra",
+  },
+  {
+    k: "Data",
+    v: "Bliver ikke brugt til at træne modeller",
+  },
+];
 
 export default function CaseHighlight() {
   return (
-    <section className="py-[clamp(4rem,10vw,7rem)]">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <FadeIn>
-          <div className="text-center mb-4">
-            <p className="text-[11px] uppercase tracking-[0.2em] text-primary font-semibold mb-6">
-              Kundecase — Lavazza
-            </p>
-            <h2 className="text-3xl lg:text-4xl xl:text-5xl font-bold tracking-heading text-gray-900 leading-[1.1]">
-              HR-agenten der svarer<br className="hidden sm:block" /> så medarbejderne{" "}
+    <section className="section-y">
+      <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
+        <div className="grid gap-y-12 lg:grid-cols-2 lg:gap-x-16 lg:gap-y-10 xl:gap-x-20">
+          {/* --- Overskriften --- */}
+          <FadeIn className="lg:col-start-1 lg:row-start-1">
+            <p className="kicker">Kundecase, Lavazza</p>
+            <h2 className="mt-8 max-w-[19ch] text-[clamp(2rem,3.4vw,3rem)] font-bold leading-[1.02] tracking-display text-gray-900">
+              HR-agenten der svarer, så medarbejderne{" "}
               <span className="text-primary">ikke skal</span>
             </h2>
-            <p className="text-gray-500 text-lg lg:text-xl mt-4 max-w-2xl mx-auto">
-              AI der frigør tid i HR-afdelingen ved at besvare medarbejdernes
-              spørgsmål automatisk.
-            </p>
-          </div>
-        </FadeIn>
+          </FadeIn>
 
-        {/* Illustration — AI HR-agent chat */}
-        <FadeIn delay={150}>
-          <div className="max-w-md mx-auto mt-10 lg:mt-12">
-            <div className="bg-white rounded-2xl ring-1 ring-gray-100 shadow-lg p-5">
-              {/* Header */}
-              <div className="flex items-center gap-3 pb-4 border-b border-gray-100">
-                <div className="w-9 h-9 rounded-full bg-primary flex items-center justify-center flex-shrink-0">
-                  <svg
-                    className="w-5 h-5 text-white"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth={1.8}
-                    viewBox="0 0 24 24"
-                    aria-hidden="true"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z"
-                    />
-                  </svg>
-                </div>
-                <div>
-                  <p className="text-sm font-bold tracking-heading text-gray-900">
-                    HR-agenten
-                  </p>
-                  <p className="text-xs text-gray-400 flex items-center gap-1.5">
-                    <span className="inline-block w-2 h-2 rounded-full bg-green-500" />
-                    Online · svarer med det samme
-                  </p>
-                </div>
-              </div>
-
-              {/* Beskeder */}
-              <div className="space-y-3 pt-4">
-                <div className="flex justify-end">
-                  <p className="bg-gray-100 text-gray-700 text-sm rounded-2xl rounded-br-sm px-4 py-2.5 max-w-[82%] leading-snug">
-                    &ldquo;Hvor mange feriedage har jeg tilbage i år?&rdquo;
-                  </p>
-                </div>
-                <div className="flex justify-start">
-                  <p className="bg-primary/10 text-gray-800 text-sm rounded-2xl rounded-bl-sm px-4 py-2.5 max-w-[88%] leading-snug">
-                    &ldquo;Du har 12 feriedage tilbage. Ifølge personalehåndbogen
-                    kan op til 5 overføres til næste år. Skal jeg vise
-                    reglerne?&rdquo;
-                  </p>
-                </div>
-              </div>
-            </div>
-            <p className="text-center text-xs text-gray-400 mt-3">
-              Eksempel — bygget på Lavazzas egne HR-dokumenter
-            </p>
-          </div>
-        </FadeIn>
-
-        <FadeIn delay={250}>
-          <div className="max-w-3xl mx-auto mt-10 lg:mt-12">
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 text-center mb-10">
-              <div>
-                <p className="text-2xl font-bold tracking-heading text-gray-900">Lavazza</p>
-                <p className="text-sm text-gray-400 mt-1">HR / intern AI</p>
-              </div>
-              <div>
-                <p className="text-2xl font-bold tracking-heading text-gray-900">Datasikker</p>
-                <p className="text-sm text-gray-400 mt-1">Lever op til GDPR</p>
-              </div>
-              <div>
-                <p className="text-2xl font-bold tracking-heading text-primary">Frigjort tid</p>
-                <p className="text-sm text-gray-400 mt-1">i hele HR-afdelingen</p>
-              </div>
-            </div>
-
-            <div className="border-t border-gray-200 pt-8">
-              <p className="text-gray-500 leading-relaxed text-center">
-                Lavazzas HR-afdeling brugte alt for mange timer på at besvare de
-                samme spørgsmål igen og igen. Vi byggede en datasikker AI-agent,
-                der automatisk besvarer HR-spørgsmålene — så teamet kan bruge
-                tiden på det, der virkelig kræver et menneske.
+          {/* --- Agenten, mens den arbejder --- */}
+          <FadeIn
+            delay={120}
+            className="lg:col-start-2 lg:row-start-1 lg:row-span-2"
+          >
+            <div className="lg:sticky lg:top-32">
+              <AgentConsole />
+              <p className="mt-5 max-w-[52ch] text-xs leading-relaxed text-gray-400">
+                Eksempel på forløbet. Selve agenten kører hos Lavazza på deres
+                egne dokumenter.
               </p>
             </div>
+          </FadeIn>
 
-            <div className="flex justify-center mt-10">
-              <Link
-                href="/cases"
-                className="inline-flex items-center gap-2 text-sm font-semibold text-gray-900 hover:text-primary transition-colors group"
-              >
-                Se alle kundehistorier
-                <svg
-                  className="w-4 h-4 group-hover:translate-x-1 transition-transform"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth={2}
-                  viewBox="0 0 24 24"
+          {/* --- Historien --- */}
+          <FadeIn delay={60} className="lg:col-start-1 lg:row-start-2">
+            <p className="max-w-[46ch] text-base leading-relaxed text-gray-500">
+              Lavazzas HR-afdeling brugte for mange timer på at besvare de
+              samme spørgsmål igen og igen. Feriedage, barsel, tillæg,
+              opsigelsesvarsler. Svarene stod allerede i personalehåndbogen,
+              men ingen gad lede efter dem.
+            </p>
+
+            <p className="mt-5 max-w-[46ch] text-base leading-relaxed text-gray-500">
+              Så vi byggede en agent oven på deres egne dokumenter. Den finder
+              afsnittet, svarer på dansk, og skriver hvor svaret kom fra. Er
+              der ikke dækning i dokumenterne, siger den det i stedet for at
+              gætte.
+            </p>
+
+            {/* Specifikation, ikke nøgletal. Vi har ikke målte resultater
+                fra Lavazza, og opdigtede procenter er værre end ingen. */}
+            <dl className="mt-10 border-t border-gray-200">
+              {spec.map((s) => (
+                <div
+                  key={s.k}
+                  className="grid grid-cols-[7.5rem_1fr] gap-x-6 border-b border-gray-200 py-4"
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
-                  />
-                </svg>
-              </Link>
-            </div>
+                  <dt className="text-xs font-semibold uppercase tracking-[0.12em] text-gray-400">
+                    {s.k}
+                  </dt>
+                  <dd className="text-[0.9rem] leading-snug text-gray-600">
+                    {s.v}
+                  </dd>
+                </div>
+              ))}
+            </dl>
+          </FadeIn>
+        </div>
+
+        <FadeIn delay={200}>
+          <div className="mt-14 border-t border-gray-200 pt-8">
+            <Link
+              href="/cases"
+              className="group inline-flex items-center gap-2 text-sm font-semibold text-gray-900 transition-colors hover:text-primary"
+            >
+              Se alle kundehistorier
+              <span
+                aria-hidden="true"
+                className="transition-transform duration-200 ease-precise group-hover:translate-x-1"
+              >
+                →
+              </span>
+            </Link>
           </div>
         </FadeIn>
       </div>
