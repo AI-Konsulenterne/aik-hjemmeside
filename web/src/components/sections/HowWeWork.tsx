@@ -1,5 +1,6 @@
-import FadeIn from "@/components/ui/FadeIn";
+import Image from "next/image";
 import Link from "next/link";
+import FadeIn from "@/components/ui/FadeIn";
 
 /**
  * Sådan arbejder vi — én sektion, hvor der før var to.
@@ -15,8 +16,16 @@ import Link from "next/link";
  * bedre.
  *
  * Visuelt: hårfine streger, ingen kasser, ingen skygger, ingen ikoner.
- * Nummerering kun hvor rækkefølgen betyder noget — trinnene er en sekvens,
+ * Nummerering kun hvor rækkefølgen betyder noget: trinnene er en sekvens,
  * citaterne er en mængde.
+ *
+ * Sektionen er mørk og har et filmstill bagved. Første udgave var ren
+ * typografi på hvid, og den var for tom — tilbageholdenhed alene bliver
+ * ikke til noget dyrt, den bliver bare til lidt. Siden gik desuden fra
+ * mørk hero til fem hvide sektioner i træk uden pause. Stillet er kraftigt
+ * nedtonet: det skal læses som rum bag teksten, ikke som et billede man
+ * kigger på. Det er workshop-skuddet, fordi sektionen handler om hvordan
+ * vi arbejder, og fordi det deler grade med filmen ovenfor.
  */
 
 const heard = [
@@ -57,22 +66,34 @@ const steps = [
 
 export default function HowWeWork() {
   return (
-    <section className="section-y border-b border-black/10">
-      <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
+    <section className="section-y relative overflow-hidden bg-ink">
+      {/* Rum, ikke motiv. */}
+      <div className="absolute inset-0" aria-hidden="true">
+        <Image
+          src="/film/workshop.webp"
+          alt=""
+          fill
+          sizes="100vw"
+          className="object-cover opacity-[0.18]"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-ink via-ink/85 to-ink" />
+      </div>
+
+      <div className="relative mx-auto max-w-[1400px] px-6 lg:px-10">
         <div className="grid gap-14 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:gap-20">
           {/* --- Venstre: bliver stående mens trinnene ruller --- */}
           <FadeIn>
             <div className="lg:sticky lg:top-32">
               <div className="flex items-center gap-3">
                 <span className="lamp" data-lit="true" aria-hidden="true" />
-                <p className="kicker">Sådan arbejder vi</p>
+                <p className="kicker text-white/45">Sådan arbejder vi</p>
               </div>
 
-              <h2 className="mt-8 max-w-[15ch] text-[clamp(2rem,3.6vw,3.25rem)] font-bold leading-[1.02] tracking-display text-gray-900">
+              <h2 className="mt-8 max-w-[15ch] text-[clamp(2rem,3.6vw,3.25rem)] font-bold leading-[1.02] tracking-display text-white">
                 Det svære er ikke AI. Det er at vide hvor man starter.
               </h2>
 
-              <p className="mt-6 max-w-[38ch] text-base leading-relaxed text-gray-600">
+              <p className="mt-6 max-w-[38ch] text-base leading-relaxed text-white/55">
                 Vi hører de samme fem sætninger i næsten hvert eneste første
                 møde:
               </p>
@@ -83,7 +104,7 @@ export default function HowWeWork() {
                 {heard.map((q) => (
                   <li
                     key={q}
-                    className="border-l border-black/15 pl-5 text-[0.95rem] leading-snug text-gray-500"
+                    className="border-l border-white/20 pl-5 text-[0.95rem] leading-snug text-white/60"
                   >
                     &ldquo;{q}&rdquo;
                   </li>
@@ -92,16 +113,16 @@ export default function HowWeWork() {
 
               {/* Tallet sat som et tal. Et kort med ramme og skygge ville gøre
                   det til pynt; sat stort er det et argument. */}
-              <div className="mt-12 border-t border-black/10 pt-8">
-                <p className="text-[clamp(3rem,5vw,4.5rem)] font-bold leading-none tracking-display tabular-nums text-gray-900">
+              <div className="mt-12 border-t border-white/15 pt-8">
+                <p className="text-[clamp(3rem,5vw,4.5rem)] font-bold leading-none tracking-display tabular-nums text-white">
                   80<span className="text-primary">%</span>
                 </p>
-                <p className="mt-4 max-w-[36ch] text-[0.95rem] leading-relaxed text-gray-500">
+                <p className="mt-4 max-w-[36ch] text-[0.95rem] leading-relaxed text-white/55">
                   af AI-projekter leverer ikke den værdi virksomheden
                   forventede. Dobbelt så høj fejlrate som almindelige
                   IT-projekter. Det er derfor vi arbejder som vi gør.
                 </p>
-                <p className="mt-3 text-xs tracking-wide text-gray-400">
+                <p className="mt-3 text-xs tracking-wide text-white/35">
                   RAND, 2024
                 </p>
               </div>
@@ -112,15 +133,15 @@ export default function HowWeWork() {
           <div>
             {steps.map((s, i) => (
               <FadeIn key={s.n} delay={i * 70}>
-                <div className="grid grid-cols-[3rem_1fr] gap-x-6 border-t border-black/10 py-9 first:border-t-0 first:pt-0 lg:grid-cols-[4rem_1fr] lg:py-11">
-                  <span className="text-sm font-semibold tabular-nums text-gray-300">
+                <div className="grid grid-cols-[3rem_1fr] gap-x-6 border-t border-white/12 py-9 first:border-t-0 first:pt-0 lg:grid-cols-[4rem_1fr] lg:py-11">
+                  <span className="text-sm font-semibold tabular-nums text-white/30">
                     {s.n}
                   </span>
                   <div>
-                    <h3 className="text-lg font-semibold leading-snug tracking-heading text-gray-900 lg:text-2xl">
+                    <h3 className="text-lg font-semibold leading-snug tracking-heading text-white lg:text-2xl">
                       {s.title}
                     </h3>
-                    <p className="mt-4 max-w-[54ch] text-[0.95rem] leading-relaxed text-gray-500">
+                    <p className="mt-4 max-w-[54ch] text-[0.95rem] leading-relaxed text-white/55">
                       {s.body}
                     </p>
                   </div>
@@ -129,10 +150,10 @@ export default function HowWeWork() {
             ))}
 
             <FadeIn delay={400}>
-              <div className="border-t border-black/10 pt-9 lg:pt-11">
+              <div className="border-t border-white/12 pt-9 lg:pt-11">
                 <Link
                   href="/kontakt"
-                  className="group inline-flex items-center gap-2 text-sm font-semibold text-gray-900"
+                  className="group inline-flex items-center gap-2 text-sm font-semibold text-white transition-colors hover:text-primary"
                 >
                   Book en gratis AI-afklaring
                   <span
