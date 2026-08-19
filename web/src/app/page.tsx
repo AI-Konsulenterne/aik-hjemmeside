@@ -1,6 +1,5 @@
+import HowWeWork from "@/components/sections/HowWeWork";
 import ProofFilm from "@/components/sections/ProofFilm";
-import Barriers from "@/components/sections/Barriers";
-import ProblemSolution from "@/components/sections/ProblemSolution";
 import ServicesOverview from "@/components/sections/ServicesOverview";
 import CaseHighlight from "@/components/sections/CaseHighlight";
 import Team from "@/components/sections/Team";
@@ -167,8 +166,7 @@ export default function Forside() {
           påstand vi tog ud af filmen, fordi den pegede på Apple og TDC.
           Filmens egen sætning siger positioneringen bedre og sandere. */}
       <ProofFilm variant="hero" />
-      <Barriers />
-      <ProblemSolution />
+      <HowWeWork />
       <ServicesOverview />
       <CaseHighlight />
       <Testimonials />
