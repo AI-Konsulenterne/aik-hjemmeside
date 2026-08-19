@@ -195,16 +195,15 @@ body {
 }
 
 /* ---------------------------------------------------------------
-   Fladerne — gitter, lys og kant
+   Fladerne — lys og kant
 
    Siden var typografi på ensfarvede felter fra ydelserne og ned. Ikke
-   forkert, men fladt: ingen overflade, intet lys, ingen dybde. De fire
-   værktøjer her giver fladerne noget at være lavet af — uden at der
-   kommer en eneste ny farve på siden.
+   forkert, men fladt: ingen overflade, intet lys, ingen dybde.
 
-   .grid-field    millimeterpapir under indholdet. Maskeret, så det toner
-                  ud mod kanterne og aldrig bliver et mønster man kigger
-                  på. Sæt --field-line/--field-pitch for at ændre det.
+   Her lå også et .grid-field — millimeterpapir under indholdet. Det er
+   pillet ud igen: det læste som støj i stedet for som overflade, og et
+   mønster man lægger mærke til er et mønster der er i vejen.
+
    .amber-cast    skæret fra lampen. Brandets orange ER en tændt lampe, så
                   lyset fra den er det eneste "gradient" huset tillader.
                   Holdes lavt med vilje — over ~15% bliver det AI-plakat.
@@ -217,42 +216,6 @@ body {
    .corner-marks  hjørnemærker som på en teknisk tegning. Ren pynt, men af
                   den slags der siger værktøj og ikke reklame.
    --------------------------------------------------------------- */
-
-:root {
-  --field-line: rgba(0, 0, 0, 0.05);
-  --field-pitch: 72px;
-}
-
-.grid-field {
-  position: relative;
-}
-
-.grid-field::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  pointer-events: none;
-  background-image:
-    linear-gradient(to right, var(--field-line) 1px, transparent 1px),
-    linear-gradient(to bottom, var(--field-line) 1px, transparent 1px);
-  background-size: var(--field-pitch) var(--field-pitch);
-  -webkit-mask-image: radial-gradient(
-    ellipse 85% 75% at 50% 42%,
-    #000 15%,
-    transparent 76%
-  );
-  mask-image: radial-gradient(
-    ellipse 85% 75% at 50% 42%,
-    #000 15%,
-    transparent 76%
-  );
-}
-
-/* Gitteret på mørk bund skal være lidt stærkere for at kunne ses. */
-.grid-field-dark {
-  --field-line: rgba(255, 255, 255, 0.06);
-}
 
 .amber-cast {
   position: absolute;

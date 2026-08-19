@@ -51,7 +51,7 @@ const spec = [
 
 export default function CaseHighlight() {
   return (
-    <section className="grid-field section-y relative overflow-hidden">
+    <section className="section-y relative overflow-hidden">
       {/* Lampens skær, placeret bag konsollen. */}
       <div
         aria-hidden="true"

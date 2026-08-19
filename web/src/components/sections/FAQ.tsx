@@ -21,7 +21,7 @@ export default function FAQ() {
   const [open, setOpen] = useState<number | null>(0);
 
   return (
-    <section className="grid-field section-y relative overflow-hidden bg-gray-50">
+    <section className="section-y relative overflow-hidden bg-gray-50">
       <div
         aria-hidden="true"
         className="amber-cast amber-cast-soft bottom-[-16rem] right-[-10rem] h-[36rem] w-[36rem]"

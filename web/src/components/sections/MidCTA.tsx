@@ -39,7 +39,7 @@ const vilkaar = [
 
 export default function MidCTA() {
   return (
-    <section className="grid-field grid-field-dark relative overflow-hidden bg-ink">
+    <section className="relative overflow-hidden bg-ink">
       {/* Rummet bag teksten. Gradienten gør venstre side læsbar og lader
           lampen blive stående til højre. */}
       <div className="absolute inset-0 z-0" aria-hidden="true">

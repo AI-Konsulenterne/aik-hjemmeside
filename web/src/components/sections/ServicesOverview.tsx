@@ -61,7 +61,7 @@ const services = [
 
 export default function ServicesOverview() {
   return (
-    <section className="grid-field section-y relative overflow-hidden bg-gray-50">
+    <section className="section-y relative overflow-hidden bg-gray-50">
       <div
         aria-hidden="true"
         className="amber-cast amber-cast-soft left-[-12rem] top-[-10rem] h-[40rem] w-[40rem]"

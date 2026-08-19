@@ -1,4 +1,5 @@
 import HowWeWork from "@/components/sections/HowWeWork";
+import LiveModelSection from "@/components/sections/LiveModelSection";
 import ProofFilm from "@/components/sections/ProofFilm";
 import ServicesOverview from "@/components/sections/ServicesOverview";
 import CaseHighlight from "@/components/sections/CaseHighlight";
@@ -125,6 +126,10 @@ export default function Forside() {
           påstand vi tog ud af filmen, fordi den pegede på Apple og TDC.
           Filmens egen sætning siger positioneringen bedre og sandere. */}
       <ProofFilm variant="hero" />
+      {/* Filmen siger hvem vi har bygget til. Det her siger at vi ved hvad
+          vi laver — og det er det eneste sted paa siden hvor der faktisk
+          regnes noget. Derfor ligger den som nummer to. */}
+      <LiveModelSection />
       <HowWeWork />
       <ServicesOverview />
       <CaseHighlight />

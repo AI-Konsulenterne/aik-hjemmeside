@@ -66,7 +66,7 @@ const steps = [
 
 export default function HowWeWork() {
   return (
-    <section className="grid-field grid-field-dark section-y relative overflow-hidden bg-ink">
+    <section className="section-y relative overflow-hidden bg-ink">
       {/* Rum, ikke motiv. */}
       <div className="absolute inset-0 z-0" aria-hidden="true">
         <Image
