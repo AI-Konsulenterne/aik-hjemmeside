@@ -111,19 +111,19 @@ function WaveField() {
 
 export default function CommunitySection() {
   return (
-    <section
-      id="community"
-      className="relative overflow-hidden scroll-mt-24"
-      style={{
-        background:
-          "radial-gradient(120% 140% at 82% 30%, #131B4A 0%, #0A1130 42%, #050A1E 100%)",
-        fontFamily: "'Segoe UI', system-ui, -apple-system, sans-serif",
-      }}
-    >
-      <WaveField />
+    <section id="community" className="py-[clamp(4rem,10vw,7rem)] scroll-mt-24">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div
+          className="relative overflow-hidden rounded-[32px] px-8 py-14 lg:px-[72px] lg:py-20"
+          style={{
+            background:
+              "radial-gradient(120% 140% at 82% 30%, #131B4A 0%, #0A1130 42%, #050A1E 100%)",
+            fontFamily: "'Segoe UI', system-ui, -apple-system, sans-serif",
+          }}
+        >
+          <WaveField />
 
-      <div className="relative max-w-7xl mx-auto px-6 lg:px-8 py-[clamp(4.5rem,10vw,8rem)]">
-        <div className="grid grid-cols-1 lg:grid-cols-[1.05fr_0.95fr] gap-14 lg:gap-16 items-center">
+          <div className="relative grid grid-cols-1 lg:grid-cols-[1.05fr_0.95fr] gap-14 lg:gap-16 items-center">
           {/* Venstre — tekst */}
           <FadeIn>
             <div className="flex flex-col gap-6 lg:gap-[26px] text-white">
@@ -311,6 +311,7 @@ export default function CommunitySection() {
               ))}
             </div>
           </FadeIn>
+          </div>
         </div>
       </div>
     </section>
