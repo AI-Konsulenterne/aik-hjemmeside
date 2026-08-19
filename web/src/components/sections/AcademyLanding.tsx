@@ -2,6 +2,7 @@ import Image from "next/image";
 import Button from "@/components/ui/Button";
 import FadeIn from "@/components/ui/FadeIn";
 import LessonVideo from "@/components/sections/LessonVideo";
+import CommunitySection from "@/components/sections/CommunitySection";
 
 const SKOOL_URL = "https://www.skool.com/aiminds";
 
@@ -770,6 +771,9 @@ export default function AcademyLanding() {
           </FadeIn>
         </div>
       </section>
+
+      {/* ══════════ COMMUNITY ══════════ */}
+      <CommunitySection />
 
       {/* ══════════ OUTCOME ══════════ */}
       <section className="py-[clamp(4rem,10vw,7rem)]">
