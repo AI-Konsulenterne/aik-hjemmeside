@@ -66,9 +66,9 @@ const steps = [
 
 export default function HowWeWork() {
   return (
-    <section className="section-y relative overflow-hidden bg-ink">
+    <section className="grid-field grid-field-dark section-y relative overflow-hidden bg-ink">
       {/* Rum, ikke motiv. */}
-      <div className="absolute inset-0" aria-hidden="true">
+      <div className="absolute inset-0 z-0" aria-hidden="true">
         <Image
           src="/film/workshop.webp"
           alt=""
@@ -79,14 +79,14 @@ export default function HowWeWork() {
         <div className="absolute inset-0 bg-gradient-to-b from-ink via-ink/85 to-ink" />
       </div>
 
-      <div className="relative mx-auto max-w-[1400px] px-6 lg:px-10">
+      <div className="relative z-10 mx-auto max-w-[1400px] px-6 lg:px-10">
         <div className="grid gap-14 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:gap-20">
           {/* --- Venstre: bliver stående mens trinnene ruller --- */}
           <FadeIn>
             <div className="lg:sticky lg:top-32">
               <div className="flex items-center gap-3">
                 <span className="lamp" data-lit="true" aria-hidden="true" />
-                <p className="kicker text-white/45">Sådan arbejder vi</p>
+                <p className="kicker text-white/60">Sådan arbejder vi</p>
               </div>
 
               <h2 className="mt-8 max-w-[15ch] text-[clamp(2rem,3.6vw,3.25rem)] font-bold leading-[1.02] tracking-display text-white">
@@ -122,7 +122,7 @@ export default function HowWeWork() {
                   forventede. Dobbelt så høj fejlrate som almindelige
                   IT-projekter. Det er derfor vi arbejder som vi gør.
                 </p>
-                <p className="mt-3 text-xs tracking-wide text-white/35">
+                <p className="mt-3 text-xs tracking-wide text-white/55">
                   RAND, 2024
                 </p>
               </div>
@@ -134,7 +134,7 @@ export default function HowWeWork() {
             {steps.map((s, i) => (
               <FadeIn key={s.n} delay={i * 70}>
                 <div className="grid grid-cols-[3rem_1fr] gap-x-6 border-t border-white/12 py-9 first:border-t-0 first:pt-0 lg:grid-cols-[4rem_1fr] lg:py-11">
-                  <span className="text-sm font-semibold tabular-nums text-white/30">
+                  <span className="text-sm font-semibold tabular-nums text-white/65">
                     {s.n}
                   </span>
                   <div>

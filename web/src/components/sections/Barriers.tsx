@@ -37,7 +37,7 @@ export default function Barriers() {
             <div className="lg:sticky lg:top-32">
               <div className="flex items-center gap-3">
                 <span className="lamp" data-lit="true" aria-hidden="true" />
-                <p className="kicker">Kender I den?</p>
+                <p className="kicker text-gray-600">Kender I den?</p>
               </div>
               <h2 className="mt-8 max-w-[15ch] text-[clamp(2rem,3.6vw,3.25rem)] font-bold leading-[1.02] tracking-display text-gray-900">
                 Det svære er ikke AI. Det er at vide hvor man starter.

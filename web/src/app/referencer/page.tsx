@@ -32,7 +32,7 @@ export default function Referencer() {
               <div>
                 <div className="flex items-center gap-3">
                   <span className="lamp" data-lit="true" aria-hidden="true" />
-                  <p className="kicker">Hvorfor ingen navne</p>
+                  <p className="kicker text-gray-600">Hvorfor ingen navne</p>
                 </div>
                 <h2 className="mt-8 max-w-[16ch] text-[clamp(2rem,3.6vw,3.25rem)] font-bold leading-[1.02] tracking-display text-gray-900">
                   De fleste af dem må vi ikke nævne.
@@ -77,8 +77,8 @@ export default function Referencer() {
       <section className="section-y">
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
           <div className="flex items-baseline justify-between border-b border-black/10 pb-6">
-            <p className="kicker">Register</p>
-            <p className="kicker tabular-nums">
+            <p className="kicker text-gray-600">Register</p>
+            <p className="kicker tabular-nums text-gray-600">
               {String(FILM_SHOTS_KUNDER.length).padStart(2, "0")} brancher
             </p>
           </div>

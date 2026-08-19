@@ -14,7 +14,13 @@ import AgentConsole from "@/components/ui/AgentConsole";
  *
  * Sektionen er hvid og konsollen mørk. Det er med vilje: en mørk flade på
  * hvidt læses som en overflade man kigger ind i, ikke som en illustration
- * på siden. Ingen skygge under den — huset bruger streger.
+ * på siden.
+ *
+ * Bag konsollen ligger skæret fra lampen, og under den en enkelt blød
+ * ambient skygge. Huset bruger streger frem for skygger, og det gælder
+ * stadig for kort — men det her er ikke et kort. Det er sidens ene
+ * produktflade, og uden lys og vægt lå den som et hul i papiret i stedet
+ * for som noget der ligger ovenpå.
  *
  * Layoutet er tre celler, ikke to kolonner. På bred skærm står historien i
  * venstre spalte og konsollen i højre over begge rækker. På smal skærm
@@ -45,12 +51,17 @@ const spec = [
 
 export default function CaseHighlight() {
   return (
-    <section className="section-y">
-      <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
+    <section className="grid-field section-y relative overflow-hidden">
+      {/* Lampens skær, placeret bag konsollen. */}
+      <div
+        aria-hidden="true"
+        className="amber-cast amber-cast-soft right-[-10%] top-[8%] hidden h-[46rem] w-[46rem] lg:block"
+      />
+      <div className="relative z-10 mx-auto max-w-[1400px] px-6 lg:px-10">
         <div className="grid gap-y-12 lg:grid-cols-2 lg:gap-x-16 lg:gap-y-10 xl:gap-x-20">
           {/* --- Overskriften --- */}
           <FadeIn className="lg:col-start-1 lg:row-start-1">
-            <p className="kicker">Kundecase, Lavazza</p>
+            <p className="kicker text-gray-600">Kundecase, Lavazza</p>
             <h2 className="mt-8 max-w-[19ch] text-[clamp(2rem,3.4vw,3rem)] font-bold leading-[1.02] tracking-display text-gray-900">
               HR-agenten der svarer, så medarbejderne{" "}
               <span className="text-primary">ikke skal</span>
@@ -64,7 +75,7 @@ export default function CaseHighlight() {
           >
             <div className="lg:sticky lg:top-32">
               <AgentConsole />
-              <p className="mt-5 max-w-[52ch] text-xs leading-relaxed text-gray-400">
+              <p className="mt-5 max-w-[52ch] text-xs leading-relaxed text-gray-600">
                 Eksempel på forløbet. Selve agenten kører hos Lavazza på deres
                 egne dokumenter.
               </p>
@@ -95,7 +106,7 @@ export default function CaseHighlight() {
                   key={s.k}
                   className="grid grid-cols-[7.5rem_1fr] gap-x-6 border-b border-gray-200 py-4"
                 >
-                  <dt className="text-xs font-semibold uppercase tracking-[0.12em] text-gray-400">
+                  <dt className="text-xs font-semibold uppercase tracking-[0.12em] text-gray-500">
                     {s.k}
                   </dt>
                   <dd className="text-[0.9rem] leading-snug text-gray-600">

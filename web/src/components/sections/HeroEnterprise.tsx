@@ -17,7 +17,7 @@ export default function HeroEnterprise() {
           <FadeIn>
             <div className="flex items-center gap-3">
               <span className="lamp" data-lit="true" aria-hidden="true" />
-              <p className="kicker">AI Konsulenterne</p>
+              <p className="kicker text-gray-600">AI Konsulenterne</p>
             </div>
           </FadeIn>
 

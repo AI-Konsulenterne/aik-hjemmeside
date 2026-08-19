@@ -201,14 +201,21 @@ export default function AgentConsole() {
 
   return (
     <div ref={rootRef}>
-      <div className="border border-white/12 bg-[#0d0f11]" aria-hidden="true">
+      {/* Hjørnemærkerne sidder uden for panelet, på det hvide, som
+          pasmærker på en teknisk tegning. Derfor ligger de på en wrapper
+          og ikke på panelet selv. */}
+      <div className="corner-marks relative">
+        <div
+          className="panel-lit border border-white/12 bg-[#0d0f11]"
+          aria-hidden="true"
+        >
         {/* Topbjælke */}
         <div className="flex items-center gap-3 border-b border-white/10 px-5 py-3.5 sm:px-7">
           <span className="lamp" data-lit={working ? "true" : "false"} />
-          <p className="font-mono text-[0.7rem] uppercase tracking-[0.16em] text-white/40">
+          <p className="font-mono text-[0.7rem] uppercase tracking-[0.16em] text-white/55">
             HR-agent
           </p>
-          <p className="ml-auto font-mono text-[0.7rem] tracking-wide text-white/25">
+          <p className="ml-auto font-mono text-[0.7rem] tracking-wide text-white/60">
             {working ? "arbejder" : "klar"}
           </p>
         </div>
@@ -217,7 +224,7 @@ export default function AgentConsole() {
           {/* Spørgsmålet. Alle fire ligger usynligt i samme celle, så panelet
               har den højde det længste kræver — også når det skifter. */}
           <div className="grid grid-cols-[1rem_1fr] gap-x-3">
-            <span className="mt-[0.35rem] font-mono text-xs text-white/30">
+            <span className="mt-[0.35rem] font-mono text-xs text-white/60">
               &gt;
             </span>
             <div className="grid">
@@ -242,7 +249,7 @@ export default function AgentConsole() {
               feltet den højde det bredeste sæt kræver, ved enhver bredde,
               og panelet skifter uden at rykke. */}
           <div className="mt-6 border-l border-white/10 pl-5">
-            <p className="font-mono text-[0.7rem] uppercase tracking-[0.14em] text-white/35">
+            <p className="font-mono text-[0.7rem] uppercase tracking-[0.14em] text-white/55">
               {showLookup
                 ? searching
                   ? "søger i jeres dokumenter…"
@@ -285,7 +292,7 @@ export default function AgentConsole() {
               min-height duer ikke: den regnes inklusive padding, så feltet
               voksede 14 px i det øjeblik linjen kom, og hele panelet med. */}
           <div className="mt-5 border-t border-white/10 pt-4">
-            <p className="font-mono text-[0.7rem] leading-none tracking-wide text-white/35">
+            <p className="font-mono text-[0.7rem] leading-none tracking-wide text-white/55">
               {!done
                 ? "\u00a0"
                 : cur.cite
@@ -293,13 +300,14 @@ export default function AgentConsole() {
                   : "Ingen kilde. Den svarer ikke uden dækning."}
             </p>
           </div>
+          </div>
         </div>
       </div>
 
       {/* Spørgsmålene er rigtige knapper — det er dem der gør panelet til noget
           man kan pille ved i stedet for en film der kører. */}
       <div className="mt-4 flex flex-wrap items-center gap-2">
-        <span className="mr-1 font-mono text-[0.7rem] uppercase tracking-[0.14em] text-gray-400">
+        <span className="mr-1 font-mono text-[0.7rem] uppercase tracking-[0.14em] text-gray-500">
           Prøv selv
         </span>
         {EXCHANGES.map((e, i) => (
@@ -311,7 +319,7 @@ export default function AgentConsole() {
             className={`border px-3 py-1.5 text-[0.8rem] leading-none transition-colors duration-200 ${
               i === ex
                 ? "border-gray-900 text-gray-900"
-                : "border-gray-200 text-gray-500 hover:border-gray-400 hover:text-gray-900"
+                : "border-gray-300 text-gray-600 hover:border-gray-500 hover:text-gray-900"
             }`}
           >
             {e.q}
@@ -337,7 +345,7 @@ export default function AgentConsole() {
 
 function SourceChip({ name }: { name: string }) {
   return (
-    <span className="border border-white/15 px-2.5 py-1 font-mono text-[0.7rem] text-white/55">
+    <span className="border border-white/15 px-2.5 py-1 font-mono text-[0.7rem] text-white/70">
       {name}
     </span>
   );

@@ -34,13 +34,17 @@
   }
 
   /* Kicker/eyebrow — den lille versal over en overskrift. */
+  /* Saetter ikke farve. Den laa i samme utility-lag som text-white/60, saa
+     hvem der vandt afhang af raekkefoelgen i det genererede CSS — og den
+     vippede da grundfarven blev aendret. Farven hoerer til paa kaldestedet:
+     text-gray-600 paa lys bund, text-white/60 paa moerk. Begge maaler over
+     4,5:1. */
   .kicker {
     font-size: 0.6875rem;
     line-height: 1;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.18em;
-    color: var(--color-gray-400);
   }
 
   /* Enterprise bruger streger, ikke skygger. */
@@ -189,6 +193,124 @@ body {
   height: 2px;
   background: var(--color-primary);
 }
+
+/* ---------------------------------------------------------------
+   Fladerne — gitter, lys og kant
+
+   Siden var typografi på ensfarvede felter fra ydelserne og ned. Ikke
+   forkert, men fladt: ingen overflade, intet lys, ingen dybde. De fire
+   værktøjer her giver fladerne noget at være lavet af — uden at der
+   kommer en eneste ny farve på siden.
+
+   .grid-field    millimeterpapir under indholdet. Maskeret, så det toner
+                  ud mod kanterne og aldrig bliver et mønster man kigger
+                  på. Sæt --field-line/--field-pitch for at ændre det.
+   .amber-cast    skæret fra lampen. Brandets orange ER en tændt lampe, så
+                  lyset fra den er det eneste "gradient" huset tillader.
+                  Holdes lavt med vilje — over ~15% bliver det AI-plakat.
+   .panel-lit     mørk flade der ligger som et objekt lyset falder på i
+                  stedet for som et hul i siden. Bemærk: huset bruger
+                  streger frem for skygger, og det gælder stadig for kort.
+                  Det her er ikke et kort — det er sidens ene produktflade,
+                  og én stor, blød ambient skygge er det der får den til at
+                  ligge ovenpå papiret i stedet for i det.
+   .corner-marks  hjørnemærker som på en teknisk tegning. Ren pynt, men af
+                  den slags der siger værktøj og ikke reklame.
+   --------------------------------------------------------------- */
+
+:root {
+  --field-line: rgba(0, 0, 0, 0.05);
+  --field-pitch: 72px;
+}
+
+.grid-field {
+  position: relative;
+}
+
+.grid-field::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background-image:
+    linear-gradient(to right, var(--field-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--field-line) 1px, transparent 1px);
+  background-size: var(--field-pitch) var(--field-pitch);
+  -webkit-mask-image: radial-gradient(
+    ellipse 85% 75% at 50% 42%,
+    #000 15%,
+    transparent 76%
+  );
+  mask-image: radial-gradient(
+    ellipse 85% 75% at 50% 42%,
+    #000 15%,
+    transparent 76%
+  );
+}
+
+/* Gitteret på mørk bund skal være lidt stærkere for at kunne ses. */
+.grid-field-dark {
+  --field-line: rgba(255, 255, 255, 0.06);
+}
+
+.amber-cast {
+  position: absolute;
+  z-index: 0;
+  pointer-events: none;
+  border-radius: 9999px;
+  background: radial-gradient(
+    closest-side,
+    rgba(255, 154, 0, 0.15),
+    rgba(255, 154, 0, 0.05) 52%,
+    rgba(255, 154, 0, 0) 78%
+  );
+}
+
+/* På hvid bund skal skæret være svagere — papir tåler mindre end mørke. */
+.amber-cast-soft {
+  background: radial-gradient(
+    closest-side,
+    rgba(255, 154, 0, 0.11),
+    rgba(255, 154, 0, 0.035) 52%,
+    rgba(255, 154, 0, 0) 78%
+  );
+}
+
+.panel-lit {
+  box-shadow:
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.09),
+    0 32px 64px -34px rgba(0, 0, 0, 0.55);
+}
+
+.corner-marks::before,
+.corner-marks::after {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  pointer-events: none;
+  border-color: var(--mark-color, rgba(0, 0, 0, 0.25));
+}
+
+/* Mærkerne sidder uden for kanten. Lagt oven i den ville de forsvinde i
+   panelets egen streg. */
+.corner-marks::before {
+  top: var(--mark-offset, -11px);
+  left: var(--mark-offset, -11px);
+  border-top: 1px solid;
+  border-left: 1px solid;
+}
+
+.corner-marks::after {
+  bottom: var(--mark-offset, -11px);
+  right: var(--mark-offset, -11px);
+  border-bottom: 1px solid;
+  border-right: 1px solid;
+}
+
+/* Ingen af de tre bevægelige ting må køre for den der har slået bevægelse
+   fra; gitter og skær er statiske, så de kan blive stående. */
 
 /* ---------------------------------------------------------------
    Kontrollampen — sidens signatur.

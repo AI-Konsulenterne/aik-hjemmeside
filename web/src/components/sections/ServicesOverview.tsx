@@ -61,12 +61,16 @@ const services = [
 
 export default function ServicesOverview() {
   return (
-    <section className="section-y bg-gray-50">
-      <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
+    <section className="grid-field section-y relative overflow-hidden bg-gray-50">
+      <div
+        aria-hidden="true"
+        className="amber-cast amber-cast-soft left-[-12rem] top-[-10rem] h-[40rem] w-[40rem]"
+      />
+      <div className="relative z-10 mx-auto max-w-[1400px] px-6 lg:px-10">
         <FadeIn>
           <div className="flex items-center gap-3">
             <span className="lamp" data-lit="true" aria-hidden="true" />
-            <p className="kicker">Hvad vi tilbyder</p>
+            <p className="kicker text-gray-600">Hvad vi tilbyder</p>
           </div>
 
           <div className="mt-8 grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.8fr)] lg:items-end lg:gap-20">
@@ -78,7 +82,7 @@ export default function ServicesOverview() {
             <h2 className="max-w-[18ch] text-[clamp(2rem,3.6vw,3.25rem)] font-bold leading-[1.02] tracking-display text-gray-900">
               Det begynder sjældent med en model. Det begynder med en opgave.
             </h2>
-            <p className="max-w-[46ch] text-base leading-relaxed text-gray-500">
+            <p className="max-w-[46ch] text-base leading-relaxed text-gray-600">
               Nogle ved præcis hvad de vil have bygget. Andre skal først se
               hvad der overhovedet er muligt hos dem. Derfor er der tre
               indgange og ikke én.
@@ -108,15 +112,22 @@ export default function ServicesOverview() {
                 href={s.href}
                 className="group flex h-full flex-col"
               >
-                <span className="text-xs font-semibold tabular-nums tracking-widest text-gray-400">
+                {/* Pynt, ikke information: rækkefølgen ligger i DOM'en og
+                    overskriften står lige under. Derfor aria-hidden, og
+                    derfor er den bevidst svag — den er et anker for øjet, 
+                    ikke noget der skal læses. */}
+                <span
+                  aria-hidden="true"
+                  className="text-[2.75rem] font-bold leading-none tabular-nums tracking-display text-gray-900/30 transition-colors duration-300 group-hover:text-primary/40"
+                >
                   {s.n}
                 </span>
 
-                <h3 className="mt-6 text-xl font-bold leading-snug tracking-heading text-gray-900 transition-colors group-hover:text-primary lg:text-2xl">
+                <h3 className="mt-7 text-xl font-bold leading-snug tracking-heading text-gray-900 transition-colors group-hover:text-primary lg:text-2xl">
                   {s.title}
                 </h3>
 
-                <p className="mt-4 max-w-[34ch] text-[0.95rem] leading-relaxed text-gray-500">
+                <p className="mt-4 max-w-[34ch] text-[0.95rem] leading-relaxed text-gray-600">
                   {s.lead}
                 </p>
 

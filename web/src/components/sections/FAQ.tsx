@@ -21,21 +21,25 @@ export default function FAQ() {
   const [open, setOpen] = useState<number | null>(0);
 
   return (
-    <section className="section-y bg-gray-50">
-      <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
+    <section className="grid-field section-y relative overflow-hidden bg-gray-50">
+      <div
+        aria-hidden="true"
+        className="amber-cast amber-cast-soft bottom-[-16rem] right-[-10rem] h-[36rem] w-[36rem]"
+      />
+      <div className="relative z-10 mx-auto max-w-[1400px] px-6 lg:px-10">
         <div className="grid gap-12 lg:grid-cols-[minmax(0,0.75fr)_minmax(0,1.25fr)] lg:gap-20">
           <FadeIn>
             <div className="lg:sticky lg:top-32">
               <div className="flex items-center gap-3">
                 <span className="lamp" data-lit="true" aria-hidden="true" />
-                <p className="kicker">Spørgsmål vi ofte får</p>
+                <p className="kicker text-gray-600">Spørgsmål vi ofte får</p>
               </div>
 
               <h2 className="mt-8 max-w-[14ch] text-[clamp(2rem,3.4vw,3rem)] font-bold leading-[1.02] tracking-display text-gray-900">
                 Det I plejer at spørge om
               </h2>
 
-              <p className="mt-6 max-w-[34ch] text-base leading-relaxed text-gray-500">
+              <p className="mt-6 max-w-[34ch] text-base leading-relaxed text-gray-600">
                 Er der noget der ikke står her, så tager Alexander telefonen.
               </p>
 
@@ -66,7 +70,7 @@ export default function FAQ() {
                       {/* Plusset er sat, ikke tegnet. Det drejer til et kryds. */}
                       <span
                         aria-hidden="true"
-                        className={`mt-0.5 shrink-0 text-xl leading-none text-gray-400 transition-transform duration-300 ease-precise ${
+                        className={`mt-0.5 shrink-0 text-xl leading-none text-gray-800 transition-transform duration-300 ease-precise ${
                           isOpen ? "rotate-45 text-primary" : ""
                         }`}
                       >
