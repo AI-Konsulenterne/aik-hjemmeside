@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Button from "@/components/ui/Button";
 import FadeIn from "@/components/ui/FadeIn";
+import LessonVideo from "@/components/sections/LessonVideo";
 
 const SKOOL_URL = "https://www.skool.com/aiminds";
 
@@ -631,6 +632,34 @@ export default function AcademyLanding() {
             Usikker på hvor I skal starte? Book en snak, så finder vi det rette
             forløb sammen.
           </div>
+        </div>
+      </section>
+
+      {/* ══════════ SE EN RIGTIG LEKTION ══════════ */}
+      <section id="lektion" className="bg-gray-50 py-[clamp(4rem,10vw,7rem)] scroll-mt-24">
+        <div className="max-w-4xl mx-auto px-6 lg:px-8">
+          <FadeIn>
+            <div className="max-w-2xl mx-auto text-center">
+              <Eyebrow>Direkte fra platformen</Eyebrow>
+              <h2 className="text-3xl lg:text-5xl font-bold tracking-heading text-gray-900 leading-[1.08] mt-4">
+                Se en rigtig <span className="text-primary">lektion</span>.
+              </h2>
+              <p className="text-lg text-gray-600 mt-5 leading-relaxed">
+                Det her er en lektion fra AI-Minds om prompting - præcis som
+                jeres medarbejdere møder den. Så kan I selv vurdere formatet,
+                inden vi tager en snak.
+              </p>
+            </div>
+          </FadeIn>
+          <FadeIn delay={120}>
+            <div className="mt-12">
+              <LessonVideo
+                videoId="-MePqDXITi8"
+                title="Prompting efter Microsofts anbefalinger - lektion fra AI-Minds"
+                thumbnailSrc="/lektion-prompting.jpg"
+              />
+            </div>
+          </FadeIn>
         </div>
       </section>
 
