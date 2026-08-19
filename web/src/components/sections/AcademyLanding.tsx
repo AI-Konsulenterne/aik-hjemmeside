@@ -642,7 +642,7 @@ export default function AcademyLanding() {
             <div className="max-w-2xl mx-auto text-center">
               <Eyebrow>Direkte fra platformen</Eyebrow>
               <h2 className="text-3xl lg:text-5xl font-bold tracking-heading text-gray-900 leading-[1.08] mt-4">
-                Se en rigtig <span className="text-primary">lektion</span>.
+                Se vores underviser <span className="text-primary">i aktion</span>.
               </h2>
               <p className="text-lg text-gray-600 mt-5 leading-relaxed">
                 Det her er en lektion fra AI-Minds om prompting - præcis som
