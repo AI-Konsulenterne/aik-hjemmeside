@@ -713,7 +713,7 @@ export default function AcademyLanding() {
             <div className="max-w-2xl">
               <Eyebrow>Sådan ser det ud i praksis</Eyebrow>
               <h2 className="text-3xl lg:text-5xl font-bold tracking-heading text-gray-900 leading-[1.08] mt-4">
-                Det, I får <span className="text-primary">adgang til</span>.
+                Alt, hvad I <span className="text-primary">har brug for</span>.
               </h2>
             </div>
           </FadeIn>
