@@ -10,13 +10,12 @@ routines automatisk med uden at routine-prompten skal ændres.
 Kør denne kontrol før alt andet:
 
     test -n "$STRAPI_API_URL" && test -n "$STRAPI_API_TOKEN" && echo "STRAPI OK" || echo "STRAPI MANGLER"
-    test -n "$VERCEL_TOKEN" && echo "VERCEL OK" || echo "VERCEL MANGLER"
 
 Mangler STRAPI-variablerne: **STOP med det samme**. Skriv ikke posten, og
 rapportér at hemmelighederne ikke er sat. Udgiv aldrig halvfærdigt.
 
-Mangler kun VERCEL_TOKEN: du må gerne udgive til Strapi (posten går live via
-ISR), men du kan ikke opdatere sitemap. Sig det tydeligt i rapporten.
+Det er den eneste hemmelighed du skal bruge. Der kræves **ikke** noget
+Vercel-token, og der skal ikke bygges eller deployes - se "Sitemap" nedenfor.
 
 ## Trin 0: undgå dubletter (ALTID først)
 
@@ -109,25 +108,24 @@ POST til `{STRAPI_API_URL}/api/blog-posts?status=published` med `{"data": {...}}
 Bekræft **HTTP 201** + `documentId` + `publishedAt`. Fejler POST'en: STOP,
 rapportér, og deploy ikke.
 
-## Sitemap + deploy
+## Sitemap - der er intet at gøre
 
-`web/public/sitemap-0.xml` er et committet artefakt. Vercel kører `next build`
-direkte, så `postbuild`/`next-sitemap` aldrig fyrer i produktion. Uden dette
-trin mangler indlægget i sitemap.
+**Byg ikke, og deploy ikke.** Siden bygger ikke længere sitemap som et
+committet artefakt. `web/src/app/sitemap.ts` henter sider, blogindlæg og cases
+direkte fra Strapi med 60 sekunders ISR, præcis som resten af sitet.
 
-**Vigtigt om timing:** buildet henter posterne fra Strapi. Bygger du i samme
-øjeblik, du har udgivet, kan det nye indlæg mangle. Vent ~30 sekunder efter
-udgivelse, byg, og **verificér** at slug'en står i sitemappet, før du deployer.
+Det betyder: cirka et minut efter din POST er indlægget både live på sin egen
+URL og med i `/sitemap.xml`. Uden build, uden deploy, uden Vercel-token.
 
-    sleep 30
-    cd web && rm -rf .next && npm ci && npm run build
-    grep -c "DIN-SLUG" public/sitemap-0.xml     # skal give 1 - ellers byg igen
-
-Deploy derefter fra repo-roden:
-
-    npx vercel --prod --yes --force --token "$VERCEL_TOKEN"
+(Historik: før 2026-08-28 lå sitemap i `public/sitemap-0.xml`, genereret af
+`next-sitemap` som `postbuild`. Vercel kører `next build` direkte, så det trin
+fyrede aldrig i produktion - derfor skulle en lokal maskine bygge og committe
+filen ved hvert indlæg. Det var netop dét, der bandt udgivelsen til en tændt
+laptop. `/sitemap-0.xml` redirecter nu permanent til `/sitemap.xml`.)
 
 ## Verificér live
+
+Vent ~60 sekunder efter POST, så ISR har hentet det nye indhold.
 
 Statuskoden alene er ikke nok (ukendte slugs giver også 200):
 
@@ -135,15 +133,19 @@ Statuskoden alene er ikke nok (ukendte slugs giver også 200):
 
 Titlen skal være artiklens - ikke "Artikel ikke fundet". Tjek også:
 
-    curl -s https://ai-konsulenterne.dk/sitemap-0.xml | grep -c "DIN-SLUG"   # 1
+    curl -s https://ai-konsulenterne.dk/sitemap.xml | grep -c "DIN-SLUG"   # 1
+
+Mangler slug'en i sitemap, så vent et minut mere og prøv igen - ISR-cachen kan
+lige nå at servere en gammel version. Bliver den ved med at mangle, så
+rapportér det; byg ikke og deploy ikke for at "tvinge" den igennem.
 
 ## Efter udgivelse
 
 1. Tilføj en linje i `web/content/blog-log.md`: dato, spor, keyword, slug, URL.
 2. Er emnet taget fra `blog-backlog.md`, så lad rækken stå - loggen er facit
    for hvad der er udgivet.
-3. Commit `web/content/blog-log.md` og `web/public/sitemap-0.xml` med
-   `blog: [titel]` og push til `main`.
+3. Commit `web/content/blog-log.md` med `blog: [titel]` og push til `main`.
+   Det er den eneste fil, der ændrer sig - sitemap er dynamisk.
 4. Rapportér: emne og hvorfor, titel, slug, fuld URL, excerpt, bekræftelse på
    at det er live, og hvor mange emner der er tilbage i backloggen.
    Gik noget galt: rapportér fejlen tydeligt i stedet for at pynte på den.

@@ -39,10 +39,11 @@ Udgivet via `blog-backlog.md`-køen. Medtaget her, så emnerne ikke gentages.
   `{"data": {...}}`. Felter og regler: se [`blog-backlog.md`](blog-backlog.md).
 - **`seoTitle` skal være ≤41 tegn** — ikke 60. Siden føjer selv
   `" | AI Konsulenterne"` til, så det rendrede `<title>` lander på ≤60.
-- **Sitemap:** opdateres IKKE af Vercel-buildet. Efter udgivelse køres fra `web/`:
-  `rm -rf .next/cache && npm run build`, derefter deploy fra repo-roden med
-  `npx vercel --prod --yes --force`. Verificér at slug'en står i
-  `public/sitemap-0.xml`.
+- **Sitemap:** intet at gøre. `web/src/app/sitemap.ts` henter sider, blogindlæg
+  og cases direkte fra Strapi med 60s ISR, så et nyt indlæg står i
+  `/sitemap.xml` cirka et minut efter udgivelse - uden build og uden deploy.
+  (Før 2026-08-28 var det et committet artefakt genereret af `next-sitemap`,
+  som krævede lokalt build + deploy ved hvert indlæg.)
 - **Link-mål der findes:** `/academy`, `/workshop`, `/skraeddersyede-ai`,
   `/ai-strategi`, `/ai-i-hr`, `/ai-kundeservice`, `/ai-analyse`, `/ai-i-e-commerce`,
   `/visionai` samt cases under `/cases/`.

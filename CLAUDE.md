@@ -208,7 +208,8 @@ Teammedlemmer
 ## SEO
 
 - Alle sider: `<title>`, `<meta description>`, Open Graph tags (LinkedIn preview)
-- Sitemap auto-genereret (`next-sitemap`)
+- Sitemap genereres dynamisk af `web/src/app/sitemap.ts` (henter sider, blog og
+  cases fra Strapi, 60s ISR) — ikke et committet artefakt, intet build nødvendigt
 - Struktureret data (JSON-LD) på forsiden og cases
 - Dansk sprog: `<html lang="da">`
 - Core Web Vitals: LCP < 2.5s, CLS < 0.1
