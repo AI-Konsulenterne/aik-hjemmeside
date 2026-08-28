@@ -199,7 +199,17 @@ const nextConfig: NextConfig = {
   serverExternalPackages: ["lightningcss", "@tailwindcss/postcss", "@tailwindcss/node"],
 
   async redirects() {
-    return legacyRedirects;
+    return [
+      ...legacyRedirects,
+      // Sitemap'et genereres nu dynamisk af src/app/sitemap.ts og ligger kun
+      // paa /sitemap.xml. Den gamle next-sitemap-fil (/sitemap-0.xml) er
+      // indsendt i Search Console og linket udefra, saa den peges videre.
+      {
+        source: "/sitemap-0.xml",
+        destination: "/sitemap.xml",
+        permanent: true,
+      },
+    ];
   },
 
   images: {
