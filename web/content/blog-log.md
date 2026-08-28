@@ -8,6 +8,7 @@ repoet. Se udgivelsesnoter nederst.
 
 | Dato | Spor | Keyword / emne | Slug | URL |
 |---|---|---|---|---|
+| 2026-08-28 | keyword | ai konsulent | `hvad-laver-en-ai-konsulent` | [/viden-om-ai/hvad-laver-en-ai-konsulent](https://ai-konsulenterne.dk/viden-om-ai/hvad-laver-en-ai-konsulent) |
 | 2026-08-28 | keyword | generativ ai | `hvad-er-generativ-ai` | [/viden-om-ai/hvad-er-generativ-ai](https://ai-konsulenterne.dk/viden-om-ai/hvad-er-generativ-ai) |
 | 2026-08-28 | trend | Microsoft samler Copilot i én app (august 2026) | `copilot-en-app-hvad-betyder-det-for-jeres-data` | [/viden-om-ai/copilot-en-app-hvad-betyder-det-for-jeres-data](https://ai-konsulenterne.dk/viden-om-ai/copilot-en-app-hvad-betyder-det-for-jeres-data) |
 
