@@ -3,9 +3,18 @@ import { getBlogPosts, getCases } from "@/lib/strapi";
 
 const SITE_URL = "https://ai-konsulenterne.dk";
 
-// Matcher ISR-kadencen i strapi.ts, så et nyt indlæg er i sitemap'et
-// inden for et minut efter det er udgivet — uden build og uden deploy.
-export const revalidate = 60;
+// Sitemap'et SKAL kunne opdatere sig selv uden deploy - ellers er vi tilbage
+// ved at et nyt blogindlæg kræver et build fra en tændt maskine.
+//
+// `export const revalidate = 60` er IKKE nok her: Next.js emitterer så
+// sitemap.xml som en statisk fil, og Vercel serverer den fra edge uden nogen
+// sinde at ramme origin (verificeret: x-vercel-cache: HIT og uændret lastmod
+// selv med cache-buster og age > 200s). force-dynamic gør ruten til en
+// funktion, der køres per request.
+//
+// Belastningen er lav - kun crawlere henter sitemap - og fetch-kaldene mod
+// Strapi har deres egen cache i strapi.ts.
+export const dynamic = "force-dynamic";
 
 /** Statiske sider. Billed-routes (opengraph-image m.fl.) hører ikke til her. */
 const STATIC_ROUTES: Array<{ path: string; priority: number }> = [
