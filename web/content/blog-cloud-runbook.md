@@ -112,10 +112,13 @@ rapportér, og deploy ikke.
 
 **Byg ikke, og deploy ikke.** Siden bygger ikke længere sitemap som et
 committet artefakt. `web/src/app/sitemap.ts` henter sider, blogindlæg og cases
-direkte fra Strapi med 60 sekunders ISR, præcis som resten af sitet.
+direkte fra Strapi ved **hver forespørgsel** (`export const dynamic =
+"force-dynamic"`). ISR var ikke nok: Next.js emitterede så sitemap.xml som en
+statisk fil, og Vercel serverede den fra edge uden at ramme origin.
 
-Det betyder: cirka et minut efter din POST er indlægget både live på sin egen
-URL og med i `/sitemap.xml`. Uden build, uden deploy, uden Vercel-token.
+Det betyder: sitemappet er opdateret med det samme, og selve artiklen er live
+inden for ~60 sekunder (siden bruger ISR). Uden build, uden deploy, uden
+Vercel-token.
 
 (Historik: før 2026-08-28 lå sitemap i `public/sitemap-0.xml`, genereret af
 `next-sitemap` som `postbuild`. Vercel kører `next build` direkte, så det trin
@@ -125,7 +128,8 @@ laptop. `/sitemap-0.xml` redirecter nu permanent til `/sitemap.xml`.)
 
 ## Verificér live
 
-Vent ~60 sekunder efter POST, så ISR har hentet det nye indhold.
+Vent ~60 sekunder efter POST, så artikelsidens ISR-cache har hentet det nye
+indhold. Sitemappet er dynamisk og behøver ingen ventetid.
 
 Statuskoden alene er ikke nok (ukendte slugs giver også 200):
 
@@ -135,9 +139,10 @@ Titlen skal være artiklens - ikke "Artikel ikke fundet". Tjek også:
 
     curl -s https://ai-konsulenterne.dk/sitemap.xml | grep -c "DIN-SLUG"   # 1
 
-Mangler slug'en i sitemap, så vent et minut mere og prøv igen - ISR-cachen kan
-lige nå at servere en gammel version. Bliver den ved med at mangle, så
-rapportér det; byg ikke og deploy ikke for at "tvinge" den igennem.
+Mangler slug'en i sitemap, er det et reelt problem - sitemappet bygges per
+forespørgsel, så der er ingen cache at vente på. Tjek at posten faktisk er
+`published` i Strapi, og rapportér det. Byg ikke og deploy ikke for at "tvinge"
+den igennem.
 
 ## Efter udgivelse
 
