@@ -131,6 +131,8 @@ const legacyRedirects = [
   { source: "/ai-agenter-8", destination: "/skraeddersyede-ai", permanent: true },
   { source: "/ai-procesoptimering", destination: "/skraeddersyede-ai", permanent: true },
   { source: "/loesninger", destination: "/skraeddersyede-ai", permanent: true },
+  { source: "/losninger", destination: "/skraeddersyede-ai", permanent: true },
+  { source: "/vores-losninger", destination: "/skraeddersyede-ai", permanent: true },
   { source: "/proces", destination: "/skraeddersyede-ai", permanent: true },
   { source: "/ai-knowledge", destination: "/viden-om-ai", permanent: true },
   { source: "/author/lise2024", destination: "/viden-om-ai", permanent: true },
@@ -200,6 +202,14 @@ const nextConfig: NextConfig = {
 
   async redirects() {
     return [
+      // www -> apex: www serverede hele sitet som 200-dublet (GSC saa det
+      // som separat ejendom). Én host-regel samler alt paa hoveddomaenet.
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "www.ai-konsulenterne.dk" }],
+        destination: "https://ai-konsulenterne.dk/:path*",
+        permanent: true,
+      },
       ...legacyRedirects,
       // Sitemap'et genereres nu dynamisk af src/app/sitemap.ts og ligger kun
       // paa /sitemap.xml. Den gamle next-sitemap-fil (/sitemap-0.xml) er
