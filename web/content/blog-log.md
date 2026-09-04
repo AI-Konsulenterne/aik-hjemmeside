@@ -11,7 +11,9 @@ repoet. Se udgivelsesnoter nederst.
 | 2026-08-28 | keyword | ai konsulent | `hvad-laver-en-ai-konsulent` | [/viden-om-ai/hvad-laver-en-ai-konsulent](https://ai-konsulenterne.dk/viden-om-ai/hvad-laver-en-ai-konsulent) |
 | 2026-08-28 | keyword | generativ ai | `hvad-er-generativ-ai` | [/viden-om-ai/hvad-er-generativ-ai](https://ai-konsulenterne.dk/viden-om-ai/hvad-er-generativ-ai) |
 | 2026-08-28 | trend | Microsoft samler Copilot i én app (august 2026) | `copilot-en-app-hvad-betyder-det-for-jeres-data` | [/viden-om-ai/copilot-en-app-hvad-betyder-det-for-jeres-data](https://ai-konsulenterne.dk/viden-om-ai/copilot-en-app-hvad-betyder-det-for-jeres-data) |
+| ukendt (fundet i Strapi, aldrig logget) | trend | Microsoft-analyse: kulturen bremser AI | `microsoft-analyse-kulturen-bremser-jeres-ai` | [/viden-om-ai/microsoft-analyse-kulturen-bremser-jeres-ai](https://ai-konsulenterne.dk/viden-om-ai/microsoft-analyse-kulturen-bremser-jeres-ai) |
 | 2026-09-04 | keyword | ai i hr | `ai-i-hr-5-opgaver-ai-kan-overtage` | [/viden-om-ai/ai-i-hr-5-opgaver-ai-kan-overtage](https://ai-konsulenterne.dk/viden-om-ai/ai-i-hr-5-opgaver-ai-kan-overtage) |
+| 2026-09-04 | trend | Copilot skifter til forbrugsbetaling (Copilot Credits) | `copilot-priser-2026-hvad-ai-koster-med-20-ansatte` | [/viden-om-ai/copilot-priser-2026-hvad-ai-koster-med-20-ansatte](https://ai-konsulenterne.dk/viden-om-ai/copilot-priser-2026-hvad-ai-koster-med-20-ansatte) |
 
 ---
 
