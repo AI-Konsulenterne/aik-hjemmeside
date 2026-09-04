@@ -11,6 +11,7 @@ repoet. Se udgivelsesnoter nederst.
 | 2026-08-28 | keyword | ai konsulent | `hvad-laver-en-ai-konsulent` | [/viden-om-ai/hvad-laver-en-ai-konsulent](https://ai-konsulenterne.dk/viden-om-ai/hvad-laver-en-ai-konsulent) |
 | 2026-08-28 | keyword | generativ ai | `hvad-er-generativ-ai` | [/viden-om-ai/hvad-er-generativ-ai](https://ai-konsulenterne.dk/viden-om-ai/hvad-er-generativ-ai) |
 | 2026-08-28 | trend | Microsoft samler Copilot i én app (august 2026) | `copilot-en-app-hvad-betyder-det-for-jeres-data` | [/viden-om-ai/copilot-en-app-hvad-betyder-det-for-jeres-data](https://ai-konsulenterne.dk/viden-om-ai/copilot-en-app-hvad-betyder-det-for-jeres-data) |
+| 2026-09-04 | keyword | ai i hr | `ai-i-hr-5-opgaver-ai-kan-overtage` | [/viden-om-ai/ai-i-hr-5-opgaver-ai-kan-overtage](https://ai-konsulenterne.dk/viden-om-ai/ai-i-hr-5-opgaver-ai-kan-overtage) |
 
 ---
 
@@ -49,3 +50,8 @@ Udgivet via `blog-backlog.md`-køen. Medtaget her, så emnerne ikke gentages.
   `/visionai` samt cases under `/cases/`.
 - **`/copilot-kursus` findes IKKE** (404 pr. 2026-08-28). Link ikke dertil,
   før siden er bygget - brug `/academy` som CTA i stedet.
+- **Cloud-sandkassen kan ikke nå `ai-konsulenterne.dk`** (pr. 2026-09-04):
+  egress-gateway'en svarer `curl: (56) CONNECT tunnel failed, response 403`.
+  Strapi kan nås fint, så udgivelsen virker - men live-tjekket af `<title>`
+  og `/sitemap.xml` kan ikke køres fra skyen. Verificér i stedet via Strapi
+  (`?status=published` + `publishedAt`), og tjek siden manuelt i en browser.
