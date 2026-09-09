@@ -15,6 +15,7 @@ repoet. Se udgivelsesnoter nederst.
 | 2026-09-04 | keyword | ai i hr | `ai-i-hr-5-opgaver-ai-kan-overtage` | [/viden-om-ai/ai-i-hr-5-opgaver-ai-kan-overtage](https://ai-konsulenterne.dk/viden-om-ai/ai-i-hr-5-opgaver-ai-kan-overtage) |
 | 2026-09-04 | trend | Copilot skifter til forbrugsbetaling (Copilot Credits) | `copilot-priser-2026-hvad-ai-koster-med-20-ansatte` | [/viden-om-ai/copilot-priser-2026-hvad-ai-koster-med-20-ansatte](https://ai-konsulenterne.dk/viden-om-ai/copilot-priser-2026-hvad-ai-koster-med-20-ansatte) |
 | 2026-09-08 | trend | Copilot Cowork — agentisk Copilot ruller ud på Windows/macOS | `copilot-cowork-naar-ai-udfoerer-opgaver-for-jer` | [/viden-om-ai/copilot-cowork-naar-ai-udfoerer-opgaver-for-jer](https://ai-konsulenterne.dk/viden-om-ai/copilot-cowork-naar-ai-udfoerer-opgaver-for-jer) |
+| 2026-09-09 | keyword | hvad koster ai / ai roi | `hvad-koster-en-ai-loesning` | [/viden-om-ai/hvad-koster-en-ai-loesning](https://ai-konsulenterne.dk/viden-om-ai/hvad-koster-en-ai-loesning) |
 
 ---
 
