@@ -17,6 +17,7 @@ repoet. Se udgivelsesnoter nederst.
 | 2026-09-08 | trend | Copilot Cowork — agentisk Copilot ruller ud på Windows/macOS | `copilot-cowork-naar-ai-udfoerer-opgaver-for-jer` | [/viden-om-ai/copilot-cowork-naar-ai-udfoerer-opgaver-for-jer](https://ai-konsulenterne.dk/viden-om-ai/copilot-cowork-naar-ai-udfoerer-opgaver-for-jer) |
 | 2026-09-09 | keyword | hvad koster ai / ai roi | `hvad-koster-en-ai-loesning` | [/viden-om-ai/hvad-koster-en-ai-loesning](https://ai-konsulenterne.dk/viden-om-ai/hvad-koster-en-ai-loesning) |
 | 2026-09-10 | keyword | ai i sundhedsvæsenet (backlog #9 - #7 "ai kundeservice" sprunget over, dækket af `ai-automatisering-af-kundeservice`) | `ai-i-sundhedsvaesenet-hvor-det-giver-mening` | [/viden-om-ai/ai-i-sundhedsvaesenet-hvor-det-giver-mening](https://ai-konsulenterne.dk/viden-om-ai/ai-i-sundhedsvaesenet-hvor-det-giver-mening) |
+| 2026-09-11 | trend | AI-agent-sikkerhed - kritisk hul (CVE-2026-79696) i Google ADK 09-09 | `ai-agenter-sikkerhed-5-spoergsmaal-til-leverandoeren` | [/viden-om-ai/ai-agenter-sikkerhed-5-spoergsmaal-til-leverandoeren](https://ai-konsulenterne.dk/viden-om-ai/ai-agenter-sikkerhed-5-spoergsmaal-til-leverandoeren) |
 
 ---
 
