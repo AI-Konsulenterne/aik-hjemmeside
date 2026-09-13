@@ -19,6 +19,7 @@ repoet. Se udgivelsesnoter nederst.
 | 2026-09-10 | keyword | ai i sundhedsvæsenet (backlog #9 - #7 "ai kundeservice" sprunget over, dækket af `ai-automatisering-af-kundeservice`) | `ai-i-sundhedsvaesenet-hvor-det-giver-mening` | [/viden-om-ai/ai-i-sundhedsvaesenet-hvor-det-giver-mening](https://ai-konsulenterne.dk/viden-om-ai/ai-i-sundhedsvaesenet-hvor-det-giver-mening) |
 | 2026-09-11 | trend | AI-agent-sikkerhed - kritisk hul (CVE-2026-79696) i Google ADK 09-09 | `ai-agenter-sikkerhed-5-spoergsmaal-til-leverandoeren` | [/viden-om-ai/ai-agenter-sikkerhed-5-spoergsmaal-til-leverandoeren](https://ai-konsulenterne.dk/viden-om-ai/ai-agenter-sikkerhed-5-spoergsmaal-til-leverandoeren) |
 | 2026-09-13 | keyword | ai foredrag (backlog #10 - sidste emne i køen, se note nedenfor) | `ai-foredrag-hvad-faar-i-ud-af-det` | [/viden-om-ai/ai-foredrag-hvad-faar-i-ud-af-det](https://ai-konsulenterne.dk/viden-om-ai/ai-foredrag-hvad-faar-i-ud-af-det) |
+| 2026-09-13 | trend | Copilot bygger apps via samtale (Cowork + Copilot Studio, 10-09) | `copilot-bygger-apps-hvad-det-betyder-for-jeres-regneark` | [/viden-om-ai/copilot-bygger-apps-hvad-det-betyder-for-jeres-regneark](https://ai-konsulenterne.dk/viden-om-ai/copilot-bygger-apps-hvad-det-betyder-for-jeres-regneark) |
 
 ---
 
