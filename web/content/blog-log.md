@@ -18,6 +18,7 @@ repoet. Se udgivelsesnoter nederst.
 | 2026-09-09 | keyword | hvad koster ai / ai roi | `hvad-koster-en-ai-loesning` | [/viden-om-ai/hvad-koster-en-ai-loesning](https://ai-konsulenterne.dk/viden-om-ai/hvad-koster-en-ai-loesning) |
 | 2026-09-10 | keyword | ai i sundhedsvæsenet (backlog #9 - #7 "ai kundeservice" sprunget over, dækket af `ai-automatisering-af-kundeservice`) | `ai-i-sundhedsvaesenet-hvor-det-giver-mening` | [/viden-om-ai/ai-i-sundhedsvaesenet-hvor-det-giver-mening](https://ai-konsulenterne.dk/viden-om-ai/ai-i-sundhedsvaesenet-hvor-det-giver-mening) |
 | 2026-09-11 | trend | AI-agent-sikkerhed - kritisk hul (CVE-2026-79696) i Google ADK 09-09 | `ai-agenter-sikkerhed-5-spoergsmaal-til-leverandoeren` | [/viden-om-ai/ai-agenter-sikkerhed-5-spoergsmaal-til-leverandoeren](https://ai-konsulenterne.dk/viden-om-ai/ai-agenter-sikkerhed-5-spoergsmaal-til-leverandoeren) |
+| 2026-09-13 | keyword | ai foredrag (backlog #10 - sidste emne i køen, se note nedenfor) | `ai-foredrag-hvad-faar-i-ud-af-det` | [/viden-om-ai/ai-foredrag-hvad-faar-i-ud-af-det](https://ai-konsulenterne.dk/viden-om-ai/ai-foredrag-hvad-faar-i-ud-af-det) |
 
 ---
 
@@ -61,3 +62,9 @@ Udgivet via `blog-backlog.md`-køen. Medtaget her, så emnerne ikke gentages.
   Strapi kan nås fint, så udgivelsen virker - men live-tjekket af `<title>`
   og `/sitemap.xml` kan ikke køres fra skyen. Verificér i stedet via Strapi
   (`?status=published` + `publishedAt`), og tjek siden manuelt i en browser.
+- **Backlog-køen er tom pr. 2026-09-13.** Alle 10 emner i `blog-backlog.md` er
+  nu dækket. #7 "ai kundeservice" blev sprunget over, fordi den live artikel
+  `ai-automatisering-af-kundeservice` allerede målretter samme søgeord - men
+  den er kun 286 ord og trænger til en dybere omskrivning. Næste KEYWORD-kørsel
+  har derfor intet nyt emne at tage: tilføj emner nederst i `blog-backlog.md`,
+  ellers falder den tilbage på et fordybende opfølgnings-indlæg.
