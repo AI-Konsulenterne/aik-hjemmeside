@@ -20,6 +20,7 @@ repoet. Se udgivelsesnoter nederst.
 | 2026-09-11 | trend | AI-agent-sikkerhed - kritisk hul (CVE-2026-79696) i Google ADK 09-09 | `ai-agenter-sikkerhed-5-spoergsmaal-til-leverandoeren` | [/viden-om-ai/ai-agenter-sikkerhed-5-spoergsmaal-til-leverandoeren](https://ai-konsulenterne.dk/viden-om-ai/ai-agenter-sikkerhed-5-spoergsmaal-til-leverandoeren) |
 | 2026-09-13 | keyword | ai foredrag (backlog #10 - sidste emne i køen, se note nedenfor) | `ai-foredrag-hvad-faar-i-ud-af-det` | [/viden-om-ai/ai-foredrag-hvad-faar-i-ud-af-det](https://ai-konsulenterne.dk/viden-om-ai/ai-foredrag-hvad-faar-i-ud-af-det) |
 | 2026-09-13 | trend | Copilot bygger apps via samtale (Cowork + Copilot Studio, 10-09) | `copilot-bygger-apps-hvad-det-betyder-for-jeres-regneark` | [/viden-om-ai/copilot-bygger-apps-hvad-det-betyder-for-jeres-regneark](https://ai-konsulenterne.dk/viden-om-ai/copilot-bygger-apps-hvad-det-betyder-for-jeres-regneark) |
+| 2026-09-15 | trend | Stemme-AI i telefonen - OpenAI åbnede GPT-Live-1 i API'et 10-09 til 0,05 USD/min (intet nyt Copilot-SMV-stof i vinduet, så prioritet 2: værktøj SMV'er kan bruge) | `ai-der-tager-telefonen-hvad-det-koster` | [/viden-om-ai/ai-der-tager-telefonen-hvad-det-koster](https://ai-konsulenterne.dk/viden-om-ai/ai-der-tager-telefonen-hvad-det-koster) |
 
 ---
 
