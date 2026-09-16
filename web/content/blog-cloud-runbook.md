@@ -25,7 +25,14 @@ Vercel-token, og der skal ikke bygges eller deployes - se "Sitemap" nedenfor.
        curl -sS -g -H "Authorization: Bearer $STRAPI_API_TOKEN" \
          "$STRAPI_API_URL/api/blog-posts?pagination[pageSize]=100&fields[0]=slug&fields[1]=title"
 
-3. Jagter en eksisterende artikel samme søgeord, så vælg det næste emne.
+3. Jagter en eksisterende artikel **samme søgeord**, så vælg et andet søgeord.
+
+Reglen går på søgeordet, ikke på emnet. Samme **emne** må gerne gå igen - også
+to dage i træk - hvis emnet har reel søgevolumen (fx undervisning i Copilot).
+Kravet er, at hvert indlæg har sit eget søgeord, sin egen vinkel og sin egen
+slug, og at indlæggene linker til hinanden. To indlæg, der jagter samme søgeord,
+konkurrerer internt i Google, og så rangerer begge dårligere end ét godt indlæg
+ville have gjort.
 
 ## Emnevalg
 
@@ -34,6 +41,13 @@ Vercel-token, og der skal ikke bygges eller deployes - se "Sitemap" nedenfor.
 adoption øverst, derefter værktøjer SMV'er faktisk kan bruge, så markedsanalyser.
 Vinkl til "hvad betyder det for en dansk virksomhed med 20 ansatte" - ikke
 "OpenAI lancerer X". Kildehenvis alle nyheder med link. `category: "news"`.
+
+Store emner må gerne dækkes som en **klynge** over flere dage: ét emne, flere
+søgeord. Fx undervisning i Copilot kan blive "hvad koster et Copilot-kursus",
+"hvor lang tid tager det at lære Copilot" og "hvorfor bruger medarbejderne ikke
+Copilot" - tre indlæg, tre søgeord, links mellem dem, CTA til `/academy`.
+Vælg klynge frem for et tyndt nyt emne, når nyhedsstrømmen er tynd: et emne
+folk faktisk søger på slår en nyhed, ingen googler om 14 dage.
 
 **Spor KEYWORD (torsdag):** tag det øverste emne i `web/content/blog-backlog.md`
 som ikke allerede er udgivet. `category: "guide"`.
