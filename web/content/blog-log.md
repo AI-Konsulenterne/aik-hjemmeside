@@ -64,9 +64,9 @@ Udgivet via `blog-backlog.md`-køen. Medtaget her, så emnerne ikke gentages.
   Strapi kan nås fint, så udgivelsen virker - men live-tjekket af `<title>`
   og `/sitemap.xml` kan ikke køres fra skyen. Verificér i stedet via Strapi
   (`?status=published` + `publishedAt`), og tjek siden manuelt i en browser.
-- **Backlog-køen er tom pr. 2026-09-13.** Alle 10 emner i `blog-backlog.md` er
-  nu dækket. #7 "ai kundeservice" blev sprunget over, fordi den live artikel
-  `ai-automatisering-af-kundeservice` allerede målretter samme søgeord - men
-  den er kun 286 ord og trænger til en dybere omskrivning. Næste KEYWORD-kørsel
-  har derfor intet nyt emne at tage: tilføj emner nederst i `blog-backlog.md`,
-  ellers falder den tilbage på et fordybende opfølgnings-indlæg.
+- **Backlog-køen er fyldt op igen pr. 2026-09-16.** Emnerne 1-10 er alle udgivet.
+  Der er lagt 18 nye emner ind (11-28), flere af dem organiseret som klynger, så
+  samme emne kan dække tre dage i træk med hvert sit søgeord. #7 "ai kundeservice"
+  blev i sin tid sprunget over, fordi den live artikel
+  `ai-automatisering-af-kundeservice` målretter samme søgeord - den er kun 286 ord
+  og er stadig den tyndeste på sitet, så den trænger til en dybere omskrivning.

@@ -23,6 +23,35 @@ eller fjern emner du ikke vil have skrevet.
 | 8 | hvad koster ai / ai roi | Hvad koster en AI-løsning - og hvornår tjener den sig hjem | INDKOM | /ai-analyse |
 | 9 | ai i sundhedsvæsenet (50) | AI i sundhed & pleje - hvor det giver mening | - | /skraeddersyede-ai |
 | 10 | ai foredrag (150) | Hvad får I ud af et AI-foredrag - og hvornår er en workshop bedre | - | /workshop |
+| 11 | copilot kursus | Hvad koster et Copilot-kursus - og hvad får I for det (klynge: Copilot-undervisning) | - | /academy |
+| 12 | hvorfor bruger medarbejderne ikke copilot | Værktøjet er købt, men ingen bruger det - sådan retter I det (klynge: Copilot-undervisning) | INDKOM | /academy |
+| 13 | copilot vs chatgpt | Hvilken skal I vælge til kontoret - og kan I nøjes med én (klynge: Copilot-undervisning) | - | /academy |
+| 14 | hvad er en ai-agent | AI-agent forklaret: forskellen på en chatbot og en agent (klynge: AI-agenter) | J.M Band | /skraeddersyede-ai |
+| 15 | ai agent crm integration | Når agenten skal hente data på tværs af CRM og webshop (klynge: AI-agenter) | J.M Band | /skraeddersyede-ai |
+| 16 | ai politik for virksomheder | Hvad der skal stå i jeres AI-retningslinjer (klynge: data & ansvar) | Lavazza | /ai-strategi |
+| 17 | ai datasikkerhed | Hvor havner jeres data - og hvad I skal spørge leverandøren om (klynge: data & ansvar) | Lavazza | /skraeddersyede-ai |
+| 18 | ai på egne dokumenter / vidensbase | AI der kun svarer ud fra jeres egne dokumenter (klynge: data & ansvar) | Lavazza | /skraeddersyede-ai |
+| 19 | ai i regnskab | Bilag, fakturaer og afstemning - hvad AI realistisk kan tage | INDKOM | /skraeddersyede-ai |
+| 20 | ai i salg | Opfølgning, leadscoring og tilbud - hvad der faktisk virker | J.M Band | /ai-analyse |
+| 21 | ai i webshop | Produkttekster, kundeservice og ordreflow i en webshop | Wunderwear | /ai-i-e-commerce |
+| 22 | ai chatbot til hjemmeside | Hvad en AI-chatbot kan - og hvor den typisk fejler | Wunderwear | /ai-kundeservice |
+| 23 | ai til små virksomheder | Hvor lille kan I være og stadig få værdi af AI | Wunderwear | /skraeddersyede-ai |
+| 24 | ai mødereferat | Referater og opfølgning automatisk - og hvad I skal passe på | - | /skraeddersyede-ai |
+| 25 | ai e-mail automatisering | Indbakken som jeres første AI-opgave | Wunderwear | /ai-kundeservice |
+| 26 | ai pilotprojekt | Sådan kører I et pilotprojekt, der ikke dør efter tre uger | INDKOM | /ai-strategi |
+| 27 | hvad kan ai ikke | Det AI er dårlig til - ærligt, fra dem der bygger det | - | /skraeddersyede-ai |
+| 28 | ai dataanalyse | Fra rapporter ingen læser til svar I kan bruge | J.M Band | /ai-analyse |
+
+**Om volumen-tallene:** rækkerne 1-10 har estimater fra den oprindelige
+keyword-research. Rækkerne 11-28 har ingen tal, fordi hverken Search Console
+eller et keyword-værktøj kan nås fra cloud-kørslen - og opdigtede tal er
+værre end ingen. Udfyld dem gerne manuelt, hvis du vil omprioritere efter volumen.
+
+**Om klyngerne:** rækker mærket "klynge" hører sammen som ét emne med flere
+søgeord. De må gerne skrives på tre dage i træk - hvert indlæg sit eget søgeord,
+sin egen vinkel og sin egen slug, og de skal linke til hinanden. Se trin 0 i
+[`blog-cloud-runbook.md`](blog-cloud-runbook.md): dublet-reglen går på søgeordet,
+ikke på emnet.
 
 Når listen er tom: skriv et fordybende opfølgnings-indlæg til et af de
 bedst-performende emner (dybere guide, ny vinkel, opdaterede eksempler).
