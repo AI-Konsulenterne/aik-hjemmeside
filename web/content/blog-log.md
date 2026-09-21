@@ -23,6 +23,7 @@ repoet. Se udgivelsesnoter nederst.
 | 2026-09-15 | trend | Stemme-AI i telefonen - OpenAI åbnede GPT-Live-1 i API'et 10-09 til 0,05 USD/min (intet nyt Copilot-SMV-stof i vinduet, så prioritet 2: værktøj SMV'er kan bruge) | `ai-der-tager-telefonen-hvad-det-koster` | [/viden-om-ai/ai-der-tager-telefonen-hvad-det-koster](https://ai-konsulenterne.dk/viden-om-ai/ai-der-tager-telefonen-hvad-det-koster) |
 | 2026-09-17 | keyword | copilot kursus (backlog #11 - klynge: Copilot-undervisning) | `copilot-kursus-hvad-koster-det` | [/viden-om-ai/copilot-kursus-hvad-koster-det](https://ai-konsulenterne.dk/viden-om-ai/copilot-kursus-hvad-koster-det) |
 | 2026-09-18 | keyword | hvorfor bruger medarbejderne ikke copilot (backlog #12 - klynge: Copilot-undervisning) | `hvorfor-bruger-medarbejderne-ikke-copilot` | [/viden-om-ai/hvorfor-bruger-medarbejderne-ikke-copilot](https://ai-konsulenterne.dk/viden-om-ai/hvorfor-bruger-medarbejderne-ikke-copilot) |
+| 2026-09-21 | keyword | copilot vs chatgpt (backlog #13 - klynge: Copilot-undervisning, sidste i klyngen) | `copilot-vs-chatgpt-hvad-skal-i-vaelge` | [/viden-om-ai/copilot-vs-chatgpt-hvad-skal-i-vaelge](https://ai-konsulenterne.dk/viden-om-ai/copilot-vs-chatgpt-hvad-skal-i-vaelge) |
 
 ---
 
