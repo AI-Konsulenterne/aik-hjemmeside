@@ -68,6 +68,13 @@ Udgivet via `blog-backlog.md`-køen. Medtaget her, så emnerne ikke gentages.
   Strapi kan nås fint, så udgivelsen virker - men live-tjekket af `<title>`
   og `/sitemap.xml` kan ikke køres fra skyen. Verificér i stedet via Strapi
   (`?status=published` + `publishedAt`), og tjek siden manuelt i en browser.
+- **WebFetch er blokeret i cloud-sandkassen pr. 2026-09-22.** Egress-gateway'en
+  svarer `EGRESS_BLOCKED` på alle testede domæner (learn.microsoft.com,
+  techcommunity, nationalbanken.dk, dr.dk, tv2.dk, information.dk, ritzau,
+  wikipedia - 11 ud af 11). Kun `WebSearch` virker. Research i skyen må derfor
+  bygge på WebSearch-uddrag, og fakta bør krydstjekkes i mindst to uafhængige
+  søgninger, før de skrives ind. Kildelinks kan stadig sættes i artiklen.
+
 - **Backlog-køen er fyldt op igen pr. 2026-09-16.** Emnerne 1-10 er alle udgivet.
   Der er lagt 18 nye emner ind (11-28), flere af dem organiseret som klynger, så
   samme emne kan dække tre dage i træk med hvert sit søgeord. #7 "ai kundeservice"
