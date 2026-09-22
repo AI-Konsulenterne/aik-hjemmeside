@@ -24,6 +24,7 @@ repoet. Se udgivelsesnoter nederst.
 | 2026-09-17 | keyword | copilot kursus (backlog #11 - klynge: Copilot-undervisning) | `copilot-kursus-hvad-koster-det` | [/viden-om-ai/copilot-kursus-hvad-koster-det](https://ai-konsulenterne.dk/viden-om-ai/copilot-kursus-hvad-koster-det) |
 | 2026-09-18 | keyword | hvorfor bruger medarbejderne ikke copilot (backlog #12 - klynge: Copilot-undervisning) | `hvorfor-bruger-medarbejderne-ikke-copilot` | [/viden-om-ai/hvorfor-bruger-medarbejderne-ikke-copilot](https://ai-konsulenterne.dk/viden-om-ai/hvorfor-bruger-medarbejderne-ikke-copilot) |
 | 2026-09-21 | keyword | copilot vs chatgpt (backlog #13 - klynge: Copilot-undervisning, sidste i klyngen) | `copilot-vs-chatgpt-hvad-skal-i-vaelge` | [/viden-om-ai/copilot-vs-chatgpt-hvad-skal-i-vaelge](https://ai-konsulenterne.dk/viden-om-ai/copilot-vs-chatgpt-hvad-skal-i-vaelge) |
+| 2026-09-22 | trend | ai og jobs - Nationalbankens analyse "Kunstig intelligens og arbejdsmarkedet" (medio sept. 2026): AI-virksomheder har lavere beskæftigelsesvækst. Intet nyt Copilot-SMV-stof i 7-dages vinduet (Copilot in 30 er fra 1. aug., Cowork dækket 08-09), så prioritet 3: markedsanalyse - til gengæld dansk og bredt dækket | `ai-og-jobs-nationalbankens-tal-forklaret` | [/viden-om-ai/ai-og-jobs-nationalbankens-tal-forklaret](https://ai-konsulenterne.dk/viden-om-ai/ai-og-jobs-nationalbankens-tal-forklaret) |
 
 ---
 
