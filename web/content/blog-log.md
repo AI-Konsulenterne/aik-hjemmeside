@@ -25,6 +25,7 @@ repoet. Se udgivelsesnoter nederst.
 | 2026-09-18 | keyword | hvorfor bruger medarbejderne ikke copilot (backlog #12 - klynge: Copilot-undervisning) | `hvorfor-bruger-medarbejderne-ikke-copilot` | [/viden-om-ai/hvorfor-bruger-medarbejderne-ikke-copilot](https://ai-konsulenterne.dk/viden-om-ai/hvorfor-bruger-medarbejderne-ikke-copilot) |
 | 2026-09-21 | keyword | copilot vs chatgpt (backlog #13 - klynge: Copilot-undervisning, sidste i klyngen) | `copilot-vs-chatgpt-hvad-skal-i-vaelge` | [/viden-om-ai/copilot-vs-chatgpt-hvad-skal-i-vaelge](https://ai-konsulenterne.dk/viden-om-ai/copilot-vs-chatgpt-hvad-skal-i-vaelge) |
 | 2026-09-22 | trend | ai og jobs - Nationalbankens analyse "Kunstig intelligens og arbejdsmarkedet" (medio sept. 2026): AI-virksomheder har lavere beskæftigelsesvækst. Intet nyt Copilot-SMV-stof i 7-dages vinduet (Copilot in 30 er fra 1. aug., Cowork dækket 08-09), så prioritet 3: markedsanalyse - til gengæld dansk og bredt dækket | `ai-og-jobs-nationalbankens-tal-forklaret` | [/viden-om-ai/ai-og-jobs-nationalbankens-tal-forklaret](https://ai-konsulenterne.dk/viden-om-ai/ai-og-jobs-nationalbankens-tal-forklaret) |
+| 2026-09-24 | keyword | hvad er en ai-agent (backlog #14 - klynge: AI-agenter). Search Console kan ikke nås fra skyen, så valget er backlog-drevet | `hvad-er-en-ai-agent` | [/viden-om-ai/hvad-er-en-ai-agent](https://ai-konsulenterne.dk/viden-om-ai/hvad-er-en-ai-agent) |
 
 ---
 
