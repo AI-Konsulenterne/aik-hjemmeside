@@ -100,5 +100,6 @@ POST til `/api/blog-posts?status=published` med `{"data": {...}}`:
 - `readingTime` — tal (minutter)
 - `author` — "AI Konsulenterne"
 
-Efter udgivelse: kør en produktions-rebuild (`vercel --prod`) så indlægget
-kommer med i sitemap og statisk genereres.
+Efter udgivelse: intet at gøre. `web/src/app/sitemap.ts` er `force-dynamic`,
+så indlægget står i `/sitemap.xml` få sekunder efter POST'en - uden build og
+uden deploy. Kør ikke `vercel --prod` for et blogindlæg.
