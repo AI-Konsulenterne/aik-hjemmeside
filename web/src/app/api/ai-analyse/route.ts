@@ -40,6 +40,7 @@ type Payload = AnalyseInput & {
   name: string;
   email: string;
   bookCall?: boolean;
+  phone?: string;
 };
 
 async function generateReport(input: AnalyseInput): Promise<string> {
@@ -116,8 +117,7 @@ function reportToHtml(company: string, report: string, withCalendar: boolean): s
 
   const calendar = withCalendar
     ? `<div style="margin-top:20px;padding:16px;background:#fff7ed;border-radius:12px;">
-         <p style="margin:0 0 10px;color:#404040;font-size:14px;">I bad om at blive ringet op - book gerne 20 minutter med det samme:</p>
-         <a href="https://ai-konsulenterne.dk/kontakt" style="display:inline-block;background:#ff9a00;color:#fff;text-decoration:none;font-weight:600;padding:12px 24px;border-radius:999px;">Book et møde</a>
+         <p style="margin:0;color:#404040;font-size:14px;">I bad om at blive ringet op. Alexander kontakter jer, så I kan aftale en tid. Mødet er først booket, når I har aftalt det.</p>
        </div>`
     : `<a href="https://ai-konsulenterne.dk/kontakt" style="display:inline-block;margin-top:16px;background:#ff9a00;color:#fff;text-decoration:none;font-weight:600;padding:14px 28px;border-radius:999px;">Book en gratis snak</a>`;
 
@@ -148,10 +148,14 @@ async function sendEmail(to: string[], subject: string, html: string) {
       Authorization: `Bearer ${RESEND_KEY}`,
       "Content-Type": "application/json",
     },
+    signal: AbortSignal.timeout(10_000),
     body: JSON.stringify({ from: FROM_EMAIL, to, subject, html }),
   });
-  if (!res.ok) throw new Error(`Resend fejl ${res.status}: ${(await res.text()).slice(0, 200)}`);
-  return res.json();
+  const result = await res.json().catch(() => null);
+  if (!res.ok || typeof result?.id !== "string" || !result.id) {
+    throw new Error(`Resend accepterede ikke emailen (${res.status})`);
+  }
+  return result;
 }
 
 async function sendToLeadAgent(payload: Record<string, string | undefined>) {
@@ -188,6 +192,15 @@ export async function POST(req: NextRequest) {
     if (!company || !name) {
       return NextResponse.json({ error: "Udfyld venligst virksomhed og navn" }, { status: 400 });
     }
+    const bookCall = body.bookCall === true;
+    const phone = typeof body.phone === "string" ? body.phone.trim() : "";
+    const phoneDigits = phone.replace(/\D/g, "");
+    if (bookCall && (!/^[+()\d\s.-]{6,40}$/.test(phone) || phoneDigits.length < 6 || phoneDigits.length > 15)) {
+      return NextResponse.json({ error: "Indtast et gyldigt telefonnummer, så vi kan ringe dig op." }, { status: 400 });
+    }
+    if (!RESEND_KEY) {
+      return NextResponse.json({ error: "Vi kunne ikke sende din henvendelse. Prøv igen, eller ring til os på +45 25 54 70 74." }, { status: 503 });
+    }
 
     const input: AnalyseInput = {
       branche: body.branche || "Ikke angivet",
@@ -196,14 +209,14 @@ export async function POST(req: NextRequest) {
       systemer: Array.isArray(body.systemer) ? body.systemer : [],
       friTekst: body.friTekst?.trim() || undefined,
     };
-    const bookCall = !!body.bookCall;
     const sourceUrl = req.headers.get("referer") || "https://ai-konsulenterne.dk/ai-guide";
 
     const leadSummary =
       `Branche: ${input.branche} · Størrelse: ${input.stoerrelse}\n` +
       `Tidsforbrug: ${input.tidsforbrug.join(", ") || "-"}\n` +
       `Systemer: ${input.systemer.join(", ") || "-"}\n` +
-      `Booket samtale: ${bookCall ? "ja" : "nej"}` +
+      `Ønsker opkald: ${bookCall ? "ja" : "nej"}` +
+      (bookCall ? `\nTelefon: ${phone}` : "") +
       (input.friTekst ? `\nVil helst løse: ${input.friTekst}` : "");
 
     // 1. Generér rapport
@@ -212,6 +225,15 @@ export async function POST(req: NextRequest) {
       report = await generateReport(input);
     } catch (err) {
       console.error("[AI-analyse] Generering fejlede:", err);
+      // Manual follow-up is only promised once Alexander's email is accepted.
+      try {
+        await sendEmail([ALEXANDER_EMAIL], `Følg op manuelt: ${company}`,
+          `<p style="font-family:sans-serif;"><strong>${escapeHtml(name)}</strong> · ${escapeHtml(email)}</p>
+           <p style="font-family:sans-serif;">Rapporten kunne ikke genereres. Kontakt kunden manuelt.</p>
+           <p style="font-family:sans-serif;white-space:pre-line;">${escapeHtml(leadSummary)}</p>`);
+      } catch {
+        return NextResponse.json({ error: "Vi kunne ikke bekræfte din henvendelse. Prøv igen, eller ring til os på +45 25 54 70 74." }, { status: 502 });
+      }
       // Fallback: gem lead + send fallback-mail + høj-prioritet Slack
       await sendToLeadAgent({
         company, name, email, domain: email.split("@")[1],
@@ -222,16 +244,19 @@ export async function POST(req: NextRequest) {
       try {
         await sendEmail([email],
           "Tak for jeres henvendelse - AI Konsulenterne",
-          `<p style="font-family:sans-serif;">Tak fordi I udfyldte formularen. Vi vender tilbage manuelt med jeres 3 AI use cases inden for 24 timer.</p>`);
+          `<p style="font-family:sans-serif;">Tak fordi I udfyldte formularen. Rapporten kunne ikke sendes automatisk. Alexander har fået jeres henvendelse og følger op manuelt.</p>`);
       } catch {}
-      return NextResponse.json({ success: true, fallback: true });
+      return NextResponse.json({ success: true, accepted: true, fallback: true, emailDelivered: false, bookCall });
     }
 
     // 2. Email til kunde + Alexander
     const html = reportToHtml(company, report, bookCall);
     const emailErrors: string[] = [];
+    let customerEmailAccepted = false;
+    let teamEmailAccepted = false;
     try {
       await sendEmail([email], "Jeres 3 AI use cases - fra AI Konsulenterne", html);
+      customerEmailAccepted = true;
     } catch (err) {
       emailErrors.push(`kunde: ${err instanceof Error ? err.message : err}`);
     }
@@ -239,10 +264,14 @@ export async function POST(req: NextRequest) {
       await sendEmail([ALEXANDER_EMAIL], `Nyt lead: ${company}`,
         `<p style="font-family:sans-serif;"><strong>${escapeHtml(name)}</strong> · ${escapeHtml(email)}</p>
          <p style="font-family:sans-serif;white-space:pre-line;">${escapeHtml(leadSummary)}</p><hr>${html}`);
+      teamEmailAccepted = true;
     } catch (err) {
       emailErrors.push(`alexander: ${err instanceof Error ? err.message : err}`);
     }
     if (emailErrors.length) console.error("[AI-analyse] Email-fejl:", emailErrors.join(" | "));
+    if (!teamEmailAccepted) {
+      return NextResponse.json({ error: "Vi kunne ikke bekræfte din henvendelse til Alexander. Prøv igen, eller ring til os på +45 25 54 70 74." }, { status: 502 });
+    }
 
     // 3. Slack-notifikation
     await notifySlack(
@@ -250,7 +279,8 @@ export async function POST(req: NextRequest) {
       `Kontakt: ${name} · ${email}\n` +
       `Tidsforbrug: ${input.tidsforbrug.join(", ") || "-"}\n` +
       `Systemer: ${input.systemer.join(", ") || "-"}\n` +
-      `Booket samtale: ${bookCall ? "ja" : "nej"}` +
+      `Ønsker opkald: ${bookCall ? "ja" : "nej"}` +
+      (bookCall ? `\nTelefon: ${phone}` : "") +
       (input.friTekst ? `\n> ${input.friTekst}` : ""),
     );
 
@@ -261,7 +291,7 @@ export async function POST(req: NextRequest) {
       source: "ai-analyse", source_url: sourceUrl,
     });
 
-    return NextResponse.json({ success: true, emailDelivered: emailErrors.length === 0, bookCall });
+    return NextResponse.json({ success: true, accepted: true, emailDelivered: customerEmailAccepted, bookCall });
   } catch (error) {
     console.error("[AI-analyse] Uventet fejl:", error);
     return NextResponse.json(

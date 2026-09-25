@@ -74,10 +74,12 @@ export default function LeadMagnetForm() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [bookCall, setBookCall] = useState(false);
+  const [phone, setPhone] = useState("");
 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const [reportSent, setReportSent] = useState(false);
 
   // CVR-opslag på virksomhedsfeltet
   const [cvr, setCvr] = useState<{ name: string; industry?: string | null; city?: string | null } | null>(null);
@@ -115,7 +117,8 @@ export default function LeadMagnetForm() {
     1: !!branche && !!stoerrelse,
     2: tidsforbrug.length >= 1 && tidsforbrug.length <= 3,
     3: systemer.length >= 1,
-    4: !!company.trim() && !!name.trim() && EMAIL_REGEX.test(email),
+    4: !!company.trim() && !!name.trim() && EMAIL_REGEX.test(email) &&
+      (!bookCall || (/^[+()\d\s.-]{6,40}$/.test(phone.trim()) && phone.replace(/\D/g, "").length >= 6 && phone.replace(/\D/g, "").length <= 15)),
   };
 
   function next() {
@@ -134,7 +137,7 @@ export default function LeadMagnetForm() {
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     if (!stepValid[4] || loading) {
-      if (!stepValid[4]) setError("Udfyld venligst virksomhed, navn og en gyldig email.");
+      if (!stepValid[4]) setError("Udfyld virksomhed, navn og en gyldig email. Angiv også telefonnummer, hvis du vil ringes op.");
       return;
     }
     setLoading(true);
@@ -153,17 +156,20 @@ export default function LeadMagnetForm() {
           name,
           email,
           bookCall,
+          phone: bookCall ? phone : undefined,
           source: "ai-analyse",
         }),
       });
-      if (!res.ok) {
-        const d = await res.json();
-        throw new Error(d.error || "Noget gik galt");
+      const result = await res.json();
+      if (!res.ok || result?.success !== true || result?.accepted !== true) {
+        setError(typeof result?.error === "string" ? result.error : "Vi kunne ikke bekræfte din henvendelse. Prøv igen, eller ring til os.");
+        return;
       }
+      setReportSent(result.emailDelivered === true && result.fallback !== true);
       setSubmitted(true);
       trackEvent("lead_form_submit", { form: "lead-magnet", book_call: bookCall });
-    } catch (err) {
-      setError(err instanceof Error ? err.message : "Noget gik galt. Prøv igen.");
+    } catch {
+      setError("Vi kunne ikke bekræfte din henvendelse. Prøv igen, eller ring til os.");
     } finally {
       setLoading(false);
     }
@@ -178,19 +184,25 @@ export default function LeadMagnetForm() {
             <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
           </svg>
         </div>
-        <h2 className="text-2xl font-bold tracking-heading mb-2">Tak! Jeres rapport er på vej.</h2>
+        <h2 className="text-2xl font-bold tracking-heading mb-2">{reportSent ? "Tak! Jeres rapport er på vej." : "Tak for jeres henvendelse"}</h2>
         <p className="text-gray-500 mb-8">
-          Tjek din indbakke om et øjeblik - vi har sendt jeres 3 konkrete AI use cases.
+          {reportSent
+            ? "Tjek din indbakke om et øjeblik – rapporten med jeres 3 AI use cases er sendt."
+            : "Rapporten kunne ikke sendes automatisk. Jeres henvendelse er sendt til Alexander, som følger op manuelt."}
         </p>
-        <div className="border-t border-gray-100 pt-8 text-left">
+        {bookCall ? (
+          <p className="rounded-2xl bg-primary/5 p-5 text-gray-700">
+            Alexander kontakter jer på {phone}. Mødet er først booket, når I har aftalt en tid.
+          </p>
+        ) : <div className="border-t border-gray-100 pt-8 text-left">
           <p className="text-sm font-semibold text-gray-900 mb-1">
-            Mens I venter - book 20 minutter med os
+            Vil I tale om mulighederne? Få en gratis AI-afklaring
           </p>
           <p className="text-sm text-gray-500 mb-5">
             Så går vi dybere ind i den case I synes lyder mest interessant.
           </p>
           <CalBooking />
-        </div>
+        </div>}
       </div>
     );
   }
@@ -361,8 +373,25 @@ export default function LeadMagnetForm() {
                 onChange={(e) => setBookCall(e.target.checked)}
                 className="mt-0.5 w-4 h-4 accent-primary"
               />
-              <span className="text-sm text-gray-600">Ring mig op og book direkte</span>
+              <span className="text-sm text-gray-600">Ring mig op om en gratis AI-afklaring</span>
             </label>
+            {bookCall && (
+              <div>
+                <label htmlFor="analyse-phone" className="block text-sm font-semibold text-gray-700 mb-1.5">Telefonnummer</label>
+                <input
+                  id="analyse-phone"
+                  type="tel"
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
+                  placeholder="Dit telefonnummer"
+                  autoComplete="tel"
+                  required
+                  maxLength={40}
+                  className="w-full border border-gray-200 rounded-xl px-4 py-3 text-black placeholder:text-gray-400 focus:outline-none focus:border-primary"
+                />
+                <p className="mt-2 text-xs text-gray-500">Alexander ringer, så I kan aftale en tid. Der bliver ikke booket et møde automatisk.</p>
+              </div>
+            )}
           </div>
         )}
 
@@ -381,6 +410,7 @@ export default function LeadMagnetForm() {
           )}
           {step < 4 ? (
             <button
+              key="next-step"
               type="button"
               onClick={next}
               className="flex-1 bg-primary text-white font-semibold rounded-full px-8 py-3.5 hover:bg-primary-dark transition-colors"
@@ -389,6 +419,7 @@ export default function LeadMagnetForm() {
             </button>
           ) : (
             <button
+              key="submit-enquiry"
               type="submit"
               disabled={loading}
               className="flex-1 bg-primary text-white font-semibold rounded-full px-8 py-3.5 hover:bg-primary-dark transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
