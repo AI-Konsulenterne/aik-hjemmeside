@@ -12,6 +12,8 @@ Before deployment, verify these server-side hosting variables without placing se
 
 The endpoint returns an error when delivery is unconfigured, rejected, timed out, or missing a provider receipt. A successful response means Resend accepted the message; it does not prove inbox delivery. Confirm one real receipt with the business before considering delivery verified end to end. No real email was sent during development tests.
 
+The existing AI-analysis form's “Ring mig op” option now requires a telephone number. The number is included in Alexander's email and the existing lead summary. Both normal report generation and the manual-follow-up fallback require Resend to accept the internal email before the form confirms the request. If the customer report cannot be sent, the form says Alexander will follow up rather than claiming a report was delivered. This is a callback request, not a scheduled appointment. Verify this path with one controlled inbox receipt as well; mocked tests do not verify production credentials or inbox delivery.
+
 Retrying the same form content reuses a submission ID, supplied to Resend as an idempotency key. The handler validates input, bounds request size, checks browser origins, includes a honeypot, and limits submissions per process. Configure a matching proxy/edge rate limit on `POST /api/contact` before public rollout; the in-memory limiter is not shared between instances or persistent over restarts. Only trust client-IP headers written by the deployment proxy.
 
 ## Enquiry events
