@@ -410,6 +410,7 @@ export default function LeadMagnetForm() {
           )}
           {step < 4 ? (
             <button
+              key="next-step"
               type="button"
               onClick={next}
               className="flex-1 bg-primary text-white font-semibold rounded-full px-8 py-3.5 hover:bg-primary-dark transition-colors"
@@ -418,6 +419,7 @@ export default function LeadMagnetForm() {
             </button>
           ) : (
             <button
+              key="submit-enquiry"
               type="submit"
               disabled={loading}
               className="flex-1 bg-primary text-white font-semibold rounded-full px-8 py-3.5 hover:bg-primary-dark transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
