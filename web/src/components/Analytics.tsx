@@ -1,6 +1,8 @@
 "use client";
 
 import Script from "next/script";
+import { useEffect } from "react";
+import { startAnalytics } from "@/lib/analytics";
 
 /**
  * Analytics + Consent Management
@@ -8,20 +10,20 @@ import Script from "next/script";
  * Flow:
  *   1. Google Consent Mode v2 initialiseres med ALT denied (GDPR-safe default)
  *   2. Cookiebot loader — viser banner, venter på bruger-valg
- *   3. Cookiebot opdaterer Consent Mode baseret på brugerens valg
- *   4. GA4 og andre scripts aktiveres kun hvis consent er givet
- *
- * Scripts tagget med data-cookieconsent="statistics|marketing" blokeres
- * automatisk af Cookiebot indtil samtykke er givet.
+ *   3. GA4 loader efter statistik-samtykke; OpenAI Pixel efter marketing-samtykke
+ *   4. Tilbagetrækning stopper events. Tidligere afviste events afsendes ikke.
  */
 export default function Analytics() {
   const gaId = process.env.NEXT_PUBLIC_GA_ID;
   const cookiebotId = process.env.NEXT_PUBLIC_COOKIEBOT_ID;
+  const openaiPixelId = process.env.NEXT_PUBLIC_OPENAI_PIXEL_ID;
+
+  useEffect(() => startAnalytics({ gaId, openaiPixelId }), [gaId, openaiPixelId]);
 
   return (
     <>
       {/* 1. Google Consent Mode v2 — SKAL loades før alt andet */}
-      <Script id="gcm-default" strategy="beforeInteractive">
+      <Script id="gcm-default" strategy="beforeInteractive" data-cookieconsent="ignore">
         {`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
@@ -48,32 +50,6 @@ export default function Analytics() {
         />
       )}
 
-      {/* 3. Google Analytics 4 — scripts med data-cookieconsent blokeres auto af Cookiebot */}
-      {gaId && (
-        <>
-          <Script
-            id="ga4-loader"
-            src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
-            strategy="afterInteractive"
-            data-cookieconsent="statistics"
-          />
-          <Script
-            id="ga4-config"
-            strategy="afterInteractive"
-            data-cookieconsent="statistics"
-          >
-            {`
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', '${gaId}', {
-                anonymize_ip: true,
-                cookie_flags: 'SameSite=None;Secure'
-              });
-            `}
-          </Script>
-        </>
-      )}
     </>
   );
 }

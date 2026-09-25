@@ -1,128 +1,40 @@
 import type { Metadata } from "next";
 import CalBooking from "@/components/ui/CalBooking";
-import FadeIn from "@/components/ui/FadeIn";
 
 export const metadata: Metadata = {
-  title: { absolute: "Kontakt AI Konsulenterne - book gratis AI-afklaring" },
-  description:
-    "Book en gratis 45-minutters AI-afklaring med Alexander. Ingen forpligtelse — finder vi ikke en mulighed, koster det ingenting. Ring +45 25 54 70 74.",
+  title: { absolute: "Kontakt AI Konsulenterne - gratis AI-afklaring" },
+  description: "Få en gratis 45-minutters AI-afklaring med Alexander. Send en henvendelse direkte her, eller ring på +45 25 54 70 74. Helt uforpligtende.",
   alternates: { canonical: "/kontakt" },
-  keywords: [
-    "kontakt AI konsulent",
-    "book AI møde",
-    "AI afklaring gratis",
-    "AI rådgivning København",
-  ],
+  keywords: ["kontakt AI konsulent", "book AI møde", "AI afklaring gratis", "AI rådgivning København"],
   openGraph: {
-    title: "Kontakt — Book Gratis AI-Afklaring",
-    description:
-      "45 min gratis AI-afklaring med Alexander. Ingen forberedelse, ingen forpligtelse.",
+    title: "Kontakt — Gratis AI-afklaring",
+    description: "45 min gratis AI-afklaring med Alexander. Ingen forberedelse, ingen forpligtelse.",
     url: "/kontakt",
   },
 };
 
 export default function Kontakt() {
   return (
-    <>
-      {/* Hero */}
-      <section className="pt-[clamp(4rem,12vw,8rem)] pb-[clamp(3rem,8vw,6rem)]">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <FadeIn>
-            <div className="max-w-3xl mx-auto text-center">
-              <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold tracking-heading text-gray-900 leading-[1.05]">
-                Lad os tage en snak
-              </h1>
-              <p className="text-lg lg:text-xl text-gray-500 mt-6 leading-relaxed">
-                Ring direkte, send en mail, eller book en gratis 45-minutters
-                AI-afklaring. Vi er klar til at hjælpe.
-              </p>
-            </div>
-          </FadeIn>
-        </div>
-      </section>
-
-      {/* Contact options */}
-      <section className="pb-[clamp(3rem,8vw,6rem)]">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-2xl mx-auto">
-            {/* Phone */}
-            <a
-              href="tel:+4525547074"
-              className="bg-gray-50 rounded-2xl p-8 text-center hover:shadow-md transition-shadow group"
-            >
-              <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mx-auto mb-4">
-                <svg
-                  className="w-6 h-6 text-primary"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth={2}
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"
-                  />
-                </svg>
-              </div>
-              <h2 className="text-lg font-bold tracking-heading mb-1">
-                Ring til os
-              </h2>
-              <p className="text-primary font-semibold group-hover:underline">
-                +45 25 54 70 74
-              </p>
-              <p className="text-sm text-gray-400 mt-1">Alexander</p>
-            </a>
-
-            {/* Email */}
-            <a
-              href="mailto:kontakt@ai-konsulenterne.dk"
-              className="bg-gray-50 rounded-2xl p-8 text-center hover:shadow-md transition-shadow group"
-            >
-              <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mx-auto mb-4">
-                <svg
-                  className="w-6 h-6 text-primary"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth={2}
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"
-                  />
-                </svg>
-              </div>
-              <h2 className="text-lg font-bold tracking-heading mb-1">
-                Send en mail
-              </h2>
-              <p className="text-primary font-semibold group-hover:underline text-sm">
-                kontakt@ai-konsulenterne.dk
-              </p>
-            </a>
-
+    <section className="py-12 lg:py-20">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16 items-start">
+        <div>
+          <p className="text-sm font-semibold uppercase tracking-widest text-gray-500">Lad os tage en snak</p>
+          <h1 className="mt-4 text-4xl lg:text-5xl font-bold tracking-heading text-gray-900 leading-[1.1]">Find jeres næste skridt med AI</h1>
+          <p className="mt-6 text-lg text-gray-600 leading-relaxed">I behøver ikke have en færdig plan. På en gratis 45-minutters AI-afklaring taler I med Alexander om jeres hverdag og hvor AI kan hjælpe.</p>
+          <ul className="mt-6 space-y-3 text-gray-700">
+            <li>Ingen forberedelse nødvendig</li>
+            <li>Plads til både konkrete idéer og de første spørgsmål</li>
+            <li>Helt uforpligtende</li>
+          </ul>
+          <div className="mt-8 border-t border-gray-200 pt-6 space-y-3">
+            <p className="font-semibold text-gray-900">Vil du hellere kontakte os direkte?</p>
+            <p><a href="tel:+4525547074" className="font-semibold underline underline-offset-4 hover:text-primary-dark">Ring til Alexander: +45 25 54 70 74</a></p>
+            <p><a href="mailto:kontakt@ai-konsulenterne.dk" className="text-sm underline underline-offset-4 hover:text-primary-dark break-all">kontakt@ai-konsulenterne.dk</a></p>
           </div>
+          <p className="mt-8 text-xs text-gray-500">AI Konsulenterne ApS · CVR: 45569241</p>
         </div>
-      </section>
-
-      {/* Cal.com Booking */}
-      <section id="booking" className="pb-[clamp(3rem,8vw,6rem)] scroll-mt-24">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <FadeIn>
-            <CalBooking className="max-w-2xl mx-auto" />
-          </FadeIn>
-        </div>
-      </section>
-
-      {/* Info */}
-      <section className="py-[clamp(3rem,8vw,6rem)]">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center">
-          <p className="text-sm text-gray-400">
-            AI Konsulenterne — CVR: 45569241
-          </p>
-        </div>
-      </section>
-    </>
+        <div id="booking" className="scroll-mt-24"><CalBooking /></div>
+      </div>
+    </section>
   );
 }
