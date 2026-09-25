@@ -2,9 +2,6 @@ import Image from "next/image";
 import Button from "@/components/ui/Button";
 import FadeIn from "@/components/ui/FadeIn";
 import LessonVideo from "@/components/sections/LessonVideo";
-import CommunitySection from "@/components/sections/CommunitySection";
-
-const SKOOL_URL = "https://www.skool.com/aiminds";
 
 // Knap-klasser til eksterne <a>-links (matcher Button-komponenten)
 const ghostBtn =
@@ -176,7 +173,7 @@ const checklist = [
 const faqs = [
   {
     q: "Hvad koster det?",
-    a: "Det afhænger af, hvor mange medarbejdere I ønsker at give adgang til. Ring eller book et møde med os, og lad os tage en snak.",
+    a: "Fra 249 kr. pr. medarbejder om måneden - prisen afhænger af, hvor mange I er. Ring eller book et møde med os, og få et konkret prisforslag.",
   },
   {
     q: "Hvor meget tid skal vi bruge på det?",
@@ -327,13 +324,8 @@ export default function AcademyLanding() {
                     Book en snak
                     <ArrowRight />
                   </Button>
-                  <a
-                    href={SKOOL_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={ghostBtn}
-                  >
-                    Se AI-Minds
+                  <a href="#lektion" className={ghostBtn}>
+                    Se en rigtig lektion
                   </a>
                 </div>
               </div>
@@ -772,9 +764,6 @@ export default function AcademyLanding() {
         </div>
       </section>
 
-      {/* ══════════ COMMUNITY ══════════ */}
-      <CommunitySection />
-
       {/* ══════════ OUTCOME ══════════ */}
       <section className="py-[clamp(4rem,10vw,7rem)]">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
@@ -907,13 +896,8 @@ export default function AcademyLanding() {
                     Book en snak
                     <ArrowRight />
                   </Button>
-                  <a
-                    href={SKOOL_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={lightBtn}
-                  >
-                    Se AI-Minds
+                  <a href="#lektion" className={lightBtn}>
+                    Se en rigtig lektion
                   </a>
                 </div>
               </div>
