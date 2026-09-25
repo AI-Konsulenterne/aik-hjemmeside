@@ -27,6 +27,7 @@ repoet. Se udgivelsesnoter nederst.
 | 2026-09-22 | trend | ai og jobs - Nationalbankens analyse "Kunstig intelligens og arbejdsmarkedet" (medio sept. 2026): AI-virksomheder har lavere beskæftigelsesvækst. Intet nyt Copilot-SMV-stof i 7-dages vinduet (Copilot in 30 er fra 1. aug., Cowork dækket 08-09), så prioritet 3: markedsanalyse - til gengæld dansk og bredt dækket | `ai-og-jobs-nationalbankens-tal-forklaret` | [/viden-om-ai/ai-og-jobs-nationalbankens-tal-forklaret](https://ai-konsulenterne.dk/viden-om-ai/ai-og-jobs-nationalbankens-tal-forklaret) |
 | 2026-09-24 | keyword | hvad er en ai-agent (backlog #14 - klynge: AI-agenter). Search Console kan ikke nås fra skyen, så valget er backlog-drevet | `hvad-er-en-ai-agent` | [/viden-om-ai/hvad-er-en-ai-agent](https://ai-konsulenterne.dk/viden-om-ai/hvad-er-en-ai-agent) |
 | 2026-09-25 | keyword | ai agent crm integration (backlog #15 - klynge: AI-agenter, sidste i klyngen; linker tilbage til `hvad-er-en-ai-agent`) | `ai-agent-crm-integration` | [/viden-om-ai/ai-agent-crm-integration](https://ai-konsulenterne.dk/viden-om-ai/ai-agent-crm-integration) |
+| 2026-09-25 | keyword | ai politik for virksomheder (backlog #16 - klynge: data & ansvar, første i klyngen). Ekstra post samme dag efter brugerens "another one"; #15 var allerede taget af en parallel session, så jeg sprang den over frem for at dublere søgeordet | `ai-politik-for-virksomheder` | [/viden-om-ai/ai-politik-for-virksomheder](https://ai-konsulenterne.dk/viden-om-ai/ai-politik-for-virksomheder) |
 
 ---
 
