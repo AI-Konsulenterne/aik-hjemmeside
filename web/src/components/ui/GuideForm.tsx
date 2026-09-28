@@ -211,7 +211,7 @@ export default function GuideForm() {
           </label>
           <textarea
             rows={3}
-            placeholder="Fx kundeservice, ordrehåndtering, rapportering, bogføring …"
+            placeholder="Fx kundeservice, ordrehåndtering, rapportering …"
             value={challenge}
             onChange={(e) => setChallenge(e.target.value)}
             className="w-full border border-gray-200 rounded-xl px-5 py-3 text-black placeholder:text-gray-400 focus:outline-none focus:border-primary transition-colors resize-none"

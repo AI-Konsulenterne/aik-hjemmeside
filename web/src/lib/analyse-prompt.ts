@@ -25,11 +25,6 @@ TILBUD & ORDRER
 - Ordrebekræftelser og opfølgning genereret automatisk på tværs af webshop/ERP.
 - Udtræk og validering af ordredata så fejl fanges før de når kunden.
 
-FAKTURERING & BOGFØRING
-- Automatisk fakturamatching og afstemning mod ordrer og leveringer.
-- Bilagshåndtering: AI læser kvitteringer/fakturaer og bogfører på rette konto.
-- Påmindelser og rykkere genereret og prioriteret automatisk.
-
 RAPPORTERING & DATAUDTRÆK
 - Naturligt-sprog dashboard: stil spørgsmål til jeres data på dansk uden SQL.
 - Automatiske ugentlige/månedlige rapporter samlet på tværs af systemer.

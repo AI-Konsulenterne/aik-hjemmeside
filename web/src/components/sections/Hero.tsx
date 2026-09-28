@@ -10,7 +10,6 @@ const useCases = [
   "ordrehåndtering",
   "rapportering",
   "dataanalyse",
-  "bogføring",
 ];
 
 export default function Hero() {
