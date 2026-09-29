@@ -28,10 +28,12 @@ import { FILM_INTRO, FILM_SHOTS, filmClip, filmPoster } from "@/content/film";
  * og ved 3,6 nåede man hverken billedet eller sætningen.
  */
 
-/* inBand holder heroen kurateret: fem skud valgt på spændvidde. Da alle
-   kundeskud fik klip, ville hasClip alene have gjort heroen til ti skud og
-   et minut lang. De resterende kører på /referencer. */
-const SKUD = FILM_SHOTS.filter((s) => s.act === "kunder" && s.hasClip && s.inBand);
+/* Samme tretten skud som /referencer: ti kunder og derefter tre fra
+   undervisningen. Heroen sælger begge spor, så filmen skal også vise dem.
+   Kun det aktive og det næste klip hentes, så flere skud koster ikke mere
+   ved indlæsning; løkken bliver bare længere (ca. et minut). */
+const SKUD = FILM_SHOTS.filter((s) => s.hasClip);
+const AKTER = [...new Set(SKUD.map((s) => s.act))];
 const SKUD_MS = 5200;
 
 export default function HomeHero() {
@@ -194,7 +196,20 @@ export default function HomeHero() {
       <div className="relative z-10 mx-auto w-full max-w-7xl px-6 pb-8 lg:px-8 lg:pb-10">
         <div className="flex flex-col gap-4 border-t border-white/15 pt-5 sm:flex-row sm:items-end sm:justify-between">
           <p className="text-[0.9375rem] leading-snug text-white/60 sm:text-base" aria-live="off">
-            {FILM_INTRO.kunder}{" "}
+            {/* Indledningen skifter kun ved aktskiftet, fra kunderne til
+                undervisningen. Begge ligger i DOM'en, så bredden ikke hopper. */}
+            <span className="relative inline-grid align-top">
+              {AKTER.map((a) => (
+                <span
+                  key={a}
+                  className="film-line col-start-1 row-start-1"
+                  data-active={a === skud.act}
+                  aria-hidden={a !== skud.act}
+                >
+                  {FILM_INTRO[a]}
+                </span>
+              ))}
+            </span>{" "}
             <span className="relative inline-grid align-top">
               {SKUD.map((s, i) => (
                 <span
@@ -209,13 +224,17 @@ export default function HomeHero() {
             </span>
           </p>
           <div className="flex items-center gap-5">
-            <div className="flex w-40 items-center gap-1.5" role="group" aria-label="Vælg kunde">
+            {/* Tretten streger er for små at ramme på en telefon; der står en tæller. */}
+            <p className="text-xs font-semibold tabular-nums tracking-widest text-white/60 sm:hidden">
+              {String(index + 1).padStart(2, "0")} / {String(antal).padStart(2, "0")}
+            </p>
+            <div className="hidden w-72 items-center gap-1 sm:flex" role="group" aria-label="Vælg skud">
               {SKUD.map((s, i) => (
                 <button
                   key={s.id}
                   type="button"
                   onClick={() => gaaTil(i)}
-                  aria-label={`Vis ${s.label}: ${FILM_INTRO.kunder} ${s.line}`}
+                  aria-label={`Vis ${s.label}: ${FILM_INTRO[s.act]} ${s.line}`}
                   aria-current={i === index}
                   className="flex flex-1 cursor-pointer py-2.5"
                 >

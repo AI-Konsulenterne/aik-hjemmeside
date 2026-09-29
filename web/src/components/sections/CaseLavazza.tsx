@@ -84,13 +84,6 @@ export default function CaseLavazza() {
                 <span className="understreg">Sådan bygger vi HR-agenter</span>
                 <span aria-hidden="true" className="transition-transform duration-200 group-hover:translate-x-0.5">→</span>
               </Link>
-              <Link
-                href="/referencer"
-                className="group inline-flex items-center gap-1.5 text-sm font-semibold text-gray-900"
-              >
-                <span className="understreg">Hvem vi ellers har hjulpet</span>
-                <span aria-hidden="true" className="transition-transform duration-200 group-hover:translate-x-0.5">→</span>
-              </Link>
             </div>
             </FadeIn>
           </div>

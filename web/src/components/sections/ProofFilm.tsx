@@ -149,9 +149,11 @@ export default function ProofFilm({ variant = "band" }: { variant?: Variant }) {
     <section
       ref={sectionRef}
       aria-labelledby="film-heading"
-      className={`relative w-full overflow-hidden bg-ink ${
+      className={`relative flex w-full flex-col overflow-hidden bg-ink ${
         isTall
-          ? "min-h-[100svh]"
+          ? /* Filmen fylder skærmen under navigationen (4 rem, 5 rem fra lg),
+               så tidslinjen står i bunden af billedet og ikke under folden. */
+            "min-h-[max(34rem,calc(100svh-4rem))] lg:min-h-[max(36rem,calc(100svh-5rem))]"
           : "h-[min(78svh,44rem)] min-h-[26rem]"
       }`}
     >
@@ -192,12 +194,16 @@ export default function ProofFilm({ variant = "band" }: { variant?: Variant }) {
         <div className="film-vignette" data-tall={isTall} />
       </div>
 
-      {/* --- Tekstlag --- */}
-      <div className="relative flex h-full flex-col justify-end">
+      {/* --- Tekstlag ---
+          flex-1 og ikke h-full: sektionen har kun en minimumshøjde, og
+          h-full blev derfor til indholdets højde. Så stod teksten og
+          tidslinjen fast et stykke fra toppen, og på store skærme lå
+          tidslinjen midt i billedet. */}
+      <div className="relative flex flex-1 flex-col justify-end">
         <div
           className={`mx-auto w-full max-w-[1400px] px-6 lg:px-10 ${
             isTall
-              ? "pb-[clamp(4rem,10vh,7rem)] pt-[clamp(6rem,18vh,12rem)]"
+              ? "pb-7 pt-[clamp(6rem,18vh,12rem)] lg:pb-9"
               : "pb-[clamp(2.5rem,5vw,4rem)] pt-24"
           }`}
         >

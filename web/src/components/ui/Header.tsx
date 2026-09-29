@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
+import LogoMorf from "@/components/ui/LogoMorf";
 import { usePathname } from "next/navigation";
 import Button from "./Button";
 
@@ -101,8 +101,16 @@ export default function Header() {
     planlaeg();
     window.addEventListener("scroll", planlaeg, { passive: true });
     window.addEventListener("resize", planlaeg);
+    /* Sidens indhold streames ind bag loading.tsx og vises først lidt
+       efter, at navigationen er klar. Måltes der kun ved scroll og resize,
+       fandt første måling ingen mørk hero (den havde ingen højde endnu), og
+       forsidens navigation blev hvid over filmen, til man scrollede. Nu
+       måles der igen, hver gang sidens størrelse ændrer sig. */
+    const ro = new ResizeObserver(planlaeg);
+    ro.observe(document.body);
     return () => {
       cancelAnimationFrame(raf);
+      ro.disconnect();
       window.removeEventListener("scroll", planlaeg);
       window.removeEventListener("resize", planlaeg);
     };
@@ -158,25 +166,12 @@ export default function Header() {
         ref={navRef}
         className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6 lg:h-20 lg:px-8"
       >
-        {/* Begge logoer ligger oven på hinanden og toner over i hinanden, så
-            skiftet mellem lys og mørk flade ikke blinker. */}
+        {/* Det lange logo øverst på siden; det folder sig sammen til AIK,
+            når man scroller. Farven følger fladen under navigationen. */}
         <Link href="/" className="relative flex items-center" aria-label="AI Konsulenterne, forside">
-          <Image
-            src="/logo-aik-mark.png"
-            alt="AI Konsulenterne"
-            width={153}
-            height={89}
-            priority
-            className={`h-8 w-auto transition-opacity duration-300 lg:h-9 ${paaMoerk ? "opacity-0" : "opacity-100"}`}
-          />
-          <Image
-            src="/logo-aik-mark-white.png"
-            alt=""
-            aria-hidden="true"
-            width={153}
-            height={89}
-            priority
-            className={`absolute left-0 top-1/2 h-8 w-auto -translate-y-1/2 transition-opacity duration-300 lg:h-9 ${paaMoerk ? "opacity-100" : "opacity-0"}`}
+          <LogoMorf
+            kompakt={scrollet || mobilAaben}
+            className={`text-[1.75rem] transition-colors duration-300 lg:text-[2rem] ${paaMoerk ? "text-white" : "text-primary"}`}
           />
         </Link>
 

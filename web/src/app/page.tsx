@@ -2,7 +2,9 @@ import HomeHero from "@/components/sections/HomeHero";
 import ToSpor from "@/components/sections/ToSpor";
 import DataHistorie from "@/components/sections/DataHistorie";
 import CaseLavazza from "@/components/sections/CaseLavazza";
+import ReferencerBaand from "@/components/sections/ReferencerBaand";
 import SaadanArbejderVi from "@/components/sections/SaadanArbejderVi";
+import Team from "@/components/sections/Team";
 import FAQ from "@/components/sections/FAQ";
 import TalMedAlexander from "@/components/sections/TalMedAlexander";
 import JsonLd from "@/components/ui/JsonLd";
@@ -143,7 +145,9 @@ export default function Forside() {
       <ToSpor />
       <DataHistorie />
       <CaseLavazza />
+      <ReferencerBaand />
       <SaadanArbejderVi />
+      <Team />
       <FAQ />
       <TalMedAlexander />
     </>

@@ -636,3 +636,106 @@ body {
     scale: 1;
   }
 }
+
+/* ---------------------------------------------------------------
+   Referencerækken på forsiden (ReferencerBaand.tsx). Listen står to
+   gange, og sporet glider en halv bredde på 70 sekunder, så løkken er
+   sømløs. Den står stille under musen, og ved reduceret bevægelse kan
+   den scrolles i stedet. Kanterne toner ud i baggrunden.
+   --------------------------------------------------------------- */
+.referencer-raekke {
+  overflow: hidden;
+  mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
+}
+
+.referencer-spor {
+  animation: marquee 70s linear infinite;
+}
+
+.referencer-raekke:hover .referencer-spor {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .referencer-raekke {
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+  }
+
+  .referencer-spor {
+    animation: none;
+    padding-inline: 1.5rem;
+  }
+
+  .referencer-spor a {
+    scroll-snap-align: start;
+  }
+
+  .referencer-spor [data-kopi] {
+    display: none;
+  }
+}
+
+/* ---------------------------------------------------------------
+   Logoet, der folder sig sammen (LogoMorf.tsx). 1em = AI's højde.
+   Sammen: understregningens højre ende glider ind mod K'et, mens
+   bogstaverne forsvinder bagfra, 28 ms mellem hvert. Ud igen: stregen
+   går ud først, og bogstaverne kommer frem forfra i dens kølvand.
+   --------------------------------------------------------------- */
+.logo-morf {
+  position: relative;
+  display: inline-block;
+  height: 1em;
+  flex: none;
+  vertical-align: middle;
+}
+
+.logo-del {
+  position: absolute;
+  background-color: currentColor;
+  transition: background-color 300ms ease;
+}
+
+.logo-bogstav {
+  transition:
+    opacity 260ms ease,
+    transform 480ms cubic-bezier(0.16, 1, 0.3, 1),
+    background-color 300ms ease;
+  transition-delay: calc(var(--i) * 28ms + 90ms), calc(var(--i) * 28ms + 90ms), 0ms;
+}
+
+.logo-morf[data-kompakt="true"] .logo-bogstav {
+  opacity: 0;
+  transform: translateX(-0.28em);
+  transition-delay: calc((11 - var(--i)) * 28ms), calc((11 - var(--i)) * 28ms), 0ms;
+}
+
+.logo-streg-midte {
+  width: var(--lang);
+  transition:
+    width 560ms cubic-bezier(0.65, 0, 0.35, 1),
+    background-color 300ms ease;
+}
+
+.logo-morf[data-kompakt="true"] .logo-streg-midte {
+  width: var(--kort);
+}
+
+.logo-streg-ende {
+  transition:
+    transform 560ms cubic-bezier(0.65, 0, 0.35, 1),
+    background-color 300ms ease;
+}
+
+.logo-morf[data-kompakt="true"] .logo-streg-ende {
+  transform: translateX(var(--flyt));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .logo-bogstav,
+  .logo-streg-midte,
+  .logo-streg-ende {
+    transition: background-color 300ms ease;
+  }
+}
