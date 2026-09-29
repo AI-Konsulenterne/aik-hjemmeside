@@ -125,14 +125,14 @@ export default function SideHero({ id, kicker, titel, tekst, primaer, sekundaer,
       </div>
 
       <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-1 flex-col justify-end px-6 pb-10 pt-36 lg:px-8 lg:pb-14">
-        <div className="max-w-3xl">
+        <div className="max-w-4xl">
           <div className="flex items-center gap-3">
             <span className="lamp" data-lit="true" aria-hidden="true" />
             <p className="kicker text-white/85 [text-shadow:0_1px_10px_rgba(0,0,0,0.45)]">{kicker}</p>
           </div>
           <h1
             id={id}
-            className="mt-6 text-[clamp(2.5rem,6vw,5.25rem)] font-bold leading-[1.0] tracking-display text-white [text-shadow:0_2px_28px_rgba(0,0,0,0.35)]"
+            className="mt-6 text-[clamp(2.5rem,5.6vw,5rem)] font-bold leading-[1.0] tracking-display text-white [text-shadow:0_2px_28px_rgba(0,0,0,0.35)]"
           >
             {titel.map((linje) => (
               <span key={linje} className="block text-balance">
