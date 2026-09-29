@@ -131,7 +131,7 @@ export default function SideHero({ id, kicker, titel, tekst, primaer, sekundaer,
         <div className={eksempel ? "max-w-3xl" : "max-w-4xl"}>
           <div className="flex items-center gap-3">
             <span className="lamp" data-lit="true" aria-hidden="true" />
-            <p className="kicker text-white/85 [text-shadow:0_1px_10px_rgba(0,0,0,0.45)]">{kicker}</p>
+            <p className="kicker text-white [text-shadow:0_1px_3px_rgba(0,0,0,0.55),0_1px_14px_rgba(0,0,0,0.6)]">{kicker}</p>
           </div>
           <h1
             id={id}

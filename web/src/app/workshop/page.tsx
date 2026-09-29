@@ -243,7 +243,7 @@ export default function Workshop() {
             {EMNER.map(([t, s], i) => (
               <FadeIn key={t} delay={(i % 4) * 80}>
                 <div className="border-t border-gray-300 pt-6">
-                  <p className="text-sm font-semibold tabular-nums text-gray-500">{String(i + 1).padStart(2, "0")}</p>
+                  <p className="text-sm font-semibold tabular-nums text-gray-600">{String(i + 1).padStart(2, "0")}</p>
                   <dt className="mt-3 text-lg font-bold tracking-heading text-gray-900">{t}</dt>
                   <dd className="mt-2 text-[0.975rem] leading-relaxed text-gray-600">{s}</dd>
                 </div>

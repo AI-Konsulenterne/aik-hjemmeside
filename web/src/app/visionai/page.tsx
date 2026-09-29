@@ -146,7 +146,7 @@ function Browserlinje({ adresse, mork = false }: { adresse: string; mork?: boole
       ))}
       <span
         className={`mx-auto rounded-md px-3 py-1 text-[0.6875rem] ${
-          mork ? "bg-white/[0.06] text-white/55" : "bg-white text-gray-500 ring-1 ring-black/[0.05]"
+          mork ? "bg-white/[0.06] text-white/70" : "bg-white text-gray-600 ring-1 ring-black/[0.05]"
         }`}
       >
         {adresse}
@@ -166,12 +166,12 @@ export default function VisionAI() {
         <div
           data-header="moerk"
           aria-hidden="true"
-          className="absolute inset-x-0 top-0 bottom-[clamp(7rem,21vw,20rem)] bg-ink"
+          className="absolute inset-x-0 top-0 bottom-[clamp(4.5rem,17vw,17rem)] bg-ink"
         />
         {/* Ét varmt lys over skærmen, som lampen i filmen. */}
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute left-1/2 top-[24rem] h-[44rem] w-[min(92rem,160vw)] -translate-x-1/2 bg-[radial-gradient(closest-side,rgba(255,154,0,0.13),transparent)]"
+          className="pointer-events-none absolute left-1/2 top-[16rem] h-[28rem] w-[min(92rem,160vw)] -translate-x-1/2 bg-[radial-gradient(closest-side,rgba(255,154,0,0.13),transparent)] lg:top-[24rem] lg:h-[44rem]"
         />
 
         <div className="relative mx-auto max-w-7xl px-6 pt-36 lg:px-8 lg:pt-44">
@@ -216,16 +216,21 @@ export default function VisionAI() {
             </div>
           </div>
 
-          <dl className="mt-14 grid grid-cols-2 gap-x-6 gap-y-6 border-t border-gray-200 pt-6 sm:grid-cols-4 lg:mt-20">
-            {FAKTA.map(([vaerdi, label]) => (
-              <div key={label} className="flex flex-col-reverse gap-1">
-                <dt className="text-sm leading-snug text-gray-600">{label}</dt>
-                <dd className="text-[1.375rem] font-bold leading-none tracking-heading text-gray-900">{vaerdi}</dd>
-              </div>
-            ))}
-          </dl>
         </div>
       </section>
+
+      {/* Fakta under skærmen. De står uden for heroen, så de aldrig ender
+          på den mørke flade, uanset hvor høj skærmen bliver. */}
+      <div className="bg-white">
+        <dl className="mx-auto mt-14 grid max-w-7xl grid-cols-2 gap-x-6 gap-y-6 px-6 sm:grid-cols-4 lg:mt-20 lg:px-8">
+          {FAKTA.map(([vaerdi, label]) => (
+            <div key={label} className="flex flex-col-reverse gap-1 border-t border-gray-200 pt-6">
+              <dt className="text-sm leading-snug text-gray-600">{label}</dt>
+              <dd className="text-[1.375rem] font-bold leading-none tracking-heading text-gray-900">{vaerdi}</dd>
+            </div>
+          ))}
+        </dl>
+      </div>
 
       {/* --- Platformen --- */}
       <section id="platform" className="section-y bg-white">
@@ -339,7 +344,7 @@ export default function VisionAI() {
                           ))}
                         </span>
                       </span>
-                      <span className="hidden text-right tabular-nums text-gray-500 sm:block">{tokens}</span>
+                      <span className="hidden text-right tabular-nums text-gray-600 sm:block">{tokens}</span>
                       <span className="text-right font-semibold tabular-nums text-gray-900">{pris}</span>
                     </li>
                   ))}
@@ -377,7 +382,7 @@ export default function VisionAI() {
             {SIKKERHED.map(([titel, tekst], i) => (
               <FadeIn key={titel} delay={i * 90}>
                 <div className="border-t border-white/15 pt-6">
-                  <p className="text-sm tabular-nums text-white/50">{String(i + 1).padStart(2, "0")}</p>
+                  <p className="text-sm tabular-nums text-white/60">{String(i + 1).padStart(2, "0")}</p>
                   <dt className="mt-4 text-xl font-bold tracking-heading text-white">{titel}</dt>
                   <dd className="mt-2 text-[0.975rem] leading-relaxed text-white/70">{tekst}</dd>
                 </div>
@@ -400,7 +405,7 @@ export default function VisionAI() {
               <li key={navn} className="border-b border-gray-200">
                 <FadeIn delay={i * 60}>
                   <div className="grid gap-3 py-7 lg:grid-cols-12 lg:items-center lg:gap-10 lg:py-9">
-                    <p className="text-sm tabular-nums text-gray-500 lg:col-span-1">{String(i + 1).padStart(2, "0")}</p>
+                    <p className="text-sm tabular-nums text-gray-600 lg:col-span-1">{String(i + 1).padStart(2, "0")}</p>
                     <h3 className="text-[clamp(1.375rem,2.2vw,1.875rem)] font-bold leading-tight tracking-heading text-gray-900 lg:col-span-4">
                       {navn}
                     </h3>

@@ -88,7 +88,7 @@ export default function Referencer() {
               <li key={shot.id}>
                 <FadeIn delay={i * 60}>
                   <div className="grid grid-cols-[3rem_1fr] items-baseline gap-x-6 gap-y-2 border-b border-black/10 py-8 md:grid-cols-[4rem_14rem_1fr] lg:py-10">
-                    <span className="text-sm font-semibold tabular-nums text-gray-500">
+                    <span className="text-sm font-semibold tabular-nums text-gray-600">
                       {String(i + 1).padStart(2, "0")}
                     </span>
                     {/* Grå, ikke orange: otte orange labels ville gøre orange

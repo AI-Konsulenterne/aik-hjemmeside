@@ -20,7 +20,7 @@ export function Kortramme({ titel, lys, children }: { titel: string; lys: boolea
           <span className="lamp" data-lit={lys ? "true" : "false"} />
           {titel}
         </p>
-        <p className="text-[0.625rem] text-white/45">Eksempel</p>
+        <p className="text-[0.625rem] text-white/60">Eksempel</p>
       </div>
       <div className="mt-3">{children}</div>
     </div>
@@ -77,6 +77,11 @@ export function KortSvar({ aktiv }: { aktiv: boolean }) {
   const [n, setN] = useState(0);
   useEffect(() => {
     if (!aktiv) return;
+    /* Med reduceret bevægelse står svaret færdigt med det samme. */
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      const t = window.setTimeout(() => setN(SVAR.length), 0);
+      return () => window.clearTimeout(t);
+    }
     let i = 0;
     const id = window.setInterval(() => {
       i += 2;

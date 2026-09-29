@@ -161,7 +161,7 @@ export default async function OmOs() {
               {VAERDIER.map((v, i) => (
                 <li key={v.titel} className="border-t border-gray-200 py-9 first:border-t-0 first:pt-0 lg:py-11">
                   <FadeIn delay={i * 60}>
-                    <p className="text-sm font-semibold tabular-nums text-gray-500">{String(i + 1).padStart(2, "0")}</p>
+                    <p className="text-sm font-semibold tabular-nums text-gray-600">{String(i + 1).padStart(2, "0")}</p>
                     <h3 className="mt-3 text-[clamp(1.625rem,2.8vw,2.375rem)] font-bold leading-[1.08] tracking-display text-gray-900">
                       {v.titel}
                     </h3>

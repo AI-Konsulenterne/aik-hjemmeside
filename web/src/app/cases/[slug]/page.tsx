@@ -224,7 +224,7 @@ export default async function CaseDetail({
               <FadeIn key={k.etiket}>
                 <div className="grid gap-6 border-t border-gray-200 pt-8 lg:grid-cols-12 lg:gap-16 lg:pt-10">
                   <div className="lg:col-span-3">
-                    <p className="text-sm font-semibold tabular-nums text-gray-500">{String(i + 1).padStart(2, "0")}</p>
+                    <p className="text-sm font-semibold tabular-nums text-gray-600">{String(i + 1).padStart(2, "0")}</p>
                     <h2 className="mt-2 text-[1.375rem] font-bold tracking-heading text-gray-900">{k.etiket}</h2>
                   </div>
                   <div className="lg:col-span-9">{k.indhold}</div>

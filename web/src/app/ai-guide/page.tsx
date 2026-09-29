@@ -136,7 +136,7 @@ export default function AIGuide() {
               <li key={titel}>
                 <FadeIn delay={i * 90}>
                   <div className="border-t border-gray-300 pt-6">
-                    <p className="text-sm font-semibold tabular-nums text-gray-500">{String(i + 1).padStart(2, "0")}</p>
+                    <p className="text-sm font-semibold tabular-nums text-gray-600">{String(i + 1).padStart(2, "0")}</p>
                     <h3 className="mt-3 text-[clamp(1.375rem,2.2vw,1.75rem)] font-bold leading-tight tracking-heading text-gray-900">
                       {titel}
                     </h3>

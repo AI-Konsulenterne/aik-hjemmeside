@@ -173,7 +173,7 @@ export default function AcademyLanding() {
                   <li key={s.titel}>
                     <FadeIn delay={i * 80}>
                       <div className="grid grid-cols-[3rem_1fr] gap-x-4 border-b border-gray-200 py-7 sm:grid-cols-[4rem_1fr]">
-                        <span className="pt-1 text-sm font-semibold tabular-nums text-gray-500">
+                        <span className="pt-1 text-sm font-semibold tabular-nums text-gray-600">
                           {String(i + 1).padStart(2, "0")}
                         </span>
                         <div>

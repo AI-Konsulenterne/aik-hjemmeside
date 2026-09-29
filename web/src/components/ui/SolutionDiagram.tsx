@@ -111,7 +111,7 @@ export default function SolutionDiagram({ category }: { category?: string }) {
   const flow = (category && flows[category]) || flows.andet;
   return (
     <div className="bg-gray-50 rounded-2xl p-6 lg:p-8 border border-gray-100">
-      <p className="text-[11px] uppercase tracking-[0.15em] text-gray-400 font-semibold text-center mb-6">
+      <p className="text-[11px] uppercase tracking-[0.15em] text-gray-600 font-semibold text-center mb-6">
         Sådan virker løsningen
       </p>
       <div className="flex flex-col md:flex-row items-stretch md:items-center gap-3 md:gap-2">

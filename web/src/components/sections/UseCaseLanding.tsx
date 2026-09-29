@@ -118,7 +118,7 @@ export default function UseCaseLanding({
             {steps.items.map((s, i) => (
               <FadeIn key={s.h} delay={i * 80}>
                 <div className="border-t border-gray-300 pt-6">
-                  <p className="text-sm font-semibold tabular-nums text-gray-500">{s.n}</p>
+                  <p className="text-sm font-semibold tabular-nums text-gray-600">{s.n}</p>
                   <dt className="mt-3 text-lg font-bold leading-snug tracking-heading text-gray-900">{s.h}</dt>
                   <dd className="mt-2 text-[0.975rem] leading-relaxed text-gray-600">{s.p}</dd>
                 </div>

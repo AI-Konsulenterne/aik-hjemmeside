@@ -44,7 +44,7 @@ export function PrisBeregner() {
         className="pris-slider mt-6"
         style={{ "--pct": `${pct}%` } as CSSProperties}
       />
-      <div className="mt-1 flex justify-between text-[0.8125rem] tabular-nums text-gray-500">
+      <div className="mt-1 flex justify-between text-[0.8125rem] tabular-nums text-gray-600">
         <span>{MIN}</span>
         <span>{MAKS}</span>
       </div>
