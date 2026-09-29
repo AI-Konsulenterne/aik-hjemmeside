@@ -28,7 +28,10 @@ import { FILM_INTRO, FILM_SHOTS, filmClip, filmPoster } from "@/content/film";
  * og ved 3,6 nåede man hverken billedet eller sætningen.
  */
 
-const SKUD = FILM_SHOTS.filter((s) => s.act === "kunder" && s.hasClip);
+/* inBand holder heroen kurateret: fem skud valgt på spændvidde. Da alle
+   kundeskud fik klip, ville hasClip alene have gjort heroen til ti skud og
+   et minut lang. De resterende kører på /referencer. */
+const SKUD = FILM_SHOTS.filter((s) => s.act === "kunder" && s.hasClip && s.inBand);
 const SKUD_MS = 5200;
 
 export default function HomeHero() {

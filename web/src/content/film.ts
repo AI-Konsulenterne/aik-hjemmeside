@@ -119,7 +119,7 @@ const ALL_SHOTS: FilmShot[] = [
     alt: "En hvid arkitekturmodel på et egetræsbord i en tegnestue med morgenlys hen over betongulvet.",
     enabled: true,
     inBand: false,
-    hasClip: false,
+    hasClip: true,
   },
   {
     id: "chokolade",
@@ -130,7 +130,7 @@ const ALL_SHOTS: FilmShot[] = [
     alt: "En mørk chokoladeplade knækket i to på en kølig skiferflade med kakaokrummer omkring.",
     enabled: true,
     inBand: false,
-    hasClip: false,
+    hasClip: true,
   },
   {
     id: "koekken",
@@ -141,7 +141,7 @@ const ALL_SHOTS: FilmShot[] = [
     alt: "En hånd hælder kogende vand i en kop på en lys stenbordplade i et køkken om morgenen.",
     enabled: true,
     inBand: false,
-    hasClip: false,
+    hasClip: true,
   },
   {
     id: "lift",
@@ -152,7 +152,7 @@ const ALL_SHOTS: FilmShot[] = [
     alt: "En lift hævet højt op ad en betonfacade i skumringen med en arbejdslampe tændt i kurven.",
     enabled: true,
     inBand: false,
-    hasClip: false,
+    hasClip: true,
   },
   {
     id: "panser",
@@ -163,7 +163,7 @@ const ALL_SHOTS: FilmShot[] = [
     alt: "Den lagdelte kant af en kompositpanserplade på en børstet stålbænk.",
     enabled: true,
     inBand: false,
-    hasClip: false,
+    hasClip: true,
   },
 
   /* --- Akt 2: læring. Vores eget, ikke en kundes. --- */
@@ -187,7 +187,7 @@ const ALL_SHOTS: FilmShot[] = [
     alt: "En person set bagfra ved et skrivebord om aftenen med en lysende laptop og en tændt bordlampe.",
     enabled: true,
     inBand: false,
-    hasClip: false,
+    hasClip: true,
   },
   {
     id: "ondemand",
@@ -198,7 +198,7 @@ const ALL_SHOTS: FilmShot[] = [
     alt: "Et tomt skrivebord i morgenlys med en tændt laptop og en tom stol trukket lidt tilbage.",
     enabled: true,
     inBand: false,
-    hasClip: false,
+    hasClip: true,
   },
 ];
 

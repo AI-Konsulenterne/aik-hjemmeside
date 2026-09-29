@@ -131,17 +131,20 @@ Brug research-backed tal (McKinsey, MIT, Harvard) — ikke AIK-specifikke:
 
 ## Konverteringselementer
 
-### Pop-up (efter 10 sekunder)
-- Vises på alle sider efter 10 sek
-- Indhold: Alexanders navn + telefonnummer + "Ring direkte til os"
-- Design: Clean modal, orange CTA, nem lukning
-- Må ikke vises igen i samme session efter lukning
+### Kort fra Alexander (erstattede popup'en, september 2026)
+- Et lille kort nederst til venstre på store skærme, ikke en modal og intet slør over siden
+- Kommer én gang pr. session: ved 50 % scroll eller efter 45 sekunder
+- Trækker sig mens sektionen "Tal med Alexander" er i billedet (`data-alexander`)
+- Indhold: Alexanders foto, navn og titel, telefon som orange knap (sort tekst) og link til booking
+- Lukkes med ét klik eller Escape, og vises ikke igen i samme session
+- Vises ikke på telefoner: der har bundbjælken allerede "Ring til Alexander"
+- Hvorfor: den modale popup afbrød læseren midt i casen og var det mest lille-virksomheds-agtige på siden
 
 ### Fast bar i bunden
-- Vises på alle sider, hele tiden
-- Indhold: 📞 +45 25547074 — "Ring til Alexander nu"
-- Sekundær CTA: Cal.com booking knap
+- Vises på alle sider, når man har scrollet forbi første skærm, **kun under 1024 px** (telefoner og tablets)
+- Indhold: 📞 "Ring til Alexander" + orange "Book en samtale"
 - Mobil-optimeret (thumb-friendly)
+- På store skærme står telefonnummer og "Book en samtale" i den faste navigation i stedet; en bar eller pille dernede dækkede indhold
 
 ### Lead Magnet — PDF download
 - **Titel:** "Hvad kan AI egentlig? + Sådan kommer din virksomhed i gang"
@@ -236,7 +239,7 @@ Teammedlemmer
 │   ├── components/
 │   │   ├── ui/                 # Genbrugelige UI-elementer
 │   │   ├── sections/           # Sidespecifikke sektioner
-│   │   ├── PopupPhone.tsx      # 10-sek popup med Alexanders nr.
+│   │   ├── PopupPhone.tsx      # Kort fra Alexander (ikke-modalt, kun store skærme)
 │   │   ├── BottomBar.tsx       # Fast ring-til-os bar
 │   │   └── LeadMagnet.tsx      # PDF download formular
 │   ├── lib/                    # Utilities, Strapi client
@@ -327,6 +330,7 @@ Claude skal læse denne sektion FØR hver opgave og aktivt undgå kendte fejlmø
 | 3 | Skrev prompts fulde af negationer: `no flat blank strip across the top`, `no faces`. Modellen leverede præcis det forbudte — 4 søm ud af 7 billeder, og ansigter i to forsøg i træk. | Beskriv hvad der **er** i billedet. "Væggen fortsætter naturligt i perspektiv" i stedet for "intet fladt felt". "Beskåret i brysthøjde, så hænder og bordflade fylder" i stedet for "ingen ansigter". Gav 0 søm ud af 5. |
 | 4 | Sagde at en linje på `/referencer` var blevet misvisende, uden at kontrollere om den stadig var det efter vores egen ændring. Den var sand. | Tjek påstanden mod den nuværende tilstand før den meldes som fejl. |
 | 5 | Målte tekstkontrast med `getComputedStyle().color` læst som RGB. Tailwind v4 skriver farver med alfa som `lab(100 0 0 / 0.75)`, så hvid tekst blev læst som mørkerød, fik forkert polaritet, og heroens undertitel blev meldt til 3,1:1. Den var 5,8:1. Undertitlen blev "rettet" på et forkert tal. | Parse `lab()`/`oklab()` før polariteten bestemmes, og se på et udsnit af skærmbilledet før et måltal får lov at styre en ændring. |
+| 6 | Fulgte nr. 2 og graderede nye klip med `eq=brightness`. Den er heltalsafrundet i trin på ca. 2,5 luma-niveauer og trækker 1 niveau fra, så snart den er aktiv: +0,005 gjorde billedet *mørkere*. Skiftede til `lutyuv` i 8 bit, men afdæmpede motiver har farvekanaler tæt på 128, så afrundingen gjorde mætningen trappeformet, og en Newton-løsning løb løbsk (mætning 72 mod målet 43,6). | Gradér med `lutyuv` i kildens egen bitdybde (10 bit fra Seedance): forstærkning på Y omkring sortpunktet, skalering af U/V omkring midten, først derefter `format=yuv420p`. Find værdierne med en indrammet søgning, ikke Newton, og mål klip og poster ad **samme vej** (fuld opløsning ud af ffmpeg, skaleret i PIL); ffmpeg-skalering i YUV gav 0,7 højere luminans og 1,8 lavere mætning. |
 
 ### Sådan tilføjer du en fejl
 Når Claude laver en fejl, sig bare:
@@ -345,10 +349,11 @@ Claude skriver en kort log efter hver større opgave:
 | 2026-08-18 | Referencefilmen: fire klip produceret, rysten fejlfundet, filmen bygget om til rigtige kunder | Færdig | Filmen sagde "Vi har hjulpet dem, der …" over Semler, TDC Net og Apple — leveret gennem et tidligere selskab, ikke AIK-kunder. Ude af filmen. Ti rigtige kunder ind, plus tre læringsklip under en anden sætning. Seks klip animeret (forsiden), syv står på posterframe. Graden lægges på **efter** generering: luminansspredning 91,6 → 12,7. |
 | 2026-09-29 | Tre modeller under filmen: forudsigelse, sortering, læring | Færdig | Holt-Winters slår "samme dag sidste uge" (5,6 % mod 7,1 % fejl på usete uger). Naive Bayes: 10/12, under 50 % sikkerhed går mailen til et menneske, én fejl står synligt. 0 af 136 tekster under WCAG AA. Fallback uden modellerne: branch `claude/simpel-udgave`. |
 | 2026-09-29 | Forsiden bygget om til én udgave der sælger to spor: undervisning og udvikling | Færdig | Heroen siger hvad AIK laver i én sætning over filmen. Derefter to spor-kort, fire live-demoer i ét vindue med faner, Lavazza-casen, proces og datasikkerhed, FAQ og Alexander. Navigationen følger fladen under den (mørk over mørke sektioner), bundbjælken er kun på mobil, og telefonnummeret står i navigationen fra 1280 px. Udtalelser og team er taget af forsiden: seed-dataene har "Navn kommer" og kunder vi ikke må nævne. FAQ'en starter med GDPR i stedet for "vi har ikke en IT-afdeling". Kontrast målt på pixels ved 1440 og 390: alt over WCAG AA undtagen hvid tekst på orange knapper (2,13:1, designsystemets egen regel). CLS 0 ved 1440/1024/390, 60 fps i alle fire demoer. De to tidligere udgaver ligger på `claude/simpel-udgave` og `claude/ml-udgave`. |
+| 2026-09-29 | Anbefalingerne rettet ind, og de syv manglende filmklip produceret | Færdig | Sort tekst på orange overalt (2,13:1 → 9,9:1), også i designsystemet. Popup'en er erstattet af et ikke-modalt kort fra Alexander på store skærme. Syv klip med seedance_2_5 (omni_reference, 5 s, 1080p, høj bitrate, uden lyd); køkkenet blev skudt om, fordi kedlen gled ud af billedet. 480 credits i alt. Modellen fortolker startbilledet frit, så posteren er nu klippets første billede efter grade (1920x1080, webp q82, dRGB under 0,25). Grade med lutyuv i 10 bit og indrammet søgning: alle syv inden for 0,3 af familiens mål. Heroen er låst til de fem kuraterede skud (inBand), /referencer kører alle 13. De eksisterende seks klip er ikke rørt. Playwrights Chromium kan ikke afspille H.264, så afspilning er kontrolleret med ffprobe og netværkskald, ikke i browseren. |
 
-**Åbent efter 18/8:** sætningen til logostriben ("Før AIK byggede vi til…" vs "Vores stifter har leveret løsninger til…") mangler Benjamins valg. Registret på `/referencer` mangler én sætning pr. kunde om hvad vi konkret byggede — den skal skrives af AIK, ikke gættes. Vindmølleklippet bør skydes om; grade-passet slebet dens amber-lys næsten væk.
+**Åbent efter 18/8:** sætningen til logostriben ("Før AIK byggede vi til…" vs "Vores stifter har leveret løsninger til…") mangler Benjamins valg. Registret på `/referencer` mangler én sætning pr. kunde om hvad vi konkret byggede — den skal skrives af AIK, ikke gættes. Vindmølleklippet bør skydes om; grade-passet slebet dens amber-lys næsten væk. *(Løst 19/8 i `318bfda`: ny plate med lampen tæt på kameraet.)*
 
-**Åbent efter 29/9:** Hvid tekst på orange knapper er under WCAG AA (2,13:1); det er designsystemets regel, så det er AIKs valg om den skal ændres (sort tekst på orange giver 9,9:1). Popup'en med Alexander kommer ved 50 % scroll eller efter 45 sekunder (ikke 10 sekunder som beskrevet ovenfor) og bryder den rolige, eksklusive følelse; den er ikke ændret. Lavazza-casen mangler ét resultat med tal, fra AIK. En navngiven udtalelse fra Lavazza, J.M Band eller Smukfest kan sætte `Testimonials` tilbage på forsiden. `GuideForm.tsx` og `LeadMagnetForm.tsx` har stadig to lint-fejl (setState i effect).
+**Åbent efter 29/9:** *(Løst samme dag: sort tekst på orange, og popup'en er blevet til et ikke-modalt kort.)* Orange tekst på lyse flader bruges stadig ca. 95 steder på undersiderne (2,13:1, under WCAG AA også for stor tekst); forsiden er rettet, resten er ikke gennemgået. Kortet fra Alexander dækker en del af indholdet nederst til venstre, mens det er fremme (én gang pr. session, lukkes med ét klik). Lavazza-casen mangler ét resultat med tal, fra AIK. En navngiven udtalelse fra Lavazza, J.M Band eller Smukfest kan sætte `Testimonials` tilbage på forsiden. `GuideForm.tsx` og `LeadMagnetForm.tsx` har stadig to lint-fejl (setState i effect).
 
 ---
 
