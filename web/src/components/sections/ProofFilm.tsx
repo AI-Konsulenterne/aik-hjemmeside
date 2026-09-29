@@ -149,12 +149,16 @@ export default function ProofFilm({ variant = "band" }: { variant?: Variant }) {
     <section
       ref={sectionRef}
       aria-labelledby="film-heading"
+      data-header={isFull ? "moerk" : undefined}
       className={`relative flex w-full flex-col overflow-hidden bg-ink ${
-        isTall
-          ? /* Filmen fylder skærmen under navigationen (4 rem, 5 rem fra lg),
-               så tidslinjen står i bunden af billedet og ikke under folden. */
-            "min-h-[max(34rem,calc(100svh-4rem))] lg:min-h-[max(36rem,calc(100svh-5rem))]"
-          : "h-[min(78svh,44rem)] min-h-[26rem]"
+        isFull
+          ? /* Som de andre heroer: filmen går op under den gennemsigtige
+               navigation og fylder hele skærmen, så tidslinjen står i bunden
+               af billedet og ikke under folden. */
+            "-mt-16 min-h-[max(36rem,100svh)] lg:-mt-20"
+          : isTall
+            ? "min-h-[max(34rem,calc(100svh-4rem))] lg:min-h-[max(36rem,calc(100svh-5rem))]"
+            : "h-[min(78svh,44rem)] min-h-[26rem]"
       }`}
     >
       {/* --- Billedlag --- */}
@@ -201,7 +205,7 @@ export default function ProofFilm({ variant = "band" }: { variant?: Variant }) {
           tidslinjen midt i billedet. */}
       <div className="relative flex flex-1 flex-col justify-end">
         <div
-          className={`mx-auto w-full max-w-[1400px] px-6 lg:px-10 ${
+          className={`mx-auto w-full px-6 ${isFull ? "max-w-7xl lg:px-8" : "max-w-[1400px] lg:px-10"} ${
             isTall
               ? "pb-7 pt-[clamp(6rem,18vh,12rem)] lg:pb-9"
               : "pb-[clamp(2.5rem,5vw,4rem)] pt-24"
@@ -210,6 +214,10 @@ export default function ProofFilm({ variant = "band" }: { variant?: Variant }) {
           {isHero ? (
             <h1 id="film-heading" className="sr-only">
               AI Konsulenterne bygger AI til danske virksomheder
+            </h1>
+          ) : isFull ? (
+            <h1 id="film-heading" className="sr-only">
+              Referencer: virksomheder, vi har bygget AI til
             </h1>
           ) : (
             <h2 id="film-heading" className="sr-only">

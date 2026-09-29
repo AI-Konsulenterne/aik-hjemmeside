@@ -75,6 +75,7 @@ const MOERK_HERO = new Set([
   "/ai-guide",
   "/cases",
   "/viden-om-ai",
+  "/referencer",
 ]);
 
 /** Undersider med en mørk hero ud over dem i listen: hver case. */
