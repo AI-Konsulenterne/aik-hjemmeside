@@ -140,8 +140,8 @@ export default function InboxTile() {
               data-ny={r.n === nyN && !reduceret ? "true" : "false"}
             >
               <div className="flex items-baseline justify-between gap-4">
-                <p className="truncate font-mono text-[0.68rem] text-white/50">{r.fra}</p>
-                <p className="shrink-0 font-mono text-[0.68rem] uppercase tracking-[0.12em]">
+                <p className="truncate text-[0.68rem] text-white/50">{r.fra}</p>
+                <p className="shrink-0 text-[0.68rem] uppercase tracking-[0.12em]">
                   {r.menneske ? (
                     <span className="text-white">→ et menneske</span>
                   ) : r.forkert ? (
@@ -172,7 +172,7 @@ export default function InboxTile() {
                           }}
                         />
                       </div>
-                      <p className="mt-1 flex justify-between font-mono text-[0.6rem] text-white/50">
+                      <p className="mt-1 flex justify-between text-[0.6rem] text-white/50">
                         <span className="truncate">{kat}</span>
                         <span className="tabular-nums">{Math.round(v * 100)}</span>
                       </p>
@@ -191,8 +191,8 @@ export default function InboxTile() {
             ["Forkert", regnskab.forkert],
           ].map(([a, b], i) => (
             <div key={a as string} className={`px-5 py-3.5 sm:px-6 ${i > 0 ? "border-l border-white/10" : ""}`}>
-              <dt className="font-mono text-[0.62rem] uppercase tracking-[0.14em] text-white/70">{a}</dt>
-              <dd className="mt-1 font-mono text-[0.95rem] tabular-nums text-white">{b}</dd>
+              <dt className="text-[0.62rem] uppercase tracking-[0.14em] text-white/70">{a}</dt>
+              <dd className="mt-1 text-[0.95rem] tabular-nums text-white">{b}</dd>
             </div>
           ))}
         </dl>

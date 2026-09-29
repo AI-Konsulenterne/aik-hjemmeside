@@ -1,12 +1,10 @@
-import HowWeWork from "@/components/sections/HowWeWork";
-import LiveModelSection from "@/components/sections/LiveModelSection";
-import ProofFilm from "@/components/sections/ProofFilm";
-import ServicesOverview from "@/components/sections/ServicesOverview";
-import CaseHighlight from "@/components/sections/CaseHighlight";
-import Team from "@/components/sections/Team";
-import Testimonials from "@/components/sections/Testimonials";
-import MidCTA from "@/components/sections/MidCTA";
+import HomeHero from "@/components/sections/HomeHero";
+import ToSpor from "@/components/sections/ToSpor";
+import DemoScene from "@/components/sections/DemoScene";
+import CaseLavazza from "@/components/sections/CaseLavazza";
+import SaadanArbejderVi from "@/components/sections/SaadanArbejderVi";
 import FAQ from "@/components/sections/FAQ";
+import TalMedAlexander from "@/components/sections/TalMedAlexander";
 import JsonLd from "@/components/ui/JsonLd";
 import { FAQS } from "@/content/faq";
 
@@ -18,7 +16,7 @@ const organizationJsonLd = {
   alternateName: "AIK",
   url: "https://ai-konsulenterne.dk",
   description:
-    "Dansk AI-konsulenthus der bygger skræddersyede AI-løsninger til danske virksomheder.",
+    "Dansk AI-konsulenthus der lærer virksomheders medarbejdere at bruge AI og bygger AI-løsninger på deres egne data og systemer.",
   telephone: "+4525547074",
   email: "kontakt@ai-konsulenterne.dk",
   priceRange: "$$",
@@ -119,24 +117,35 @@ export default function Forside() {
       <JsonLd data={serviceJsonLd} />
       <JsonLd data={faqJsonLd} />
       <JsonLd data={breadcrumbJsonLd} />
-      {/* Filmen ER heroen. Der var to før: en typografisk header og filmen
-          lige under, begge i fuld bredde og begge i hero-skala. De slog
-          hinanden ihjel, og headerens overskrift ("Danmarks største
-          virksomheder. Og et par af verdens største") gentog netop den
-          påstand vi tog ud af filmen, fordi den pegede på Apple og TDC.
-          Filmens egen sætning siger positioneringen bedre og sandere. */}
-      <ProofFilm variant="hero" />
-      {/* Filmen siger hvem vi har bygget til. Det her siger at vi ved hvad
-          vi laver — og det er det eneste sted paa siden hvor der faktisk
-          regnes noget. Derfor ligger den som nummer to. */}
-      <LiveModelSection />
-      <HowWeWork />
-      <ServicesOverview />
-      <CaseHighlight />
-      <Testimonials />
-      <MidCTA />
-      <Team />
+      {/* Heroen siger hvad AIK laver, i én sætning, med filmen som baggrund.
+          Før stod det rigtige udsagn kun for skærmlæsere, og det man så var
+          et "REFERENCER"-mærke og en billedtekst. Filmens linje om kunderne
+          står nu nederst i heroen, som bevis og ikke som overskrift. */}
+      {/* Fortællingen en køber går igennem: hvad laver I (heroen), hvordan
+          kan vi bruge jer (to spor), er det ægte (demoerne), hvem stoler på
+          jer (casen), hvordan foregår det og er det sikkert (proces og
+          tillid), og så et menneske at tale med. FAQ'en tager indvendingerne
+          lige før.
+
+          Fra de to tidligere udgaver er taget ud: procesafsnittet i sin
+          lange form, de tre ydelsesspalter, den gamle case, midtvejs-CTA'en
+          og væggen med fire mørke paneler. Filerne findes stadig; de er
+          bare ikke på forsiden. Begge tidligere udgaver ligger på hver sin
+          branch: claude/simpel-udgave og claude/ml-udgave.
+
+          Udtalelser og team kommer fra Strapi og er også taget af forsiden.
+          Seed-dataene har anonyme udtalelser ("Ledelse, INDKOM") fra kunder
+          vi ikke må nævne, og tre teammedlemmer der hedder "Navn kommer".
+          Alexander står i bunden, og teamet hører til på /om-os. Kommer der
+          en navngiven udtalelse fra Lavazza, J.M Band eller Smukfest, er
+          komponenten klar til at komme tilbage. */}
+      <HomeHero />
+      <ToSpor />
+      <DemoScene />
+      <CaseLavazza />
+      <SaadanArbejderVi />
       <FAQ />
+      <TalMedAlexander />
     </>
   );
 }

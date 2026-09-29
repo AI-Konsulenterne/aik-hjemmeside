@@ -326,6 +326,7 @@ Claude skal læse denne sektion FØR hver opgave og aktivt undgå kendte fejlmø
 | 2 | Graduerede video med `lutrgb`. Det halverede luminansen (107 → 58) på HEVC-kilder, fordi de er limited-range og RGB-konverteringen mangler range-metadata. | Brug `eq` (arbejder i YUV) til grade på video. Og mål altid outputtet mod målet bagefter — fejlen var usynlig i filstørrelsen alene. |
 | 3 | Skrev prompts fulde af negationer: `no flat blank strip across the top`, `no faces`. Modellen leverede præcis det forbudte — 4 søm ud af 7 billeder, og ansigter i to forsøg i træk. | Beskriv hvad der **er** i billedet. "Væggen fortsætter naturligt i perspektiv" i stedet for "intet fladt felt". "Beskåret i brysthøjde, så hænder og bordflade fylder" i stedet for "ingen ansigter". Gav 0 søm ud af 5. |
 | 4 | Sagde at en linje på `/referencer` var blevet misvisende, uden at kontrollere om den stadig var det efter vores egen ændring. Den var sand. | Tjek påstanden mod den nuværende tilstand før den meldes som fejl. |
+| 5 | Målte tekstkontrast med `getComputedStyle().color` læst som RGB. Tailwind v4 skriver farver med alfa som `lab(100 0 0 / 0.75)`, så hvid tekst blev læst som mørkerød, fik forkert polaritet, og heroens undertitel blev meldt til 3,1:1. Den var 5,8:1. Undertitlen blev "rettet" på et forkert tal. | Parse `lab()`/`oklab()` før polariteten bestemmes, og se på et udsnit af skærmbilledet før et måltal får lov at styre en ændring. |
 
 ### Sådan tilføjer du en fejl
 Når Claude laver en fejl, sig bare:
@@ -343,9 +344,12 @@ Claude skriver en kort log efter hver større opgave:
 |---|---|---|---|
 | 2026-08-18 | Referencefilmen: fire klip produceret, rysten fejlfundet, filmen bygget om til rigtige kunder | Færdig | Filmen sagde "Vi har hjulpet dem, der …" over Semler, TDC Net og Apple — leveret gennem et tidligere selskab, ikke AIK-kunder. Ude af filmen. Ti rigtige kunder ind, plus tre læringsklip under en anden sætning. Seks klip animeret (forsiden), syv står på posterframe. Graden lægges på **efter** generering: luminansspredning 91,6 → 12,7. |
 | 2026-09-29 | Tre modeller under filmen: forudsigelse, sortering, læring | Færdig | Holt-Winters slår "samme dag sidste uge" (5,6 % mod 7,1 % fejl på usete uger). Naive Bayes: 10/12, under 50 % sikkerhed går mailen til et menneske, én fejl står synligt. 0 af 136 tekster under WCAG AA. Fallback uden modellerne: branch `claude/simpel-udgave`. |
+| 2026-09-29 | Forsiden bygget om til én udgave der sælger to spor: undervisning og udvikling | Færdig | Heroen siger hvad AIK laver i én sætning over filmen. Derefter to spor-kort, fire live-demoer i ét vindue med faner, Lavazza-casen, proces og datasikkerhed, FAQ og Alexander. Navigationen følger fladen under den (mørk over mørke sektioner), bundbjælken er kun på mobil, og telefonnummeret står i navigationen fra 1280 px. Udtalelser og team er taget af forsiden: seed-dataene har "Navn kommer" og kunder vi ikke må nævne. FAQ'en starter med GDPR i stedet for "vi har ikke en IT-afdeling". Kontrast målt på pixels ved 1440 og 390: alt over WCAG AA undtagen hvid tekst på orange knapper (2,13:1, designsystemets egen regel). CLS 0 ved 1440/1024/390, 60 fps i alle fire demoer. De to tidligere udgaver ligger på `claude/simpel-udgave` og `claude/ml-udgave`. |
 
 **Åbent efter 18/8:** sætningen til logostriben ("Før AIK byggede vi til…" vs "Vores stifter har leveret løsninger til…") mangler Benjamins valg. Registret på `/referencer` mangler én sætning pr. kunde om hvad vi konkret byggede — den skal skrives af AIK, ikke gættes. Vindmølleklippet bør skydes om; grade-passet slebet dens amber-lys næsten væk.
 
+**Åbent efter 29/9:** Hvid tekst på orange knapper er under WCAG AA (2,13:1); det er designsystemets regel, så det er AIKs valg om den skal ændres (sort tekst på orange giver 9,9:1). Popup'en med Alexander kommer ved 50 % scroll eller efter 45 sekunder (ikke 10 sekunder som beskrevet ovenfor) og bryder den rolige, eksklusive følelse; den er ikke ændret. Lavazza-casen mangler ét resultat med tal, fra AIK. En navngiven udtalelse fra Lavazza, J.M Band eller Smukfest kan sætte `Testimonials` tilbage på forsiden. `GuideForm.tsx` og `LeadMagnetForm.tsx` har stadig to lint-fejl (setState i effect).
+
 ---
 
-*Version 1.3 — Opdateret: August 2026*
+*Version 1.4 — Opdateret: September 2026*

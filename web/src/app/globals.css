@@ -73,6 +73,29 @@
   }
 }
 
+/* ---------------------------------------------------------------
+   Tal. Raleway har som standard old-style-tal: 12 er halvt så høj som
+   bogstaverne, 5 og 9 falder under linjen, 4 og 6 stikker op. Det ligner
+   en bryllupsinvitation, og det ramte alle tal på sitet — priser,
+   telefonnummer, procenter. Lining-tal står på linjen i versalhøjde.
+
+   Tailwinds tabular-nums sætter hele font-variant-numeric og ville
+   nulstille det igen; derfor sættes figurtypen også som Tailwinds egen
+   variabel, så tabular-nums giver "lining-nums tabular-nums". I base-laget,
+   så en eventuel oldstyle-nums-utility stadig kan overstyre.
+   --------------------------------------------------------------- */
+@layer base {
+  *,
+  ::before,
+  ::after {
+    --tw-numeric-figure: lining-nums;
+  }
+
+  body {
+    font-variant-numeric: lining-nums;
+  }
+}
+
 /* Smooth scrolling */
 html {
   scroll-behavior: smooth;
@@ -85,10 +108,12 @@ body {
 }
 
 /* Focus styles for accessibility */
+/* Ingen border-radius her. Reglen rammer alt med fokus, og den gav
+   pilleknapper firkantede hjørner i det øjeblik man tabbede til dem.
+   Omridset følger selv elementets egen form. */
 :focus-visible {
   outline: 2px solid var(--color-primary);
-  outline-offset: 2px;
-  border-radius: 4px;
+  outline-offset: 3px;
 }
 
 /* Skip to content link */
@@ -456,4 +481,48 @@ body {
   .inbox-row[data-ny="true"] .inbox-bar {
     animation: none;
   }
+}
+
+/* ---------------------------------------------------------------
+   Forsidens hero: tre lag mørke over filmen. Toppen, så den hvide
+   navigation står klart; midten, så overskriften kan læses i alle fem
+   skud; bunden, så underteksten har hold. Siderne er holdt lysere end
+   midten, så billedet stadig ses som et billede og ikke som en tapet.
+   --------------------------------------------------------------- */
+.hero-scrim {
+  background:
+    linear-gradient(to bottom, rgba(8, 8, 8, 0.6) 0%, rgba(8, 8, 8, 0) 18%),
+    linear-gradient(to top, rgba(8, 8, 8, 0.82) 0%, rgba(8, 8, 8, 0) 32%),
+    radial-gradient(70% 55% at 50% 50%, rgba(8, 8, 8, 0.6) 0%, rgba(8, 8, 8, 0.28) 100%);
+}
+
+/* ---------------------------------------------------------------
+   Demovinduet på forsiden. Hver demo har sin egen panelramme, fordi de
+   også kan stå alene; i vinduet er det vinduet der er rammen. Derfor
+   slukkes deres egen kant, baggrund og skygge her, og de fylder højden.
+   --------------------------------------------------------------- */
+.demo-embed > div {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+}
+
+.demo-embed .panel-lit {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  border-width: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.demo-embed .corner-marks {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+}
+
+.demo-embed .corner-marks::before,
+.demo-embed .corner-marks::after {
+  content: none;
 }

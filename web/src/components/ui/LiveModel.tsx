@@ -390,7 +390,7 @@ export default function LiveModel() {
           <button
             type="button"
             onClick={nulstil}
-            className="ml-4 font-mono text-[0.7rem] tracking-wide text-white/60 underline decoration-white/25 underline-offset-4 transition-colors hover:text-white"
+            className="ml-4 text-[0.7rem] tracking-wide text-white/60 underline decoration-white/25 underline-offset-4 transition-colors hover:text-white"
           >
             glem alt
           </button>
@@ -422,8 +422,8 @@ export default function LiveModel() {
             ["Ramt rigtigt", `${(aflaes.ramt * 100).toFixed(1)} %`],
           ].map(([k, v], i) => (
             <div key={k} className={`px-5 py-3.5 sm:px-6 ${i > 0 ? "border-l border-white/10" : ""}`}>
-              <dt className="font-mono text-[0.62rem] uppercase tracking-[0.14em] text-white/70">{k}</dt>
-              <dd className="mt-1 font-mono text-[0.95rem] tabular-nums text-white">{v}</dd>
+              <dt className="text-[0.62rem] uppercase tracking-[0.14em] text-white/70">{k}</dt>
+              <dd className="mt-1 text-[0.95rem] tabular-nums text-white">{v}</dd>
             </div>
           ))}
         </dl>

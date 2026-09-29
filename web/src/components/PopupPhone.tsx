@@ -86,7 +86,7 @@ export default function PopupPhone() {
         <div className="p-8 lg:p-10 flex flex-col justify-between text-white">
           <div>
             <h2 className="text-2xl lg:text-3xl font-bold tracking-heading text-primary leading-tight">
-              Giv mig et kald og lad os starte jeres AI rejse
+              Giv mig et kald og lad os starte jeres AI-rejse
             </h2>
             <p className="mt-6 text-gray-300 leading-relaxed text-sm lg:text-base">
               Mit navn er Alexander! Jeg er AI-konsulent og vil rigtig gerne hjælpe jer med at komme i gang med AI. Lad os afklare jeres behov og finde et konkret forslag til næste skridt. Uforpligtende og lige til.
@@ -99,7 +99,7 @@ export default function PopupPhone() {
                   href="tel:+4525547074"
                   className="text-primary font-semibold hover:underline"
                 >
-                  +45 2554 7074
+                  +45 25 54 70 74
                 </a>
               </p>
               <p className="text-gray-300">

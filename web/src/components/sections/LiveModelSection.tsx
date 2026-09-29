@@ -55,7 +55,7 @@ function Billedtekst({ h, p, note }: { h: string; p: string; note: string }) {
     <div className="mb-5">
       <h3 className="text-xl font-bold tracking-heading text-gray-900">{h}</h3>
       <p className="mt-2 max-w-[52ch] text-[0.95rem] leading-relaxed text-gray-600">{p}</p>
-      <p className="mt-2 font-mono text-[0.68rem] uppercase tracking-[0.12em] text-gray-600">{note}</p>
+      <p className="mt-2 text-[0.68rem] uppercase tracking-[0.12em] text-gray-600">{note}</p>
     </div>
   );
 }

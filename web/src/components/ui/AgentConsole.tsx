@@ -89,7 +89,12 @@ const REST_MS = 4200;
    på at det streamede svar bryder præcis som den usynlige fuldtekst. */
 const COL = "max-w-[52ch] text-[0.95rem] leading-relaxed sm:text-base";
 
-export default function AgentConsole() {
+export default function AgentConsole({
+  tema = "lys",
+}: {
+  /** Hvad spørgsmålsknapperne står på. "moerk" i demovinduet på forsiden. */
+  tema?: "lys" | "moerk";
+} = {}) {
   const [ex, setEx] = useState(0);
   const [phase, setPhase] = useState<Phase>("spoerg");
   const [typed, setTyped] = useState(0);
@@ -217,10 +222,10 @@ export default function AgentConsole() {
         {/* Topbjælke */}
         <div className="flex items-center gap-3 border-b border-white/10 px-5 py-3.5 sm:px-7">
           <span className="lamp" data-lit={working ? "true" : "false"} />
-          <p className="font-mono text-[0.7rem] uppercase tracking-[0.16em] text-white/55">
+          <p className="text-[0.7rem] uppercase tracking-[0.16em] text-white/55">
             HR-agent
           </p>
-          <p className="ml-auto font-mono text-[0.7rem] tracking-wide text-white/60">
+          <p className="ml-auto text-[0.7rem] tracking-wide text-white/60">
             {working ? "arbejder" : "klar"}
           </p>
         </div>
@@ -229,7 +234,7 @@ export default function AgentConsole() {
           {/* Spørgsmålet. Alle fire ligger usynligt i samme celle, så panelet
               har den højde det længste kræver — også når det skifter. */}
           <div className="grid grid-cols-[1rem_1fr] gap-x-3">
-            <span className="mt-[0.35rem] font-mono text-xs text-white/60">
+            <span className="mt-[0.35rem] text-xs text-white/60">
               &gt;
             </span>
             <div className="grid">
@@ -254,7 +259,7 @@ export default function AgentConsole() {
               feltet den højde det bredeste sæt kræver, ved enhver bredde,
               og panelet skifter uden at rykke. */}
           <div className="mt-6 border-l border-white/10 pl-5">
-            <p className="font-mono text-[0.7rem] uppercase tracking-[0.14em] text-white/55">
+            <p className="text-[0.7rem] uppercase tracking-[0.14em] text-white/55">
               {showLookup
                 ? searching
                   ? "søger i jeres dokumenter…"
@@ -297,7 +302,7 @@ export default function AgentConsole() {
               min-height duer ikke: den regnes inklusive padding, så feltet
               voksede 14 px i det øjeblik linjen kom, og hele panelet med. */}
           <div className="mt-5 border-t border-white/10 pt-4">
-            <p className="font-mono text-[0.7rem] leading-none tracking-wide text-white/55">
+            <p className="text-[0.7rem] leading-none tracking-wide text-white/55">
               {!done
                 ? "\u00a0"
                 : cur.cite
@@ -310,9 +315,22 @@ export default function AgentConsole() {
       </div>
 
       {/* Spørgsmålene er rigtige knapper — det er dem der gør panelet til noget
-          man kan pille ved i stedet for en film der kører. */}
-      <div className="mt-4 flex flex-wrap items-center gap-2">
-        <span className="mr-1 font-mono text-[0.7rem] uppercase tracking-[0.14em] text-gray-500">
+          man kan pille ved i stedet for en film der kører. I det mørke vindue
+          står de på én linje man kan skubbe til siden på en telefon: brækket
+          over flere linjer blev det længste spørgsmål en todelt pille med
+          centreret tekst, og rækken lignede noget der var faldet sammen. */}
+      <div
+        className={`flex items-center gap-2 ${
+          tema === "moerk"
+            ? "overflow-x-auto border-t border-white/10 px-5 py-4 sm:flex-wrap sm:px-7"
+            : "mt-4 flex-wrap"
+        }`}
+      >
+        <span
+          className={`mr-1 shrink-0 text-[0.6875rem] font-semibold uppercase tracking-[0.14em] ${
+            tema === "moerk" ? "text-white/60" : "text-gray-600"
+          }`}
+        >
           Prøv selv
         </span>
         {EXCHANGES.map((e, i) => (
@@ -321,10 +339,16 @@ export default function AgentConsole() {
             type="button"
             onClick={() => setEx(i)}
             aria-pressed={i === ex}
-            className={`border px-3 py-1.5 text-[0.8rem] leading-none transition-colors duration-200 ${
-              i === ex
-                ? "border-gray-900 text-gray-900"
-                : "border-gray-300 text-gray-600 hover:border-gray-500 hover:text-gray-900"
+            className={`rounded-full border px-3.5 py-1.5 text-[0.8125rem] leading-none transition-colors duration-200 ${
+              tema === "moerk" ? "shrink-0 whitespace-nowrap sm:whitespace-normal" : ""
+            } ${
+              tema === "moerk"
+                ? i === ex
+                  ? "border-white/70 bg-white/[0.08] text-white"
+                  : "border-white/15 text-white/70 hover:border-white/40 hover:text-white"
+                : i === ex
+                  ? "border-gray-900 text-gray-900"
+                  : "border-gray-300 text-gray-600 hover:border-gray-500 hover:text-gray-900"
             }`}
           >
             {e.q}
@@ -350,7 +374,7 @@ export default function AgentConsole() {
 
 function SourceChip({ name }: { name: string }) {
   return (
-    <span className="border border-white/15 px-2.5 py-1 font-mono text-[0.7rem] text-white/70">
+    <span className="rounded-md border border-white/15 px-2.5 py-1 text-[0.7rem] text-white/70">
       {name}
     </span>
   );

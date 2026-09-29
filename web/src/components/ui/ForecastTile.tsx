@@ -43,7 +43,12 @@ function ny(): Koersel {
   return { y: s.y, f, p: prognose(f, FREM, s.y.length) };
 }
 
-export default function ForecastTile() {
+export default function ForecastTile({
+  hoej = false,
+}: {
+  /** Højere figur, til demovinduet på forsiden hvor der er plads i højden. */
+  hoej?: boolean;
+} = {}) {
   const [k, setK] = useState<Koersel | null>(null);
   const [t, setT] = useState(0);
   const [synlig, setSynlig] = useState(false);
@@ -116,7 +121,7 @@ export default function ForecastTile() {
     };
   }, [synlig, reduceret]);
 
-  const F = smal ? FORMAT.smal : FORMAT.bred;
+  const F = smal ? FORMAT.smal : hoej ? { ...FORMAT.bred, H: 470 } : FORMAT.bred;
   const { W, H, M } = F;
 
   const g = useMemo(() => {
@@ -175,7 +180,7 @@ export default function ForecastTile() {
       <div className="panel-lit border border-white/12 bg-[#0d0f11]">
         <PanelBar label="Henvendelser pr. dag" status={status} arbejder={!!k && !faerdig && !reduceret} />
 
-        <div className="relative px-2 pt-3 sm:px-3">
+        <div className="relative flex flex-1 items-center px-2 pt-3 sm:px-3">
           {g && (
             <svg
               viewBox={`0 0 ${W} ${H}`}
@@ -196,7 +201,7 @@ export default function ForecastTile() {
               {g.ticks.map((v) => (
                 <g key={v}>
                   <line x1={M.l} x2={W - M.r} y1={g.y(v)} y2={g.y(v)} stroke="rgba(255,255,255,0.06)" />
-                  <text x={M.l - 10} y={g.y(v) + 4} textAnchor="end" className="fill-white/60 font-mono" fontSize={11 * F.fs}>
+                  <text x={M.l - 10} y={g.y(v) + 4} textAnchor="end" className="fill-white/60" fontSize={11 * F.fs}>
                     {v}
                   </text>
                 </g>
@@ -206,7 +211,7 @@ export default function ForecastTile() {
               {Array.from({ length: k!.y.length + FREM }, (_, i) => i)
                 .filter((i) => i % PERIODE === 0 && (!F.hverAnden || (i / PERIODE) % 2 === 0))
                 .map((i) => (
-                  <text key={i} x={g.x(i)} y={H - 10} textAnchor="middle" className="fill-white/60 font-mono" fontSize={10.5 * F.fs}>
+                  <text key={i} x={g.x(i)} y={H - 10} textAnchor="middle" className="fill-white/60" fontSize={10.5 * F.fs}>
                     {UGEDAGE[0]}
                   </text>
                 ))}
@@ -217,7 +222,7 @@ export default function ForecastTile() {
               {/* I dag */}
               <g style={{ opacity: histAndel >= 1 ? 1 : 0, transition: "opacity 300ms" }}>
                 <line x1={g.iDagX} x2={g.iDagX} y1={M.t - 6} y2={H - M.b} stroke="rgba(255,255,255,0.42)" strokeDasharray="2 4" />
-                <text x={g.iDagX} y={M.t - 9} textAnchor="middle" className="fill-white/70 font-mono" fontSize={10.5 * F.fs} letterSpacing="1.5">
+                <text x={g.iDagX} y={M.t - 9} textAnchor="middle" className="fill-white/70" fontSize={10.5 * F.fs} letterSpacing="1.5">
                   I DAG
                 </text>
               </g>
@@ -231,7 +236,7 @@ export default function ForecastTile() {
               {/* Næste mandag */}
               <g style={{ opacity: faerdig ? 1 : 0, transition: "opacity 400ms" }}>
                 <circle cx={g.manX} cy={g.manY} r={4.5 * F.fs} fill="#ff9a00" stroke="#0d0f11" strokeWidth={2 * F.fs} />
-                <text x={g.manX - 8 * F.fs} y={g.manY - 12 * F.fs} textAnchor="end" className="fill-white font-mono" fontSize={12 * F.fs}>
+                <text x={g.manX - 8 * F.fs} y={g.manY - 12 * F.fs} textAnchor="end" className="fill-white" fontSize={12 * F.fs}>
                   man. {g.manV} ±{g.manPm}
                 </text>
               </g>
@@ -248,8 +253,8 @@ export default function ForecastTile() {
             ["α · β · γ", k ? `${k.f.alpha} · ${k.f.beta} · ${k.f.gamma}` : "…"],
           ].map(([a, b], i) => (
             <div key={a} className={`px-5 py-3.5 sm:px-6 ${i > 0 ? "border-l border-white/10" : ""} ${i === 2 ? "hidden sm:block" : ""}`}>
-              <dt className="font-mono text-[0.62rem] uppercase tracking-[0.14em] text-white/70">{a}</dt>
-              <dd className="mt-1 font-mono text-[0.95rem] tabular-nums text-white">{b}</dd>
+              <dt className="text-[0.62rem] uppercase tracking-[0.14em] text-white/70">{a}</dt>
+              <dd className="mt-1 text-[0.95rem] tabular-nums text-white">{b}</dd>
             </div>
           ))}
         </dl>
