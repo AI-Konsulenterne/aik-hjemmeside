@@ -1,6 +1,6 @@
 import HomeHero from "@/components/sections/HomeHero";
 import ToSpor from "@/components/sections/ToSpor";
-import DemoScene from "@/components/sections/DemoScene";
+import DataHistorie from "@/components/sections/DataHistorie";
 import CaseLavazza from "@/components/sections/CaseLavazza";
 import SaadanArbejderVi from "@/components/sections/SaadanArbejderVi";
 import FAQ from "@/components/sections/FAQ";
@@ -141,7 +141,7 @@ export default function Forside() {
           komponenten klar til at komme tilbage. */}
       <HomeHero />
       <ToSpor />
-      <DemoScene />
+      <DataHistorie />
       <CaseLavazza />
       <SaadanArbejderVi />
       <FAQ />
