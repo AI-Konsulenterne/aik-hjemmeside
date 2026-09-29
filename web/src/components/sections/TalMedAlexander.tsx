@@ -23,7 +23,23 @@ const vilkaar = [
   ["Ingen regning", "Finder vi ikke en konkret mulighed, koster mødet ingenting."],
 ];
 
-export default function TalMedAlexander() {
+type Props = {
+  kicker?: string;
+  titel?: string;
+  tekst?: string;
+  punkter?: string[][];
+  knap?: { label: string; href: string };
+};
+
+/* Undersiderne kan give deres egen overskrift, tekst og knap med; uden
+   props er det forsidens afslutning. */
+export default function TalMedAlexander({
+  kicker = "Næste skridt",
+  titel = "Tal med Alexander.",
+  tekst = "Ikke et salgsmøde. En afklaring af hvad AI kan gøre hos jer, og et ærligt svar hvis det ikke er noget.",
+  punkter = vilkaar,
+  knap = { label: "Book en samtale", href: "/kontakt" },
+}: Props = {}) {
   return (
     <section data-header="moerk" data-alexander className="section-y relative overflow-hidden bg-ink">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -48,19 +64,16 @@ export default function TalMedAlexander() {
           <div className="lg:col-span-7">
             <div className="flex items-center gap-3">
               <span className="lamp" data-lit="true" aria-hidden="true" />
-              <p className="kicker text-white/60">Næste skridt</p>
+              <p className="kicker text-white/60">{kicker}</p>
             </div>
             <OrdForOrd className="mt-6 text-[clamp(2.25rem,5vw,4.25rem)] font-bold leading-[1.0] tracking-display text-white">
-              Tal med Alexander.
+              {titel}
             </OrdForOrd>
             <FadeIn delay={250}>
-            <p className="mt-6 max-w-[44ch] text-[1.0625rem] leading-relaxed text-white/70">
-              Ikke et salgsmøde. En afklaring af hvad AI kan gøre hos jer, og
-              et ærligt svar hvis det ikke er noget.
-            </p>
+            <p className="mt-6 max-w-[44ch] text-[1.0625rem] leading-relaxed text-white/70">{tekst}</p>
 
             <dl className="mt-10 border-t border-white/12">
-              {vilkaar.map(([k, v]) => (
+              {punkter.map(([k, v]) => (
                 <div key={k} className="grid gap-1 border-b border-white/12 py-4 sm:grid-cols-[11rem_1fr] sm:gap-6">
                   <dt className="text-[0.975rem] font-semibold text-white">{k}</dt>
                   <dd className="text-[0.975rem] leading-relaxed text-white/65">{v}</dd>
@@ -69,8 +82,8 @@ export default function TalMedAlexander() {
             </dl>
 
             <div className="mt-10 flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:gap-6">
-              <Button href="/kontakt" size="lg">
-                Book en samtale
+              <Button href={knap.href} size="lg">
+                {knap.label}
               </Button>
               <a
                 href="tel:+4525547074"

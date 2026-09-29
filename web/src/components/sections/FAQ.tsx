@@ -3,7 +3,7 @@
 import { useState } from "react";
 import FadeIn from "@/components/ui/FadeIn";
 import OrdForOrd from "@/components/ui/OrdForOrd";
-import { FAQS } from "@/content/faq";
+import { FAQS, type Faq } from "@/content/faq";
 
 /**
  * Spørgsmål vi ofte får.
@@ -16,21 +16,31 @@ import { FAQS } from "@/content/faq";
  * svar behøver ikke være centrerede for at fylde bredden ud.
  *
  * Indholdet kommer fra src/content/faq.ts, som forsidens JSON-LD også
- * læser fra.
+ * læser fra. Undersiderne giver deres egne spørgsmål med som props.
  */
-export default function FAQ() {
+export default function FAQ({
+  items = FAQS,
+  kicker = "Spørgsmål vi ofte får",
+  titel = "Det I plejer at spørge om",
+  graa = false,
+}: {
+  items?: Faq[];
+  kicker?: string;
+  titel?: string;
+  graa?: boolean;
+}) {
   const [open, setOpen] = useState<number | null>(0);
 
   return (
-    <section className="section-y relative overflow-hidden bg-white">
+    <section className={`section-y relative overflow-hidden ${graa ? "bg-gray-50" : "bg-white"}`}>
       <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8">
         <div className="grid gap-12 lg:grid-cols-[minmax(0,0.75fr)_minmax(0,1.25fr)] lg:gap-20">
           <div>
             <div className="lg:sticky lg:top-32">
-              <p className="kicker text-gray-600">Spørgsmål vi ofte får</p>
+              <p className="kicker text-gray-600">{kicker}</p>
 
               <OrdForOrd className="mt-8 max-w-[14ch] text-[clamp(2rem,3.4vw,3rem)] font-bold leading-[1.02] tracking-display text-gray-900">
-                Det I plejer at spørge om
+                {titel}
               </OrdForOrd>
 
               <FadeIn delay={250}>
@@ -46,7 +56,7 @@ export default function FAQ() {
           </div>
 
           <div className="border-t border-gray-200">
-            {FAQS.map((faq, i) => {
+            {items.map((faq, i) => {
               const isOpen = open === i;
               return (
                 <FadeIn key={faq.q} delay={i * 50}>
