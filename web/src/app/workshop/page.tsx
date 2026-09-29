@@ -50,7 +50,7 @@ export const metadata: Metadata = {
     "AI træning medarbejdere",
   ],
   openGraph: {
-    title: "AI Workshop for Virksomheder — bygget til jer",
+    title: "AI-workshop for virksomheder, bygget til jer",
     description:
       "En AI-workshop bygget op om jeres egne opgaver. I går hjem med skabeloner, use cases og en plan.",
     url: "/workshop",
@@ -489,7 +489,7 @@ export default function Workshop() {
                 rel="noopener noreferrer"
                 className="btn btn-primary btn-lg"
               >
-                Gå til AI-Minds →
+                Se AI-Minds-platformen ↗
               </a>
             </div>
           </FadeIn>

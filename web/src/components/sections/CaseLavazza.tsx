@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import FadeIn from "@/components/ui/FadeIn";
+import OrdForOrd from "@/components/ui/OrdForOrd";
 
 /**
  * Kundecasen.
@@ -26,14 +27,15 @@ export default function CaseLavazza() {
     <section className="section-y bg-white">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="grid items-center gap-10 lg:grid-cols-12 lg:gap-16">
-          <FadeIn className="lg:col-span-7">
-            <div className="relative aspect-[4/3] overflow-hidden rounded-3xl bg-ink">
+          {/* Billedet åbner sig med scroll (.afsloer i globals.css) */}
+          <div className="lg:col-span-7">
+            <div className="afsloer relative aspect-[4/3] overflow-hidden rounded-3xl bg-ink">
               <Image
                 src="/film/kaffe.webp"
                 alt="Nybrændte kaffebønner falder fra en industriristers tromle."
                 fill
                 sizes="(min-width: 1024px) 720px, 100vw"
-                className="object-cover"
+                className="afsloer-zoom object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
               <div className="absolute bottom-7 left-7 right-7 flex items-end justify-between gap-6">
@@ -49,13 +51,14 @@ export default function CaseLavazza() {
                 </p>
               </div>
             </div>
-          </FadeIn>
+          </div>
 
-          <FadeIn delay={120} className="lg:col-span-5">
+          <div className="lg:col-span-5">
             <p className="kicker text-gray-600">Kundecase</p>
-            <h2 className="mt-6 text-[clamp(1.9rem,3.4vw,2.875rem)] font-bold leading-[1.05] tracking-display text-gray-900">
+            <OrdForOrd className="mt-6 text-[clamp(1.9rem,3.4vw,2.875rem)] font-bold leading-[1.05] tracking-display text-gray-900">
               HR-agenten, der svarer, så HR ikke skal.
-            </h2>
+            </OrdForOrd>
+            <FadeIn delay={250}>
             <p className="mt-6 text-[1.0625rem] leading-relaxed text-gray-600">
               Lavazzas HR-afdeling brugte for mange timer på de samme
               spørgsmål: feriedage, barsel, opsigelsesvarsler. Svarene stod
@@ -75,21 +78,22 @@ export default function CaseLavazza() {
 
             <div className="mt-8 flex flex-wrap items-center gap-x-7 gap-y-3">
               <Link
-                href="#se-det-virke"
-                className="group inline-flex items-center gap-1.5 text-sm font-semibold text-gray-900 transition-colors hover:text-primary"
+                href="/ai-i-hr"
+                className="group inline-flex items-center gap-1.5 text-sm font-semibold text-gray-900"
               >
-                Prøv agenten
-                <span aria-hidden="true" className="transition-transform duration-200 group-hover:-translate-y-0.5">↑</span>
+                <span className="understreg">Sådan bygger vi HR-agenter</span>
+                <span aria-hidden="true" className="transition-transform duration-200 group-hover:translate-x-0.5">→</span>
               </Link>
               <Link
                 href="/referencer"
-                className="group inline-flex items-center gap-1.5 text-sm font-semibold text-gray-900 transition-colors hover:text-primary"
+                className="group inline-flex items-center gap-1.5 text-sm font-semibold text-gray-900"
               >
-                Hvem vi ellers har hjulpet
+                <span className="understreg">Hvem vi ellers har hjulpet</span>
                 <span aria-hidden="true" className="transition-transform duration-200 group-hover:translate-x-0.5">→</span>
               </Link>
             </div>
-          </FadeIn>
+            </FadeIn>
+          </div>
         </div>
       </div>
     </section>

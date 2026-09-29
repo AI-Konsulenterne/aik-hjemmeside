@@ -3,11 +3,11 @@ import Image from "next/image";
 import CookieConsentLink from "./CookieConsentLink";
 
 const serviceLinks = [
-  { label: "AI-strategi", href: "/ai-strategi" },
-  { label: "Skræddersyede AI", href: "/skraeddersyede-ai" },
-  { label: "AIK Workshop", href: "/workshop" },
+  { label: "AI-Minds læringsplatform", href: "/academy" },
+  { label: "Workshop hos jer", href: "/workshop" },
+  { label: "Skræddersyet AI", href: "/skraeddersyede-ai" },
   { label: "AIK Workspace", href: "/visionai" },
-  { label: "AI-Minds", href: "/academy" },
+  { label: "AI-strategi", href: "/ai-strategi" },
 ];
 
 const solutionLinks = [

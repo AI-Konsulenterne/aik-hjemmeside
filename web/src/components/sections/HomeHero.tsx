@@ -177,15 +177,15 @@ export default function HomeHero() {
           <span className="block text-balance">Og bygger den til dem.</span>
         </h1>
         <p className="mt-7 max-w-[46ch] text-[1.0625rem] leading-relaxed text-white/90 [text-shadow:0_1px_16px_rgba(0,0,0,0.6)] sm:text-lg">
-          Fra første workshop til AI i drift, for virksomheder der vil have
-          det gjort ordentligt.
+          AI-Minds klæder hele organisationen på. Og vi bygger løsningerne
+          på jeres egne data og systemer.
         </p>
         <div className="mt-10 flex flex-col items-center gap-3 sm:flex-row sm:gap-4">
           <Button href="/kontakt" size="lg">
             Book en samtale
           </Button>
-          <Button href="#to-spor" size="lg" variant="ghost">
-            Se hvad vi laver
+          <Button href="/academy" size="lg" variant="ghost">
+            Se læringsplatformen
           </Button>
         </div>
       </div>

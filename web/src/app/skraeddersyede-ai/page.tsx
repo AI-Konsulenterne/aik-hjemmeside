@@ -102,7 +102,7 @@ const WHY = [
   {
     ic: "lock",
     h: "Jeres data bliver i EU.",
-    p: "Vi vægter datasuverænitet rigtig højt hos AIK, derfor hoster vi kun jeres data på svenske servere. Det betyder, at jeres data ikke bliver delt med USA, Rusland og resten af verden.",
+    p: "Vi vægter datasuverænitet højt, derfor ligger jeres data kun på servere i Sverige. De forlader ikke EU.",
   },
   {
     ic: "users",
@@ -188,11 +188,11 @@ export default function SkraeddersyedeAI() {
                 <span className="accent">dræber AI-projekter</span>
               </h2>
               <p className="problem-body">
-                Der bliver brugt milliarder på AI, og alligevel viste MIT i 2025,
-                at 80% af projekterne ikke gav noget målbart resultat igen. Det er
-                sjældent teknologien, den er gal med. Studiet viser, at det oftest
-                skyldes en manglende plan, data, der aldrig blev klargjort, og mål,
-                der aldrig blev sat.{" "}
+                Der bliver brugt milliarder på AI, og alligevel slår over 80% af
+                AI-projekterne fejl, dobbelt så mange som almindelige IT-projekter
+                (RAND, 2024). Det er sjældent teknologien, den er gal med. Studiet
+                peger på uklare mål, data, der aldrig blev gjort klar, og
+                løsninger, der blev bygget for teknologiens skyld.{" "}
                 <strong>Det er præcis dér, vi kommer ind i billedet.</strong>
               </p>
             </div>

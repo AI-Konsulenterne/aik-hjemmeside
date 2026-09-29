@@ -145,12 +145,12 @@ export default function AiStrategi() {
         <div className="hero-glow" aria-hidden="true" />
         <div className="max-w-4xl mx-auto px-6 lg:px-8 relative z-10 text-center">
           <FadeIn>
-            <p className="text-[13px] font-bold tracking-[0.22em] uppercase text-primary">
+            <p className="text-[13px] font-bold tracking-[0.22em] uppercase text-gray-600">
               AI-strategi
             </p>
             <h1 className="text-[2.5rem] sm:text-5xl lg:text-[3.75rem] font-bold tracking-heading text-gray-900 leading-[1.05] mt-4 text-balance">
               AI-strategi til danske virksomheder -{" "}
-              <span className="text-primary">der rent faktisk bliver til noget.</span>
+              <span className="text-gray-500">der rent faktisk bliver til noget.</span>
             </h1>
           </FadeIn>
           <FadeIn delay={150}>
@@ -207,7 +207,7 @@ export default function AiStrategi() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <FadeIn>
             <div className="max-w-2xl">
-              <p className="text-[11px] uppercase tracking-[0.2em] text-primary font-semibold mb-3">
+              <p className="text-[11px] uppercase tracking-[0.2em] text-gray-600 font-semibold mb-3">
                 Sådan gør vi
               </p>
               <h2 className="text-3xl lg:text-4xl font-bold tracking-heading text-gray-900 leading-[1.1]">
@@ -219,7 +219,7 @@ export default function AiStrategi() {
             {STEPS.map((s, i) => (
               <FadeIn key={s.n} delay={i * 90}>
                 <div className="h-full bg-white rounded-2xl border border-gray-100 p-7 hover:shadow-lg transition-shadow">
-                  <span className="text-2xl font-bold text-primary">{s.n}</span>
+                  <span className="text-2xl font-bold text-gray-900">{s.n}</span>
                   <h3 className="text-lg font-bold tracking-heading text-gray-900 mt-4 leading-tight">
                     {s.h}
                   </h3>
@@ -238,7 +238,7 @@ export default function AiStrategi() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <FadeIn>
             <div className="max-w-2xl">
-              <p className="text-[11px] uppercase tracking-[0.2em] text-primary font-semibold mb-3">
+              <p className="text-[11px] uppercase tracking-[0.2em] text-gray-600 font-semibold mb-3">
                 Derfor betaler det sig
               </p>
               <h2 className="text-3xl lg:text-4xl font-bold tracking-heading text-gray-900 leading-[1.1]">
@@ -250,11 +250,11 @@ export default function AiStrategi() {
             {STATS.map((s, i) => (
               <FadeIn key={s.source} delay={i * 90}>
                 <div className="h-full bg-white rounded-2xl border border-gray-100 p-8">
-                  <p className="text-4xl lg:text-5xl font-bold tracking-heading text-primary">
+                  <p className="text-4xl lg:text-5xl font-bold tracking-heading text-gray-900">
                     {s.figure}
                   </p>
                   <p className="text-gray-700 mt-4 leading-relaxed">{s.text}</p>
-                  <p className="text-xs uppercase tracking-[0.15em] text-gray-400 font-semibold mt-4">
+                  <p className="text-xs uppercase tracking-[0.15em] text-gray-500 font-semibold mt-4">
                     {s.source}
                   </p>
                 </div>
@@ -283,7 +283,7 @@ export default function AiStrategi() {
                     <h3 className="text-xl font-bold tracking-heading text-gray-900 leading-tight">
                       {c.h}
                     </h3>
-                    <span className="text-primary text-2xl transition-transform group-hover:translate-x-1">
+                    <span className="text-gray-900 text-2xl transition-transform group-hover:translate-x-1">
                       →
                     </span>
                   </div>

@@ -13,7 +13,7 @@ const BRANCHER = [
   "Offentlig",
   "Andet",
 ];
-const STOERRELSER = ["1-10", "11-50", "51-200", "200+"];
+const STOERRELSER = ["1-10", "11-50", "51-200", "201-1.000", "Over 1.000"];
 const TIDSFORBRUG = [
   "Kundeservice & support",
   "Tilbud & ordrer",
@@ -210,10 +210,10 @@ export default function LeadMagnetForm() {
 
       {/* Progress */}
       <div className="flex items-center justify-between mb-1">
-        <p className="text-xs font-semibold text-primary uppercase tracking-widest">
+        <p className="text-xs font-semibold text-gray-600 uppercase tracking-widest">
           Trin {step} af 4
         </p>
-        <p className="text-xs text-gray-400">{Math.round((step / 4) * 100)}%</p>
+        <p className="text-xs text-gray-500">{Math.round((step / 4) * 100)}%</p>
       </div>
       <div className="h-1.5 bg-gray-100 rounded-full mb-6 overflow-hidden">
         <div
@@ -259,7 +259,7 @@ export default function LeadMagnetForm() {
         {step === 2 && (
           <div>
             <label className="block text-sm font-semibold text-gray-700 mb-1.5">
-              Hvor bruger I mest tid? <span className="font-normal text-gray-400">(vælg op til 3)</span>
+              Hvor bruger I mest tid? <span className="font-normal text-gray-500">(vælg op til 3)</span>
             </label>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-2">
               {TIDSFORBRUG.map((t) => (
@@ -293,7 +293,7 @@ export default function LeadMagnetForm() {
             <div className="mt-4">
               <label className="block text-sm font-semibold text-gray-700 mb-1.5">
                 Den ene opgave I helst vil løse først{" "}
-                <span className="font-normal text-gray-400">(valgfri)</span>
+                <span className="font-normal text-gray-500">(valgfri)</span>
               </label>
               <textarea
                 rows={2}
@@ -399,7 +399,7 @@ export default function LeadMagnetForm() {
         </div>
 
         {step === 4 && (
-          <p className="text-xs text-gray-400 text-center mt-4 leading-relaxed">
+          <p className="text-xs text-gray-500 text-center mt-4 leading-relaxed">
             Tager 30 sekunder. Vi sender rapporten på mail inden for en time.
             <br />
             Også når der ikke lige er en faktura imellem.

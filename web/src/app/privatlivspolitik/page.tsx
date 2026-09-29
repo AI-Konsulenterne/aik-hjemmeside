@@ -32,19 +32,19 @@ export default function Privatlivspolitik() {
       <p>Vi indsamler følgende data, afhængigt af hvordan du bruger siden:</p>
       <ul>
         <li>
-          <strong>Kontaktoplysninger</strong> (navn, email, telefon) — når du
+          <strong>Kontaktoplysninger</strong> (navn, email, telefon): når du
           booker et møde, henter vores AI-guide, eller sender os en henvendelse
         </li>
         <li>
-          <strong>Virksomhedsoplysninger</strong> (firmanavn, branche) — når du
+          <strong>Virksomhedsoplysninger</strong> (firmanavn, branche): når du
           selv angiver dem
         </li>
         <li>
           <strong>Teknisk data</strong> (IP-adresse, browsertype,
-          skærmstørrelse) — via analyseværktøjer, kun med dit samtykke
+          skærmstørrelse): via analyseværktøjer, kun med dit samtykke
         </li>
         <li>
-          <strong>Cookies</strong> — se vores cookiepolitik for detaljer
+          <strong>Cookies</strong>: se vores cookiepolitik for detaljer
         </li>
       </ul>
 
@@ -66,15 +66,15 @@ export default function Privatlivspolitik() {
       </p>
       <ul>
         <li>
-          <strong>Dit samtykke</strong> (GDPR art. 6, stk. 1, litra a) — fx
+          <strong>Dit samtykke</strong> (GDPR art. 6, stk. 1, litra a): fx
           ved tilmelding til nyhedsbrev eller accept af marketing-cookies
         </li>
         <li>
-          <strong>Kontrakt</strong> (GDPR art. 6, stk. 1, litra b) — når du er
+          <strong>Kontrakt</strong> (GDPR art. 6, stk. 1, litra b): når du er
           kunde eller på vej til at blive det
         </li>
         <li>
-          <strong>Legitim interesse</strong> (GDPR art. 6, stk. 1, litra f) —
+          <strong>Legitim interesse</strong> (GDPR art. 6, stk. 1, litra f):
           fx til driftsmæssige formål og sikkerhed
         </li>
       </ul>
@@ -111,20 +111,20 @@ export default function Privatlivspolitik() {
       <p>Vi bruger følgende databehandlere:</p>
       <ul>
         <li>
-          <strong>Cal.com</strong> — booking af møder (EU-hosting)
+          <strong>Cal.com</strong>: booking af møder (EU-hosting)
         </li>
         <li>
-          <strong>ActiveCampaign</strong> — email-marketing og CRM
+          <strong>ActiveCampaign</strong>: email-marketing og CRM
         </li>
         <li>
-          <strong>Cloudflare</strong> — CDN og sikkerhed
+          <strong>Cloudflare</strong>: CDN og sikkerhed
         </li>
         <li>
-          <strong>Google Analytics</strong> — statistik (anonymiseret IP, kun
+          <strong>Google Analytics</strong>: statistik (anonymiseret IP, kun
           ved samtykke)
         </li>
         <li>
-          <strong>Hetzner / Vercel</strong> — hosting af hjemmesiden
+          <strong>Hetzner / Vercel</strong>: hosting af hjemmesiden
         </li>
       </ul>
 

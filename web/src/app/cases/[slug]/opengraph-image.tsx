@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 import { getCaseBySlug, type Case } from "@/lib/strapi";
 
-export const alt = "AI Case — AI Konsulenterne";
+export const alt = "AI-case fra AI Konsulenterne";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 export const runtime = "nodejs";

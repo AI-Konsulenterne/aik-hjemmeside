@@ -23,9 +23,9 @@ export const metadata: Metadata = {
     "AI blog dansk",
   ],
   openGraph: {
-    title: "Viden om AI — Praktiske Guides til Danske Virksomheder",
+    title: "Viden om AI: praktiske guides til danske virksomheder",
     description:
-      "Alt du skal vide om AI i praksis — fra første skridt til avancerede use-cases.",
+      "Alt du skal vide om AI i praksis, fra første skridt til avancerede use cases.",
     url: "/viden-om-ai",
   },
 };
@@ -93,7 +93,7 @@ export default async function VidenOmAI() {
               </h1>
               <p className="text-lg lg:text-xl text-gray-500 mt-6 leading-relaxed">
                 Artikler og indsigter om AI til danske virksomheder. Konkret
-                viden I kan bruge — ingen buzzwords.
+                viden I kan bruge. Ingen buzzwords.
               </p>
             </div>
           </FadeIn>

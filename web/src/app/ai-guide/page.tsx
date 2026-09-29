@@ -5,10 +5,10 @@ import FadeIn from "@/components/ui/FadeIn";
 export const metadata: Metadata = {
   title: "Gratis AI-analyse til jeres virksomhed",
   description:
-    "Mange virksomheder ved ikke hvor de skal starte med AI. Få en gratis AI-analyse og konkrete forslag til hvor AI kan spare jer tid — uden buzzwords.",
+    "Mange virksomheder ved ikke hvor de skal starte med AI. Få en gratis AI-analyse og konkrete forslag til hvor AI kan spare jer tid. Uden buzzwords.",
   alternates: { canonical: "/ai-guide" },
   openGraph: {
-    title: "Gratis AI-analyse — AI Konsulenterne",
+    title: "Gratis AI-analyse | AI Konsulenterne",
     description:
       "Svært ved at komme i gang med AI? Få en gratis AI-analyse med konkrete forslag til jeres første use case.",
   },
@@ -24,7 +24,7 @@ export default function AIGuide() {
             {/* Content */}
             <FadeIn>
               <div>
-                <p className="text-xs uppercase tracking-widest text-primary font-semibold mb-4">
+                <p className="text-xs uppercase tracking-widest text-gray-600 font-semibold mb-4">
                   Gratis AI-analyse
                 </p>
                 <h1 className="text-4xl lg:text-5xl font-bold tracking-heading text-gray-900 leading-[1.05]">

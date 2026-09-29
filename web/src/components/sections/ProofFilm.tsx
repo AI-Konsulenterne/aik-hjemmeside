@@ -211,7 +211,7 @@ export default function ProofFilm({ variant = "band" }: { variant?: Variant }) {
             </h2>
           )}
 
-          <p className="text-[0.6875rem] font-semibold uppercase leading-none tracking-[0.18em] text-white/50">
+          <p className={`text-[0.6875rem] font-semibold uppercase leading-none tracking-[0.18em] ${isTall ? "text-white/90 [text-shadow:0_1px_10px_rgba(0,0,0,0.45)]" : "text-white/70"}`}>
             Referencer
           </p>
 
@@ -224,11 +224,11 @@ export default function ProofFilm({ variant = "band" }: { variant?: Variant }) {
           <p
             className={`mt-6 font-bold tracking-display text-white ${
               isTall
-                ? "text-[clamp(2rem,5.5vw,4.5rem)] leading-[1.05]"
+                ? "text-[clamp(2rem,5.5vw,4.5rem)] leading-[1.05] [text-shadow:0_2px_24px_rgba(0,0,0,0.35)]"
                 : "text-[clamp(1.75rem,4.4vw,3.75rem)] leading-[1.08]"
             }`}
           >
-            <span className={isTall ? "text-white/70" : "text-white/55"}>
+            <span className={isTall ? "text-white/80" : "text-white/55"}>
               {FILM_INTRO[shot.act]}
             </span>{" "}
             <span className="relative inline-grid max-w-full align-top">

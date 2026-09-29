@@ -9,6 +9,6 @@ export default async function OgImage() {
     tag: "Workshop",
     title: "AI Workshop for virksomheder",
     subtitle:
-      "Hands-on kursus i ChatGPT, prompt engineering og AI-værktøjer — så medarbejderne kan bruge AI fra dag 1.",
+      "Hands-on kursus i ChatGPT, prompt engineering og AI-værktøjer, så medarbejderne kan bruge AI fra dag 1.",
   });
 }

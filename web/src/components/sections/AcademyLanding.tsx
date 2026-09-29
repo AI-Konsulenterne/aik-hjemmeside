@@ -26,8 +26,9 @@ const ArrowRight = () => (
   </svg>
 );
 
-const Eyebrow = ({ children }: { children: React.ReactNode }) => (
-  <span className="text-[13px] font-bold tracking-[0.22em] uppercase text-primary">
+/* Orange tekst kun på mørke flader; på lyse har den 2,13:1 i kontrast. */
+const Eyebrow = ({ children, mork = false }: { children: React.ReactNode; mork?: boolean }) => (
+  <span className={`text-[13px] font-bold tracking-[0.22em] uppercase ${mork ? "text-primary" : "text-gray-600"}`}>
     {children}
   </span>
 );
@@ -268,7 +269,7 @@ function CourseCard({
         {cover}
       </div>
       <div className="flex flex-col flex-1 p-7 pb-8">
-        <span className="text-xs font-bold tracking-[0.18em] uppercase text-primary">
+        <span className="text-xs font-bold tracking-[0.18em] uppercase text-gray-600">
           {tag}
         </span>
         <h3 className="text-[23px] font-bold tracking-tight text-gray-900 mt-3">
@@ -312,7 +313,7 @@ export default function AcademyLanding() {
                 <Eyebrow>AI-Minds</Eyebrow>
                 <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold tracking-heading text-gray-900 leading-[1.04] mt-4 text-balance">
                   Uddannelse i Copilot{" "}
-                  <span className="text-primary">til hele organisationen</span>
+                  <span className="text-gray-500">til hele organisationen</span>
                 </h1>
                 <p className="text-lg lg:text-xl text-gray-500 mt-6 leading-relaxed max-w-xl">
                   Vi har bygget en online læringsplatform med 40+ moduler, der
@@ -322,7 +323,7 @@ export default function AcademyLanding() {
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 mt-9">
                   <Button variant="primary" size="lg" cal>
-                    Book en snak
+                    Book en demo
                     <ArrowRight />
                   </Button>
                   <a
@@ -331,7 +332,7 @@ export default function AcademyLanding() {
                     rel="noopener noreferrer"
                     className={ghostBtn}
                   >
-                    Se AI-Minds
+                    Se platformen ↗
                   </a>
                 </div>
               </div>
@@ -426,8 +427,8 @@ export default function AcademyLanding() {
           <FadeIn>
             <Eyebrow>Lyder det bekendt?</Eyebrow>
             <h2 className="text-3xl lg:text-5xl font-bold tracking-heading text-gray-900 leading-[1.08] mt-4 text-balance">
-              Få réel forretningsværdi{" "}
-              <span className="text-primary">ud af jeres licenser</span>
+              Få reel forretningsværdi{" "}
+              <span className="text-gray-500">ud af jeres licenser</span>
             </h2>
             <p className="text-xl text-gray-600 mt-6 leading-relaxed">
               I har købt licenser. I har gjort opmærksom på at de eksisterer.
@@ -448,7 +449,7 @@ export default function AcademyLanding() {
                 <Eyebrow>Det lærer jeres team</Eyebrow>
                 <h2 className="text-3xl lg:text-4xl font-bold tracking-heading text-gray-900 leading-[1.1] mt-4">
                   Moduler der er bygget til en{" "}
-                  <span className="text-primary">travl hverdag</span>.
+                  <span className="text-gray-500">travl hverdag</span>.
                 </h2>
               </div>
               <p className="text-[17px] text-gray-600 max-w-[380px]">
@@ -628,7 +629,7 @@ export default function AcademyLanding() {
 
           <div className="flex items-center gap-3.5 mt-7 text-[15px] text-gray-500">
             <span className="w-[7px] h-[7px] rounded-full bg-primary" />
-            Usikker på hvor I skal starte? Book en snak, så finder vi det rette
+            Usikker på hvor I skal starte? Book en demo, så finder vi det rette
             forløb sammen.
           </div>
         </div>
@@ -641,7 +642,7 @@ export default function AcademyLanding() {
             <div className="max-w-2xl">
               <Eyebrow>Hvorfor AI-Minds</Eyebrow>
               <h2 className="text-3xl lg:text-5xl font-bold tracking-heading text-gray-900 leading-[1.08] mt-4">
-                AI-undervisning <span className="text-primary">i øjenhøjde</span>.
+                AI-undervisning <span className="text-gray-500">i øjenhøjde</span>.
               </h2>
             </div>
           </FadeIn>
@@ -683,7 +684,7 @@ export default function AcademyLanding() {
             <div className="max-w-2xl">
               <Eyebrow>Sådan ser det ud i praksis</Eyebrow>
               <h2 className="text-3xl lg:text-5xl font-bold tracking-heading text-gray-900 leading-[1.08] mt-4">
-                Det, I får <span className="text-primary">adgang til</span>.
+                Det, I får <span className="text-gray-500">adgang til</span>.
               </h2>
             </div>
           </FadeIn>
@@ -725,7 +726,7 @@ export default function AcademyLanding() {
                 </p>
                 <div className="relative mt-7">
                   <Button variant="white" size="lg" cal>
-                    Book en snak
+                    Book en demo
                     <ArrowRight />
                   </Button>
                 </div>
@@ -750,7 +751,7 @@ export default function AcademyLanding() {
               <Eyebrow>Hvad I sidder tilbage med</Eyebrow>
               <p className="text-[clamp(1.4rem,2.5vw,2rem)] leading-[1.42] tracking-tight text-gray-900 font-medium text-pretty">
                 AI går fra at blive brugt sporadisk til at blive anvendt{" "}
-                <span className="text-primary">
+                <span className="text-gray-500">
                   systematisk og med et målrettet fokus
                 </span>
                 . Det er ikke længere noget, medarbejdere skal blive mindet om at
@@ -775,7 +776,7 @@ export default function AcademyLanding() {
                 aria-hidden="true"
               />
               <div className="relative">
-                <Eyebrow>Vi holder jer opdateret</Eyebrow>
+                <Eyebrow mork>Vi holder jer opdateret</Eyebrow>
                 <h2 className="text-3xl lg:text-4xl font-bold tracking-heading leading-[1.1] mt-3.5 text-balance">
                   I skal ikke selv være AI-eksperter.
                 </h2>
@@ -803,7 +804,7 @@ export default function AcademyLanding() {
               <Eyebrow>FAQ</Eyebrow>
               <h2 className="text-3xl lg:text-5xl font-bold tracking-heading text-gray-900 leading-[1.08] mt-4">
                 Spørgsmål{" "}
-                <span className="text-primary">vores kunder stiller.</span>
+                <span className="text-gray-500">vores kunder stiller.</span>
               </h2>
               <p className="text-[17px] text-gray-600 mt-5 leading-relaxed">
                 Har du et spørgsmål, der ikke står her? Tag det med på opkaldet.
@@ -861,7 +862,7 @@ export default function AcademyLanding() {
                 aria-hidden="true"
               />
               <div className="relative">
-                <Eyebrow>Klar til at få teamet i gang?</Eyebrow>
+                <Eyebrow mork>Klar til at få teamet i gang?</Eyebrow>
                 <h2 className="text-3xl lg:text-5xl font-bold tracking-heading text-white leading-[1.06] mt-4 text-balance">
                   Book en <span className="text-primary">kort snak</span>.
                 </h2>
@@ -871,7 +872,7 @@ export default function AcademyLanding() {
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 mt-9">
                   <Button variant="primary" size="lg" cal>
-                    Book en snak
+                    Book en demo
                     <ArrowRight />
                   </Button>
                   <a
@@ -880,7 +881,7 @@ export default function AcademyLanding() {
                     rel="noopener noreferrer"
                     className={lightBtn}
                   >
-                    Se AI-Minds
+                    Se platformen ↗
                   </a>
                 </div>
               </div>

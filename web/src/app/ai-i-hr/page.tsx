@@ -5,7 +5,7 @@ import UseCaseLanding from "@/components/sections/UseCaseLanding";
 export const metadata: Metadata = {
   title: { absolute: "AI i HR - svar på sekunder | AI Konsulenterne" },
   description:
-    "AI i HR der svarer medarbejderne på sekunder - trænet på jeres egne politikker og kørt i et datasikkert, lukket miljø. Se hvordan vi hjalp Lavazzas HR-afdeling.",
+    "AI i HR der svarer medarbejderne på sekunder - ud fra jeres egne politikker og i et datasikkert, lukket miljø. Se hvordan vi hjalp Lavazzas HR-afdeling.",
   alternates: { canonical: "/ai-i-hr" },
   keywords: [
     "AI i HR",
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "AI i HR | automatisér HR-spørgsmål og frigør tid",
     description:
-      "AI i HR der svarer medarbejderne på sekunder, trænet på jeres egne politikker og kørt i et datasikkert, lukket miljø.",
+      "AI i HR der svarer medarbejderne på sekunder, ud fra jeres egne politikker og i et datasikkert, lukket miljø.",
     url: "/ai-i-hr",
   },
 };
@@ -47,7 +47,7 @@ const serviceSchema = {
   name: "AI i HR",
   serviceType: "AI for HR",
   description:
-    "Datasikre AI-agenter til HR-afdelinger, trænet på interne politikker og dokumenter, kørt i et lukket miljø.",
+    "Datasikre AI-agenter til HR-afdelinger, der svarer ud fra interne politikker og dokumenter, i et lukket miljø.",
   provider: {
     "@type": "Organization",
     name: "AI Konsulenterne",
@@ -89,7 +89,7 @@ export default function AiIHr() {
           items: [
             {
               n: "01",
-              h: "Trænet på jeres egne dokumenter",
+              h: "Bygget på jeres egne dokumenter",
               p: "Personalehåndbog, politikker og interne regler - agenten svarer ud fra jeres faktiske materiale.",
             },
             {
@@ -116,7 +116,7 @@ export default function AiIHr() {
               href: "/cases/lavazza-hr-agent",
               company: "Lavazza",
               headline: "Datasikker HR-agent der svarer, så medarbejderne ikke skal vente",
-              blurb: "Vi byggede en AI-agent trænet på Lavazzas HR-dokumenter og politikker - kørt i et lukket miljø, der garanterer, at data aldrig forlader virksomheden. HR-afdelingen er frigjort fra rutinespørgsmål, og medarbejderne får svar på sekunder i stedet for dage.",
+              blurb: "Vi byggede en AI-agent, der svarer ud fra Lavazzas HR-dokumenter og politikker - i et lukket miljø, hvor data aldrig forlader virksomheden. HR-afdelingen er frigjort fra rutinespørgsmål, og medarbejderne får svar på sekunder i stedet for dage.",
             },
           ],
         }}

@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 import { getBlogPostBySlug } from "@/lib/strapi";
 
-export const alt = "Blog post — AI Konsulenterne";
+export const alt = "Artikel fra AI Konsulenterne";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 export const runtime = "nodejs";

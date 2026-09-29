@@ -23,7 +23,7 @@ export default function Cookiepolitik() {
       <h2>Vores brug af cookies</h2>
       <p>
         Vi bruger kun cookies der er strengt nødvendige for sidens funktion,
-        samt — hvis du giver samtykke — cookies til statistik og marketing.
+        samt, hvis du giver samtykke, cookies til statistik og marketing.
       </p>
 
       <h3>Nødvendige cookies</h3>
@@ -33,17 +33,17 @@ export default function Cookiepolitik() {
       </p>
       <ul>
         <li>
-          <strong>Session cookies</strong> — huske tilstand mellem sideskift
+          <strong>Session cookies</strong>: huske tilstand mellem sideskift
         </li>
         <li>
-          <strong>Cookie consent</strong> — gemme dit cookie-valg
+          <strong>Cookie consent</strong>: gemme dit cookie-valg
         </li>
       </ul>
 
       <h3>Statistik-cookies (kræver samtykke)</h3>
       <ul>
         <li>
-          <strong>Google Analytics (GA4)</strong> — hjælper os med at forstå
+          <strong>Google Analytics (GA4)</strong>: hjælper os med at forstå
           hvordan siden bruges. IP anonymiseres.
         </li>
       </ul>
@@ -51,7 +51,7 @@ export default function Cookiepolitik() {
       <h3>Marketing-cookies (kræver samtykke)</h3>
       <ul>
         <li>
-          <strong>Cal.com</strong> — bruges når du åbner booking-kalenderen
+          <strong>Cal.com</strong>: bruges når du åbner booking-kalenderen
         </li>
       </ul>
 

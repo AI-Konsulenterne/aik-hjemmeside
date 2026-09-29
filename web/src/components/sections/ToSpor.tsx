@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import FadeIn from "@/components/ui/FadeIn";
+import OrdForOrd from "@/components/ui/OrdForOrd";
 
 /**
  * De to spor: undervisning og udvikling.
@@ -25,12 +26,12 @@ const spor = [
     etiket: "Undervisning",
     titel: "Vi lærer jeres folk at bruge AI.",
     tekst:
-      "Workshops hos jer, hvor jeres egne opgaver er materialet, og forløb i AI-Minds, live eller når det passer. Fra ledelsen til dem, der skal bruge det hver dag.",
-    billede: "/film/workshop.webp",
-    alt: "Hænder omkring et langbord med notesbøger og laptops under en lav lampe.",
+      "AI-Minds er vores online læringsplatform: 40+ korte moduler i Copilot, Claude og AI-sikkerhed, på dansk, til hele organisationen. Og når I vil i gang sammen, kommer vi ud og holder workshop hos jer.",
+    billede: "/film/live.webp",
+    alt: "En person ved et skrivebord om aftenen, der følger et modul på sin laptop.",
     links: [
+      { label: "AI-Minds læringsplatform", href: "/academy" },
       { label: "Workshop hos jer", href: "/workshop" },
-      { label: "AI-Minds", href: "/academy" },
     ],
   },
   {
@@ -48,22 +49,31 @@ const spor = [
   },
 ];
 
-function Workshopkort() {
+/** Et modul i AI-Minds, som det ser ud på platformen: modulet, lektionen
+ *  der er i gang, og hvor langt man er. Lektionerne er under 15 minutter. */
+function AIMindsKort() {
   return (
-    <div className="w-[17rem] rounded-2xl bg-white/95 p-4 shadow-[0_20px_50px_-20px_rgba(0,0,0,0.5)] backdrop-blur">
-      <p className="text-[0.6875rem] font-semibold uppercase tracking-[0.14em] text-gray-600">
-        Workshop hos jer
-      </p>
-      <ul className="mt-3 space-y-2">
-        {["Jeres egne opgaver som cases", "Værktøjer I kan bruge dagen efter", "Hele teamet, ikke kun de tekniske"].map((t) => (
-          <li key={t} className="flex items-start gap-2.5 text-[0.8125rem] leading-snug text-gray-800">
-            <svg className="mt-[3px] h-3.5 w-3.5 flex-none text-primary" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-              <path d="M3 8.5l3 3 7-7" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-            {t}
-          </li>
-        ))}
-      </ul>
+    <div className="w-[17.5rem] rounded-2xl bg-white/95 p-4 shadow-[0_20px_50px_-20px_rgba(0,0,0,0.5)] backdrop-blur">
+      <div className="flex items-center justify-between">
+        <p className="text-[0.6875rem] font-semibold uppercase tracking-[0.14em] text-gray-600">AI-Minds · modul</p>
+        <span className="rounded-full bg-gray-900 px-2 py-0.5 text-[0.625rem] font-semibold text-white">Dansk</span>
+      </div>
+      <p className="mt-2.5 text-[0.9375rem] font-semibold leading-tight text-gray-900">Microsoft Copilot</p>
+      <div className="mt-3 flex items-center gap-3">
+        <span className="flex h-8 w-8 flex-none items-center justify-center rounded-full bg-primary text-black" aria-hidden="true">
+          <svg className="ml-0.5 h-3 w-3" viewBox="0 0 12 12" fill="currentColor"><path d="M2.5 1.5v9l8-4.5z" /></svg>
+        </span>
+        <div className="min-w-0 flex-1">
+          <p className="flex justify-between text-[0.8125rem] text-gray-800">
+            <span className="truncate">Copilot i Outlook</span>
+            <span className="ml-2 flex-none tabular-nums text-gray-600">12 min</span>
+          </p>
+          <div className="mt-1.5 h-1 rounded-full bg-gray-200">
+            <div className="h-1 w-[62%] rounded-full bg-gray-900" />
+          </div>
+        </div>
+      </div>
+      <p className="mt-3 border-t border-gray-100 pt-2.5 text-[0.75rem] text-gray-600">Næste: Copilot i Teams</p>
     </div>
   );
 }
@@ -89,21 +99,21 @@ export default function ToSpor() {
   return (
     <section id="to-spor" className="section-y scroll-mt-20 bg-white">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <FadeIn>
-          <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.8fr)] lg:items-end lg:gap-16">
-            <div>
-              <p className="kicker text-gray-600">Det vi laver</p>
-              <h2 className="mt-6 text-[clamp(2.1rem,4.4vw,3.75rem)] font-bold leading-[1.02] tracking-display text-gray-900">
-                Lær det. Eller få det bygget.
-              </h2>
-            </div>
+        <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.8fr)] lg:items-end lg:gap-16">
+          <div>
+            <p className="kicker text-gray-600">Det vi laver</p>
+            <OrdForOrd className="mt-6 text-[clamp(2.1rem,4.4vw,3.75rem)] font-bold leading-[1.02] tracking-display text-gray-900">
+              Lær det. Eller få det bygget.
+            </OrdForOrd>
+          </div>
+          <FadeIn delay={250}>
             <p className="max-w-[44ch] text-[1.0625rem] leading-relaxed text-gray-600">
               To spor med de samme folk bag. I kan tage det ene, det andet
               eller begge, og I behøver ikke vide hvilket før vi har talt
               sammen.
             </p>
-          </div>
-        </FadeIn>
+          </FadeIn>
+        </div>
 
         <div className="mt-14 grid gap-6 lg:mt-20 lg:grid-cols-2 lg:gap-8">
           {spor.map((s, i) => (
@@ -119,7 +129,7 @@ export default function ToSpor() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent" />
                   <div className="absolute bottom-5 left-5 hidden transition-transform duration-500 ease-out group-hover:-translate-y-1 sm:block">
-                    {s.id === "undervisning" ? <Workshopkort /> : <Agentkort />}
+                    {s.id === "undervisning" ? <AIMindsKort /> : <Agentkort />}
                   </div>
                 </Link>
 
@@ -138,9 +148,9 @@ export default function ToSpor() {
                       <Link
                         key={l.href}
                         href={l.href}
-                        className="group/l inline-flex items-center gap-1.5 text-sm font-semibold text-gray-900 transition-colors hover:text-primary"
+                        className="group/l inline-flex items-center gap-1.5 text-sm font-semibold text-gray-900"
                       >
-                        {l.label}
+                        <span className="understreg">{l.label}</span>
                         <span aria-hidden="true" className="transition-transform duration-200 group-hover/l:translate-x-0.5">
                           →
                         </span>

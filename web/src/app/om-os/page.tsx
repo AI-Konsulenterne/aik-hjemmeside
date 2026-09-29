@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     "dansk AI bureau",
   ],
   openGraph: {
-    title: "Om Os — AI Konsulenterne",
+    title: "Om os | AI Konsulenterne",
     description:
       "Mød holdet bag AI Konsulenterne. Et lille, dansk hold med fokus på danske virksomheder.",
     url: "/om-os",
@@ -83,7 +83,7 @@ export default async function OmOs() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <FadeIn>
             <div className="max-w-3xl">
-              <p className="text-xs uppercase tracking-widest text-primary font-semibold mb-4">
+              <p className="text-xs uppercase tracking-widest text-gray-600 font-semibold mb-4">
                 Om os
               </p>
               <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold tracking-heading text-gray-900 leading-[1.05]">
@@ -137,7 +137,7 @@ export default async function OmOs() {
                           href={person.linkedinUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-gray-400 hover:text-primary transition-colors flex-shrink-0 ml-2"
+                          className="text-gray-500 hover:text-gray-900 transition-colors flex-shrink-0 ml-2"
                           aria-label={`LinkedIn-profil for ${person.name}`}
                         >
                           <svg

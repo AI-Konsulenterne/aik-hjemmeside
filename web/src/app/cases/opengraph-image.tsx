@@ -9,6 +9,6 @@ export default async function OgImage() {
     tag: "Cases",
     title: "Konkrete resultater",
     subtitle:
-      "Lavazza, Wunderwear, INDKOM, J.M Band — se hvordan danske virksomheder bruger AI.",
+      "Se hvordan danske virksomheder som Lavazza bruger AI til at spare tid.",
   });
 }

@@ -47,7 +47,7 @@
     font-weight: 700;
     letter-spacing: 0.22em;
     text-transform: uppercase;
-    color: var(--orange);
+    color: #525252;
     margin: 0;
   }
   h1, h2, h3, h4 {
@@ -75,7 +75,7 @@
     color: var(--muted);
     font-weight: 400;
   }
-  .accent { color: var(--orange); }
+  .accent { color: var(--muted); }
 
   /* ── Buttons ── */
   .btn {
@@ -163,13 +163,13 @@
   .hero-copy { max-width: 580px; }
   .hero-copy .eyebrow { margin-bottom: 22px; }
   .hero-title { margin: 0; font-size: clamp(2.5rem, 5vw, 4.1rem); text-wrap: balance; }
-  .hero-title .accent { color: var(--orange); }
+  .hero-title .accent { color: var(--muted); }
   .hero-lead { margin: 26px 0 0; max-width: 30em; }
   .hero-cta { display: flex; flex-wrap: wrap; gap: 14px; margin: 36px 0 0; }
   .hero-micro {
     margin: 18px 0 0;
     font-size: 0.9rem;
-    color: var(--subtle);
+    color: #6b6b6b;
     display: inline-flex;
     align-items: center;
     gap: 8px;
@@ -401,7 +401,7 @@
     font-size: 0.78rem;
     font-weight: 700;
     letter-spacing: 0.04em;
-    color: var(--subtle);
+    color: #6b6b6b;
     background: var(--warm-100);
     border: 1px dashed var(--border-2);
     border-radius: var(--radius-full);
@@ -504,7 +504,7 @@
     margin: 0 0 10px;
     line-height: 1.25;
   }
-  .pcard .pc-h .pc-num { color: var(--orange); }
+  .pcard .pc-h .pc-num { color: var(--ink); }
   .pcard p { margin: 0; color: var(--muted); font-size: 0.98rem; line-height: 1.55; }
   .pc-gain {
     display: inline-flex;
@@ -512,7 +512,7 @@
     gap: 9px;
     margin-top: 18px;
     background: var(--orange-tint);
-    color: var(--orange-dark);
+    color: var(--ink);
     border-radius: var(--radius-full);
     padding: 9px 16px 9px 13px;
     font-size: 0.92rem;
@@ -628,7 +628,7 @@
     background: radial-gradient(circle, var(--orange-glow) 0%, transparent 64%);
   }
   .final-card > *:not(.final-glow) { position: relative; z-index: 1; }
-  .final-card .eyebrow { color: var(--subtle); margin-bottom: 18px; }
+  .final-card .eyebrow { color: #525252; margin-bottom: 18px; }
   .final-title { margin: 0 0 22px; color: var(--ink); }
   .final-lead {
     color: var(--muted);
@@ -659,7 +659,7 @@
     font-size: 0.8rem;
     font-weight: 700;
     letter-spacing: 0.04em;
-    color: var(--subtle);
+    color: #6b6b6b;
     text-transform: uppercase;
   }
   .final-phone .fp-num {
@@ -672,7 +672,7 @@
     letter-spacing: -0.01em;
   }
   .final-phone .fp-num svg { color: var(--orange); width: 18px; height: 18px; }
-  .final-phone a.fp-num:hover { color: var(--orange-dark); }
+  .final-phone a.fp-num:hover { color: var(--ink); }
 
   /* ── Responsive ── */
   @media (max-width: 980px) {
@@ -707,3 +707,8 @@
     .final-cta { flex-direction: column; gap: 26px; }
   }
 }
+
+/* Kontrast, september 2026. Orange tekst kun på mørke flader: på hvid har
+   den 2,13:1. Etiketter står i mørkegrå, fremhævede ord i overskrifter i
+   mellemgrå (stor tekst kræver 3:1), tal i sort, og tekst på orange knapper
+   er sort (9,9:1). På de mørke flader beholder etiketterne orange. */

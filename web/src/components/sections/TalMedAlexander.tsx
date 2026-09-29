@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Button from "@/components/ui/Button";
 import FadeIn from "@/components/ui/FadeIn";
+import OrdForOrd from "@/components/ui/OrdForOrd";
 
 /**
  * Afslutningen: et menneske, ikke en bjælke.
@@ -44,14 +45,15 @@ export default function TalMedAlexander() {
             </figure>
           </FadeIn>
 
-          <FadeIn delay={120} className="lg:col-span-7">
+          <div className="lg:col-span-7">
             <div className="flex items-center gap-3">
               <span className="lamp" data-lit="true" aria-hidden="true" />
               <p className="kicker text-white/60">Næste skridt</p>
             </div>
-            <h2 className="mt-6 text-[clamp(2.25rem,5vw,4.25rem)] font-bold leading-[1.0] tracking-display text-white">
+            <OrdForOrd className="mt-6 text-[clamp(2.25rem,5vw,4.25rem)] font-bold leading-[1.0] tracking-display text-white">
               Tal med Alexander.
-            </h2>
+            </OrdForOrd>
+            <FadeIn delay={250}>
             <p className="mt-6 max-w-[44ch] text-[1.0625rem] leading-relaxed text-white/70">
               Ikke et salgsmøde. En afklaring af hvad AI kan gøre hos jer, og
               et ærligt svar hvis det ikke er noget.
@@ -77,7 +79,8 @@ export default function TalMedAlexander() {
                 Eller ring på +45 25 54 70 74
               </a>
             </div>
-          </FadeIn>
+            </FadeIn>
+          </div>
         </div>
       </div>
     </section>

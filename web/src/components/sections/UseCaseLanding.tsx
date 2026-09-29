@@ -45,11 +45,11 @@ export default function UseCaseLanding({
         <div className="hero-glow" aria-hidden="true" />
         <div className="max-w-4xl mx-auto px-6 lg:px-8 relative z-10 text-center">
           <FadeIn>
-            <p className="text-[13px] font-bold tracking-[0.22em] uppercase text-primary">
+            <p className="text-[13px] font-bold tracking-[0.22em] uppercase text-gray-600">
               {eyebrow}
             </p>
             <h1 className="text-[2.5rem] sm:text-5xl lg:text-[3.75rem] font-bold tracking-heading text-gray-900 leading-[1.05] mt-4 text-balance">
-              {h1Pre} <span className="text-primary">{h1Accent}</span>
+              {h1Pre} <span className="text-gray-500">{h1Accent}</span>
             </h1>
           </FadeIn>
           <FadeIn delay={150}>
@@ -105,7 +105,7 @@ export default function UseCaseLanding({
             {steps.items.map((s, i) => (
               <FadeIn key={s.n} delay={i * 90}>
                 <div className="h-full bg-white rounded-2xl border border-gray-100 p-7 hover:shadow-lg transition-shadow">
-                  <span className="text-2xl font-bold text-primary">{s.n}</span>
+                  <span className="text-2xl font-bold text-gray-900">{s.n}</span>
                   <h3 className="text-lg font-bold tracking-heading text-gray-900 mt-4 leading-tight">
                     {s.h}
                   </h3>
@@ -124,7 +124,7 @@ export default function UseCaseLanding({
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <FadeIn>
             <div className="max-w-2xl">
-              <p className="text-[11px] uppercase tracking-[0.2em] text-primary font-semibold mb-3">
+              <p className="text-[11px] uppercase tracking-[0.2em] text-gray-600 font-semibold mb-3">
                 Det har vi bygget
               </p>
               <h2 className="text-3xl lg:text-4xl font-bold tracking-heading text-gray-900 leading-[1.1]">
@@ -144,11 +144,11 @@ export default function UseCaseLanding({
                   href={c.href}
                   className="group flex flex-col h-full bg-white rounded-2xl border border-gray-100 p-8 hover:border-gray-900 hover:shadow-lg transition-all"
                 >
-                  <p className="text-xs uppercase tracking-[0.15em] text-gray-400 font-semibold">
+                  <p className="text-xs uppercase tracking-[0.15em] text-gray-500 font-semibold">
                     {c.company}
                   </p>
                   {c.stat && (
-                    <p className="text-4xl lg:text-5xl font-bold tracking-heading text-primary mt-3">
+                    <p className="text-4xl lg:text-5xl font-bold tracking-heading text-gray-900 mt-3">
                       {c.stat}
                     </p>
                   )}
@@ -158,8 +158,8 @@ export default function UseCaseLanding({
                   <p className="text-gray-600 mt-3 leading-relaxed flex-1">
                     {c.blurb}
                   </p>
-                  <span className="text-primary font-semibold mt-5 inline-flex items-center gap-1.5">
-                    Læs casen
+                  <span className="text-gray-900 font-semibold mt-5 inline-flex items-center gap-1.5">
+                    <span className="understreg">Læs casen</span>
                     <span className="transition-transform group-hover:translate-x-1">
                       →
                     </span>
@@ -213,7 +213,7 @@ export default function UseCaseLanding({
                     <h3 className="text-lg font-bold tracking-heading text-gray-900 leading-tight">
                       {r.label}
                     </h3>
-                    <span className="text-primary text-xl transition-transform group-hover:translate-x-1">
+                    <span className="text-gray-900 text-xl transition-transform group-hover:translate-x-1">
                       →
                     </span>
                   </div>

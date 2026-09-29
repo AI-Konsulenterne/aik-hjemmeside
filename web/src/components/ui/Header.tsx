@@ -34,8 +34,12 @@ const menuer: { label: string; punkter: MenuPunkt[] }[] = [
   {
     label: "Undervisning",
     punkter: [
-      { label: "Workshop hos jer", href: "/workshop", tekst: "En dag hvor jeres egne opgaver er materialet" },
-      { label: "AI-Minds", href: "/academy", tekst: "Forløb live og on demand, i jeres eget tempo" },
+      {
+        label: "AI-Minds læringsplatform",
+        href: "/academy",
+        tekst: "40+ korte moduler i Copilot, Claude og AI-sikkerhed. På dansk, til hele organisationen",
+      },
+      { label: "Workshop hos jer", href: "/workshop", tekst: "En dag, hvor jeres egne opgaver er materialet" },
     ],
   },
   {

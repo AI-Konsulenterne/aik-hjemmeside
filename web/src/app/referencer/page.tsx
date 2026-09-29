@@ -88,16 +88,16 @@ export default function Referencer() {
               <li key={shot.id}>
                 <FadeIn delay={i * 60}>
                   <div className="grid grid-cols-[3rem_1fr] items-baseline gap-x-6 gap-y-2 border-b border-black/10 py-8 md:grid-cols-[4rem_14rem_1fr] lg:py-10">
-                    <span className="text-sm font-semibold tabular-nums text-gray-300">
+                    <span className="text-sm font-semibold tabular-nums text-gray-500">
                       {String(i + 1).padStart(2, "0")}
                     </span>
                     {/* Grå, ikke orange: otte orange labels ville gøre orange
                         til en kategorifarve i stedet for en statusmarkør. */}
-                    <span className="text-sm font-semibold uppercase tracking-[0.14em] text-gray-400">
+                    <span className="text-sm font-semibold uppercase tracking-[0.14em] text-gray-500">
                       {shot.label}
                     </span>
                     <span className="col-start-2 text-lg font-semibold leading-snug tracking-heading text-gray-900 md:col-start-3 lg:text-2xl">
-                      <span className="text-gray-400">{FILM_INTRO[shot.act]}</span>{" "}
+                      <span className="text-gray-500">{FILM_INTRO[shot.act]}</span>{" "}
                       {shot.line}
                     </span>
                   </div>

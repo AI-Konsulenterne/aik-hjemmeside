@@ -8,7 +8,7 @@ import { getCases, strapiImageUrl, type Case } from "@/lib/strapi";
 export const metadata: Metadata = {
   title: "AI-cases fra danske virksomheder",
   description:
-    "Se konkrete AI-cases fra danske virksomheder: Lavazza HR-agent, Wunderwear webshop-automatisering, INDKOM og flere. Resultater I kan måle.",
+    "Se konkrete AI-cases fra danske virksomheder, blandt andet HR-agenten hos Lavazza. Hvad vi byggede, og hvad det gav.",
   alternates: { canonical: "/cases" },
   keywords: [
     "AI cases Danmark",
@@ -16,12 +16,11 @@ export const metadata: Metadata = {
     "AI case study",
     "danske AI projekter",
     "Lavazza AI HR",
-    "Wunderwear AI",
   ],
   openGraph: {
-    title: "AI Cases — Konkrete Resultater fra Danske Virksomheder",
+    title: "AI-cases: konkrete resultater fra danske virksomheder",
     description:
-      "Lavazza, Wunderwear, INDKOM, J.M Band — se hvordan de bruger AI til at spare tid.",
+      "Se hvordan danske virksomheder som Lavazza bruger AI til at spare tid.",
     url: "/cases",
   },
 };
@@ -35,7 +34,7 @@ const categoryLabels: Record<Case["category"], string> = {
 };
 
 // Kunde-logoer vi har i en mørk/farvet version (synlige på lyse kort).
-// Wunderwear (hvid) og INDKOM (creme) udelades — de vises som tekstnavn.
+// Kunder uden logo i mørk version vises som tekstnavn.
 const logoMap: { match: string; logo: string }[] = [
   { match: "lavazza", logo: "/logos/lavazza.png" },
   { match: "j.m band", logo: "/logos/jmband.png" },
@@ -112,7 +111,7 @@ function CaseCard({ c, index }: { c: Case; index: number }) {
 
           {/* Bund: kategori + titel */}
           <div className="mt-auto pt-10">
-            <p className="text-[11px] uppercase tracking-[0.15em] text-primary font-semibold mb-2">
+            <p className="text-[11px] uppercase tracking-[0.15em] text-gray-600 font-semibold mb-2">
               {categoryLabels[c.category]}
             </p>
             <h3 className="text-xl lg:text-2xl font-bold tracking-heading text-gray-900 leading-snug">
@@ -135,7 +134,7 @@ export default async function Cases() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center">
           <FadeIn>
             <div className="max-w-3xl mx-auto">
-              <p className="text-[11px] uppercase tracking-[0.2em] text-primary font-semibold mb-4">
+              <p className="text-[11px] uppercase tracking-[0.2em] text-gray-600 font-semibold mb-4">
                 Kundehistorier
               </p>
               <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold tracking-heading text-gray-900 leading-[1.05]">
