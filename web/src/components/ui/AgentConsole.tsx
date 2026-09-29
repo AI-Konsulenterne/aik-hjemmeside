@@ -135,11 +135,6 @@ export default function AgentConsole() {
     const cur = EXCHANGES[ex];
     let stopped = false;
 
-    setPhase("spoerg");
-    setTyped(0);
-    setShownSources(0);
-    setStreamed(0);
-
     const typeStep = (i: number) => {
       if (stopped) return;
       setTyped(i);
@@ -177,7 +172,17 @@ export default function AgentConsole() {
       streamStep(0);
     };
 
-    typeStep(0);
+    /* Nulstillingen og første tegn sker i en timer-callback, ikke direkte
+       i effekten. setState direkte her gav en ekstra rendering med det samme
+       — ESLint's react-hooks fangede det. Timeren ryddes sammen med resten. */
+    later(() => {
+      if (stopped) return;
+      setPhase("spoerg");
+      setTyped(0);
+      setShownSources(0);
+      setStreamed(0);
+      typeStep(0);
+    }, 0);
     return () => {
       stopped = true;
       clearTimers();

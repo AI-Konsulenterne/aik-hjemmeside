@@ -342,6 +342,7 @@ Claude skriver en kort log efter hver større opgave:
 | Dato | Opgave | Status | Noter |
 |---|---|---|---|
 | 2026-08-18 | Referencefilmen: fire klip produceret, rysten fejlfundet, filmen bygget om til rigtige kunder | Færdig | Filmen sagde "Vi har hjulpet dem, der …" over Semler, TDC Net og Apple — leveret gennem et tidligere selskab, ikke AIK-kunder. Ude af filmen. Ti rigtige kunder ind, plus tre læringsklip under en anden sætning. Seks klip animeret (forsiden), syv står på posterframe. Graden lægges på **efter** generering: luminansspredning 91,6 → 12,7. |
+| 2026-09-29 | Tre modeller under filmen: forudsigelse, sortering, læring | Færdig | Holt-Winters slår "samme dag sidste uge" (5,6 % mod 7,1 % fejl på usete uger). Naive Bayes: 10/12, under 50 % sikkerhed går mailen til et menneske, én fejl står synligt. 0 af 136 tekster under WCAG AA. Fallback uden modellerne: branch `claude/simpel-udgave`. |
 
 **Åbent efter 18/8:** sætningen til logostriben ("Før AIK byggede vi til…" vs "Vores stifter har leveret løsninger til…") mangler Benjamins valg. Registret på `/referencer` mangler én sætning pr. kunde om hvad vi konkret byggede — den skal skrives af AIK, ikke gættes. Vindmølleklippet bør skydes om; grade-passet slebet dens amber-lys næsten væk.
 

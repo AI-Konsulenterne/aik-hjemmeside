@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
+import PanelBar from "@/components/ui/PanelBar";
 import {
   LR,
   MOMENTUM,
@@ -292,22 +293,27 @@ export default function LiveModel() {
   /* Uden bevægelse: træn færdig med det samme og vis resultatet. */
   useEffect(() => {
     if (!reduceret) return;
-    nulstil();
-    const net = netRef.current!;
-    const data = dataRef.current!;
-    let r = { loss: 0.693, acc: 0.5 };
-    for (let e = 0; e < 900 && r.acc < MAAL; e++) r = trainStep(net, data, LR, MOMENTUM);
-    setAflaes({ epoke: net.epoch, tab: r.loss, ramt: r.acc });
-    setFaerdig(true);
-    helTegningRef.current = true;
-    beregnBaand();
-    tegn();
+    /* I et rAF-callback, ikke direkte i effekten: nulstil() sætter state. */
+    const id = requestAnimationFrame(() => {
+      nulstil();
+      const net = netRef.current!;
+      const data = dataRef.current!;
+      let r = { loss: 0.693, acc: 0.5 };
+      for (let e = 0; e < 900 && r.acc < MAAL; e++) r = trainStep(net, data, LR, MOMENTUM);
+      setAflaes({ epoke: net.epoch, tab: r.loss, ramt: r.acc });
+      setFaerdig(true);
+      helTegningRef.current = true;
+      beregnBaand();
+      tegn();
+    });
+    return () => cancelAnimationFrame(id);
   }, [reduceret, nulstil, tegn, beregnBaand]);
 
   /* Én epoke pr. frame. Feltet hvert tredje. */
   useEffect(() => {
     if (reduceret || !synlig) return;
     if (!netRef.current) nulstil();
+    sidsteFrameRef.current = 0;
 
     const loop = () => {
       const net = netRef.current!;
@@ -319,8 +325,12 @@ export default function LiveModel() {
            forhindrer at en enkelt lang pause (fanen i baggrunden, en tung
            GC) bliver indhentet i ét ryk. */
         const dt = sidsteFrameRef.current ? nu - sidsteFrameRef.current : 16.7;
-        restRef.current += (dt / 1000) * EPOKER_PR_SEK;
-        const antal = Math.min(8, Math.floor(restRef.current));
+        /* Loftet gælder også gælden, ikke kun raten. Ellers blev en pause
+           (feltet uden for skærmen, fanen i baggrunden) betalt af med otte
+           epoker pr. frame bagefter — målt til 92 i sekundet i stedet for
+           60, lige da den kom til syne. */
+        restRef.current = Math.min(restRef.current + (dt / 1000) * EPOKER_PR_SEK, 8);
+        const antal = Math.floor(restRef.current);
         restRef.current -= antal;
         let r = { loss: 0, acc: 0 };
         for (let e = 0; e < antal; e++) r = trainStep(net, data, LR, MOMENTUM);
@@ -334,6 +344,14 @@ export default function LiveModel() {
         if (nu - sidstAflaestRef.current > AFLAES_MS) {
           sidstAflaestRef.current = nu;
           setAflaes({ epoke: net.epoch, tab: r.loss, ramt: r.acc });
+        }
+        /* 60 af 60 kørsler i Node nåede målet inden 835 epoker. En sjælden
+           start der ikke gør, skal ikke stå og træne for evigt foran en
+           besøgende — så prøver den med nye vægte. */
+        if (net.epoch > 2000 && r.acc < MAAL) {
+          nulstil();
+          rafRef.current = requestAnimationFrame(loop);
+          return;
         }
         if (r.acc >= MAAL) {
           doneAtRef.current = nu;
@@ -362,67 +380,53 @@ export default function LiveModel() {
   const arbejder = !faerdig && synlig && !reduceret;
 
   return (
-    <div ref={wrapRef}>
-      <div className="corner-marks relative">
-        <div className="panel-lit border border-white/12 bg-[#0d0f11]">
-          {/* Samme bjælke som HR-agenten. De to er sidens to stykker
-              software, og de skal læses som samme system. */}
-          <div className="flex items-center gap-3 border-b border-white/10 px-5 py-3.5 sm:px-7">
-            <span className="lamp" data-lit={arbejder ? "true" : "false"} aria-hidden="true" />
-            <p className="font-mono text-[0.7rem] uppercase tracking-[0.16em] text-white/55">
-              To spiraler
-            </p>
-            <p className="ml-auto font-mono text-[0.7rem] tracking-wide text-white/60">
-              {reduceret ? "færdig" : arbejder ? "træner" : "kan det"}
-            </p>
-          </div>
+    <div ref={wrapRef} className="flex h-full flex-col">
+      <div className="panel-lit flex h-full flex-col border border-white/12 bg-[#0d0f11]">
+        <PanelBar
+          label={`To spiraler · ${vaegte} vægte`}
+          status={reduceret ? "færdig" : faerdig ? "kan det" : synlig ? "træner" : "venter"}
+          arbejder={arbejder}
+        >
+          <button
+            type="button"
+            onClick={nulstil}
+            className="ml-4 font-mono text-[0.7rem] tracking-wide text-white/60 underline decoration-white/25 underline-offset-4 transition-colors hover:text-white"
+          >
+            glem alt
+          </button>
+        </PanelBar>
 
+        {/* Canvas fylder flisen i stedet for at have et fast sideforhold,
+            så den står lige så høj som indbakken ved siden af. Spiralen
+            kan ikke beskæres: den lodrette dækning er fast, og den vandrette
+            udledes af hvad der er plads til.
+
+            Det ligger absolut i en beholder, og det er ikke pynt. Et canvas
+            har en egen størrelse fra sine width/height-attributter, og de
+            sættes her fra dets viste størrelse. Stod det direkte i flex-
+            kolonnen, bidrog det til sin egen højde — og rækken voksede til
+            730 px med en tom flade under indbakken. Nu fylder det pladsen
+            uden at kræve den. */}
+        <div className="relative min-h-[17rem] flex-1">
           <canvas
             ref={canvasRef}
             aria-hidden="true"
-            className="block aspect-[4/3] w-full sm:aspect-[3/2] lg:aspect-[16/9]"
+            className="absolute inset-0 block h-full w-full"
           />
-
-          {/* Aflæsningerne står i DOM'en og ikke på canvas: så kan de
-              markeres, læses højt og zoomes. */}
-          <dl className="grid grid-cols-2 border-t border-white/10 sm:grid-cols-4">
-            {[
-              ["Epoke", String(aflaes.epoke)],
-              ["Tab", aflaes.tab.toFixed(4)],
-              ["Ramt rigtigt", `${(aflaes.ramt * 100).toFixed(1)} %`],
-              ["Vægte", String(vaegte)],
-            ].map(([k, v], i) => (
-              <div
-                key={k}
-                className={`px-5 py-4 sm:px-7 ${
-                  i > 0 ? "border-white/10 sm:border-l" : ""
-                } ${i === 1 ? "border-l border-white/10 sm:border-l" : ""} ${
-                  i > 1 ? "border-t border-white/10 sm:border-t-0" : ""
-                }`}
-              >
-                <dt className="font-mono text-[0.65rem] uppercase tracking-[0.14em] text-white/55">
-                  {k}
-                </dt>
-                <dd className="mt-1.5 font-mono text-base tabular-nums text-white sm:text-lg">
-                  {v}
-                </dd>
-              </div>
-            ))}
-          </dl>
         </div>
-      </div>
 
-      <div className="mt-5 flex flex-wrap items-center gap-x-6 gap-y-3">
-        <button
-          type="button"
-          onClick={nulstil}
-          className="border border-gray-300 px-4 py-2 text-[0.8rem] font-semibold leading-none text-gray-700 transition-colors duration-200 hover:border-gray-500 hover:text-gray-900"
-        >
-          Glem det hele, og lær det forfra
-        </button>
-        <p className="text-xs leading-relaxed text-gray-600">
-          Kører i din browser. Der bliver ikke sendt noget nogen steder hen.
-        </p>
+        <dl className="grid grid-cols-3 border-t border-white/10">
+          {[
+            ["Epoke", String(aflaes.epoke)],
+            ["Tab", aflaes.tab.toFixed(4)],
+            ["Ramt rigtigt", `${(aflaes.ramt * 100).toFixed(1)} %`],
+          ].map(([k, v], i) => (
+            <div key={k} className={`px-5 py-3.5 sm:px-6 ${i > 0 ? "border-l border-white/10" : ""}`}>
+              <dt className="font-mono text-[0.62rem] uppercase tracking-[0.14em] text-white/70">{k}</dt>
+              <dd className="mt-1 font-mono text-[0.95rem] tabular-nums text-white">{v}</dd>
+            </div>
+          ))}
+        </dl>
       </div>
 
       <p className="sr-only">

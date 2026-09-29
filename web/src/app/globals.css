@@ -416,3 +416,44 @@ body {
   }
 }
 
+
+/* ---------------------------------------------------------------
+   Indbakken — nye mails glider ind øverst, søjlerne vokser til det
+   modellen har regnet. Søjlernes bredde sættes inline fra modellen;
+   CSS styrer kun hvor hurtigt de kommer derhen.
+   --------------------------------------------------------------- */
+.inbox-row[data-ny="true"] {
+  animation: inbox-ind 520ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.inbox-row[data-ny="true"] .inbox-bar {
+  animation: inbox-bar 700ms cubic-bezier(0.16, 1, 0.3, 1) 180ms both;
+  transform-origin: left center;
+}
+
+@keyframes inbox-ind {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes inbox-bar {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .inbox-row[data-ny="true"],
+  .inbox-row[data-ny="true"] .inbox-bar {
+    animation: none;
+  }
+}
