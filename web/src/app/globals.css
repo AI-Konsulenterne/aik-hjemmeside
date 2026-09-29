@@ -739,3 +739,95 @@ body {
     transition: background-color 300ms ease;
   }
 }
+
+/* ---------------------------------------------------------------
+   AIK Workspace: skærmen i heroen ligger bagover og retter sig op
+   de første 520 px, man scroller. Tidslinjen er sidens egen scroll
+   (scroll(root)), ikke view(): heroen klipper med overflow-x: clip,
+   som ikke er en scroll-container, men en scroll-tidslinje på roden
+   er uafhængig af forfædrene uanset hvad (kendt fejl nr. 8).
+   Uden understøttelse, eller med reduceret bevægelse, står skærmen
+   bare lige.
+   --------------------------------------------------------------- */
+.ws-scene {
+  perspective: 2200px;
+  perspective-origin: 50% 0%;
+}
+
+@supports (animation-timeline: scroll()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .ws-vindue {
+      transform-origin: 50% 100%;
+      animation: ws-rejs linear both;
+      animation-timeline: scroll(root);
+      animation-range: 0px 520px;
+    }
+  }
+}
+
+@keyframes ws-rejs {
+  from {
+    transform: rotateX(20deg) scale(0.96);
+  }
+  to {
+    transform: none;
+  }
+}
+
+/* Prisberegnerens streg: orange fyld op til værdien, hvid knap med sort kant. */
+.pris-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  display: block;
+  width: 100%;
+  height: 1.75rem;
+  background: transparent;
+  cursor: pointer;
+}
+.pris-slider::-webkit-slider-runnable-track {
+  height: 4px;
+  border-radius: 999px;
+  background: linear-gradient(to right, #ff9a00 var(--pct), #e5e5e5 var(--pct));
+}
+.pris-slider::-moz-range-track {
+  height: 4px;
+  border-radius: 999px;
+  background: #e5e5e5;
+}
+.pris-slider::-moz-range-progress {
+  height: 4px;
+  border-radius: 999px;
+  background: #ff9a00;
+}
+.pris-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 22px;
+  height: 22px;
+  margin-top: -9px;
+  border-radius: 999px;
+  background: #fff;
+  border: 1.5px solid #171717;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.14);
+  transition: transform 150ms ease;
+}
+.pris-slider::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 999px;
+  background: #fff;
+  border: 1.5px solid #171717;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.14);
+}
+.pris-slider:active::-webkit-slider-thumb {
+  transform: scale(1.12);
+}
+.pris-slider:focus-visible {
+  outline: none;
+}
+.pris-slider:focus-visible::-webkit-slider-thumb {
+  box-shadow: 0 0 0 4px rgba(255, 154, 0, 0.45);
+}
+.pris-slider:focus-visible::-moz-range-thumb {
+  box-shadow: 0 0 0 4px rgba(255, 154, 0, 0.45);
+}

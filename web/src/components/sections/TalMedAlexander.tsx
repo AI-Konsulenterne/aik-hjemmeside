@@ -17,7 +17,7 @@ import OrdForOrd from "@/components/ui/OrdForOrd";
  * allerede bruger om ham; der er ikke opfundet en ny.
  */
 
-const vilkaar = [
+export const vilkaar = [
   ["45 minutter", "Vi kigger på hvor jeres tid går hen, og om der er noget at hente."],
   ["Ingen forberedelse", "I møder op og fortæller hvad I laver. Resten er vores job."],
   ["Ingen regning", "Finder vi ikke en konkret mulighed, koster mødet ingenting."],
@@ -66,7 +66,7 @@ export default function TalMedAlexander({
               <span className="lamp" data-lit="true" aria-hidden="true" />
               <p className="kicker text-white/60">{kicker}</p>
             </div>
-            <OrdForOrd className="mt-6 text-[clamp(2.25rem,5vw,4.25rem)] font-bold leading-[1.0] tracking-display text-white">
+            <OrdForOrd className="mt-6 text-balance text-[clamp(2.25rem,5vw,4.25rem)] font-bold leading-[1.0] tracking-display text-white">
               {titel}
             </OrdForOrd>
             <FadeIn delay={250}>

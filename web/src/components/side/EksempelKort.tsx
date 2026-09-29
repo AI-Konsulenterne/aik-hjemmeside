@@ -173,3 +173,29 @@ export function KortOrdre() {
     </Kortramme>
   );
 }
+
+const ROADMAP = [
+  ["HR-spørgsmål", "Høj effekt", "Nu"],
+  ["Mailsortering i kundeservice", "Høj effekt", "Om 2 mdr."],
+  ["Prognose på bemanding", "Mellem", "Om 4 mdr."],
+];
+
+export function KortRoadmap() {
+  return (
+    <Kortramme titel="Roadmap" lys>
+      <ol className="divide-y divide-white/[0.07]">
+        {ROADMAP.map(([navn, effekt, start], i) => (
+          <li key={navn} className="grid grid-cols-[1.25rem_1fr_auto] items-baseline gap-2 py-2">
+            <span className="text-[0.75rem] tabular-nums text-white/50">{i + 1}</span>
+            <span className="text-[0.8125rem] leading-snug text-white/85">
+              {navn}
+              <span className="mt-0.5 block text-[0.6875rem] text-white/55">{effekt}</span>
+            </span>
+            <span className={`text-[0.6875rem] ${i === 0 ? "text-primary" : "text-white/60"}`}>{start}</span>
+          </li>
+        ))}
+      </ol>
+      <p className="mt-2 text-[0.75rem] leading-snug text-white/55">Prioriteret efter effekt og indsats.</p>
+    </Kortramme>
+  );
+}

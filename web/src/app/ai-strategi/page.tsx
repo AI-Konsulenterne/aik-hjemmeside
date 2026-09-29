@@ -1,8 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import Button from "@/components/ui/Button";
 import FadeIn from "@/components/ui/FadeIn";
 import JsonLd from "@/components/ui/JsonLd";
+import OrdForOrd from "@/components/ui/OrdForOrd";
+import FAQ from "@/components/sections/FAQ";
+import TalMedAlexander from "@/components/sections/TalMedAlexander";
+import SideHero from "@/components/side/SideHero";
+import SektionHoved from "@/components/side/SektionHoved";
+import TrinFlow from "@/components/side/TrinFlow";
+import { KortRoadmap } from "@/components/side/EksempelKort";
 
 export const metadata: Metadata = {
   title: { absolute: "AI-strategi til virksomheder | AI Konsulenterne" },
@@ -44,19 +50,19 @@ const serviceSchema = {
 const faqs = [
   {
     q: "Hvad koster en AI-strategi?",
-    a: "Det afhænger af, hvor stor en del af forretningen vi kigger på. Vi starter altid med en gratis AI-afklaring, hvor vi finder ud af, hvad I har brug for - og giver jer en fast pris bagefter, så I ved præcis, hvad I siger ja til.",
+    a: "Det afhænger af, hvor stor en del af forretningen vi kigger på. Vi starter altid med en gratis AI-afklaring, hvor vi finder ud af, hvad I har brug for. Bagefter får I en fast pris, så I ved præcis, hvad I siger ja til.",
   },
   {
     q: "Hvor lang tid tager det at lægge en AI-strategi?",
-    a: "En første AI-analyse og roadmap er typisk på plads inden for et par uger. Vi gør det konkret og handlingsorienteret - I skal ikke vente måneder på et dokument, men have en plan, I kan begynde at bruge med det samme.",
+    a: "En første AI-analyse og roadmap er typisk på plads inden for et par uger. I skal ikke vente måneder på et dokument. I får en plan, I kan begynde at bruge med det samme.",
   },
   {
     q: "Kan I også hjælpe med implementeringen bagefter?",
-    a: "Ja. En strategi er kun noget værd, når den bliver til drift. Vi bygger og integrerer løsningerne med jeres systemer - eller klæder jeres egne folk på til at gøre det. Vi vil være jeres AI-samarbejdspartner hele vejen.",
+    a: "Ja. En strategi er kun noget værd, når den bliver til drift. Vi bygger løsningerne og kobler dem på jeres systemer, eller vi klæder jeres egne folk på til at gøre det. Vi bliver gerne hele vejen.",
   },
   {
-    q: "Vi er en mindre virksomhed - er en AI-strategi relevant for os?",
-    a: "Ja, måske endda mere. Når ressourcerne er små, betaler det sig at vide præcis, hvor AI giver mest værdi, før I bruger tid og penge. En AI-strategi sikrer, at I starter det rigtige sted - ikke med spredte forsøg, der sjældent skalerer.",
+    q: "Vi er en mindre virksomhed. Er en AI-strategi relevant for os?",
+    a: "Ja, måske endda mere. Når ressourcerne er små, betaler det sig at vide præcis, hvor AI giver mest værdi, før I bruger tid og penge. Med en strategi starter I det rigtige sted og ikke med spredte forsøg, der sjældent bliver til mere.",
   },
 ];
 
@@ -70,224 +76,149 @@ const faqSchema = {
   })),
 };
 
-const STEPS = [
+/**
+ * AI-strategi. Bygget om i forsidens sprog: filmen i heroen med en
+ * eksempel-roadmap, intro i to spalter, forløbet fra analyse til drift
+ * som scroll-flow med "Det får I", tallene på mørk flade, de fire ydelser
+ * strategien fører videre til, FAQ og Alexander. Indholdet er sidens eget.
+ */
+
+const TRIN = [
   {
-    n: "01",
-    h: "AI-analyse",
-    p: "Vi kortlægger jeres processer og finder konkret, hvor AI sparer mest tid - og hvor det ikke kan betale sig.",
+    titel: "AI-analyse",
+    tekst: "Vi kortlægger jeres processer og finder konkret, hvor AI sparer mest tid, og hvor det ikke kan betale sig.",
+    faar: "Et overblik over, hvor AI giver mening hos jer, og hvor det ikke gør.",
   },
   {
-    n: "02",
-    h: "Strategi & roadmap",
-    p: "Vi prioriterer jeres use cases og lægger en konkret AI-roadmap med rækkefølge, ansvar og forventet effekt.",
+    titel: "Strategi og roadmap",
+    tekst: "Vi prioriterer jeres use cases og lægger en konkret roadmap med rækkefølge, ansvar og forventet effekt.",
+    faar: "En roadmap, I kan begynde at bruge med det samme.",
   },
   {
-    n: "03",
-    h: "Implementering",
-    p: "Vi bygger og integrerer løsningerne med jeres systemer - eller klæder jeres egne folk på til selv at køre dem.",
+    titel: "Implementering",
+    tekst: "Vi bygger og integrerer løsningerne med jeres systemer, eller klæder jeres egne folk på til selv at køre dem.",
+    faar: "De første løsninger i brug.",
   },
   {
-    n: "04",
-    h: "AI-samarbejdspartner",
-    p: "Vi står ved jeres side, så strategien bliver til drift og resultater - ikke et dokument, der samler støv.",
+    titel: "AI-samarbejdspartner",
+    tekst: "Vi står ved jeres side, så strategien bliver til drift og resultater, ikke et dokument, der samler støv.",
+    faar: "En partner, der sørger for, at planen bliver fulgt.",
   },
 ];
 
-const STATS = [
-  {
-    figure: "20-30%",
-    text: "af arbejdstiden i administrative processer kan spares med AI.",
-    source: "McKinsey",
-  },
-  {
-    figure: "40%",
-    text: "hurtigere løser AI-assisterede medarbejdere deres opgaver.",
-    source: "MIT-studie",
-  },
-  {
-    figure: "1 plan",
-    text: "i stedet for spredte AI-forsøg, der sjældent skalerer.",
-    source: "Derfor en strategi",
-  },
+const TAL = [
+  ["20-30%", "af arbejdstiden i administrative processer kan spares med AI.", "McKinsey"],
+  ["40%", "hurtigere løser AI-assisterede medarbejdere deres opgaver.", "MIT-studie"],
+  ["Et par uger", "fra første møde til en roadmap, I kan begynde at bruge.", "Typisk forløb hos os"],
 ];
 
-const HUB = [
-  {
-    href: "/skraeddersyede-ai",
-    h: "AI-løsninger & automatisering",
-    p: "Når strategien skal bygges - skræddersyet AI integreret med jeres systemer.",
-  },
-  {
-    href: "/academy",
-    h: "AI-kursus & uddannelse",
-    p: "Klæd hele organisationen på med vores online AI-læringsunivers.",
-  },
-  {
-    href: "/workshop",
-    h: "AI-workshop",
-    p: "En hands-on dag, hvor jeres team kommer i gang med AI i praksis.",
-  },
-  {
-    href: "/visionai",
-    h: "AIK Workspace",
-    p: "Jeres eget AI-system til hele virksomheden - samlet ét sted.",
-  },
+const VIDERE = [
+  ["/skraeddersyede-ai", "Skræddersyet AI", "Når strategien skal bygges: AI koblet på jeres egne systemer."],
+  ["/academy", "AI-Minds læringsplatform", "Klæd hele organisationen på med korte moduler på dansk."],
+  ["/workshop", "Workshop hos jer", "En hands-on dag, hvor jeres team kommer i gang med AI i praksis."],
+  ["/visionai", "AIK Workspace", "Jeres eget AI-system til hele virksomheden, samlet ét sted."],
 ];
 
 export default function AiStrategi() {
   return (
-    <div>
+    <>
       <JsonLd data={serviceSchema} />
       <JsonLd data={faqSchema} />
 
-      {/* ── Hero ── */}
-      <section className="pt-[clamp(4rem,11vw,8rem)] pb-[clamp(3rem,8vw,5.5rem)] relative overflow-hidden">
-        <div className="hero-glow" aria-hidden="true" />
-        <div className="max-w-4xl mx-auto px-6 lg:px-8 relative z-10 text-center">
-          <FadeIn>
-            <p className="text-[13px] font-bold tracking-[0.22em] uppercase text-gray-600">
-              AI-strategi
-            </p>
-            <h1 className="text-[2.5rem] sm:text-5xl lg:text-[3.75rem] font-bold tracking-heading text-gray-900 leading-[1.05] mt-4 text-balance">
-              AI-strategi til danske virksomheder -{" "}
-              <span className="text-gray-500">der rent faktisk bliver til noget.</span>
-            </h1>
-          </FadeIn>
-          <FadeIn delay={150}>
-            <p className="text-base sm:text-lg lg:text-xl text-gray-500 mt-6 max-w-2xl mx-auto leading-relaxed">
-              En AI-strategi er ikke et 80-siders dokument, der samler støv. Det
-              er en konkret plan for, hvor AI giver jer mest værdi - og hvordan I
-              kommer i gang. Vi laver AI-analysen, lægger en roadmap og hjælper
-              jer hele vejen til implementering.
-            </p>
-          </FadeIn>
-          <FadeIn delay={300}>
-            <div className="flex flex-wrap items-center justify-center gap-3 mt-9">
-              <Button variant="primary" size="lg" cal>
-                Book en gratis AI-afklaring
-              </Button>
-              <Button variant="secondary" size="lg" href="/ai-guide">
-                Få en gratis AI-analyse
-              </Button>
+      <SideHero
+        id="strategi-titel"
+        kicker="AI-strategi"
+        titel={["En AI-strategi, der", "bliver til noget."]}
+        tekst="En AI-strategi er ikke et 80-siders dokument, der samler støv. Det er en konkret plan for, hvor AI giver jer mest værdi, og hvordan I kommer i gang."
+        primaer={{ label: "Book en gratis AI-afklaring", href: "/kontakt" }}
+        sekundaer={{ label: "Få en gratis AI-analyse", href: "/ai-guide" }}
+        skud={["kontor", "vindmoelle"]}
+        fakta={[
+          ["Et par uger", "til analyse og roadmap"],
+          ["Fast pris", "efter afklaringen"],
+          ["45 min.", "gratis AI-afklaring"],
+          ["Hele vejen", "til drift"],
+        ]}
+        eksempel={<KortRoadmap />}
+      />
+
+      {/* --- Hvad er det i praksis --- */}
+      <section className="section-y bg-white">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="grid gap-10 lg:grid-cols-12 lg:gap-16">
+            <div className="lg:col-span-5">
+              <p className="kicker text-gray-600">I praksis</p>
+              <OrdForOrd className="mt-6 text-balance text-[clamp(2.1rem,4.4vw,3.5rem)] font-bold leading-[1.04] tracking-display text-gray-900">
+                En plan, jeres folk kan følge.
+              </OrdForOrd>
             </div>
-            <p className="text-sm text-gray-500 mt-5">
-              Finder vi ikke en konkret AI-mulighed, der kan spare jer tid -
-              koster det ingenting.
-            </p>
-          </FadeIn>
-        </div>
-      </section>
-
-      {/* ── Hvad er en AI-strategi ── */}
-      <section className="py-[clamp(3.5rem,8vw,6rem)] bg-gray-50">
-        <div className="max-w-3xl mx-auto px-6 lg:px-8">
-          <FadeIn>
-            <h2 className="text-3xl lg:text-4xl font-bold tracking-heading text-gray-900 leading-[1.1]">
-              Hvad er en AI-strategi - i praksis?
-            </h2>
-            <p className="text-gray-600 mt-6 leading-relaxed text-lg">
-              En AI-strategi er en plan for, hvordan jeres virksomhed bruger AI
-              til at spare tid og skabe værdi. Den starter med en AI-analyse af
-              jeres processer, prioriterer de use cases, der betaler sig hurtigst,
-              og ender i en konkret roadmap for, hvad I gør - og i hvilken
-              rækkefølge.
-            </p>
-            <p className="text-gray-600 mt-4 leading-relaxed text-lg">
-              Det handler ikke om at bruge AI for at bruge AI. Det handler om at
-              vælge de rigtige steder at starte, de rigtige værktøjer og en plan,
-              som jeres folk faktisk kan følge - så I ikke ender med spredte
-              forsøg, der aldrig bliver til drift.
-            </p>
-          </FadeIn>
-        </div>
-      </section>
-
-      {/* ── Proces ── */}
-      <section className="py-[clamp(4rem,10vw,7rem)]">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <FadeIn>
-            <div className="max-w-2xl">
-              <p className="text-[11px] uppercase tracking-[0.2em] text-gray-600 font-semibold mb-3">
-                Sådan gør vi
+            <FadeIn delay={200} className="space-y-5 lg:col-span-7 lg:pt-14">
+              <p className="max-w-[62ch] text-[1.0625rem] leading-relaxed text-gray-600">
+                En AI-strategi er en plan for, hvordan jeres virksomhed bruger AI
+                til at spare tid og skabe værdi. Den starter med en analyse af
+                jeres processer, prioriterer de use cases, der betaler sig
+                hurtigst, og ender i en konkret roadmap for, hvad I gør, og i
+                hvilken rækkefølge.
               </p>
-              <h2 className="text-3xl lg:text-4xl font-bold tracking-heading text-gray-900 leading-[1.1]">
-                Fra AI-analyse til roadmap til implementering
-              </h2>
-            </div>
-          </FadeIn>
-          <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {STEPS.map((s, i) => (
-              <FadeIn key={s.n} delay={i * 90}>
-                <div className="h-full bg-white rounded-2xl border border-gray-100 p-7 hover:shadow-lg transition-shadow">
-                  <span className="text-2xl font-bold text-gray-900">{s.n}</span>
-                  <h3 className="text-lg font-bold tracking-heading text-gray-900 mt-4 leading-tight">
-                    {s.h}
-                  </h3>
-                  <p className="text-gray-600 mt-3 leading-relaxed text-[0.95rem]">
-                    {s.p}
-                  </p>
-                </div>
-              </FadeIn>
-            ))}
+              <p className="max-w-[62ch] text-[1.0625rem] leading-relaxed text-gray-600">
+                Det handler ikke om at bruge AI for at bruge AI. Det handler om at
+                vælge de rigtige steder at starte, de rigtige værktøjer og en plan,
+                I kan følge, så I ikke ender med spredte forsøg, der aldrig bliver
+                til drift.
+              </p>
+            </FadeIn>
           </div>
         </div>
       </section>
 
-      {/* ── Hvorfor ── */}
-      <section className="py-[clamp(4rem,10vw,7rem)] bg-gray-50">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <FadeIn>
-            <div className="max-w-2xl">
-              <p className="text-[11px] uppercase tracking-[0.2em] text-gray-600 font-semibold mb-3">
-                Derfor betaler det sig
-              </p>
-              <h2 className="text-3xl lg:text-4xl font-bold tracking-heading text-gray-900 leading-[1.1]">
-                En AI-strategi er forskellen på effekt og spildte forsøg
-              </h2>
-            </div>
-          </FadeIn>
-          <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
-            {STATS.map((s, i) => (
-              <FadeIn key={s.source} delay={i * 90}>
-                <div className="h-full bg-white rounded-2xl border border-gray-100 p-8">
-                  <p className="text-4xl lg:text-5xl font-bold tracking-heading text-gray-900">
-                    {s.figure}
-                  </p>
-                  <p className="text-gray-700 mt-4 leading-relaxed">{s.text}</p>
-                  <p className="text-xs uppercase tracking-[0.15em] text-gray-500 font-semibold mt-4">
-                    {s.source}
-                  </p>
+      <TrinFlow
+        graa
+        kicker="Sådan gør vi"
+        titel="Fra analyse til roadmap til drift."
+        tekst="Konkret og handlingsorienteret. I skal ikke vente måneder på et dokument."
+        trin={TRIN}
+      />
+
+      {/* --- Derfor betaler det sig --- */}
+      <section data-header="moerk" className="section-y bg-ink">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <SektionHoved mork kicker="Derfor betaler det sig" titel="Forskellen på effekt og spildte forsøg." />
+          <dl className="mt-14 grid gap-10 md:grid-cols-3 lg:mt-20">
+            {TAL.map(([tal, tekst, kilde], i) => (
+              <FadeIn key={tal} delay={i * 100}>
+                <div className="border-t border-white/15 pt-6">
+                  <dt className="text-[clamp(2.75rem,4.5vw,3.75rem)] font-bold leading-none tracking-display text-white">{tal}</dt>
+                  <dd className="mt-4 max-w-[30ch] text-[1rem] leading-relaxed text-white/70">{tekst}</dd>
+                  <dd className="mt-3 text-[0.6875rem] font-semibold uppercase tracking-[0.16em] text-white/50">{kilde}</dd>
                 </div>
               </FadeIn>
             ))}
-          </div>
+          </dl>
         </div>
       </section>
 
-      {/* ── Hub / interne links ── */}
-      <section className="py-[clamp(4rem,10vw,7rem)]">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <FadeIn>
-            <h2 className="text-3xl lg:text-4xl font-bold tracking-heading text-gray-900 leading-[1.1] max-w-2xl">
-              Når strategien er på plads - så hjælper vi videre
-            </h2>
-          </FadeIn>
-          <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 gap-6">
-            {HUB.map((c, i) => (
-              <FadeIn key={c.href} delay={i * 80}>
+      {/* --- Når strategien er på plads --- */}
+      <section className="section-y bg-white">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <SektionHoved
+            kicker="Når strategien er på plads"
+            titel="Så hjælper vi videre."
+            tekst="Strategien peger på, hvad der skal ske. Her er de fire måder, vi kan tage det videre sammen med jer."
+          />
+          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:mt-16 lg:grid-cols-4">
+            {VIDERE.map(([href, titel, tekst], i) => (
+              <FadeIn key={href} delay={i * 80} className="h-full">
                 <Link
-                  href={c.href}
-                  className="group block h-full bg-white rounded-2xl border border-gray-100 p-7 hover:border-gray-900 hover:shadow-lg transition-all"
+                  href={href}
+                  className="group flex h-full flex-col rounded-2xl bg-gray-50 p-7 ring-1 ring-black/[0.05] transition-shadow duration-300 hover:shadow-[0_24px_50px_-30px_rgba(0,0,0,0.35)]"
                 >
                   <div className="flex items-center justify-between gap-4">
-                    <h3 className="text-xl font-bold tracking-heading text-gray-900 leading-tight">
-                      {c.h}
-                    </h3>
-                    <span className="text-gray-900 text-2xl transition-transform group-hover:translate-x-1">
+                    <h3 className="text-lg font-bold tracking-heading text-gray-900">{titel}</h3>
+                    <span aria-hidden="true" className="text-xl text-gray-900 transition-transform duration-200 group-hover:translate-x-1">
                       →
                     </span>
                   </div>
-                  <p className="text-gray-600 mt-3 leading-relaxed">{c.p}</p>
+                  <p className="mt-3 text-[0.975rem] leading-relaxed text-gray-600">{tekst}</p>
                 </Link>
               </FadeIn>
             ))}
@@ -295,49 +226,14 @@ export default function AiStrategi() {
         </div>
       </section>
 
-      {/* ── FAQ ── */}
-      <section className="py-[clamp(4rem,10vw,7rem)] bg-gray-50">
-        <div className="max-w-3xl mx-auto px-6 lg:px-8">
-          <FadeIn>
-            <h2 className="text-3xl lg:text-4xl font-bold tracking-heading text-gray-900 leading-[1.1] text-center">
-              Spørgsmål om AI-strategi
-            </h2>
-          </FadeIn>
-          <div className="mt-12 flex flex-col gap-4">
-            {faqs.map((f, i) => (
-              <FadeIn key={f.q} delay={i * 60}>
-                <div className="bg-white rounded-xl border border-gray-100 p-6">
-                  <h3 className="text-base lg:text-lg font-bold tracking-heading text-gray-900 leading-tight">
-                    {f.q}
-                  </h3>
-                  <p className="text-gray-600 mt-3 leading-relaxed">{f.a}</p>
-                </div>
-              </FadeIn>
-            ))}
-          </div>
-        </div>
-      </section>
+      <FAQ items={faqs} kicker="Spørgsmål om AI-strategi" titel="Det, vores kunder spørger om" graa />
 
-      {/* ── Final CTA ── */}
-      <section className="py-[clamp(4rem,10vw,7rem)]">
-        <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">
-          <FadeIn>
-            <h2 className="text-3xl lg:text-4xl font-bold tracking-heading text-gray-900 leading-[1.1]">
-              Skal vi lægge jeres AI-strategi?
-            </h2>
-            <p className="text-gray-500 mt-5 max-w-xl mx-auto leading-relaxed text-lg">
-              Vi starter med en gratis AI-afklaring. Vi finder ud af, hvor AI
-              giver jer mest værdi - og siger ærligt til, hvis det ikke kan betale
-              sig endnu.
-            </p>
-            <div className="mt-9 flex justify-center">
-              <Button variant="primary" size="lg" cal>
-                Book en gratis AI-afklaring
-              </Button>
-            </div>
-          </FadeIn>
-        </div>
-      </section>
-    </div>
+      <TalMedAlexander
+        kicker="Næste skridt"
+        titel="Skal vi lægge jeres AI-strategi?"
+        tekst="Vi starter med en gratis AI-afklaring. Vi finder ud af, hvor AI giver jer mest værdi, og siger ærligt til, hvis det ikke kan betale sig endnu."
+        knap={{ label: "Book en gratis AI-afklaring", href: "/kontakt" }}
+      />
+    </>
   );
 }
