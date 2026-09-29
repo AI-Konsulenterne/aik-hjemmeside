@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import JsonLd from "@/components/ui/JsonLd";
 import UseCaseLanding from "@/components/sections/UseCaseLanding";
+import { KortSvar } from "@/components/side/EksempelKort";
 
 export const metadata: Metadata = {
   title: { absolute: "AI i HR - svar på sekunder | AI Konsulenterne" },
@@ -73,6 +74,9 @@ export default function AiIHr() {
       <JsonLd data={serviceSchema} />
       <JsonLd data={faqSchema} />
       <UseCaseLanding
+        titel={["AI i HR.", "Svar på sekunder, ikke dage."]}
+        skud={["kontor"]}
+        eksempel={<KortSvar aktiv />}
         eyebrow="AI i HR"
         h1Pre="AI i HR - medarbejderne får svar på sekunder,"
         h1Accent="ikke dage."

@@ -34,11 +34,13 @@ type Props = {
   sekundaer?: Knap;
   skud: string[];
   fakta?: [string, string][];
+  /** Et lille eksempelkort til højre på store skærme (fx HR-agentens svar). */
+  eksempel?: React.ReactNode;
 };
 
 const SKUD_MS = 6000;
 
-export default function SideHero({ id, kicker, titel, tekst, primaer, sekundaer, skud, fakta = [] }: Props) {
+export default function SideHero({ id, kicker, titel, tekst, primaer, sekundaer, skud, fakta = [], eksempel }: Props) {
   const [index, setIndex] = useState(0);
   const [aktiv, setAktiv] = useState(true);
   const [reduceret, setReduceret] = useState(false);
@@ -125,7 +127,8 @@ export default function SideHero({ id, kicker, titel, tekst, primaer, sekundaer,
       </div>
 
       <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-1 flex-col justify-end px-6 pb-10 pt-36 lg:px-8 lg:pb-14">
-        <div className="max-w-4xl">
+        <div className="flex items-end justify-between gap-12">
+        <div className={eksempel ? "max-w-3xl" : "max-w-4xl"}>
           <div className="flex items-center gap-3">
             <span className="lamp" data-lit="true" aria-hidden="true" />
             <p className="kicker text-white/85 [text-shadow:0_1px_10px_rgba(0,0,0,0.45)]">{kicker}</p>
@@ -153,6 +156,12 @@ export default function SideHero({ id, kicker, titel, tekst, primaer, sekundaer,
               </Button>
             )}
           </div>
+        </div>
+        {eksempel && (
+          <div aria-hidden="true" className="hidden w-[19rem] flex-none lg:block">
+            {eksempel}
+          </div>
+        )}
         </div>
 
         {fakta.length > 0 && (

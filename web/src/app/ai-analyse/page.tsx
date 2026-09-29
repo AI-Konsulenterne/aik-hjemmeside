@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import JsonLd from "@/components/ui/JsonLd";
 import UseCaseLanding from "@/components/sections/UseCaseLanding";
+import { KortPrognose } from "@/components/side/EksempelKort";
 
 export const metadata: Metadata = {
   title: { absolute: "AI til analyse og dataindsigt | AI Konsulenterne" },
@@ -73,6 +74,9 @@ export default function AiAnalyse() {
       <JsonLd data={serviceSchema} />
       <JsonLd data={faqSchema} />
       <UseCaseLanding
+        titel={["AI til analyse.", "Fra spredt data til klare beslutninger."]}
+        skud={["armbaand", "kontor"]}
+        eksempel={<KortPrognose />}
         eyebrow="AI til analyse"
         h1Pre="AI til analyse -"
         h1Accent="fra spredt data til klare beslutninger."

@@ -59,7 +59,16 @@ const links = [
 
 /** Sider hvor heroen er mørk og fylder hele skærmen, så navigationen kan
  *  ligge gennemsigtigt ovenpå den. */
-const MOERK_HERO = new Set(["/", "/academy", "/workshop", "/skraeddersyede-ai"]);
+const MOERK_HERO = new Set([
+  "/",
+  "/academy",
+  "/workshop",
+  "/skraeddersyede-ai",
+  "/ai-i-hr",
+  "/ai-kundeservice",
+  "/ai-analyse",
+  "/ai-i-e-commerce",
+]);
 
 /** Ligger punktet y (fra toppen af vinduet) over en mørk sektion? */
 function moerkVed(y: number) {

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import JsonLd from "@/components/ui/JsonLd";
 import UseCaseLanding from "@/components/sections/UseCaseLanding";
+import { KortOrdre } from "@/components/side/EksempelKort";
 
 export const metadata: Metadata = {
   title: { absolute: "AI til e-commerce og webshops | AI Konsulenterne" },
@@ -73,6 +74,9 @@ export default function AiEcommerce() {
       <JsonLd data={serviceSchema} />
       <JsonLd data={faqSchema} />
       <UseCaseLanding
+        titel={["AI til e-commerce.", "Skalér webshoppen uden flere hænder."]}
+        skud={["undertoej", "armbaand"]}
+        eksempel={<KortOrdre />}
         eyebrow="AI til e-commerce"
         h1Pre="AI til e-commerce -"
         h1Accent="skalér din webshop uden flere hænder."

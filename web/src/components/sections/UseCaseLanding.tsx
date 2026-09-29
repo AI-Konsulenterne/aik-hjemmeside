@@ -1,6 +1,25 @@
 import Link from "next/link";
-import Button from "@/components/ui/Button";
 import FadeIn from "@/components/ui/FadeIn";
+import OrdForOrd from "@/components/ui/OrdForOrd";
+import FAQ from "@/components/sections/FAQ";
+import TalMedAlexander from "@/components/sections/TalMedAlexander";
+import SideHero from "@/components/side/SideHero";
+import SektionHoved from "@/components/side/SektionHoved";
+
+/**
+ * Skabelonen til use case-siderne (HR, kundeservice, analyse, e-commerce).
+ *
+ * Bygget om i forsidens sprog: filmen i heroen med et lille eksempelkort
+ * (fx HR-agentens svar med kilde), en intro i to spalter, de fire måder
+ * at bruge det på, casene på mørk flade, FAQ, relaterede sider og
+ * Alexander til sidst. Samme props som før, så siderne og deres SEO-tekst
+ * er uændrede; titel, skud og eksempel er nye og valgfrie.
+ *
+ * Faktaene under heroen står på alle fire sider i FAQ'en eller på
+ * forsiden: afklaringen er gratis og 45 minutter, prisen er fast efter
+ * den, mindre løsninger starter typisk fra 50.000 kr., og jeres data
+ * træner ingen modeller.
+ */
 
 export type UseCaseStep = { n: string; h: string; p: string };
 export type UseCaseProof = {
@@ -24,7 +43,20 @@ export type UseCaseLandingProps = {
   faqs: { h2: string; items: UseCaseFaq[] };
   related: { h2: string; items: UseCaseRelated[] };
   final: { h2: string; lead: string };
+  /** Overskriften som linjer. Uden den bruges h1Pre og h1Accent. */
+  titel?: string[];
+  /** Skud fra referencefilmen til heroen. */
+  skud?: string[];
+  /** Et eksempelkort til heroen. */
+  eksempel?: React.ReactNode;
 };
+
+const FAKTA: [string, string][] = [
+  ["45 min.", "gratis AI-afklaring"],
+  ["Fast pris", "efter afklaringen"],
+  ["Fra 50.000 kr.", "for mindre løsninger"],
+  ["Ingen træning", "på jeres data"],
+];
 
 export default function UseCaseLanding({
   eyebrow,
@@ -37,130 +69,87 @@ export default function UseCaseLanding({
   faqs,
   related,
   final,
+  titel,
+  skud = ["kontor"],
+  eksempel,
 }: UseCaseLandingProps) {
+  const linjer = titel ?? [h1Pre.replace(/\s*-\s*$/, ""), h1Accent];
+
   return (
-    <div>
-      {/* ── Hero ── */}
-      <section className="pt-[clamp(4rem,11vw,8rem)] pb-[clamp(3rem,8vw,5.5rem)] relative overflow-hidden">
-        <div className="hero-glow" aria-hidden="true" />
-        <div className="max-w-4xl mx-auto px-6 lg:px-8 relative z-10 text-center">
-          <FadeIn>
-            <p className="text-[13px] font-bold tracking-[0.22em] uppercase text-gray-600">
-              {eyebrow}
-            </p>
-            <h1 className="text-[2.5rem] sm:text-5xl lg:text-[3.75rem] font-bold tracking-heading text-gray-900 leading-[1.05] mt-4 text-balance">
-              {h1Pre} <span className="text-gray-500">{h1Accent}</span>
-            </h1>
-          </FadeIn>
-          <FadeIn delay={150}>
-            <p className="text-base sm:text-lg lg:text-xl text-gray-500 mt-6 max-w-2xl mx-auto leading-relaxed">
-              {lead}
-            </p>
-          </FadeIn>
-          <FadeIn delay={300}>
-            <div className="flex flex-wrap items-center justify-center gap-3 mt-9">
-              <Button variant="primary" size="lg" cal>
-                Book en gratis AI-afklaring
-              </Button>
-              <Button variant="secondary" size="lg" href="/ai-guide">
-                Få en gratis AI-analyse
-              </Button>
+    <>
+      <SideHero
+        id="usecase-titel"
+        kicker={eyebrow}
+        titel={linjer}
+        tekst={lead}
+        primaer={{ label: "Book en gratis AI-afklaring", href: "/kontakt" }}
+        sekundaer={{ label: "Få en gratis AI-analyse", href: "/ai-guide" }}
+        skud={skud}
+        fakta={FAKTA}
+        eksempel={eksempel}
+      />
+
+      {/* --- Hvad er det --- */}
+      <section className="section-y bg-white">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="grid gap-10 lg:grid-cols-12 lg:gap-16">
+            <div className="lg:col-span-5">
+              <p className="kicker text-gray-600">{eyebrow}</p>
+              <OrdForOrd className="mt-6 text-balance text-[clamp(2.1rem,4.4vw,3.5rem)] font-bold leading-[1.04] tracking-display text-gray-900">
+                {intro.h2}
+              </OrdForOrd>
             </div>
-            <p className="text-sm text-gray-500 mt-5">
-              Finder vi ikke en konkret AI-mulighed, der kan spare jer tid -
-              koster det ingenting.
-            </p>
-          </FadeIn>
-        </div>
-      </section>
-
-      {/* ── Intro ── */}
-      <section className="py-[clamp(3.5rem,8vw,6rem)] bg-gray-50">
-        <div className="max-w-3xl mx-auto px-6 lg:px-8">
-          <FadeIn>
-            <h2 className="text-3xl lg:text-4xl font-bold tracking-heading text-gray-900 leading-[1.1]">
-              {intro.h2}
-            </h2>
-            {intro.paragraphs.map((p, i) => (
-              <p
-                key={i}
-                className="text-gray-600 mt-5 leading-relaxed text-lg"
-              >
-                {p}
-              </p>
-            ))}
-          </FadeIn>
-        </div>
-      </section>
-
-      {/* ── Steps ── */}
-      <section className="py-[clamp(4rem,10vw,7rem)]">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <FadeIn>
-            <h2 className="text-3xl lg:text-4xl font-bold tracking-heading text-gray-900 leading-[1.1] max-w-2xl">
-              {steps.h2}
-            </h2>
-          </FadeIn>
-          <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {steps.items.map((s, i) => (
-              <FadeIn key={s.n} delay={i * 90}>
-                <div className="h-full bg-white rounded-2xl border border-gray-100 p-7 hover:shadow-lg transition-shadow">
-                  <span className="text-2xl font-bold text-gray-900">{s.n}</span>
-                  <h3 className="text-lg font-bold tracking-heading text-gray-900 mt-4 leading-tight">
-                    {s.h}
-                  </h3>
-                  <p className="text-gray-600 mt-3 leading-relaxed text-[0.95rem]">
-                    {s.p}
-                  </p>
-                </div>
-              </FadeIn>
-            ))}
+            <FadeIn delay={200} className="space-y-5 lg:col-span-7 lg:pt-14">
+              {intro.paragraphs.map((p) => (
+                <p key={p.slice(0, 32)} className="max-w-[62ch] text-[1.0625rem] leading-relaxed text-gray-600">
+                  {p}
+                </p>
+              ))}
+            </FadeIn>
           </div>
         </div>
       </section>
 
-      {/* ── Cases (proof) ── */}
-      <section className="py-[clamp(4rem,10vw,7rem)] bg-gray-50">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <FadeIn>
-            <div className="max-w-2xl">
-              <p className="text-[11px] uppercase tracking-[0.2em] text-gray-600 font-semibold mb-3">
-                Det har vi bygget
-              </p>
-              <h2 className="text-3xl lg:text-4xl font-bold tracking-heading text-gray-900 leading-[1.1]">
-                {cases.h2}
-              </h2>
-              {cases.intro && (
-                <p className="text-gray-600 mt-4 leading-relaxed text-lg">
-                  {cases.intro}
-                </p>
-              )}
-            </div>
-          </FadeIn>
-          <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6">
+      {/* --- Sådan virker det --- */}
+      <section className="section-y bg-gray-50">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <SektionHoved kicker="Sådan virker det" titel={steps.h2} />
+          <dl className="mt-14 grid gap-x-10 gap-y-10 sm:grid-cols-2 lg:mt-20 lg:grid-cols-4">
+            {steps.items.map((s, i) => (
+              <FadeIn key={s.h} delay={i * 80}>
+                <div className="border-t border-gray-300 pt-6">
+                  <p className="text-sm font-semibold tabular-nums text-gray-500">{s.n}</p>
+                  <dt className="mt-3 text-lg font-bold leading-snug tracking-heading text-gray-900">{s.h}</dt>
+                  <dd className="mt-2 text-[0.975rem] leading-relaxed text-gray-600">{s.p}</dd>
+                </div>
+              </FadeIn>
+            ))}
+          </dl>
+        </div>
+      </section>
+
+      {/* --- Det har vi bygget --- */}
+      <section data-header="moerk" className="section-y bg-ink">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <SektionHoved mork kicker="Det har vi bygget" titel={cases.h2} tekst={cases.intro} />
+          <div className={`mt-14 grid gap-6 lg:mt-20 ${cases.items.length > 1 ? "lg:grid-cols-2" : "lg:max-w-3xl"}`}>
             {cases.items.map((c, i) => (
-              <FadeIn key={c.href} delay={i * 90}>
+              <FadeIn key={c.href + c.company} delay={i * 110} className="h-full">
                 <Link
                   href={c.href}
-                  className="group flex flex-col h-full bg-white rounded-2xl border border-gray-100 p-8 hover:border-gray-900 hover:shadow-lg transition-all"
+                  className="group flex h-full flex-col rounded-3xl border border-white/10 bg-white/[0.03] p-8 transition-colors duration-300 hover:border-white/25 hover:bg-white/[0.06] lg:p-10"
                 >
-                  <p className="text-xs uppercase tracking-[0.15em] text-gray-500 font-semibold">
-                    {c.company}
-                  </p>
-                  {c.stat && (
-                    <p className="text-4xl lg:text-5xl font-bold tracking-heading text-gray-900 mt-3">
-                      {c.stat}
-                    </p>
-                  )}
-                  <h3 className="text-xl font-bold tracking-heading text-gray-900 mt-3 leading-tight">
-                    {c.headline}
-                  </h3>
-                  <p className="text-gray-600 mt-3 leading-relaxed flex-1">
-                    {c.blurb}
-                  </p>
-                  <span className="text-gray-900 font-semibold mt-5 inline-flex items-center gap-1.5">
+                  <div className="flex items-start justify-between gap-6">
+                    <p className="kicker text-white/60">{c.company}</p>
+                    {c.stat && (
+                      <p className="text-[2.5rem] font-bold leading-none tracking-display text-white">{c.stat}</p>
+                    )}
+                  </div>
+                  <h3 className="mt-6 text-2xl font-bold leading-snug tracking-heading text-white">{c.headline}</h3>
+                  <p className="mt-4 text-[1rem] leading-relaxed text-white/70">{c.blurb}</p>
+                  <span className="mt-auto inline-flex items-center gap-1.5 pt-8 text-sm font-semibold text-white">
                     <span className="understreg">Læs casen</span>
-                    <span className="transition-transform group-hover:translate-x-1">
+                    <span aria-hidden="true" className="transition-transform duration-200 group-hover:translate-x-0.5">
                       →
                     </span>
                   </span>
@@ -171,55 +160,26 @@ export default function UseCaseLanding({
         </div>
       </section>
 
-      {/* ── FAQ ── */}
-      <section className="py-[clamp(4rem,10vw,7rem)]">
-        <div className="max-w-3xl mx-auto px-6 lg:px-8">
-          <FadeIn>
-            <h2 className="text-3xl lg:text-4xl font-bold tracking-heading text-gray-900 leading-[1.1] text-center">
-              {faqs.h2}
-            </h2>
-          </FadeIn>
-          <div className="mt-12 flex flex-col gap-4">
-            {faqs.items.map((f, i) => (
-              <FadeIn key={f.q} delay={i * 60}>
-                <div className="bg-white rounded-xl border border-gray-100 p-6">
-                  <h3 className="text-base lg:text-lg font-bold tracking-heading text-gray-900 leading-tight">
-                    {f.q}
-                  </h3>
-                  <p className="text-gray-600 mt-3 leading-relaxed">{f.a}</p>
-                </div>
-              </FadeIn>
-            ))}
-          </div>
-        </div>
-      </section>
+      <FAQ items={faqs.items} kicker="Spørgsmål" titel={faqs.h2} />
 
-      {/* ── Relaterede løsninger ── */}
-      <section className="py-[clamp(4rem,10vw,7rem)] bg-gray-50">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <FadeIn>
-            <h2 className="text-3xl lg:text-4xl font-bold tracking-heading text-gray-900 leading-[1.1] max-w-2xl">
-              {related.h2}
-            </h2>
-          </FadeIn>
-          <div className="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-6">
+      {/* --- Se også --- */}
+      <section className="section-y bg-gray-50">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <SektionHoved kicker="Mere om det, vi bygger" titel={related.h2} />
+          <div className="mt-12 grid gap-6 sm:grid-cols-3 lg:mt-16">
             {related.items.map((r, i) => (
-              <FadeIn key={r.href} delay={i * 80}>
+              <FadeIn key={r.href} delay={i * 80} className="h-full">
                 <Link
                   href={r.href}
-                  className="group block h-full bg-white rounded-2xl border border-gray-100 p-7 hover:border-gray-900 hover:shadow-lg transition-all"
+                  className="group flex h-full flex-col rounded-2xl bg-white p-7 ring-1 ring-black/[0.05] transition-shadow duration-300 hover:shadow-[0_24px_50px_-30px_rgba(0,0,0,0.35)]"
                 >
-                  <div className="flex items-center justify-between gap-3">
-                    <h3 className="text-lg font-bold tracking-heading text-gray-900 leading-tight">
-                      {r.label}
-                    </h3>
-                    <span className="text-gray-900 text-xl transition-transform group-hover:translate-x-1">
+                  <div className="flex items-center justify-between gap-4">
+                    <h3 className="text-lg font-bold tracking-heading text-gray-900">{r.label}</h3>
+                    <span aria-hidden="true" className="text-xl text-gray-900 transition-transform duration-200 group-hover:translate-x-1">
                       →
                     </span>
                   </div>
-                  <p className="text-gray-600 mt-2.5 leading-relaxed text-[0.95rem]">
-                    {r.desc}
-                  </p>
+                  <p className="mt-3 text-[0.975rem] leading-relaxed text-gray-600">{r.desc}</p>
                 </Link>
               </FadeIn>
             ))}
@@ -227,24 +187,12 @@ export default function UseCaseLanding({
         </div>
       </section>
 
-      {/* ── Final CTA ── */}
-      <section className="py-[clamp(4rem,10vw,7rem)]">
-        <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">
-          <FadeIn>
-            <h2 className="text-3xl lg:text-4xl font-bold tracking-heading text-gray-900 leading-[1.1]">
-              {final.h2}
-            </h2>
-            <p className="text-gray-500 mt-5 max-w-xl mx-auto leading-relaxed text-lg">
-              {final.lead}
-            </p>
-            <div className="mt-9 flex justify-center">
-              <Button variant="primary" size="lg" cal>
-                Book en gratis AI-afklaring
-              </Button>
-            </div>
-          </FadeIn>
-        </div>
-      </section>
-    </div>
+      <TalMedAlexander
+        kicker="Næste skridt"
+        titel={final.h2}
+        tekst={final.lead}
+        knap={{ label: "Book en gratis AI-afklaring", href: "/kontakt" }}
+      />
+    </>
   );
 }
