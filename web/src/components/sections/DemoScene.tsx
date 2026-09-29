@@ -241,7 +241,7 @@ export default function DemoScene() {
                 role="tabpanel"
                 aria-labelledby={`fane-${d.id}`}
                 onPointerDown={() => setLaast(true)}
-                className="demo-embed relative overflow-hidden rounded-2xl border border-white/10 bg-[#0d0f11] shadow-[0_50px_120px_-40px_rgba(0,0,0,0.9),inset_0_1px_0_rgba(255,255,255,0.06)] lg:h-[38rem]"
+                className="demo-embed relative overflow-hidden rounded-2xl border border-white/10 bg-[#0d0f11] shadow-[0_50px_120px_-40px_rgba(0,0,0,0.9),inset_0_1px_0_rgba(255,255,255,0.06)] lg:h-[40rem]"
               >
                 {/* key: hver demo starter forfra, og kun den valgte kører */}
                 <Indhold key={d.id} id={d.id} />
