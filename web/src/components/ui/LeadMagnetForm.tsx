@@ -17,7 +17,6 @@ const STOERRELSER = ["1-10", "11-50", "51-200", "201-1.000", "Over 1.000"];
 const TIDSFORBRUG = [
   "Kundeservice & support",
   "Tilbud & ordrer",
-  "Fakturering & bogføring",
   "Rapportering & dataudtræk",
   "Møder & referater",
   "Dokumenter & kontrakter",
@@ -32,7 +31,6 @@ const SYSTEMER = [
   "Google Workspace",
   "ERP (Business Central / Dynamics / Navision)",
   "CRM (HubSpot / Pipedrive / Salesforce)",
-  "Bogføring (e-conomic / Dinero / Billy)",
   "SharePoint / Intranet / fildrev",
   "Andet",
 ];

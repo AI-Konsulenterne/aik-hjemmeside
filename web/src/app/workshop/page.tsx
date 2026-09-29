@@ -75,29 +75,6 @@ const HOW = [
   },
 ];
 
-const STEPS = [
-  {
-    n: "1",
-    h: "Kort afklaring",
-    p: "60 minutter. Vi afdækker jeres behov og lægger en plan.",
-  },
-  {
-    n: "2",
-    h: "Vi tilpasser indholdet",
-    p: "Vi sætter moduler og øvelser sammen, så det passer til jeres branche og mål.",
-  },
-  {
-    n: "3",
-    h: "Selve workshoppen",
-    p: "Træning, øvelser og konkrete eksempler - med plads til spørgsmål undervejs.",
-  },
-  {
-    n: "4",
-    h: "Opsamling og næste skridt",
-    p: "I får en kort opsamling og en plan for, hvad I gør de næste 2-4 uger.",
-  },
-];
-
 export default function Workshop() {
   return (
     <div className="aik-ws-shop">
@@ -440,34 +417,6 @@ export default function Workshop() {
               </div>
             </div>
           </FadeIn>
-        </div>
-      </section>
-
-      {/* ── Proces ── */}
-      <section className="section process-section" id="proces">
-        <div className="container">
-          <FadeIn>
-            <div className="section-head">
-              <p className="eyebrow">Proces</p>
-              <h2 className="h2">Sådan foregår det</h2>
-              <p className="lead">
-                Fra første samtale til workshop og næste skridt.
-              </p>
-            </div>
-          </FadeIn>
-          <div className="ptl">
-            {STEPS.map((s, i) => (
-              <FadeIn key={s.n} delay={i * 80}>
-                <div className={"pstep" + (i % 2 ? " right" : "")}>
-                  <div className="pnode">{s.n}</div>
-                  <article className="pcard">
-                    <h3 className="pc-h">{s.h}</h3>
-                    <p>{s.p}</p>
-                  </article>
-                </div>
-              </FadeIn>
-            ))}
-          </div>
         </div>
       </section>
 

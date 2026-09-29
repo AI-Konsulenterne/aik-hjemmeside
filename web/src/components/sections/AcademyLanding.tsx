@@ -1,8 +1,7 @@
 import Image from "next/image";
 import Button from "@/components/ui/Button";
 import FadeIn from "@/components/ui/FadeIn";
-
-const SKOOL_URL = "https://www.skool.com/aiminds";
+import LessonVideo from "@/components/sections/LessonVideo";
 
 // Knap-klasser til eksterne <a>-links (matcher Button-komponenten)
 const ghostBtn =
@@ -123,9 +122,9 @@ const Check = ({ className = "w-4 h-4" }: { className?: string }) => (
 
 const values = [
   {
-    title: "På dansk",
+    title: "Alt materiale er på dansk",
     description:
-      "Hele platformen, alle videoer og alt materiale er på dansk - bygget til den måde, danske virksomheder arbejder på.",
+      "Der findes rigtig meget videomateriale om AI på engelsk. Derfor har vi forpligtet os til at bygge en hel platform, hvor alt materialet er på dansk - så barrieren i det mindste ikke er sproget.",
     iconPath:
       "M10.5 21l5.25-11.25L21 21m-9-3h7.5M3 5.621a48.474 48.474 0 016-.371m0 0c1.12 0 2.233.038 3.334.114M9 5.25V3m3.334 2.364C11.176 10.658 7.69 15.08 3 17.502m9.334-12.138c.896.061 1.785.147 2.666.257m-4.589 8.495a18.023 18.023 0 01-3.827-5.802",
   },
@@ -175,7 +174,7 @@ const checklist = [
 const faqs = [
   {
     q: "Hvad koster det?",
-    a: "Det afhænger af, hvor mange medarbejdere I ønsker at give adgang til. Ring eller book et møde med os, og lad os tage en snak.",
+    a: "Fra 249 kr. pr. medarbejder om måneden - prisen afhænger af, hvor mange I er. Ring eller book et møde med os, og få et konkret prisforslag.",
   },
   {
     q: "Hvor meget tid skal vi bruge på det?",
@@ -326,13 +325,8 @@ export default function AcademyLanding() {
                     Book en demo
                     <ArrowRight />
                   </Button>
-                  <a
-                    href={SKOOL_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={ghostBtn}
-                  >
-                    Se platformen ↗
+                  <a href="#lektion" className={ghostBtn}>
+                    Se en rigtig lektion
                   </a>
                 </div>
               </div>
@@ -635,6 +629,34 @@ export default function AcademyLanding() {
         </div>
       </section>
 
+      {/* ══════════ SE EN RIGTIG LEKTION ══════════ */}
+      <section id="lektion" className="bg-gray-50 py-[clamp(4rem,10vw,7rem)] scroll-mt-24">
+        <div className="max-w-4xl mx-auto px-6 lg:px-8">
+          <FadeIn>
+            <div className="max-w-2xl mx-auto text-center">
+              <Eyebrow>Direkte fra platformen</Eyebrow>
+              <h2 className="text-3xl lg:text-5xl font-bold tracking-heading text-gray-900 leading-[1.08] mt-4">
+                Se vores underviser <span className="text-primary">i aktion</span>.
+              </h2>
+              <p className="text-lg text-gray-600 mt-5 leading-relaxed">
+                Det her er en lektion fra AI-Minds om prompting - præcis som
+                jeres medarbejdere møder den. Så kan I selv vurdere formatet,
+                inden vi tager en snak.
+              </p>
+            </div>
+          </FadeIn>
+          <FadeIn delay={120}>
+            <div className="mt-12">
+              <LessonVideo
+                videoId="-MePqDXITi8"
+                title="Prompting efter Microsofts anbefalinger - lektion fra AI-Minds"
+                thumbnailSrc="/lektion-prompting.jpg"
+              />
+            </div>
+          </FadeIn>
+        </div>
+      </section>
+
       {/* ══════════ HVORFOR AIK ══════════ */}
       <section id="academy" className="py-[clamp(4rem,10vw,7rem)] scroll-mt-24">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
@@ -684,7 +706,7 @@ export default function AcademyLanding() {
             <div className="max-w-2xl">
               <Eyebrow>Sådan ser det ud i praksis</Eyebrow>
               <h2 className="text-3xl lg:text-5xl font-bold tracking-heading text-gray-900 leading-[1.08] mt-4">
-                Det, I får <span className="text-gray-500">adgang til</span>.
+                Alt, hvad I <span className="text-gray-500">har brug for</span>.
               </h2>
             </div>
           </FadeIn>
@@ -875,13 +897,8 @@ export default function AcademyLanding() {
                     Book en demo
                     <ArrowRight />
                   </Button>
-                  <a
-                    href={SKOOL_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={lightBtn}
-                  >
-                    Se platformen ↗
+                  <a href="#lektion" className={lightBtn}>
+                    Se en rigtig lektion
                   </a>
                 </div>
               </div>
