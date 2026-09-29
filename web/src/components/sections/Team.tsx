@@ -43,14 +43,88 @@ function initialer(navn: string) {
     .join("");
 }
 
-export default async function Team() {
+/** Holdet fra Strapi uden pladsholdere, Alexander først. */
+export async function hentHold(): Promise<TeamMember[]> {
   const alle = await getTeamMembers().catch(() => [] as TeamMember[]);
-  const folk = alle
+  return alle
     .filter((m) => m.name?.trim() && !PLADSHOLDER.test(m.name))
     .sort((a, b) => Number(b.isPrimary) - Number(a.isPrimary) || (a.order ?? 0) - (b.order ?? 0));
+}
 
-  if (folk.length === 0) return null;
+/** Portrætterne. På mørk flade (heroen på /om-os) er teksten hvid. */
+export function HoldListe({
+  folk,
+  mork = false,
+  fyld = false,
+  className = "",
+}: {
+  folk: TeamMember[];
+  mork?: boolean;
+  /** Fyld spalten ud, også med kun to portrætter. */
+  fyld?: boolean;
+  className?: string;
+}) {
   const kolonner = Math.min(folk.length, 4);
+  return (
+    <ul
+      className={`grid gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-[repeat(var(--kolonner),minmax(0,1fr))] ${
+        kolonner <= 2 && !fyld ? "lg:max-w-3xl" : ""
+      } ${className}`}
+      style={{ "--kolonner": kolonner } as React.CSSProperties}
+    >
+      {folk.map((m, i) => {
+        const src = foto(m);
+        const titel = rolle(m);
+        return (
+          <li key={m.id}>
+            <FadeIn delay={i * 90}>
+              <figure className="group">
+                <div className={`relative aspect-[4/5] overflow-hidden rounded-2xl ${mork ? "bg-white/[0.06]" : "bg-gray-100"}`}>
+                  {src ? (
+                    <Image
+                      src={src}
+                      alt={m.name}
+                      fill
+                      sizes="(min-width: 1024px) 22rem, (min-width: 640px) 45vw, 100vw"
+                      className="object-cover grayscale transition-transform duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.03]"
+                    />
+                  ) : (
+                    <div
+                      className={`flex h-full items-center justify-center text-5xl font-bold tracking-display ${mork ? "text-white/40" : "text-gray-400"}`}
+                      aria-hidden="true"
+                    >
+                      {initialer(m.name)}
+                    </div>
+                  )}
+                </div>
+                <figcaption className="mt-5">
+                  <p className={`text-lg font-bold leading-tight tracking-heading ${mork ? "text-white" : "text-gray-900"}`}>{m.name}</p>
+                  {titel && <p className={`mt-1 text-[0.9375rem] ${mork ? "text-white/65" : "text-gray-600"}`}>{titel}</p>}
+                  {m.linkedinUrl && (
+                    <a
+                      href={m.linkedinUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`mt-3 inline-flex items-center gap-1 text-sm font-semibold ${mork ? "text-white" : "text-gray-900"}`}
+                    >
+                      <span className="understreg">LinkedIn</span>
+                      <span aria-hidden="true">↗</span>
+                      <span className="sr-only">(åbner i en ny fane)</span>
+                    </a>
+                  )}
+                </figcaption>
+              </figure>
+            </FadeIn>
+          </li>
+        );
+      })}
+    </ul>
+  );
+}
+
+export default async function Team() {
+  const folk = await hentHold();
+  if (folk.length === 0) return null;
 
   return (
     <section className="section-y bg-white">
@@ -70,56 +144,7 @@ export default async function Team() {
           </FadeIn>
         </div>
 
-        <ul
-          className={`mt-14 grid gap-x-6 gap-y-10 sm:grid-cols-2 lg:mt-20 lg:grid-cols-[repeat(var(--kolonner),minmax(0,1fr))] ${
-            kolonner <= 2 ? "lg:max-w-3xl" : ""
-          }`}
-          style={{ "--kolonner": kolonner } as React.CSSProperties}
-        >
-          {folk.map((m, i) => {
-            const src = foto(m);
-            const titel = rolle(m);
-            return (
-              <li key={m.id}>
-                <FadeIn delay={i * 90}>
-                  <figure className="group">
-                    <div className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-gray-100">
-                      {src ? (
-                        <Image
-                          src={src}
-                          alt={m.name}
-                          fill
-                          sizes="(min-width: 1024px) 22rem, (min-width: 640px) 45vw, 100vw"
-                          className="object-cover grayscale transition-transform duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.03]"
-                        />
-                      ) : (
-                        <div className="flex h-full items-center justify-center text-5xl font-bold tracking-display text-gray-400" aria-hidden="true">
-                          {initialer(m.name)}
-                        </div>
-                      )}
-                    </div>
-                    <figcaption className="mt-5">
-                      <p className="text-lg font-bold leading-tight tracking-heading text-gray-900">{m.name}</p>
-                      {titel && <p className="mt-1 text-[0.9375rem] text-gray-600">{titel}</p>}
-                      {m.linkedinUrl && (
-                        <a
-                          href={m.linkedinUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-gray-900"
-                        >
-                          <span className="understreg">LinkedIn</span>
-                          <span aria-hidden="true">↗</span>
-                          <span className="sr-only">(åbner i en ny fane)</span>
-                        </a>
-                      )}
-                    </figcaption>
-                  </figure>
-                </FadeIn>
-              </li>
-            );
-          })}
-        </ul>
+        <HoldListe folk={folk} className="mt-14 lg:mt-20" />
       </div>
     </section>
   );

@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 /**
  * Kortet fra Alexander.
@@ -22,6 +23,9 @@ import Link from "next/link";
  *
  * Nøglen i sessionStorage er den samme som popup'ens, så den der har lukket
  * popup'en i denne session, heller ikke får kortet.
+ *
+ * På /kontakt vises det aldrig: der står Alexander, telefonen og mailen
+ * allerede øverst på siden, og kortet ville bare gentage den.
  */
 
 const NOEGLE = "aik-popup-dismissed";
@@ -30,6 +34,7 @@ export default function PopupPhone() {
   const [klar, setKlar] = useState(false);
   const [lukket, setLukket] = useState(false);
   const [alexanderISyne, setAlexanderISyne] = useState(false);
+  const sti = usePathname();
 
   /* Samme udløser som popup'en: mere end halvdelen af siden læst, eller
      45 sekunder på siden. Alt sker i callbacks, ikke direkte i effekten. */
@@ -79,7 +84,7 @@ export default function PopupPhone() {
 
   const synlig = klar && !lukket && !alexanderISyne;
 
-  if (!klar || lukket) return null;
+  if (!klar || lukket || sti === "/kontakt") return null;
 
   return (
     <aside

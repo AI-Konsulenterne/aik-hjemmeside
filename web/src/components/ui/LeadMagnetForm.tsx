@@ -178,14 +178,14 @@ export default function LeadMagnetForm() {
         </div>
         <h2 className="text-2xl font-bold tracking-heading mb-2">Tak! Jeres rapport er på vej.</h2>
         <p className="text-gray-500 mb-8">
-          Tjek din indbakke om et øjeblik - vi har sendt jeres 3 konkrete AI use cases.
+          Jeres 3 konkrete AI use cases lander i indbakken inden for en time.
         </p>
         <div className="border-t border-gray-100 pt-8 text-left">
           <p className="text-sm font-semibold text-gray-900 mb-1">
-            Mens I venter - book 20 minutter med os
+            Mens I venter: tag en snak med os
           </p>
           <p className="text-sm text-gray-500 mb-5">
-            Så går vi dybere ind i den case I synes lyder mest interessant.
+            Så går vi dybere ind i den case, I synes lyder mest interessant.
           </p>
           <CalBooking />
         </div>
@@ -202,7 +202,7 @@ export default function LeadMagnetForm() {
           Få jeres 3 use cases
         </h2>
         <p className="text-sm text-gray-500 mt-1.5">
-          Fortæl os kort om jer - så får I forslagene direkte i indbakken.
+          Fortæl os kort om jer, så får I forslagene direkte i indbakken.
         </p>
       </div>
 
@@ -399,8 +399,6 @@ export default function LeadMagnetForm() {
         {step === 4 && (
           <p className="text-xs text-gray-500 text-center mt-4 leading-relaxed">
             Tager 30 sekunder. Vi sender rapporten på mail inden for en time.
-            <br />
-            Også når der ikke lige er en faktura imellem.
           </p>
         )}
       </form>
