@@ -118,7 +118,7 @@ const legacyRedirects = [
   { source: "/se-vores-cases", destination: "/cases", permanent: true },
   { source: "/showcase-2", destination: "/cases", permanent: true },
   { source: "/showcase", destination: "/cases", permanent: true },
-  { source: "/se-vores-cases/indkom", destination: "/cases/indkom-ai-partnerskab", permanent: true },
+  { source: "/se-vores-cases/indkom", destination: "/cases", permanent: true },
   { source: "/se-vores-cases/lavazzacase", destination: "/cases/lavazza-hr-agent", permanent: true },
   { source: "/se-vores-cases/wunderwear-kunde-case", destination: "/cases/wunderwear-automation", permanent: true },
   { source: "/cookie-policy-eu", destination: "/cookiepolitik", permanent: true },
@@ -211,7 +211,7 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       ...legacyRedirects,
-      // Sitemap'et genereres nu dynamisk af src/app/sitemap.ts og ligger kun
+      // Sitemap'et bygges af src/app/sitemap.ts og ligger kun
       // paa /sitemap.xml. Den gamle next-sitemap-fil (/sitemap-0.xml) er
       // indsendt i Search Console og linket udefra, saa den peges videre.
       {
@@ -219,19 +219,19 @@ const nextConfig: NextConfig = {
         destination: "/sitemap.xml",
         permanent: true,
       },
+      // INDKOM-casen er taget af sitet (AIK's beslutning 29/9). Adressen var
+      // indekseret og linket fra blogindlæg, så den sendes videre til
+      // oversigten i stedet for at give 404.
+      {
+        source: "/cases/indkom-ai-partnerskab",
+        destination: "/cases",
+        permanent: true,
+      },
     ];
   },
 
   images: {
     remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "**.strapiapp.com",
-      },
-      {
-        protocol: "https",
-        hostname: "**.media.strapiapp.com",
-      },
       {
         protocol: "http",
         hostname: "localhost",

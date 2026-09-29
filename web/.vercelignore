@@ -1,6 +1,3 @@
-# Exclude Strapi CMS — deployes separat
-cms/
-
 # Dev-filer
 .env.local
 .env.*.local

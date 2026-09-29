@@ -162,7 +162,7 @@ PILLAR: "AI for danske SMV'er" (/viden-om-ai/ai-for-smv)
 
 ## Tekniske SEO-elementer der mangler
 
-⏳ Article schema på blog (tilføjes når blog-content kommer ind i Strapi/MDX)
+✅ Article schema på blog (JSON-LD på hver artikel, bygget fra filerne i web/content/blog)
 ⏳ Review schema på cases (når kunde-ratings er på plads)
 ⏳ Ordbog schema (hvis AI-ordbog laves)
 ⏳ VideoObject schema (hvis video-content laves)

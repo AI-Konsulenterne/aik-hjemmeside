@@ -79,4 +79,4 @@ Se også [`04-copy-patterns/conversion-framework.md`](04-copy-patterns/conversio
 
 ## Forholdet til projektets root `CLAUDE.md`
 
-Root-`CLAUDE.md` indeholder de **operationelle regler** (verifikationsworkflow, kontaktinfo, miljøvariabler, sider, Strapi-strukturer). Den her fil indeholder **brand- og design-regler**. Læs begge.
+Root-`CLAUDE.md` indeholder de **operationelle regler** (verifikationsworkflow, kontaktinfo, miljøvariabler, sider, indholdet i repoet). Den her fil indeholder **brand- og design-regler**. Læs begge.

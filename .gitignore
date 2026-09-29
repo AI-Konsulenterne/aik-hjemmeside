@@ -18,7 +18,7 @@ coverage/
 **/out/
 **/build/
 
-# Strapi build artefakter
+# Andre build- og cachemapper
 **/dist/
 **/.cache/
 **/.tmp/

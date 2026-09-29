@@ -1,6 +1,6 @@
 /**
  * Fælles for bloggen (/viden-om-ai): kategorinavne og datoer på dansk.
- * Indlæggene kommer fra Strapi.
+ * Indlæggene er markdown-filer i web/content/blog (se lib/blog.ts).
  */
 
 export const BLOG_KATEGORI: Record<string, string> = {

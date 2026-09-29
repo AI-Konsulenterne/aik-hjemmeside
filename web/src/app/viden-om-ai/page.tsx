@@ -6,7 +6,7 @@ import FadeIn from "@/components/ui/FadeIn";
 import AnalyseBaand from "@/components/side/AnalyseBaand";
 import BlogArkiv from "@/components/side/BlogArkiv";
 import { dato, kategori, type Indlaeg } from "@/content/blog";
-import { getBlogPosts, strapiImageUrl, type BlogPost } from "@/lib/strapi";
+import { alleArtikler, type Artikel } from "@/lib/blog";
 
 export const metadata: Metadata = {
   title: "Viden om AI - guides og artikler",
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
 };
 
 /**
- * Viden om AI. Indlæggene kommer fra Strapi.
+ * Viden om AI. Indlæggene er markdown-filer i web/content/blog (lib/blog.ts).
  *
  * Før: kort i et gitter, og uden billede (det har de fleste) en orange
  * gradient med et gnist-ikon, præcis den AI-æstetik designsystemet
@@ -39,21 +39,21 @@ export const metadata: Metadata = {
  * AI-analyse til den læser, der er blevet nysgerrig.
  */
 
-function tilArkiv(p: BlogPost): Indlaeg {
+function tilArkiv(p: Artikel): Indlaeg {
   return {
     slug: p.slug,
     titel: p.title,
     uddrag: p.excerpt,
     kategori: kategori(p.category),
-    minutter: p.readingTime ?? null,
+    minutter: p.readingTime,
     dato: p.publishedAt,
   };
 }
 
-export default async function VidenOmAI() {
-  const posts = await getBlogPosts().catch(() => [] as BlogPost[]);
+export default function VidenOmAI() {
+  const posts = alleArtikler();
   const [seneste, ...resten] = posts;
-  const billede = seneste ? strapiImageUrl(seneste.featuredImage) : null;
+  const billede = seneste?.image ?? null;
 
   return (
     <>
@@ -96,7 +96,7 @@ export default async function VidenOmAI() {
         <section className="section-y bg-white">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
             <p className="max-w-2xl text-[1.25rem] leading-relaxed text-gray-900">
-              Artiklerne kunne ikke hentes lige nu. Prøv igen om lidt, eller få en{" "}
+              Der er ingen artikler endnu. Få en{" "}
               <Link href="/ai-guide" className="font-semibold">
                 <span className="understreg">gratis AI-analyse</span>
               </Link>{" "}

@@ -7,7 +7,7 @@ import { dato, type Indlaeg } from "@/content/blog";
 /**
  * Arkivet på /viden-om-ai: alle indlæg som rækker, med filtre øverst.
  *
- * Indlæggene har sjældent et billede i Strapi, så kort med tomme
+ * Indlæggene har sjældent et billede, så kort med tomme
  * billedfelter (før: en orange gradient med et gnist-ikon) er skiftet ud
  * med en redaktionel liste: dato, titel og uddrag, kategori og læsetid.
  * Filtrene er kun de kategorier, der faktisk har indlæg.

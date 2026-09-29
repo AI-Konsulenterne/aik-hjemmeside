@@ -1,27 +1,12 @@
 # Deployment Guide — AI Konsulenterne
 
-Deployment er i to dele:
-
-1. **Next.js frontend → Vercel** (gratis tier er nok)
-2. **Strapi CMS → Strapi Cloud eller Hetzner** (koster 30-99 USD/mnd)
-
-De to dele kan deployes uafhængigt, men Next.js skal vide hvor Strapi kører for at hente indhold.
+Sitet er ét Next.js-projekt i `web/`, der deployes til **Vercel** (gratis tier er
+nok). Der er intet CMS: artikler, cases og holdet ligger i repoet (Strapi blev
+lukket 29/9 2026), så alt indhold bygges med ved hvert deploy.
 
 ---
 
-## 🎯 Beslutning — hvor skal Strapi hostes?
-
-| Option | Pris | Setup-tid | Vedligeholdelse | Anbefalet til |
-|---|---|---|---|---|
-| **Strapi Cloud** | 99 USD/mnd | 10 min | Ingen (managed) | Hvis I vil væk fra DevOps |
-| **Hetzner + Docker** | ~30 kr/mnd | 1-2 timer | Opdateringer selv | Hvis I er tekniske |
-| **Midlertidig: cloudflared named tunnel** | Gratis | 20 min | Skal køre lokalt 24/7 | KUN til demo/test |
-
-**Anbefaling:** Start med **Strapi Cloud** + **14-dages gratis trial** → hvis det virker, enten behold eller migrér til Hetzner når I føler jer klar.
-
----
-
-## Del 1: Deploy Next.js til Vercel
+## Deploy til Vercel
 
 ### Forudsætninger
 
@@ -64,13 +49,6 @@ Inden du klikker "Deploy" — klik **"Environment Variables"** og tilføj:
 NEXT_PUBLIC_CAL_USERNAME = alexanderaik/45-min.-ai-afklaring
 NEXT_PUBLIC_CAL_ORIGIN = https://app.cal.eu
 NEXT_PUBLIC_CAL_EMBED_URL = https://app.cal.eu/embed/embed.js
-```
-
-**Strapi (skal matche din prod-Strapi URL — se Del 2):**
-```
-STRAPI_API_URL = https://din-strapi-url.strapiapp.com  (eller Hetzner URL)
-STRAPI_API_TOKEN = <generér ny token i prod-Strapi>
-REVALIDATE_SECRET = <generér en sikker streng, fx med `openssl rand -hex 32`>
 ```
 
 **Cookiebot (tilføj senere når I har kontoen):**
@@ -118,75 +96,23 @@ Når du er klar til launch:
 
 ---
 
-## Del 2: Deploy Strapi til produktion
-
-### Option A: Strapi Cloud (anbefalet)
-
-1. Gå til **[cloud.strapi.io](https://cloud.strapi.io)**
-2. Opret konto → Start 14-dages trial
-3. **"Create project"** → forbind jeres GitHub-repo
-4. **Base directory:** `cms/`
-5. Strapi detekterer automatisk config
-6. Tilføj env vars fra `cms/.env` (JWT_SECRET, API_TOKEN_SALT osv.)
-7. Deploy → får URL som `https://dit-projekt.strapiapp.com`
-
-**Migrér data fra lokal SQLite:**
-```bash
-# Eksportér lokalt
-cd cms
-npm run strapi export -- --file backup.tar.gz --no-encrypt
-
-# Importér i prod via Strapi Cloud admin
-# (eller SSH + CLI, afhængigt af plan)
-```
-
-### Option B: Hetzner + Docker
-
-Kompleks — kræver:
-- Hetzner Cloud VPS (~30 kr/mnd CX21)
-- Docker + Docker Compose
-- PostgreSQL container
-- Nginx reverse proxy + Let's Encrypt SSL
-- Systemd service for auto-start
-
-Kontakt mig (Claude) hvis I vælger denne vej — jeg kan lave dockerfile + compose config.
-
-### Option C: Midlertidig cloudflared named tunnel
-
-Hvis I bare vil launche Next.js nu og migrere Strapi senere:
-
-```bash
-# På din Mac — Strapi skal køre lokalt
-npx cloudflared tunnel --url http://localhost:1337
-```
-
-Output: `https://xxxx.trycloudflare.com` — brug denne som `STRAPI_API_URL` i Vercel.
-
-⚠️ Denne tunnel er **midlertidig** — dør når din Mac går i dvale. KUN til testing.
-
----
-
 ## ✅ Efter deploy — tjek-liste
 
 - [ ] `https://din-domæne.com` loader forside
-- [ ] `/cases` viser cases fra prod-Strapi
+- [ ] `/cases` viser de tre cases, og `/viden-om-ai` viser alle artikler
 - [ ] Cal.com popup virker (klik "Få jeres gratis AI-plan")
 - [ ] Nyhedsbrev-form på footer returnerer success
 - [ ] `/privatlivspolitik`, `/cookiepolitik`, `/handelsbetingelser` loader
 - [ ] Mobil-visning ser ok ud (test på telefon)
 - [ ] Cookie-banner vises (når Cookiebot-ID er sat)
 - [ ] GA4 tracker events (når GA-ID er sat)
-- [ ] Webhook kører fra Strapi → `/api/revalidate?secret=...`
 
 ---
 
 ## 🔐 Sikkerhed — checklist før launch
 
 - [ ] Alle API tokens er **read-only** hvor det er muligt
-- [ ] `REVALIDATE_SECRET` er mindst 32 tegn random
 - [ ] `.env.local` er i `.gitignore` (tjek: `git check-ignore .env.local`)
-- [ ] Strapi admin har **stærk adgangskode** + 2FA enabled
-- [ ] Strapi API har **ikke** write-permissions sat til public role
 
 ---
 
@@ -197,9 +123,6 @@ Hvis noget går galt efter deploy:
 **Vercel:**
 - Dashboard → Deployments → find forrige good deployment → **"Promote to Production"**
 
-**Strapi Cloud:**
-- Dashboard → History → Revert til forrige version
-
 ---
 
-*Opdateret: April 2026*
+*Opdateret: September 2026 (Strapi lukket)*

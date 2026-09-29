@@ -8,11 +8,7 @@ import JsonLd from "@/components/ui/JsonLd";
 import TalMedAlexander from "@/components/sections/TalMedAlexander";
 import BlogArkiv from "@/components/side/BlogArkiv";
 import { dato, kategori } from "@/content/blog";
-import {
-  getBlogPostBySlug,
-  getBlogPosts,
-  strapiImageUrl,
-} from "@/lib/strapi";
+import { alleArtikler, artikel } from "@/lib/blog";
 import { renderMarkdown } from "@/lib/markdown";
 
 /**
@@ -22,14 +18,19 @@ import { renderMarkdown } from "@/lib/markdown";
  * og teksten i en spalte på højst 68 tegn med større brødtekst (se
  * .artikel i globals.css). Ved siden af står den gratis AI-analyse og
  * Alexanders nummer, fast mens man læser; det er dér, en nysgerrig læser
- * skal kunne tage næste skridt. Til sidst tre andre indlæg.
+ * skal kunne tage næste skridt. Til sidst tre andre indlæg, helst om samme
+ * emne.
+ *
+ * Artiklerne er markdown-filer i web/content/blog (se lib/blog.ts). Alle
+ * sider bygges på forhånd, og en slug, der ikke findes, giver 404.
  */
 
 type Params = { slug: string };
 
-export async function generateStaticParams(): Promise<Params[]> {
-  const posts = await getBlogPosts().catch(() => []);
-  return posts.map((post) => ({ slug: post.slug }));
+export const dynamicParams = false;
+
+export function generateStaticParams(): Params[] {
+  return alleArtikler().map((a) => ({ slug: a.slug }));
 }
 
 export async function generateMetadata({
@@ -38,10 +39,9 @@ export async function generateMetadata({
   params: Promise<Params>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const post = await getBlogPostBySlug(slug).catch(() => null);
+  const post = artikel(slug);
   if (!post) return { title: "Artikel ikke fundet" };
 
-  const image = strapiImageUrl(post.featuredImage);
   return {
     title: post.seoTitle || post.title,
     description: post.seoDescription || post.excerpt,
@@ -54,14 +54,14 @@ export async function generateMetadata({
       type: "article",
       publishedTime: post.publishedAt,
       modifiedTime: post.updatedAt,
-      authors: post.author ? [post.author] : undefined,
-      images: image ? [{ url: image }] : undefined,
+      authors: [post.author],
+      images: post.image ? [{ url: post.image }] : undefined,
     },
     twitter: {
       card: "summary_large_image",
       title: post.title,
       description: post.excerpt,
-      images: image ? [image] : undefined,
+      images: post.image ? [post.image] : undefined,
     },
   };
 }
@@ -72,10 +72,10 @@ export default async function BlogPostPage({
   params: Promise<Params>;
 }) {
   const { slug } = await params;
-  const post = await getBlogPostBySlug(slug).catch(() => null);
+  const post = artikel(slug);
   if (!post) notFound();
 
-  const imageUrl = strapiImageUrl(post.featuredImage);
+  const imageUrl = post.image;
 
   const articleJsonLd = {
     "@context": "https://schema.org",
@@ -86,23 +86,27 @@ export default async function BlogPostPage({
     dateModified: post.updatedAt,
     author: {
       "@type": "Organization",
-      name: post.author || "AI Konsulenterne",
+      name: post.author,
     },
     publisher: { "@id": "https://ai-konsulenterne.dk/#organization" },
-    image: imageUrl,
+    image: imageUrl ? `https://ai-konsulenterne.dk${imageUrl}` : undefined,
     mainEntityOfPage: `https://ai-konsulenterne.dk/viden-om-ai/${post.slug}`,
-    keywords: post.keywords?.join(", "),
+    keywords: post.keywords.join(", "),
   };
 
-  const andre = (await getBlogPosts(8).catch(() => []))
-    .filter((p) => p.slug !== post.slug)
+  /* Læs også: først samme emne, så de nyeste. */
+  const oevrige = alleArtikler().filter((p) => p.slug !== post.slug);
+  const andre = [
+    ...oevrige.filter((p) => p.category && p.category === post.category),
+    ...oevrige.filter((p) => !p.category || p.category !== post.category),
+  ]
     .slice(0, 3)
     .map((p) => ({
       slug: p.slug,
       titel: p.title,
       uddrag: p.excerpt,
       kategori: kategori(p.category),
-      minutter: p.readingTime ?? null,
+      minutter: p.readingTime,
       dato: p.publishedAt,
     }));
 

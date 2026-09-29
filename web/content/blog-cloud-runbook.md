@@ -5,30 +5,30 @@ Denne fil er **facit for cloud-routines** (`aik-blog-trend-tirsdag` og
 så alle regler står her. Retter du reglerne, så ret dem HER - så følger begge
 routines automatisk med uden at routine-prompten skal ændres.
 
-## Forudsætninger (tjek FØRST - stop hvis noget mangler)
+> **Ændret 29/9 2026: Strapi er lukket.** Artiklerne ligger nu som filer i
+> repoet (`web/content/blog/<slug>.md`), og en ny artikel er en ny fil, der
+> pushes til `main`. Der skal ikke længere POST'es til Strapi, og der kræves
+> ingen hemmeligheder. Har din routine-prompt selv et Strapi-tjek, så slet det.
 
-Kør denne kontrol før alt andet:
+## Forudsætninger (tjek FØRST)
 
-    test -n "$STRAPI_API_URL" && test -n "$STRAPI_API_TOKEN" && echo "STRAPI OK" || echo "STRAPI MANGLER"
+    git checkout main && git pull origin main
+    ls web/content/blog | wc -l
 
-Mangler STRAPI-variablerne: **STOP med det samme**. Skriv ikke posten, og
-rapportér at hemmelighederne ikke er sat. Udgiv aldrig halvfærdigt.
-
-Det er den eneste hemmelighed du skal bruge. Der kræves **ikke** noget
-Vercel-token, og der skal ikke bygges eller deployes - se "Sitemap" nedenfor.
+Du skal kunne pushe til `main` (det har routinen altid gjort med blog-loggen).
+Kan du ikke det: **STOP**, skriv ikke posten, og rapportér det.
 
 ## Trin 0: undgå dubletter (ALTID først)
 
 1. Læs `web/content/blog-log.md` - alle udgivne emner. Gentag aldrig et emne.
-2. Hent live slugs fra Strapi (`-g` er påkrævet, ellers fejler curl på `[]`):
+2. Se de udgivne slugs og titler:
 
-       curl -sS -g -H "Authorization: Bearer $STRAPI_API_TOKEN" \
-         "$STRAPI_API_URL/api/blog-posts?pagination[pageSize]=100&fields[0]=slug&fields[1]=title"
+       grep -h '^title:' web/content/blog/*.md
 
 3. Jagter en eksisterende artikel **samme søgeord**, så vælg et andet søgeord.
 
-Reglen går på søgeordet, ikke på emnet. Samme **emne** må gerne gå igen - også
-to dage i træk - hvis emnet har reel søgevolumen (fx undervisning i Copilot).
+Reglen går på søgeordet, ikke på emnet. Samme **emne** må gerne gå igen, også
+to dage i træk, hvis emnet har reel søgevolumen (fx undervisning i Copilot).
 Kravet er, at hvert indlæg har sit eget søgeord, sin egen vinkel og sin egen
 slug, og at indlæggene linker til hinanden. To indlæg, der jagter samme søgeord,
 konkurrerer internt i Google, og så rangerer begge dårligere end ét godt indlæg
@@ -58,7 +58,8 @@ backlog-drevet. Kør den lokale opgave, hvis du vil have GSC-baseret prioriterin
 
 - Dansk, AIK's stemme "AI i øjenhøjde": nede på jorden, ærlig, konkret,
   jargonfri. Selvsikker, aldrig smart-i-en-fart.
-- **Tegnsætning: BINDESTREG (-), aldrig tankestreg.** Kapital "I"/"jer".
+- **Tegnsætning: BINDESTREG (-), aldrig tankestreg (— eller –).** Kapital "I"/"jer".
+  Brug " - " med måde; skriv hellere to sætninger.
 - 800-1.400 ord. Åbn med 2-4 sætninger der besvarer kernespørgsmålet direkte
   (det er blokken AI-svar citerer). H2'er som spørgsmål hvor det er naturligt.
 - FAQ-sektion nederst: `## Ofte stillede spørgsmål` med hvert spørgsmål som `###`.
@@ -66,31 +67,44 @@ backlog-drevet. Kør den lokale opgave, hvis du vil have GSC-baseret prioriterin
 
 ### Intet falsk bevis
 
-Ingen opdigtede tal, citater, priser eller cases. Kun disse fire rigtige cases:
+Ingen opdigtede tal, citater, priser eller cases. Nyheder verificeres i kilden,
+før de skrives; kan en påstand ikke bekræftes, så lad den være. Kun disse tre
+cases må nævnes:
 
-- **Wunderwear** - webshop; automatiseret ordrehåndtering + AI-kundeservice der
-  besvarer 80% af de gentagne spørgsmål. `/cases/wunderwear-automation`
-- **J.M Band** - AI-agent der samler data på tværs af CRM, Shopify og interne
-  systemer. `/cases/jm-band-ai-agent`
-- **Lavazza** - datasikker HR-agent trænet på interne dokumenter, lukket miljø.
-  `/cases/lavazza-hr-agent`
-- **INDKOM** - AIK som ekstern AI-afdeling: kortlagde processer, fandt 3 use
-  cases, byggede dem ind. `/cases/indkom-ai-partnerskab`
+- **Lavazza** - datasikker HR-agent, der svarer ud fra Lavazzas egne
+  HR-dokumenter, i et lukket miljø. Den er ikke trænet på dem, og data bruges
+  ikke til træning; skriv aldrig "trænet på". Medarbejderne får svar på sekunder
+  i stedet for dage. `/cases/lavazza-hr-agent`
+- **J.M Band** - AI-agent, der samler data på tværs af CRM, Shopify og interne
+  systemer, så medarbejderne får svar ét sted. `/cases/jm-band-ai-agent`
+- **Wunderwear** - webshop; automatiseret ordrehåndtering + AI-kundeservice, der
+  besvarer 80 % af de gentagne spørgsmål. `/cases/wunderwear-automation`
 
-Generelle tal kun med kilde: McKinsey (20-30% tidsbesparelse i administrative
-processer), MIT-studie (~40% hurtigere opgaveløsning).
+**INDKOM må ikke nævnes** (casen er taget af sitet). Smukfest er J.M Bands
+kunde, ikke AIK's.
 
-CTA: gratis AI-afklaring, 45 minutter, ingen forpligtelse. Alexander: +45 25 54 70 74.
+Generelle tal kun med kilde, man kan pege på. **Brug ikke McKinsey-tallet
+"20-30 % af arbejdstiden"**: AIK kender ikke kilden, og det er fjernet fra sitet.
+MIT-studiet (Noy og Zhang, *Science* 2023) må bruges præcist: professionelle
+brugte 40 % kortere tid på skriveopgaver med ChatGPT. Ikke "alle opgaver 40 %
+hurtigere".
+
+AIK's egne tilbud skal stemme med sitet: gratis AI-afklaring (45 minutter,
+ingen forpligtelse, Alexander: +45 25 54 70 74); AI-Minds fra 249 kr. pr.
+medarbejder om måneden (`/academy`); workshop typisk fra omkring 25.000 kr.
+(`/workshop`); mindre skræddersyede løsninger typisk fra 50.000 kr.
+(`/skraeddersyede-ai`); AIK Workspace 150 kr. pr. bruger om måneden med 3
+måneders binding (`/visionai`).
 
 ### Link-mål der findes
 
 `/academy` `/workshop` `/skraeddersyede-ai` `/ai-strategi` `/ai-i-hr`
 `/ai-kundeservice` `/ai-analyse` `/ai-i-e-commerce` `/visionai` `/kontakt`
-`/cases` samt artikler under `/viden-om-ai/`.
+`/ai-guide` `/referencer` `/om-os` `/cases` og de tre cases ovenfor, samt
+artikler under `/viden-om-ai/<slug>` (slug = filnavnet i `web/content/blog`).
 
-**`/copilot-kursus` findes IKKE (404).** Brug `/academy` som CTA på Copilot-emner.
-Er du i tvivl om en side, så tjek den - men bemærk at ukendte blog-slugs svarer
-**HTTP 200 med titlen "Artikel ikke fundet"**, så statuskoden alene beviser intet.
+**`/copilot-kursus` findes IKKE.** Brug `/academy` som CTA på Copilot-emner.
+Tjekket i næste trin fanger links til sider, der ikke findes.
 
 ### Markdown-begrænsninger (rendereren er minimal)
 
@@ -98,73 +112,96 @@ Virker: `##`-`######`, afsnit, `-`/`*`-lister, `1.`-lister, `**fed**`, `*kursiv*
 `[tekst](url)`, `` `kode` ``, `>` citat.
 
 Virker IKKE - brug aldrig: tabeller · kodeblokke med backticks · rå HTML ·
-`---` · indrykkede lister · fed og link i samme udtryk (`**[x](/y)**` og
-`[**x**](/y)` går begge i stykker - hold dem adskilt).
+`---` i brødteksten · indrykkede lister · fed og link i samme udtryk
+(`**[x](/y)**` og `[**x**](/y)` går begge i stykker - hold dem adskilt).
 
-**Content skal starte med `##`**, ikke `#`. Sidens H1 er `title`-feltet.
+**Brug aldrig `#` i brødteksten.** Sidens H1 er `title`-feltet, så
+overskrifterne i teksten starter ved `##`. De 2-4 indledende sætninger står
+før den første `##`.
 Skriv ikke JSON-LD - `Article`-schema udsendes automatisk af siden.
 
-## Udgivelse til Strapi
+## Udgivelse: en fil i repoet
 
-POST til `{STRAPI_API_URL}/api/blog-posts?status=published` med `{"data": {...}}`:
+Opret `web/content/blog/<slug>.md`. Toppen er én linje pr. felt, og **hver
+værdi er JSON** (tekst i dobbelte anførselstegn, lister i `[...]`):
+
+    ---
+    title: "Hvad er en AI-agent? Forskellen på en chatbot og en agent"
+    slug: "hvad-er-en-ai-agent"
+    excerpt: "1-2 sætninger, ~150 tegn."
+    category: "guide"
+    author: "AI Konsulenterne"
+    publishedAt: "2026-10-01T06:00:00.000Z"
+    updatedAt: "2026-10-01T06:00:00.000Z"
+    seoTitle: "Hvad er en AI-agent?"
+    seoDescription: "140-155 tegn med søgeordet forrest."
+    keywords: ["hvad er en ai-agent", "ai-agent", "...", "...", "..."]
+    ---
+
+    2-4 sætninger, der svarer direkte på spørgsmålet i titlen.
+
+    ## Første overskrift
+
+    Brødtekst ...
 
 - `title` - keyword forrest, ~55-65 tegn. Bliver sidens H1.
-- `slug` - kebab-case, æøå bliver ae/oe/aa. Må ikke være brugt.
+- `slug` - kebab-case, æøå bliver ae/oe/aa. **Skal være det samme som filnavnet.**
 - `category` - `guide` (keyword) eller `news` (trend).
-- `excerpt` - 1-2 sætninger, ~150 tegn.
-- `content` - markdown, starter med `##`.
 - `seoTitle` - **MAKS 41 tegn** (siden føjer " | AI Konsulenterne" til).
-- `seoDescription` - 140-155 tegn.
-- `keywords` - array med 5.
-- `readingTime` - minutter (ord / 200).
-- `author` - `"AI Konsulenterne"`.
+- Læsetiden regnes ud af teksten; skriv den ikke selv.
+- `publishedAt` og `updatedAt` - nu, i ISO-format med `Z`.
 
-Bekræft **HTTP 201** + `documentId` + `publishedAt`. Fejler POST'en: STOP,
-rapportér, og deploy ikke.
+**Tjek filen, før du committer.** Det kræver ingen installation:
 
-## Sitemap - der er intet at gøre
+    cd web && npm run tjek-blog -- <slug>
 
-**Byg ikke, og deploy ikke.** Siden bygger ikke længere sitemap som et
-committet artefakt. `web/src/app/sitemap.ts` henter sider, blogindlæg og cases
-direkte fra Strapi ved **hver forespørgsel** (`export const dynamic =
-"force-dynamic"`). ISR var ikke nok: Next.js emitterede så sitemap.xml som en
-statisk fil, og Vercel serverede den fra edge uden at ramme origin.
-
-Det betyder: sitemappet er opdateret med det samme, og selve artiklen er live
-inden for ~60 sekunder (siden bruger ISR). Uden build, uden deploy, uden
-Vercel-token.
-
-(Historik: før 2026-08-28 lå sitemap i `public/sitemap-0.xml`, genereret af
-`next-sitemap` som `postbuild`. Vercel kører `next build` direkte, så det trin
-fyrede aldrig i produktion - derfor skulle en lokal maskine bygge og committe
-filen ved hvert indlæg. Det var netop dét, der bandt udgivelsen til en tændt
-laptop. `/sitemap-0.xml` redirecter nu permanent til `/sitemap.xml`.)
-
-## Verificér live
-
-Vent ~60 sekunder efter POST, så artikelsidens ISR-cache har hentet det nye
-indhold. Sitemappet er dynamisk og behøver ingen ventetid.
-
-Statuskoden alene er ikke nok (ukendte slugs giver også 200):
-
-    curl -s https://ai-konsulenterne.dk/viden-om-ai/DIN-SLUG | grep -o "<title>[^<]*</title>"
-
-Titlen skal være artiklens - ikke "Artikel ikke fundet". Tjek også:
-
-    curl -s https://ai-konsulenterne.dk/sitemap.xml | grep -c "DIN-SLUG"   # 1
-
-Mangler slug'en i sitemap, er det et reelt problem - sitemappet bygges per
-forespørgsel, så der er ingen cache at vente på. Tjek at posten faktisk er
-`published` i Strapi, og rapportér det. Byg ikke og deploy ikke for at "tvinge"
-den igennem.
+Tjekket skal slutte med `0 fejl`. Det fanger ulæselig top, forkert slug, for
+lang seoTitle, #-overskrifter, tabeller og kodeblokke, links til sider der ikke
+findes, McKinsey-tallet, INDKOM, Lavazza "trænet på" og tankestreger. Fejler det: ret filen, og kør igen.
+Pushes en fil, der ikke kan læses, fejler buildet, og sitet bliver stående på
+den forrige version, så intet går halvt i luften; men artiklen er så heller
+ikke udgivet.
 
 ## Efter udgivelse
 
 1. Tilføj en linje i `web/content/blog-log.md`: dato, spor, keyword, slug, URL.
 2. Er emnet taget fra `blog-backlog.md`, så lad rækken stå - loggen er facit
    for hvad der er udgivet.
-3. Commit `web/content/blog-log.md` med `blog: [titel]` og push til `main`.
-   Det er den eneste fil, der ændrer sig - sitemap er dynamisk.
-4. Rapportér: emne og hvorfor, titel, slug, fuld URL, excerpt, bekræftelse på
-   at det er live, og hvor mange emner der er tilbage i backloggen.
-   Gik noget galt: rapportér fejlen tydeligt i stedet for at pynte på den.
+3. Commit **artiklen og loggen i samme commit** med `blog: [titel]`, og push
+   til `main`. Pushet sætter et nyt deploy i gang; artiklen og sitemappet
+   bygges med.
+
+## Verificér live
+
+Vent 3-5 minutter på deployet. Tjek så titlen:
+
+    curl -s https://ai-konsulenterne.dk/viden-om-ai/DIN-SLUG | grep -o "<title>[^<]*</title>"
+
+En slug, der ikke findes, giver nu **404** (før gav den 200 med "Artikel ikke
+fundet"). Tjek også sitemappet:
+
+    curl -s https://ai-konsulenterne.dk/sitemap.xml | grep -c "DIN-SLUG"   # 1
+
+Giver artiklen stadig 404 efter 10 minutter, er deployet sandsynligvis fejlet.
+Rapportér det tydeligt i stedet for at pushe igen og igen.
+
+Kan sandkassen slet ikke nå `ai-konsulenterne.dk` (se noterne i `blog-log.md`),
+så er `npm run tjek-blog` uden fejl og et vellykket push det, du kan vise.
+Skriv i rapporten, at siden skal tjekkes i en browser.
+
+## Rette eller skjule en artikel
+
+- **Rette:** ret filen, sæt `updatedAt` til nu, kør tjekket, commit og push.
+- **Skjule:** tilføj `draft: true` i toppen. Artiklen forsvinder fra sitet og
+  sitemappet, men filen bliver stående. Slet ikke udgivne filer: adressen kan
+  være indekseret og linket udefra. Skal den væk for altid, så lav i stedet en
+  redirect i `web/next.config.ts` til den artikel, der afløser den.
+- **Omdøb aldrig en slug.** Seks artikler tager imod gamle adresser fra det
+  tidligere site (redirects i `web/next.config.ts`). Tjekket melder fejl, hvis
+  en af dem mangler eller er sat til `draft: true`.
+
+## Rapportér
+
+Emne og hvorfor, titel, slug, fuld URL, excerpt, bekræftelse på at det er live,
+og hvor mange emner der er tilbage i backloggen. Gik noget galt: rapportér
+fejlen tydeligt i stedet for at pynte på den.

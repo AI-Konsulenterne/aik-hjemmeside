@@ -3,8 +3,9 @@
 Løbende log over udgivne blogposts. **Læs denne fil FØR hvert nyt post**, så emner
 ikke gentages. Bruges af `aik-blog`-skillen (spor: TREND tirsdag / KEYWORD torsdag).
 
-Posts udgives til **Strapi** (collection `blog-posts`), ikke som markdown-filer i
-repoet. Se udgivelsesnoter nederst.
+Siden 29/9 2026 er hver post en markdown-fil i `web/content/blog/<slug>.md`, der
+pushes til `main` (Strapi er lukket; de 31 poster derfra er flyttet over). Se
+[`blog-cloud-runbook.md`](blog-cloud-runbook.md) og udgivelsesnoter nederst.
 
 | Dato | Spor | Keyword / emne | Slug | URL |
 |---|---|---|---|---|
@@ -53,25 +54,25 @@ Udgivet via `blog-backlog.md`-køen. Medtaget her, så emnerne ikke gentages.
 
 ## Udgivelsesnoter (gælder dette repo)
 
-- **Publicering:** POST til `{STRAPI_API_URL}/api/blog-posts?status=published` med
-  `{"data": {...}}`. Felter og regler: se [`blog-backlog.md`](blog-backlog.md).
+- **Publicering:** en fil i `web/content/blog/<slug>.md`, tjekket med
+  `npm run tjek-blog -- <slug>` (i `web/`), committet sammen med denne log og
+  pushet til `main`. Format og regler: [`blog-cloud-runbook.md`](blog-cloud-runbook.md).
 - **`seoTitle` skal være ≤41 tegn** — ikke 60. Siden føjer selv
   `" | AI Konsulenterne"` til, så det rendrede `<title>` lander på ≤60.
-- **Sitemap:** intet at gøre. `web/src/app/sitemap.ts` henter sider, blogindlæg
-  og cases direkte fra Strapi med 60s ISR, så et nyt indlæg står i
-  `/sitemap.xml` cirka et minut efter udgivelse - uden build og uden deploy.
-  (Før 2026-08-28 var det et committet artefakt genereret af `next-sitemap`,
-  som krævede lokalt build + deploy ved hvert indlæg.)
+- **Sitemap:** intet at gøre. `web/src/app/sitemap.ts` bygges med sitet og tager
+  alle filer i `web/content/blog` med. Før (Strapi) gav API'et kun 25 poster ad
+  gangen, så de seks ældste manglede både i oversigten og i sitemappet.
 - **Link-mål der findes:** `/academy`, `/workshop`, `/skraeddersyede-ai`,
   `/ai-strategi`, `/ai-i-hr`, `/ai-kundeservice`, `/ai-analyse`, `/ai-i-e-commerce`,
-  `/visionai` samt cases under `/cases/`.
+  `/visionai`, `/ai-guide`, `/referencer`, `/om-os`, `/kontakt`, `/cases` og de tre
+  cases (Lavazza, J.M Band, Wunderwear). `/cases/indkom-ai-partnerskab` er lukket.
 - **`/copilot-kursus` findes IKKE** (404 pr. 2026-08-28). Link ikke dertil,
   før siden er bygget - brug `/academy` som CTA i stedet.
 - **Cloud-sandkassen kan ikke nå `ai-konsulenterne.dk`** (pr. 2026-09-04):
   egress-gateway'en svarer `curl: (56) CONNECT tunnel failed, response 403`.
-  Strapi kan nås fint, så udgivelsen virker - men live-tjekket af `<title>`
-  og `/sitemap.xml` kan ikke køres fra skyen. Verificér i stedet via Strapi
-  (`?status=published` + `publishedAt`), og tjek siden manuelt i en browser.
+  Live-tjekket af `<title>` og `/sitemap.xml` kan derfor ikke køres fra skyen.
+  Verificér med `npm run tjek-blog` før push, og skriv i rapporten, at siden skal
+  tjekkes i en browser.
 - **WebFetch er blokeret i cloud-sandkassen pr. 2026-09-22.** Egress-gateway'en
   svarer `EGRESS_BLOCKED` på alle testede domæner (learn.microsoft.com,
   techcommunity, nationalbanken.dk, dr.dk, tv2.dk, information.dk, ritzau,

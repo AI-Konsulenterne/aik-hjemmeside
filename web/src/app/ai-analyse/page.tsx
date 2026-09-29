@@ -6,7 +6,7 @@ import { KortPrognose } from "@/components/side/EksempelKort";
 export const metadata: Metadata = {
   title: { absolute: "AI til analyse og dataindsigt | AI Konsulenterne" },
   description:
-    "AI til analyse der samler og analyserer jeres data på tværs af systemer - så I får indsigt og beslutningsstøtte i hverdagen. Se vores cases med J.M Band og INDKOM.",
+    "AI til analyse der samler og analyserer jeres data på tværs af systemer - så I får indsigt og beslutningsstøtte i hverdagen. Se casen med J.M Band.",
   alternates: { canonical: "/ai-analyse" },
   keywords: [
     "AI analyse",
@@ -121,12 +121,6 @@ export default function AiAnalyse() {
               company: "J.M Band",
               headline: "Indsigt på tværs af CRM, Shopify og interne systemer",
               blurb: "Data lå spredt på tværs af systemer. Vi byggede en AI-agent, der henter og analyserer data på tværs, så medarbejderne får indsigt og svar ét sted i stedet for at hoppe mellem platforme.",
-            },
-            {
-              href: "/cases/indkom-ai-partnerskab",
-              company: "INDKOM",
-              headline: "Fra spredte processer til data samlet ét sted",
-              blurb: "Vi fungerede som INDKOMs eksterne AI-afdeling: kortlagde processerne, fandt tre konkrete use cases og byggede løsningerne ind i deres systemer. Resultatet er hurtigere beslutninger og mindre friktion.",
             },
           ],
         }}

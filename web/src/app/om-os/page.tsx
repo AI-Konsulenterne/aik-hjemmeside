@@ -6,7 +6,7 @@ import DeveloperExperience from "@/components/sections/DeveloperExperience";
 import ReferencerBaand from "@/components/sections/ReferencerBaand";
 import TalMedAlexander from "@/components/sections/TalMedAlexander";
 import ToSpor from "@/components/sections/ToSpor";
-import { HoldListe, hentHold } from "@/components/sections/Team";
+import { HoldListe } from "@/components/sections/Team";
 
 export const metadata: Metadata = {
   title: "Om Os | Mød Holdet Bag AI Konsulenterne",
@@ -22,21 +22,17 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Om os | AI Konsulenterne",
     description:
-      "Mød holdet bag AI Konsulenterne. Et lille, dansk hold med fokus på danske virksomheder.",
+      "Mød de fire bag AI Konsulenterne. Et lille, dansk hold med fokus på danske virksomheder.",
     url: "/om-os",
   },
 };
 
 /**
  * Om os. Siden handler om mennesker, så heroen er holdet selv: en kort
- * erklæring og portrætterne på mørk flade (fra Strapi, uden pladsholdere,
- * se Team.tsx). Derefter de fire ting, det betyder at arbejde med os, de
- * kunder vi har hjulpet (samme filmstrimmel som på forsiden), de to spor
- * og hvor udviklerne kommer fra.
- *
- * "Vi er kun fire mennesker" er skiftet ud med "et lille hold": Strapi
- * viser ikke nødvendigvis fire rigtige navne, og tallet skal ikke kunne
- * blive forkert. Fakta i heroen står andre steder på sitet (København i
+ * erklæring og de fire portrætter på mørk flade (content/team.ts). Derefter
+ * de fire ting, det betyder at arbejde med os, de kunder vi har hjulpet
+ * (samme filmstrimmel som på forsiden), de to spor og hvor udviklerne
+ * kommer fra. Fakta i heroen står andre steder på sitet (København i
  * metadata, AI siden 2016 på /skraeddersyede-ai).
  */
 
@@ -70,9 +66,7 @@ const FAKTA: [string, string][] = [
   ["Ét hold", "fra første møde til drift"],
 ];
 
-export default async function OmOs() {
-  const folk = await hentHold();
-
+export default function OmOs() {
   return (
     <>
       {/* --- Hero: holdet --- */}
@@ -112,36 +106,16 @@ export default async function OmOs() {
             </div>
           </div>
 
-          {/* Med ét eller to portrætter står fakta i spalten ved siden af, så
-              heroen ikke står halvt tom. Med flere fylder holdet bredden. */}
-          <div
-            className={`mt-16 grid gap-14 lg:mt-24 ${
-              folk.length > 0 && folk.length <= 2 ? "lg:grid-cols-12 lg:items-end lg:gap-16" : ""
-            }`}
-          >
-            {folk.length > 0 && (
-              <HoldListe folk={folk} mork fyld={folk.length <= 2} className={folk.length <= 2 ? "lg:col-span-8" : ""} />
-            )}
-            <dl
-              className={`grid grid-cols-2 gap-x-6 gap-y-6 border-t border-white/15 pt-6 ${
-                folk.length > 0 && folk.length <= 2
-                  ? "lg:col-span-4 lg:grid-cols-1 lg:gap-y-0 lg:border-t-0 lg:pt-0"
-                  : "sm:grid-cols-4"
-              }`}
-            >
-              {FAKTA.map(([vaerdi, label]) => (
-                <div
-                  key={vaerdi}
-                  className={`flex flex-col-reverse gap-1 ${
-                    folk.length > 0 && folk.length <= 2 ? "lg:border-t lg:border-white/15 lg:py-5" : ""
-                  }`}
-                >
-                  <dt className="text-sm leading-snug text-white/65">{label}</dt>
-                  <dd className="text-[1.375rem] font-bold leading-none tracking-heading text-white">{vaerdi}</dd>
-                </div>
-              ))}
-            </dl>
-          </div>
+          <HoldListe mork className="mt-16 lg:mt-24" />
+
+          <dl className="mt-16 grid grid-cols-2 gap-x-6 gap-y-6 border-t border-white/15 pt-6 sm:grid-cols-4 lg:mt-24">
+            {FAKTA.map(([vaerdi, label]) => (
+              <div key={vaerdi} className="flex flex-col-reverse gap-1">
+                <dt className="text-sm leading-snug text-white/65">{label}</dt>
+                <dd className="text-[1.375rem] font-bold leading-none tracking-heading text-white">{vaerdi}</dd>
+              </div>
+            ))}
+          </dl>
         </div>
       </section>
 

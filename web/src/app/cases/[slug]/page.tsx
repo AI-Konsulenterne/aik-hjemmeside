@@ -7,37 +7,24 @@ import JsonLd from "@/components/ui/JsonLd";
 import SolutionDiagram from "@/components/ui/SolutionDiagram";
 import TalMedAlexander from "@/components/sections/TalMedAlexander";
 import SideHero from "@/components/side/SideHero";
-import { KATEGORI, caseSkud, udenTankestreg } from "@/content/cases";
+import { CASES, KATEGORI, caseMedSlug } from "@/content/cases";
 import { FILM_SHOTS, filmPoster } from "@/content/film";
-import {
-  getCaseBySlug,
-  getCases,
-  strapiImageUrl,
-  type Case,
-} from "@/lib/strapi";
-import { renderMarkdown } from "@/lib/markdown";
 
 /**
- * En case. Bygget om i forsidens sprog: kundens skud fra referencefilmen
- * fylder heroen (har kunden ikke et, står heroen mørk), og selve casen er
- * tre kapitler med etiketten til venstre og teksten stort til højre.
+ * En case. Kundens skud fra referencefilmen fylder heroen, og selve casen
+ * er tre kapitler med etiketten til venstre og teksten stort til højre.
  * Etiketterne er grå; orange tekst på hvid bund er ude.
  *
- * Indholdet kommer fra Strapi. Tankestreger i teksten bliver til kolon
- * eller komma, når den vises (content/cases.ts).
+ * Casene står i content/cases.ts. Alle sider bygges på forhånd, og en slug,
+ * der ikke findes, giver 404.
  */
-
-function foersteSaetning(tekst: string) {
-  const m = tekst.match(/^.+?[.!?](\s|$)/);
-  return (m ? m[0] : tekst).trim();
-}
 
 type Params = { slug: string };
 
+export const dynamicParams = false;
 
-export async function generateStaticParams(): Promise<Params[]> {
-  const cases = await getCases().catch(() => []);
-  return cases.map((c) => ({ slug: c.slug }));
+export function generateStaticParams(): Params[] {
+  return CASES.map((c) => ({ slug: c.slug }));
 }
 
 export async function generateMetadata({
@@ -46,30 +33,23 @@ export async function generateMetadata({
   params: Promise<Params>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const caseData = await getCaseBySlug(slug).catch(() => null);
+  const caseData = caseMedSlug(slug);
   if (!caseData) return { title: "Case ikke fundet" };
 
-  const image = strapiImageUrl(caseData.image);
   return {
-    title:
-      caseData.seoTitle ||
-      `${caseData.customer}: ${caseData.title} | AI-case`,
-    description:
-      caseData.seoDescription ||
-      `${caseData.customer}: ${caseData.challenge.slice(0, 140)}...`,
+    title: caseData.seoTitle || `${caseData.customer}: ${caseData.title}`,
+    description: caseData.seoDescription || caseData.kort,
     alternates: { canonical: `/cases/${caseData.slug}` },
     openGraph: {
       title: `${caseData.customer}: ${caseData.title}`,
-      description: caseData.challenge.slice(0, 200),
+      description: caseData.seoDescription || caseData.kort,
       url: `/cases/${caseData.slug}`,
       type: "article",
-      images: image ? [{ url: image }] : undefined,
     },
     twitter: {
       card: "summary_large_image",
       title: `${caseData.customer}: ${caseData.title}`,
-      description: caseData.challenge.slice(0, 160),
-      images: image ? [image] : undefined,
+      description: caseData.seoDescription || caseData.kort,
     },
   };
 }
@@ -80,16 +60,12 @@ export default async function CaseDetail({
   params: Promise<Params>;
 }) {
   const { slug } = await params;
-  const caseData = await getCaseBySlug(slug).catch(() => null);
+  const caseData = caseMedSlug(slug);
   if (!caseData) notFound();
 
-  const allCases = await getCases().catch(() => [] as Case[]);
-  const otherCases = allCases
-    .filter((c) => c.id !== caseData.id)
-    .slice(0, 3);
+  const otherCases = CASES.filter((c) => c.slug !== caseData.slug);
 
-  const image = strapiImageUrl(caseData.image);
-  const skud = caseSkud(caseData.customer);
+  const skud = caseData.skud ?? null;
   const skudInfo = skud ? FILM_SHOTS.find((f) => f.id === skud) : undefined;
 
   const articleJsonLd = {
@@ -104,7 +80,7 @@ export default async function CaseDetail({
       name: "AI Konsulenterne",
     },
     publisher: { "@id": "https://ai-konsulenterne.dk/#organization" },
-    image,
+    image: skud ? `https://ai-konsulenterne.dk${filmPoster(skud)}` : undefined,
     mainEntityOfPage: `https://ai-konsulenterne.dk/cases/${caseData.slug}`,
     about: {
       "@type": "Organization",
@@ -142,7 +118,7 @@ export default async function CaseDetail({
       etiket: "Udfordringen",
       indhold: (
         <p className="text-balance text-[clamp(1.375rem,2.3vw,2rem)] font-semibold leading-snug tracking-heading text-gray-900">
-          {udenTankestreg(caseData.challenge)}
+          {caseData.challenge}
         </p>
       ),
     },
@@ -150,7 +126,7 @@ export default async function CaseDetail({
       etiket: "Løsningen",
       indhold: (
         <>
-          <div className="prose-article max-w-[62ch]">{renderMarkdown(udenTankestreg(caseData.solution))}</div>
+          <p className="max-w-[62ch] text-[1.125rem] leading-relaxed text-gray-700">{caseData.solution}</p>
           <div className="mt-10">
             {slug === "jm-band-ai-agent" ? (
               <figure className="overflow-hidden rounded-2xl bg-white ring-1 ring-black/[0.06] shadow-[0_30px_70px_-40px_rgba(0,0,0,0.35)]">
@@ -177,7 +153,7 @@ export default async function CaseDetail({
     },
     {
       etiket: "Resultatet",
-      indhold: <div className="prose-article max-w-[62ch]">{renderMarkdown(udenTankestreg(caseData.result))}</div>,
+      indhold: <p className="max-w-[62ch] text-[1.125rem] leading-relaxed text-gray-700">{caseData.result}</p>,
     },
   ];
 
@@ -196,25 +172,12 @@ export default async function CaseDetail({
         id="case-titel"
         kicker={`Case · ${caseData.customer}`}
         titel={[caseData.title]}
-        tekst={caseData.seoDescription || foersteSaetning(udenTankestreg(caseData.challenge))}
+        tekst={caseData.kort}
         primaer={{ label: "Book en samtale", href: "/kontakt" }}
         sekundaer={{ label: "Alle cases", href: "/cases" }}
         skud={skud ? [skud] : []}
         fakta={fakta}
       />
-
-      {/* Et billede fra Strapi, hvis casen har et */}
-      {image && (
-        <section className="bg-white pt-[clamp(3rem,7vw,6rem)]">
-          <div className="mx-auto max-w-7xl px-6 lg:px-8">
-            <FadeIn>
-              <div className="relative aspect-[16/9] overflow-hidden rounded-3xl bg-gray-100">
-                <Image src={image} alt={caseData.title} fill sizes="(min-width: 1280px) 76rem, 100vw" className="object-cover" />
-              </div>
-            </FadeIn>
-          </div>
-        </section>
-      )}
 
       {/* --- Casen i tre kapitler --- */}
       <section className="section-y bg-white">
@@ -244,11 +207,10 @@ export default async function CaseDetail({
               Mere, vi har bygget.
             </h2>
             <div className="mt-12 grid gap-6 md:grid-cols-3">
-              {otherCases.map((c: Case, i: number) => {
-                const s2 = caseSkud(c.customer);
-                const src = strapiImageUrl(c.image) ?? (s2 ? filmPoster(s2) : null);
+              {otherCases.map((c, i) => {
+                const src = c.skud ? filmPoster(c.skud) : null;
                 return (
-                  <FadeIn key={c.id} delay={i * 90} className="h-full">
+                  <FadeIn key={c.slug} delay={i * 90} className="h-full">
                     <Link
                       href={`/cases/${c.slug}`}
                       className="group flex h-full flex-col overflow-hidden rounded-2xl bg-white ring-1 ring-black/[0.05] transition-shadow duration-300 hover:shadow-[0_24px_50px_-30px_rgba(0,0,0,0.35)]"

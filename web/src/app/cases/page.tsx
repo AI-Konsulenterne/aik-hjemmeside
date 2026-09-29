@@ -5,9 +5,8 @@ import Button from "@/components/ui/Button";
 import FadeIn from "@/components/ui/FadeIn";
 import TalMedAlexander from "@/components/sections/TalMedAlexander";
 import SektionHoved from "@/components/side/SektionHoved";
-import { KATEGORI, caseSkud, udenTankestreg } from "@/content/cases";
+import { CASES, KATEGORI, type Case } from "@/content/cases";
 import { filmPoster } from "@/content/film";
-import { getCases, strapiImageUrl, type Case } from "@/lib/strapi";
 
 export const metadata: Metadata = {
   title: "AI-cases fra danske virksomheder",
@@ -30,7 +29,7 @@ export const metadata: Metadata = {
 };
 
 /**
- * Cases. Casene kommer fra Strapi; siden bestemmer kun, hvordan de står.
+ * Cases. Casene står i content/cases.ts; siden bestemmer, hvordan de står.
  *
  * Før: farvede kort med orange flader og en "Bliv den næste case"-grafik
  * med netværksprikker. Nu: en mørk hero og casene som store rækker, hver
@@ -38,14 +37,11 @@ export const metadata: Metadata = {
  * kategori, titel og udfordringen, skiftevis til venstre og højre. Uden
  * billede står casen som tekst i fuld bredde.
  *
- * Uden Strapi står der, at casene ikke kunne hentes, og hvor man ellers
- * kan se, hvem vi har hjulpet. Ingen falske pladsholdere.
+ * Casene står i content/cases.ts: Lavazza, J.M Band og Wunderwear.
  */
 
 function Billede({ c, prioritet }: { c: Case; prioritet: boolean }) {
-  const upload = strapiImageUrl(c.image);
-  const skud = caseSkud(c.customer);
-  const src = upload ?? (skud ? filmPoster(skud) : null);
+  const src = c.skud ? filmPoster(c.skud) : null;
   if (!src) return null;
   return (
     <div className="relative aspect-[16/10] overflow-hidden rounded-3xl bg-gray-100">
@@ -61,8 +57,8 @@ function Billede({ c, prioritet }: { c: Case; prioritet: boolean }) {
   );
 }
 
-export default async function Cases() {
-  const alle = await getCases().catch(() => [] as Case[]);
+export default function Cases() {
+  const alle = CASES;
 
   return (
     <>
@@ -107,24 +103,12 @@ export default async function Cases() {
       {/* --- Casene --- */}
       <section className="section-y bg-white">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          {alle.length === 0 ? (
-            <div className="max-w-2xl">
-              <p className="kicker text-gray-600">Cases</p>
-              <p className="mt-6 text-[1.25rem] leading-relaxed text-gray-900">
-                Casene kunne ikke hentes lige nu. Se imens, hvem vi har hjulpet, under{" "}
-                <Link href="/referencer" className="font-semibold">
-                  <span className="understreg">referencer</span>
-                </Link>
-                .
-              </p>
-            </div>
-          ) : (
             <ol className="space-y-20 lg:space-y-28">
               {alle.map((c, i) => {
-                const harBillede = !!(strapiImageUrl(c.image) ?? caseSkud(c.customer));
+                const harBillede = !!c.skud;
                 const spejlet = i % 2 === 1;
                 return (
-                  <li key={c.id}>
+                  <li key={c.slug}>
                     <FadeIn>
                       <Link
                         href={`/cases/${c.slug}`}
@@ -143,7 +127,7 @@ export default async function Cases() {
                             {c.title}
                           </h2>
                           <p className="mt-5 line-clamp-4 max-w-[52ch] text-[1.0625rem] leading-relaxed text-gray-600">
-                            {udenTankestreg(c.challenge)}
+                            {c.challenge}
                           </p>
                           <span className="mt-7 inline-flex items-center gap-1.5 text-[0.9375rem] font-semibold text-gray-900">
                             <span className="understreg">Læs casen</span>
@@ -158,7 +142,6 @@ export default async function Cases() {
                 );
               })}
             </ol>
-          )}
         </div>
       </section>
 
