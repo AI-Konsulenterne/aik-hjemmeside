@@ -68,7 +68,20 @@ const MOERK_HERO = new Set([
   "/ai-kundeservice",
   "/ai-analyse",
   "/ai-i-e-commerce",
+  "/ai-strategi",
+  "/visionai",
+  "/om-os",
+  "/kontakt",
+  "/ai-guide",
+  "/cases",
 ]);
+
+/** Undersider med en mørk hero ud over dem i listen: hver case. */
+const MOERK_HERO_UNDER = ["/cases/"];
+
+function harMoerkHero(sti: string) {
+  return MOERK_HERO.has(sti) || MOERK_HERO_UNDER.some((p) => sti.startsWith(p));
+}
 
 /** Ligger punktet y (fra toppen af vinduet) over en mørk sektion? */
 function moerkVed(y: number) {
@@ -87,7 +100,7 @@ export default function Header() {
   const [scrollet, setScrollet] = useState(false);
   /* Før første måling gættes der ud fra siden, så forsiden bliver
      server-renderet med den gennemsigtige navigation og ikke blinker. */
-  const [moerkUnder, setMoerkUnder] = useState(() => MOERK_HERO.has(sti));
+  const [moerkUnder, setMoerkUnder] = useState(() => harMoerkHero(sti));
   const [mobilAaben, setMobilAaben] = useState(false);
   const [aaben, setAaben] = useState<string | null>(null);
   const headerRef = useRef<HTMLElement>(null);
@@ -154,7 +167,7 @@ export default function Header() {
 
   /* Mobilmenuen er hvid, så når den er åben, er navigationen det også. */
   const paaMoerk = moerkUnder && !mobilAaben;
-  const gennemsigtig = paaMoerk && !scrollet && MOERK_HERO.has(sti);
+  const gennemsigtig = paaMoerk && !scrollet && harMoerkHero(sti);
 
   const linkFarve = paaMoerk
     ? "text-white/75 hover:text-white"

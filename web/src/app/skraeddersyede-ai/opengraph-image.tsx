@@ -9,6 +9,6 @@ export default async function OgImage() {
     tag: "Ydelse",
     title: "Skræddersyede AI-løsninger",
     subtitle:
-      "Custom AI til danske virksomheder - integreret med jeres CRM, ERP og webshop.",
+      "AI bygget til danske virksomheder og koblet på jeres CRM, ERP og webshop.",
   });
 }

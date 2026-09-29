@@ -80,12 +80,12 @@ export default function AiEcommerce() {
         eyebrow="AI til e-commerce"
         h1Pre="AI til e-commerce -"
         h1Accent="skalér din webshop uden flere hænder."
-        lead="Flere ordrer og kundehenvendelser behøver ikke betyde flere ansatte. Vi automatiserer ordrehåndtering og kundeservice i jeres webshop - integreret med Shopify og jeres CRM, så I vokser uden at vokse i omkostninger."
+        lead="Flere ordrer og kundehenvendelser behøver ikke betyde flere ansatte. Vi automatiserer ordrehåndtering og kundeservice i jeres webshop, koblet på Shopify og jeres CRM, så I kan vokse uden at omkostningerne vokser med."
         intro={{
           h2: "Hvad kan AI i en webshop?",
           paragraphs: [
             "AI til e-commerce handler om at fjerne det manuelle arbejde, der vokser i takt med ordrerne: ordrebehandling, leveringsspørgsmål, returneringer og de samme produktspørgsmål igen og igen.",
-            "Ved at koble AI på jeres Shopify og CRM kan ordrer behandles automatisk, og kunderne kan få svar døgnet rundt - så jeres team kan bruge tiden på vækst i stedet for rutine.",
+            "Ved at koble AI på jeres Shopify og CRM kan ordrer behandles automatisk, og kunderne får svar døgnet rundt. Så kan jeres team bruge tiden på vækst i stedet for rutine.",
           ],
         }}
         steps={{
@@ -104,7 +104,7 @@ export default function AiEcommerce() {
             {
               n: "03",
               h: "Skalerer med væksten",
-              p: "Flere ordrer kræver ikke flere hænder - løsningen vokser med jer.",
+              p: "Flere ordrer kræver ikke flere hænder. Løsningen vokser med jer.",
             },
             {
               n: "04",
@@ -154,7 +154,7 @@ export default function AiEcommerce() {
         }}
         final={{
           h2: "Skal vi skalere jeres webshop med AI?",
-          lead: "Book en gratis AI-afklaring. Vi finder ud af, hvad I kan automatisere - og hvad det vil spare jer.",
+          lead: "Book en gratis AI-afklaring. Vi finder ud af, hvad I kan automatisere, og hvad det vil spare jer.",
         }}
       />
     </>

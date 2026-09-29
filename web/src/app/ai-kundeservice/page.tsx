@@ -30,7 +30,7 @@ const faqs = [
   },
   {
     q: "Kan AI'en svare ud fra vores egne data?",
-    a: "Ja. Vi kobler agenten på jeres systemer - fx Shopify og CRM - så den svarer ud fra jeres faktiske ordrer, regler og produkter, ikke generisk.",
+    a: "Ja. Vi kobler agenten på jeres systemer, fx Shopify og CRM, så den svarer ud fra jeres faktiske ordrer, regler og produkter og ikke generisk.",
   },
   {
     q: "Er det GDPR-sikkert?",
@@ -80,11 +80,11 @@ export default function AiKundeservice() {
         eyebrow="AI til kundeservice"
         h1Pre="AI til kundeservice der svarer kunderne -"
         h1Accent="døgnet rundt."
-        lead="Repetitive spørgsmål om levering, returnering og ordrer æder jeres supports tid. Vi bygger en AI-kundeservice-agent, der besvarer dem automatisk - koblet på jeres egne systemer, så svarene altid er rigtige."
+        lead="Repetitive spørgsmål om levering, returnering og ordrer æder jeres supports tid. Vi bygger en AI-agent til kundeservice, der besvarer dem automatisk. Den er koblet på jeres egne systemer, så den svarer ud fra jeres egne data."
         intro={{
           h2: "Hvad er AI til kundeservice?",
           paragraphs: [
-            "AI til kundeservice er ikke en dum chatbot med faste svar. Det er en agent, der er koblet på jeres egne data - ordrer, leveringsstatus, returregler og produktinfo - så den kan svare præcist på de spørgsmål, jeres kunder rent faktisk stiller.",
+            "AI til kundeservice er ikke en dum chatbot med faste svar. Det er en agent, der er koblet på jeres egne data, som ordrer, leveringsstatus, returregler og produktinfo, så den kan svare præcist på de spørgsmål, jeres kunder rent faktisk stiller.",
             "Resultatet er, at de gentagne henvendelser bliver besvaret med det samme, døgnet rundt, mens jeres team får tid til de henvendelser, der kræver et menneske.",
           ],
         }}
@@ -94,22 +94,22 @@ export default function AiKundeservice() {
             {
               n: "01",
               h: "Besvarer de gentagne spørgsmål",
-              p: "Levering, returnering, ordrestatus og produktdetaljer - de spørgsmål, der fylder mest, klarer AI'en automatisk.",
+              p: "Levering, returnering, ordrestatus og produktdetaljer. De spørgsmål, der fylder mest, klarer agenten automatisk.",
             },
             {
               n: "02",
               h: "Koblet på jeres systemer",
-              p: "Agenten henter svar fra jeres Shopify, CRM og interne data, så den svarer korrekt - ikke bare generisk.",
+              p: "Agenten henter svar fra jeres Shopify, CRM og interne data, så den svarer korrekt og ikke bare generisk.",
             },
             {
               n: "03",
               h: "Svar 24/7",
-              p: "Kunderne får svar med det samme, også uden for åbningstid - uden at I skal ansætte flere.",
+              p: "Kunderne får svar med det samme, også uden for åbningstid, uden at I skal ansætte flere.",
             },
             {
               n: "04",
               h: "Jeres team til det svære",
-              p: "De henvendelser, der kræver et menneske, lander hos jeres folk - med mere tid til hver enkelt.",
+              p: "De henvendelser, der kræver et menneske, lander hos jeres folk, som nu har mere tid til hver enkelt.",
             },
           ],
         }}
@@ -121,7 +121,7 @@ export default function AiKundeservice() {
               company: "Wunderwear",
               stat: "80%",
               headline: "AI-agent besvarer 80% af de gentagne spørgsmål",
-              blurb: "Vi automatiserede ordrehåndtering på tværs af Shopify og CRM og byggede en AI-kundeservice-agent, der svarer på levering, returnering og produktdetaljer - 24/7.",
+              blurb: "Vi automatiserede ordrehåndtering på tværs af Shopify og CRM og byggede en AI-kundeservice-agent, der svarer på levering, returnering og produktdetaljer døgnet rundt.",
             },
             {
               href: "/cases/jm-band-ai-agent",
@@ -148,13 +148,13 @@ export default function AiKundeservice() {
             {
               href: "/ai-strategi",
               label: "AI-strategi",
-              desc: "Find ud af, hvor AI giver jer mest værdi - med en konkret plan.",
+              desc: "En konkret plan for, hvor AI giver jer mest værdi.",
             },
           ],
         }}
         final={{
           h2: "Skal vi se på jeres kundeservice?",
-          lead: "Book en gratis AI-afklaring. Vi finder ud af, hvor mange af jeres henvendelser AI kan tage - og siger ærligt til, hvis det ikke kan betale sig.",
+          lead: "Book en gratis AI-afklaring. Vi finder ud af, hvor mange af jeres henvendelser AI kan tage, og siger ærligt til, hvis det ikke kan betale sig.",
         }}
       />
     </>

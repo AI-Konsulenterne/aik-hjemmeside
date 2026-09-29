@@ -4,8 +4,11 @@ import Image from "next/image";
 import Link from "next/link";
 import FadeIn from "@/components/ui/FadeIn";
 import JsonLd from "@/components/ui/JsonLd";
-import SubpageCTA from "@/components/sections/SubpageCTA";
 import SolutionDiagram from "@/components/ui/SolutionDiagram";
+import TalMedAlexander from "@/components/sections/TalMedAlexander";
+import SideHero from "@/components/side/SideHero";
+import { KATEGORI, caseSkud, udenTankestreg } from "@/content/cases";
+import { FILM_SHOTS, filmPoster } from "@/content/film";
 import {
   getCaseBySlug,
   getCases,
@@ -14,15 +17,23 @@ import {
 } from "@/lib/strapi";
 import { renderMarkdown } from "@/lib/markdown";
 
+/**
+ * En case. Bygget om i forsidens sprog: kundens skud fra referencefilmen
+ * fylder heroen (har kunden ikke et, står heroen mørk), og selve casen er
+ * tre kapitler med etiketten til venstre og teksten stort til højre.
+ * Etiketterne er grå; orange tekst på hvid bund er ude.
+ *
+ * Indholdet kommer fra Strapi. Tankestreger i teksten bliver til kolon
+ * eller komma, når den vises (content/cases.ts).
+ */
+
+function foersteSaetning(tekst: string) {
+  const m = tekst.match(/^.+?[.!?](\s|$)/);
+  return (m ? m[0] : tekst).trim();
+}
+
 type Params = { slug: string };
 
-const categoryLabels: Record<Case["category"], string> = {
-  "intern-ai": "Intern AI",
-  webshop: "E-commerce",
-  vidensbase: "Vidensbase",
-  hr: "HR / Intern AI",
-  andet: "AI-løsning",
-};
 
 export async function generateStaticParams(): Promise<Params[]> {
   const cases = await getCases().catch(() => []);
@@ -78,7 +89,8 @@ export default async function CaseDetail({
     .slice(0, 3);
 
   const image = strapiImageUrl(caseData.image);
-  const logo = strapiImageUrl(caseData.customerLogo);
+  const skud = caseSkud(caseData.customer);
+  const skudInfo = skud ? FILM_SHOTS.find((f) => f.id === skud) : undefined;
 
   const articleJsonLd = {
     "@context": "https://schema.org",
@@ -125,203 +137,162 @@ export default async function CaseDetail({
     ],
   };
 
+  const kapitler: { etiket: string; indhold: React.ReactNode }[] = [
+    {
+      etiket: "Udfordringen",
+      indhold: (
+        <p className="text-balance text-[clamp(1.375rem,2.3vw,2rem)] font-semibold leading-snug tracking-heading text-gray-900">
+          {udenTankestreg(caseData.challenge)}
+        </p>
+      ),
+    },
+    {
+      etiket: "Løsningen",
+      indhold: (
+        <>
+          <div className="prose-article max-w-[62ch]">{renderMarkdown(udenTankestreg(caseData.solution))}</div>
+          <div className="mt-10">
+            {slug === "jm-band-ai-agent" ? (
+              <figure className="overflow-hidden rounded-2xl bg-white ring-1 ring-black/[0.06] shadow-[0_30px_70px_-40px_rgba(0,0,0,0.35)]">
+                <div className="flex items-center gap-2 border-b border-black/[0.06] bg-gray-50 px-4 py-3" aria-hidden="true">
+                  <span className="h-2.5 w-2.5 rounded-full bg-black/10" />
+                  <span className="h-2.5 w-2.5 rounded-full bg-black/10" />
+                  <span className="h-2.5 w-2.5 rounded-full bg-black/10" />
+                </div>
+                <Image
+                  src="/screenshots/jmband-ai-support-web.png"
+                  alt="AI-supportagenten til J.M Band: den søger i vidensbasen og foreslår en løsning"
+                  width={2880}
+                  height={1405}
+                  className="h-auto w-full"
+                  sizes="(min-width: 1024px) 52rem, 100vw"
+                />
+              </figure>
+            ) : (
+              <SolutionDiagram category={caseData.category} />
+            )}
+          </div>
+        </>
+      ),
+    },
+    {
+      etiket: "Resultatet",
+      indhold: <div className="prose-article max-w-[62ch]">{renderMarkdown(udenTankestreg(caseData.result))}</div>,
+    },
+  ];
+
+  const fakta: [string, string][] = [
+    [caseData.customer, "Kunde"],
+    [KATEGORI[caseData.category], "Kategori"],
+    ...(skudInfo ? ([[skudInfo.label, "Branche"]] as [string, string][]) : []),
+  ];
+
   return (
     <>
       <JsonLd data={articleJsonLd} />
       <JsonLd data={breadcrumbJsonLd} />
 
-      {/* Hero */}
-      <section className="pt-[clamp(4rem,12vw,8rem)] pb-[clamp(3rem,8vw,5rem)]">
-        <div className="max-w-4xl mx-auto px-6 lg:px-8">
-          <FadeIn>
-            <div className="flex items-center gap-3 mb-6 text-sm">
-              <Link
-                href="/cases"
-                className="text-gray-500 hover:text-primary transition-colors"
-              >
-                ← Alle cases
-              </Link>
-            </div>
-
-            <div className="flex items-center gap-4 mb-6">
-              {logo && (
-                <div className="relative w-16 h-16 rounded-xl bg-white ring-1 ring-gray-100 flex items-center justify-center overflow-hidden">
-                  <Image
-                    src={logo}
-                    alt={caseData.customer}
-                    fill
-                    sizes="(max-width: 768px) 100vw, 500px"
-                    className="object-contain p-2"
-                  />
-                </div>
-              )}
-              <div>
-                <p className="text-[11px] uppercase tracking-widest text-primary font-semibold mb-1">
-                  {categoryLabels[caseData.category]}
-                </p>
-                <p className="text-lg font-semibold text-gray-900">
-                  {caseData.customer}
-                </p>
-              </div>
-            </div>
-
-            <h1 className="text-3xl lg:text-5xl font-bold tracking-heading text-gray-900 leading-[1.1]">
-              {caseData.title}
-            </h1>
-          </FadeIn>
-        </div>
-      </section>
-
-      {/* Featured image */}
-      {image && (
-        <section className="pb-[clamp(2rem,6vw,4rem)]">
-          <div className="max-w-5xl mx-auto px-6 lg:px-8">
-            <FadeIn>
-              <div className="relative aspect-[16/9] rounded-2xl overflow-hidden bg-gray-100">
-                <Image
-                  src={image}
-                  alt={caseData.title}
-                  fill
-                  sizes="(max-width: 768px) 100vw, 500px"
-                  priority
-                  className="object-cover"
-                />
-              </div>
-            </FadeIn>
-          </div>
-        </section>
-      )}
-
-      {/* Content */}
-      <section className="pb-[clamp(3rem,8vw,6rem)]">
-        <div className="max-w-4xl mx-auto px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-[2fr_1fr] gap-10 lg:gap-16">
-          <article>
-            <FadeIn>
-              <div className="mb-10">
-                <p className="text-[11px] uppercase tracking-widest text-primary font-semibold mb-3">
-                  Udfordringen
-                </p>
-                <p className="text-gray-700 leading-relaxed text-[1.05rem]">
-                  {caseData.challenge}
-                </p>
-              </div>
-            </FadeIn>
-
-            <FadeIn delay={100}>
-              <div className="mb-10">
-                <p className="text-[11px] uppercase tracking-widest text-primary font-semibold mb-3">
-                  Løsningen
-                </p>
-                <div className="prose-article">
-                  {renderMarkdown(caseData.solution)}
-                </div>
-                <div className="mt-8">
-                  {slug === "jm-band-ai-agent" ? (
-                    <div className="rounded-2xl overflow-hidden ring-1 ring-gray-100 shadow-sm">
-                      <Image
-                        src="/screenshots/jmband-ai-support-web.png"
-                        alt="AI Support-agent bygget til JM Band - søger i vidensbasen og foreslår løsninger"
-                        width={2880}
-                        height={1405}
-                        className="w-full h-auto"
-                        sizes="(max-width: 768px) 100vw, 768px"
-                      />
-                    </div>
-                  ) : (
-                    <SolutionDiagram category={caseData.category} />
-                  )}
-                </div>
-              </div>
-            </FadeIn>
-
-            <FadeIn delay={200}>
-              <div>
-                <p className="text-[11px] uppercase tracking-widest text-primary font-semibold mb-3">
-                  Resultatet
-                </p>
-                <div className="prose-article">
-                  {renderMarkdown(caseData.result)}
-                </div>
-              </div>
-            </FadeIn>
-          </article>
-
-          {/* Sidebar */}
-          <aside className="lg:sticky lg:top-24 lg:self-start">
-            <FadeIn delay={150}>
-              <div className="bg-gray-50 rounded-2xl p-6 lg:p-7 border border-gray-100">
-                <p className="text-[11px] uppercase tracking-widest text-gray-400 font-semibold mb-4">
-                  Fakta
-                </p>
-                <dl className="space-y-4 text-sm">
-                  <div>
-                    <dt className="text-gray-500 mb-0.5">Kunde</dt>
-                    <dd className="font-semibold text-gray-900">
-                      {caseData.customer}
-                    </dd>
-                  </div>
-                  <div>
-                    <dt className="text-gray-500 mb-0.5">Kategori</dt>
-                    <dd className="font-semibold text-gray-900">
-                      {categoryLabels[caseData.category]}
-                    </dd>
-                  </div>
-                </dl>
-
-                <div className="mt-6 pt-6 border-t border-gray-200">
-                  <p className="text-sm text-gray-600 leading-relaxed mb-4">
-                    Vil du høre, om vi kan hjælpe jer med noget lignende?
-                  </p>
-                  <Link
-                    href="/kontakt"
-                    className="block w-full text-center whitespace-nowrap bg-primary text-black rounded-full px-5 py-3 text-sm font-semibold hover:bg-primary-dark transition-colors"
-                  >
-                    Book en snak
-                  </Link>
-                </div>
-              </div>
-            </FadeIn>
-          </aside>
-        </div>
-      </section>
-
-      {/* Other cases */}
-      {otherCases.length > 0 && (
-        <section className="bg-gray-50 py-[clamp(3rem,8vw,6rem)]">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8">
-            <FadeIn>
-              <h2 className="text-2xl lg:text-3xl font-bold tracking-heading text-gray-900 mb-8">
-                Andre cases
-              </h2>
-            </FadeIn>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-              {otherCases.map((c, i) => (
-                <FadeIn key={c.id} delay={i * 100}>
-                  <Link
-                    href={`/cases/${c.slug}`}
-                    className="group block bg-white rounded-xl p-6 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 border border-gray-100 h-full"
-                  >
-                    <p className="text-[10px] uppercase tracking-widest text-primary font-semibold mb-2">
-                      {categoryLabels[c.category]}
-                    </p>
-                    <p className="text-sm font-semibold text-gray-500 mb-2">
-                      {c.customer}
-                    </p>
-                    <h3 className="text-base lg:text-lg font-bold tracking-heading text-gray-900 leading-snug group-hover:text-primary transition-colors">
-                      {c.title}
-                    </h3>
-                  </Link>
-                </FadeIn>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
-
-      <SubpageCTA
-        heading="Klar til at blive den næste case?"
-        description="Book en gratis 45-minutters samtale. Vi lærer jeres virksomhed at kende og ser om AI giver mening for jer."
+      <SideHero
+        id="case-titel"
+        kicker={`Case · ${caseData.customer}`}
+        titel={[caseData.title]}
+        tekst={caseData.seoDescription || foersteSaetning(udenTankestreg(caseData.challenge))}
+        primaer={{ label: "Book en samtale", href: "/kontakt" }}
+        sekundaer={{ label: "Alle cases", href: "/cases" }}
+        skud={skud ? [skud] : []}
+        fakta={fakta}
       />
+
+      {/* Et billede fra Strapi, hvis casen har et */}
+      {image && (
+        <section className="bg-white pt-[clamp(3rem,7vw,6rem)]">
+          <div className="mx-auto max-w-7xl px-6 lg:px-8">
+            <FadeIn>
+              <div className="relative aspect-[16/9] overflow-hidden rounded-3xl bg-gray-100">
+                <Image src={image} alt={caseData.title} fill sizes="(min-width: 1280px) 76rem, 100vw" className="object-cover" />
+              </div>
+            </FadeIn>
+          </div>
+        </section>
+      )}
+
+      {/* --- Casen i tre kapitler --- */}
+      <section className="section-y bg-white">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="space-y-16 lg:space-y-24">
+            {kapitler.map((k, i) => (
+              <FadeIn key={k.etiket}>
+                <div className="grid gap-6 border-t border-gray-200 pt-8 lg:grid-cols-12 lg:gap-16 lg:pt-10">
+                  <div className="lg:col-span-3">
+                    <p className="text-sm font-semibold tabular-nums text-gray-500">{String(i + 1).padStart(2, "0")}</p>
+                    <h2 className="mt-2 text-[1.375rem] font-bold tracking-heading text-gray-900">{k.etiket}</h2>
+                  </div>
+                  <div className="lg:col-span-9">{k.indhold}</div>
+                </div>
+              </FadeIn>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* --- Andre cases --- */}
+      {otherCases.length > 0 && (
+        <section className="section-y bg-gray-50">
+          <div className="mx-auto max-w-7xl px-6 lg:px-8">
+            <p className="kicker text-gray-600">Andre cases</p>
+            <h2 className="mt-6 text-[clamp(1.875rem,3.4vw,2.75rem)] font-bold leading-[1.05] tracking-display text-gray-900">
+              Mere, vi har bygget.
+            </h2>
+            <div className="mt-12 grid gap-6 md:grid-cols-3">
+              {otherCases.map((c: Case, i: number) => {
+                const s2 = caseSkud(c.customer);
+                const src = strapiImageUrl(c.image) ?? (s2 ? filmPoster(s2) : null);
+                return (
+                  <FadeIn key={c.id} delay={i * 90} className="h-full">
+                    <Link
+                      href={`/cases/${c.slug}`}
+                      className="group flex h-full flex-col overflow-hidden rounded-2xl bg-white ring-1 ring-black/[0.05] transition-shadow duration-300 hover:shadow-[0_24px_50px_-30px_rgba(0,0,0,0.35)]"
+                    >
+                      {src ? (
+                        <div className="relative aspect-[16/10] overflow-hidden bg-gray-100">
+                          <Image
+                            src={src}
+                            alt={c.customer}
+                            fill
+                            sizes="(min-width: 768px) 24rem, 100vw"
+                            className="object-cover transition-transform duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.04]"
+                          />
+                        </div>
+                      ) : (
+                        /* Uden billede: kundens navn på mørk flade i samme format. */
+                        <div className="flex aspect-[16/10] items-end bg-ink p-7" aria-hidden="true">
+                          <span className="text-[clamp(1.75rem,3vw,2.5rem)] font-bold leading-none tracking-display text-white">
+                            {c.customer}
+                          </span>
+                        </div>
+                      )}
+                      <div className="flex flex-1 flex-col p-7">
+                        <p className="text-[0.8125rem] font-semibold text-gray-600">
+                          {c.customer} · {KATEGORI[c.category]}
+                        </p>
+                        <h3 className="mt-2 text-lg font-bold leading-snug tracking-heading text-gray-900">{c.title}</h3>
+                        <span className="mt-auto inline-flex items-center gap-1.5 pt-6 text-sm font-semibold text-gray-900">
+                          <span className="understreg">Læs casen</span>
+                          <span aria-hidden="true" className="transition-transform duration-200 group-hover:translate-x-0.5">
+                            →
+                          </span>
+                        </span>
+                      </div>
+                    </Link>
+                  </FadeIn>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+      )}
+
+      <TalMedAlexander titel="Skal vi bygge noget lignende til jer?" />
     </>
   );
 }

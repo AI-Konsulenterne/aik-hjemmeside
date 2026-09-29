@@ -26,7 +26,7 @@ export const metadata: Metadata = {
 const faqs = [
   {
     q: "Hvilke spørgsmål kan AI'en svare på?",
-    a: "De spørgsmål, der bliver stillet igen og igen - ferieregler, løn, pension, barsel og interne politikker. Agenten svarer ud fra jeres egen personalehåndbog og jeres faktiske regler.",
+    a: "De spørgsmål, der bliver stillet igen og igen: ferieregler, løn, pension, barsel og interne politikker. Agenten svarer ud fra jeres egen personalehåndbog og jeres faktiske regler.",
   },
   {
     q: "Er medarbejdernes data sikre?",
@@ -80,11 +80,11 @@ export default function AiIHr() {
         eyebrow="AI i HR"
         h1Pre="AI i HR - medarbejderne får svar på sekunder,"
         h1Accent="ikke dage."
-        lead="Ferieregler, løn, pension, interne politikker - HR bruger uforholdsmæssigt meget tid på de samme spørgsmål. Vi bygger en datasikker AI-agent, der svarer for jer, så HR kan fokusere på mennesker frem for rutine."
+        lead="Ferieregler, løn, pension, interne politikker: HR bruger uforholdsmæssigt meget tid på de samme spørgsmål. Vi bygger en datasikker AI-agent, der svarer for jer, så HR kan bruge tiden på mennesker frem for rutine."
         intro={{
           h2: "Hvad kan AI i HR?",
           paragraphs: [
-            "AI i HR handler om at tage de spørgsmål, der bliver stillet igen og igen - om ferie, løn, pension og personalepolitik - og lade en AI-agent besvare dem ud fra jeres egne dokumenter. Præcist, ens hver gang og med det samme.",
+            "AI i HR handler om at lade en AI-agent tage de spørgsmål, der bliver stillet igen og igen, om ferie, løn, pension og personalepolitik. Den svarer ud fra jeres egne dokumenter: præcist, ens hver gang og med det samme.",
             "Det vigtige i HR er, at data er følsomme. Derfor bygger vi løsningen i et lukket miljø, hvor jeres data aldrig forlader virksomheden og aldrig bruges til at træne offentlige modeller.",
           ],
         }}
@@ -94,7 +94,7 @@ export default function AiIHr() {
             {
               n: "01",
               h: "Bygget på jeres egne dokumenter",
-              p: "Personalehåndbog, politikker og interne regler - agenten svarer ud fra jeres faktiske materiale.",
+              p: "Personalehåndbog, politikker og interne regler. Agenten svarer ud fra jeres faktiske materiale.",
             },
             {
               n: "02",
@@ -120,7 +120,7 @@ export default function AiIHr() {
               href: "/cases/lavazza-hr-agent",
               company: "Lavazza",
               headline: "Datasikker HR-agent der svarer, så medarbejderne ikke skal vente",
-              blurb: "Vi byggede en AI-agent, der svarer ud fra Lavazzas HR-dokumenter og politikker - i et lukket miljø, hvor data aldrig forlader virksomheden. HR-afdelingen er frigjort fra rutinespørgsmål, og medarbejderne får svar på sekunder i stedet for dage.",
+              blurb: "Vi byggede en AI-agent, der svarer ud fra Lavazzas HR-dokumenter og politikker i et lukket miljø, hvor data aldrig forlader virksomheden. HR-afdelingen er fri for rutinespørgsmål, og medarbejderne får svar på sekunder i stedet for dage.",
             },
           ],
         }}
@@ -147,7 +147,7 @@ export default function AiIHr() {
         }}
         final={{
           h2: "Skal vi frigøre jeres HR-afdeling?",
-          lead: "Book en gratis AI-afklaring. Vi finder ud af, hvilke HR-spørgsmål AI kan tage - og hvordan vi gør det datasikkert.",
+          lead: "Book en gratis AI-afklaring. Vi finder ud af, hvilke HR-spørgsmål AI kan tage, og hvordan vi gør det datasikkert.",
         }}
       />
     </>

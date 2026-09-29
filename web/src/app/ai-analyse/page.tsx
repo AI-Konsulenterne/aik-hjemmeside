@@ -34,7 +34,7 @@ const faqs = [
   },
   {
     q: "Er vores data sikre?",
-    a: "Ja. Vi bygger løsningen, så jeres data bliver i jeres kontrol - ikke ender i åbne modeller og ikke bruges til at træne på.",
+    a: "Ja. Vi bygger løsningen, så jeres data bliver under jeres kontrol. De ender ikke i åbne modeller og bruges ikke til træning.",
   },
   {
     q: "Hvad koster en AI-analyseløsning?",
@@ -80,12 +80,12 @@ export default function AiAnalyse() {
         eyebrow="AI til analyse"
         h1Pre="AI til analyse -"
         h1Accent="fra spredt data til klare beslutninger."
-        lead="Jeres data ligger spredt på tværs af systemer, og det tager tid at få overblik. Vi bygger AI, der henter, samler og analyserer data på tværs - så I får indsigt og beslutningsstøtte, uden at hoppe mellem platforme."
+        lead="Jeres data ligger spredt på tværs af systemer, og det tager tid at få overblik. Vi bygger AI, der henter, samler og analyserer data på tværs, så I får indsigt og beslutningsstøtte uden at hoppe mellem platforme."
         intro={{
           h2: "Hvad er AI til analyse?",
           paragraphs: [
             "AI til analyse handler om at lade en AI-agent gøre det tunge arbejde: hente data fra jeres forskellige systemer, finde mønstrene og give jer svar og indsigt i et sprog, I kan handle på.",
-            "Det er ikke et dashboard mere. Det er en agent, I kan spørge - 'hvordan ser det ud med X?' - og som svarer ud fra jeres faktiske data, på tværs af CRM, webshop og interne systemer.",
+            "Det er ikke endnu et dashboard. Det er en agent, I kan spørge, fx \"hvordan ser det ud med X?\", og som svarer ud fra jeres faktiske data på tværs af CRM, webshop og interne systemer.",
           ],
         }}
         steps={{
@@ -99,17 +99,17 @@ export default function AiAnalyse() {
             {
               n: "02",
               h: "Finder mønstre og svar",
-              p: "Agenten analyserer data og giver jer indsigt - ikke bare tal, men svar, I kan bruge.",
+              p: "Agenten analyserer data og giver jer indsigt. Ikke bare tal, men svar, I kan bruge.",
             },
             {
               n: "03",
               h: "Beslutningsstøtte i hverdagen",
-              p: "Spørg på almindeligt dansk og få svar med det samme - så beslutninger bliver hurtigere og bedre underbygget.",
+              p: "Spørg på almindeligt dansk og få svar med det samme, så beslutninger bliver hurtigere og bedre underbygget.",
             },
             {
               n: "04",
               h: "Bygget på jeres egne data",
-              p: "Indsigten kommer fra jeres faktiske systemer, ikke generiske antagelser - og data forlader ikke jeres kontrol.",
+              p: "Indsigten kommer fra jeres faktiske systemer og ikke fra generiske antagelser. Og data forlader ikke jeres kontrol.",
             },
           ],
         }}
@@ -120,7 +120,7 @@ export default function AiAnalyse() {
               href: "/cases/jm-band-ai-agent",
               company: "J.M Band",
               headline: "Indsigt på tværs af CRM, Shopify og interne systemer",
-              blurb: "Data lå spredt på tværs af systemer. Vi byggede en AI-agent, der henter og analyserer data på tværs, så medarbejderne får indsigt og svar ét sted - i stedet for at hoppe mellem platforme.",
+              blurb: "Data lå spredt på tværs af systemer. Vi byggede en AI-agent, der henter og analyserer data på tværs, så medarbejderne får indsigt og svar ét sted i stedet for at hoppe mellem platforme.",
             },
             {
               href: "/cases/indkom-ai-partnerskab",
@@ -153,7 +153,7 @@ export default function AiAnalyse() {
         }}
         final={{
           h2: "Skal vi gøre jeres data til indsigt?",
-          lead: "Book en gratis AI-afklaring - eller få en gratis AI-analyse, hvor vi peger på, hvor I kan hente mest værdi.",
+          lead: "Book en gratis AI-afklaring, eller få en gratis AI-analyse, hvor vi peger på, hvor I kan hente mest værdi.",
         }}
       />
     </>

@@ -1,8 +1,12 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
+import Button from "@/components/ui/Button";
 import FadeIn from "@/components/ui/FadeIn";
-import SubpageCTA from "@/components/sections/SubpageCTA";
+import TalMedAlexander from "@/components/sections/TalMedAlexander";
+import SektionHoved from "@/components/side/SektionHoved";
+import { KATEGORI, caseSkud, udenTankestreg } from "@/content/cases";
+import { filmPoster } from "@/content/film";
 import { getCases, strapiImageUrl, type Case } from "@/lib/strapi";
 
 export const metadata: Metadata = {
@@ -25,222 +29,156 @@ export const metadata: Metadata = {
   },
 };
 
-const categoryLabels: Record<Case["category"], string> = {
-  "intern-ai": "Intern AI",
-  webshop: "E-commerce",
-  vidensbase: "Vidensbase",
-  hr: "HR / Intern AI",
-  andet: "AI-løsning",
-};
+/**
+ * Cases. Casene kommer fra Strapi; siden bestemmer kun, hvordan de står.
+ *
+ * Før: farvede kort med orange flader og en "Bliv den næste case"-grafik
+ * med netværksprikker. Nu: en mørk hero og casene som store rækker, hver
+ * med kundens billede fra referencefilmen (se content/cases.ts), kunde og
+ * kategori, titel og udfordringen, skiftevis til venstre og højre. Uden
+ * billede står casen som tekst i fuld bredde.
+ *
+ * Uden Strapi står der, at casene ikke kunne hentes, og hvor man ellers
+ * kan se, hvem vi har hjulpet. Ingen falske pladsholdere.
+ */
 
-// Kunde-logoer vi har i en mørk/farvet version (synlige på lyse kort).
-// Kunder uden logo i mørk version vises som tekstnavn.
-const logoMap: { match: string; logo: string }[] = [
-  { match: "lavazza", logo: "/logos/lavazza.png" },
-  { match: "j.m band", logo: "/logos/jmband.png" },
-  { match: "jmband", logo: "/logos/jmband.png" },
-  { match: "stretchfit", logo: "/logos/stretchfit.png" },
-];
-
-function logoFor(customer: string): string | null {
-  const k = customer.toLowerCase();
-  return logoMap.find((m) => k.includes(m.match))?.logo ?? null;
-}
-
-// Bløde, brand-venlige kort-farver der roterer
-const cardColors = ["bg-primary/10", "bg-gray-100", "bg-primary/5", "bg-gray-50"];
-
-function CaseCard({ c, index }: { c: Case; index: number }) {
-  const logo = logoFor(c.customer);
-  const image = strapiImageUrl(c.image);
-  const color = cardColors[index % cardColors.length];
-
+function Billede({ c, prioritet }: { c: Case; prioritet: boolean }) {
+  const upload = strapiImageUrl(c.image);
+  const skud = caseSkud(c.customer);
+  const src = upload ?? (skud ? filmPoster(skud) : null);
+  if (!src) return null;
   return (
-    <Link href={`/cases/${c.slug}`} className="group block h-full">
-      <div
-        className={`${color} rounded-3xl overflow-hidden h-full flex flex-col ring-1 ring-gray-100/50 hover:shadow-lg transition-shadow duration-300`}
-      >
-        {/* Billede (hvis uploadet i Strapi) */}
-        {image && (
-          <div className="relative aspect-[16/10] overflow-hidden">
-            <Image
-              src={image}
-              alt={c.customer}
-              fill
-              sizes="(max-width: 768px) 100vw, 500px"
-              className="object-cover transition-transform duration-500 group-hover:scale-105"
-            />
-          </div>
-        )}
-
-        <div className="p-8 flex flex-col flex-grow min-h-[280px]">
-          {/* Top: logo/navn + pil */}
-          <div className="flex items-start justify-between gap-4">
-            {logo ? (
-              <div className="relative h-8 w-32">
-                <Image
-                  src={logo}
-                  alt={c.customer}
-                  fill
-                  sizes="(max-width: 768px) 100vw, 500px"
-                  className="object-contain object-left"
-                />
-              </div>
-            ) : (
-              <span className="text-lg font-bold tracking-heading text-gray-900">
-                {c.customer}
-              </span>
-            )}
-            <span className="flex-shrink-0 w-10 h-10 rounded-full border border-gray-900/20 flex items-center justify-center group-hover:bg-gray-900 group-hover:border-gray-900 transition-colors">
-              <svg
-                className="w-4 h-4 text-gray-900 group-hover:text-white transition-colors"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth={2}
-                viewBox="0 0 24 24"
-                aria-hidden="true"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M17 8l4 4m0 0l-4 4m4-4H3"
-                />
-              </svg>
-            </span>
-          </div>
-
-          {/* Bund: kategori + titel */}
-          <div className="mt-auto pt-10">
-            <p className="text-[11px] uppercase tracking-[0.15em] text-gray-600 font-semibold mb-2">
-              {categoryLabels[c.category]}
-            </p>
-            <h3 className="text-xl lg:text-2xl font-bold tracking-heading text-gray-900 leading-snug">
-              {c.title}
-            </h3>
-          </div>
-        </div>
-      </div>
-    </Link>
+    <div className="relative aspect-[16/10] overflow-hidden rounded-3xl bg-gray-100">
+      <Image
+        src={src}
+        alt={c.customer}
+        fill
+        priority={prioritet}
+        sizes="(min-width: 1024px) 40rem, 100vw"
+        className="object-cover transition-transform duration-[1400ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.03]"
+      />
+    </div>
   );
 }
 
 export default async function Cases() {
-  const allCases = await getCases().catch(() => [] as Case[]);
+  const alle = await getCases().catch(() => [] as Case[]);
 
   return (
     <>
-      {/* Hero */}
-      <section className="pt-[clamp(4rem,12vw,8rem)] pb-[clamp(2rem,5vw,4rem)]">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center">
-          <FadeIn>
-            <div className="max-w-3xl mx-auto">
-              <p className="text-[11px] uppercase tracking-[0.2em] text-gray-600 font-semibold mb-4">
-                Kundehistorier
-              </p>
-              <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold tracking-heading text-gray-900 leading-[1.05]">
-                Konkrete resultater fra vores kunder
-              </h1>
-              <p className="text-lg lg:text-xl text-gray-500 mt-6 leading-relaxed">
-                Vi lader resultaterne tale for sig selv. Her er et udvalg af
-                virksomheder vi har hjulpet med AI.
-              </p>
+      {/* --- Hero --- */}
+      <section
+        aria-labelledby="cases-titel"
+        data-header="moerk"
+        className="relative -mt-16 overflow-hidden bg-ink lg:-mt-20"
+      >
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute -right-[16rem] -top-[6rem] h-[46rem] w-[46rem] bg-[radial-gradient(closest-side,rgba(255,154,0,0.1),transparent)]"
+        />
+        <div className="relative mx-auto max-w-7xl px-6 pb-16 pt-36 lg:px-8 lg:pb-24 lg:pt-44">
+          <div className="flex items-center gap-3">
+            <span className="lamp" data-lit="true" aria-hidden="true" />
+            <p className="kicker text-white/85">Cases</p>
+          </div>
+          <h1
+            id="cases-titel"
+            className="mt-6 max-w-4xl text-balance text-[clamp(2.6rem,6vw,5.25rem)] font-bold leading-[1.0] tracking-display text-white"
+          >
+            Det har vi bygget.
+          </h1>
+          <div className="mt-8 flex flex-col gap-8 lg:mt-10 lg:flex-row lg:items-end lg:justify-between lg:gap-16">
+            <p className="max-w-[50ch] text-[1.0625rem] leading-relaxed text-white/80 sm:text-lg">
+              Rigtige løsninger hos rigtige virksomheder. Hvad de kæmpede med, hvad vi byggede,
+              og hvad det gav.
+            </p>
+            <div className="flex flex-none flex-col items-start gap-3 sm:flex-row sm:gap-4">
+              <Button href="/kontakt" size="lg">
+                Book en samtale
+              </Button>
+              <Button href="/referencer" size="lg" variant="ghost">
+                Se alle referencer
+              </Button>
             </div>
-          </FadeIn>
+          </div>
         </div>
       </section>
 
-      {allCases.length === 0 && (
-        <section className="pb-[clamp(3rem,8vw,6rem)]">
-          <div className="max-w-3xl mx-auto px-6 lg:px-8 text-center">
-            <div className="bg-gray-50 rounded-2xl p-8 lg:p-10 border border-gray-100">
-              <p className="text-gray-500 leading-relaxed">
-                Cases indlæses lige nu. Tjek igen om et øjeblik.
+      {/* --- Casene --- */}
+      <section className="section-y bg-white">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          {alle.length === 0 ? (
+            <div className="max-w-2xl">
+              <p className="kicker text-gray-600">Cases</p>
+              <p className="mt-6 text-[1.25rem] leading-relaxed text-gray-900">
+                Casene kunne ikke hentes lige nu. Se imens, hvem vi har hjulpet, under{" "}
+                <Link href="/referencer" className="font-semibold">
+                  <span className="understreg">referencer</span>
+                </Link>
+                .
               </p>
             </div>
-          </div>
-        </section>
-      )}
-
-      {/* Cases — farvede kort i grid */}
-      {allCases.length > 0 && (
-        <section className="pb-[clamp(3rem,8vw,6rem)]">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {allCases.map((c, i) => (
-                <FadeIn key={c.id} delay={i * 80}>
-                  <CaseCard c={c} index={i} />
-                </FadeIn>
-              ))}
-
-              {/* AI-grafik CTA-kort — udfylder grid'et og giver liv */}
-              <FadeIn delay={allCases.length * 80}>
-                <Link href="/kontakt" className="group block h-full">
-                  <div className="relative overflow-hidden bg-gray-900 rounded-3xl h-full min-h-[280px] p-8 flex flex-col justify-between">
-                    {/* AI-netværks-illustration */}
-                    <svg
-                      className="absolute -bottom-8 -right-6 w-64 h-64 opacity-25 pointer-events-none"
-                      viewBox="0 0 200 200"
-                      fill="none"
-                      aria-hidden="true"
-                    >
-                      <g stroke="#ff9a00" strokeWidth="1.2">
-                        <line x1="40" y1="60" x2="100" y2="40" />
-                        <line x1="40" y1="60" x2="90" y2="110" />
-                        <line x1="100" y1="40" x2="150" y2="70" />
-                        <line x1="90" y1="110" x2="150" y2="70" />
-                        <line x1="90" y1="110" x2="60" y2="160" />
-                        <line x1="150" y1="70" x2="160" y2="130" />
-                        <line x1="90" y1="110" x2="160" y2="130" />
-                        <line x1="160" y1="130" x2="130" y2="170" />
-                      </g>
-                      <g>
-                        <circle cx="40" cy="60" r="5" fill="#ffffff" />
-                        <circle cx="100" cy="40" r="7" fill="#ff9a00" />
-                        <circle cx="150" cy="70" r="5" fill="#ffffff" />
-                        <circle cx="90" cy="110" r="9" fill="#ff9a00" />
-                        <circle cx="160" cy="130" r="5" fill="#ffffff" />
-                        <circle cx="60" cy="160" r="6" fill="#ffffff" />
-                        <circle cx="130" cy="170" r="7" fill="#ff9a00" />
-                      </g>
-                    </svg>
-
-                    <span className="relative z-10 inline-flex w-10 h-10 rounded-full border border-white/30 items-center justify-center self-end group-hover:bg-primary group-hover:border-primary transition-colors">
-                      <svg
-                        className="w-4 h-4 text-white transition-colors group-hover:text-black"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth={2}
-                        viewBox="0 0 24 24"
-                        aria-hidden="true"
+          ) : (
+            <ol className="space-y-20 lg:space-y-28">
+              {alle.map((c, i) => {
+                const harBillede = !!(strapiImageUrl(c.image) ?? caseSkud(c.customer));
+                const spejlet = i % 2 === 1;
+                return (
+                  <li key={c.id}>
+                    <FadeIn>
+                      <Link
+                        href={`/cases/${c.slug}`}
+                        className="group grid items-center gap-8 lg:grid-cols-12 lg:gap-16"
                       >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          d="M17 8l4 4m0 0l-4 4m4-4H3"
-                        />
-                      </svg>
-                    </span>
+                        {harBillede && (
+                          <div className={`lg:col-span-7 ${spejlet ? "lg:order-2" : ""}`}>
+                            <Billede c={c} prioritet={i === 0} />
+                          </div>
+                        )}
+                        <div className={harBillede ? "lg:col-span-5" : "lg:col-span-9"}>
+                          <p className="kicker text-gray-600">
+                            {c.customer} · {KATEGORI[c.category]}
+                          </p>
+                          <h2 className="mt-5 text-balance text-[clamp(1.75rem,3.2vw,2.75rem)] font-bold leading-[1.06] tracking-display text-gray-900">
+                            {c.title}
+                          </h2>
+                          <p className="mt-5 line-clamp-4 max-w-[52ch] text-[1.0625rem] leading-relaxed text-gray-600">
+                            {udenTankestreg(c.challenge)}
+                          </p>
+                          <span className="mt-7 inline-flex items-center gap-1.5 text-[0.9375rem] font-semibold text-gray-900">
+                            <span className="understreg">Læs casen</span>
+                            <span aria-hidden="true" className="transition-transform duration-200 group-hover:translate-x-0.5">
+                              →
+                            </span>
+                          </span>
+                        </div>
+                      </Link>
+                    </FadeIn>
+                  </li>
+                );
+              })}
+            </ol>
+          )}
+        </div>
+      </section>
 
-                    <div className="relative z-10">
-                      <p className="text-[11px] uppercase tracking-[0.15em] text-primary font-semibold mb-2">
-                        Jeres tur
-                      </p>
-                      <h3 className="text-xl lg:text-2xl font-bold tracking-heading text-white leading-snug">
-                        Bliv den næste case
-                      </h3>
-                    </div>
-                  </div>
-                </Link>
-              </FadeIn>
-            </div>
-          </div>
-        </section>
-      )}
+      {/* --- Referencer --- */}
+      <section className="section-y-tight border-t border-gray-100 bg-white">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <SektionHoved
+            kicker="Flere kunder"
+            titel="Ikke alle projekter bliver til en case."
+            tekst="Under referencer står de virksomheder, vi har bygget til, fra kaffe og kirker til vindmøller og festivalarmbånd."
+          >
+            <Link href="/referencer" className="mt-6 inline-flex items-center gap-1.5 text-[0.9375rem] font-semibold text-gray-900">
+              <span className="understreg">Se alle referencer</span>
+              <span aria-hidden="true">→</span>
+            </Link>
+          </SektionHoved>
+        </div>
+      </section>
 
-      <SubpageCTA
-        heading="Klar til at blive den næste case?"
-        description="Book en gratis AI-afklaring og find ud af hvad AI kan gøre for jeres virksomhed."
-      />
+      <TalMedAlexander titel="Bliv den næste case." />
     </>
   );
 }

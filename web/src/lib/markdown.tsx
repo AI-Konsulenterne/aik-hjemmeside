@@ -27,7 +27,7 @@ function inlineMarkdown(text: string): ReactNode[] {
         <a
           key={key++}
           href={match[3]}
-          className="text-primary hover:underline"
+          className="font-semibold text-gray-900 underline decoration-gray-300 underline-offset-4 transition-colors hover:decoration-gray-900"
           target={match[3].startsWith("http") ? "_blank" : undefined}
           rel={match[3].startsWith("http") ? "noopener noreferrer" : undefined}
         >
@@ -49,7 +49,7 @@ function inlineMarkdown(text: string): ReactNode[] {
       parts.push(
         <code
           key={key++}
-          className="bg-gray-100 text-primary font-mono text-[0.9em] px-1.5 py-0.5 rounded"
+          className="bg-gray-100 text-gray-900 font-mono text-[0.9em] px-1.5 py-0.5 rounded"
         >
           {match[9]}
         </code>,
@@ -118,7 +118,7 @@ export function renderMarkdown(source: string): ReactNode {
       blocks.push(
         <ul
           key={key++}
-          className="list-disc pl-6 my-4 text-gray-700 marker:text-primary"
+          className="list-disc pl-6 my-4 text-gray-700 marker:text-gray-400"
         >
           {items}
         </ul>,
@@ -140,7 +140,7 @@ export function renderMarkdown(source: string): ReactNode {
       blocks.push(
         <ol
           key={key++}
-          className="list-decimal pl-6 my-4 text-gray-700 marker:text-primary"
+          className="list-decimal pl-6 my-4 text-gray-700 marker:text-gray-500"
         >
           {items}
         </ol>,
