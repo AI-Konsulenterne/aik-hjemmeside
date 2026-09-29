@@ -274,7 +274,7 @@ export default async function CaseDetail({
                   </p>
                   <Link
                     href="/kontakt"
-                    className="block w-full text-center whitespace-nowrap bg-primary text-white rounded-full px-5 py-3 text-sm font-semibold hover:bg-primary-dark transition-colors"
+                    className="block w-full text-center whitespace-nowrap bg-primary text-black rounded-full px-5 py-3 text-sm font-semibold hover:bg-primary-dark transition-colors"
                   >
                     Book en snak
                   </Link>

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import ProofFilm from "@/components/sections/ProofFilm";
 import FadeIn from "@/components/ui/FadeIn";
-import { FILM_INTRO, FILM_SHOTS, FILM_SHOTS_KUNDER } from "@/content/film";
+import { FILM_INTRO, FILM_SHOTS_KUNDER } from "@/content/film";
 
 export const metadata: Metadata = {
   title: "Referencer",
@@ -117,7 +117,7 @@ export default function Referencer() {
             <div className="flex flex-wrap items-center gap-x-8 gap-y-4">
               <Link
                 href="/kontakt"
-                className="inline-flex items-center justify-center bg-primary px-7 py-4 text-sm font-semibold text-white transition-colors duration-200 hover:bg-primary-dark"
+                className="inline-flex items-center justify-center bg-primary px-7 py-4 text-sm font-semibold text-black transition-colors duration-200 hover:bg-primary-dark"
               >
                 Book en gratis AI-afklaring
               </Link>

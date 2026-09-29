@@ -26,7 +26,7 @@ type ButtonProps = {
  * får knappen til at hoppe, og det er ikke det udtryk vi vil have.
  */
 const variantClasses = {
-  primary: "bg-primary text-white hover:bg-primary-dark",
+  primary: "bg-primary text-black hover:bg-primary-dark",
   secondary:
     "border border-gray-900/80 text-gray-900 hover:bg-gray-900 hover:text-white",
   white: "bg-white text-gray-900 hover:bg-white/90",

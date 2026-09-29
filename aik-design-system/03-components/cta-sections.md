@@ -59,15 +59,15 @@ Mindre, mere kontekstuel.
 ```tsx
 <section className="py-16 md:py-20">
   <div className="mx-auto max-w-3xl px-6 md:px-8 text-center
-                  bg-primary text-white rounded-3xl py-12 md:py-16 px-8">
+                  bg-primary text-black rounded-3xl py-12 md:py-16 px-8">
     <h2 className="text-2xl md:text-3xl font-bold mb-4">
       Lyder dette interessant?
     </h2>
     <p className="text-base md:text-lg mb-8 opacity-90">
       Book et gratis møde — vi viser jer hvordan det kunne se ud hos jer.
     </p>
-    <Button cal size="lg" variant="secondary"
-            className="bg-white text-primary hover:bg-gray-50 border-0">
+    {/* Sort knap på orange flade. Orange tekst på hvid knap er 2,13:1. */}
+    <Button cal size="lg" variant="dark">
       Book et møde
     </Button>
   </div>

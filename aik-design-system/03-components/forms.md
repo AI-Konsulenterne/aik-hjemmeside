@@ -58,7 +58,7 @@ export default function EmailCapture({ source }: { source: string }) {
       <button
         type="submit"
         disabled={state === "loading"}
-        className="px-6 py-3 rounded-full font-semibold bg-primary text-white
+        className="px-6 py-3 rounded-full font-semibold bg-primary text-black
                    hover:bg-primary-dark disabled:opacity-50 transition-all"
       >
         {state === "loading" ? "Sender..." : "Hent guiden"}

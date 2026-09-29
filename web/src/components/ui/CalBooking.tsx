@@ -23,7 +23,7 @@ export default function CalBooking({ className = "" }: CalBookingProps) {
       </p>
       <a
         href="tel:+4525547074"
-        className="inline-flex items-center gap-2 mt-8 bg-primary text-white font-semibold rounded-full px-8 py-4 text-lg hover:bg-primary-dark hover:-translate-y-0.5 hover:shadow-lg transition-all duration-200"
+        className="inline-flex items-center gap-2 mt-8 bg-primary text-black font-semibold rounded-full px-8 py-4 text-lg hover:bg-primary-dark hover:-translate-y-0.5 hover:shadow-lg transition-all duration-200"
       >
         Ring til Alexander — +45 25 54 70 74
       </a>

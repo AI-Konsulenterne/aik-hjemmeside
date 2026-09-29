@@ -261,7 +261,7 @@ function CourseCard({
     <div className="flex flex-col rounded-[22px] border border-gray-200 overflow-hidden transition-all duration-200 hover:border-gray-300 hover:-translate-y-1 hover:shadow-lg">
       <div className="relative">
         {badge && (
-          <span className="absolute top-4 left-4 z-10 text-[11px] font-bold tracking-[0.12em] uppercase px-3 py-1.5 rounded-full bg-primary text-white shadow-md">
+          <span className="absolute top-4 left-4 z-10 text-[11px] font-bold tracking-[0.12em] uppercase px-3 py-1.5 rounded-full bg-primary text-black shadow-md">
             {badge}
           </span>
         )}
@@ -284,8 +284,8 @@ function CourseCard({
 
 const glyphTile = (variant: "orange" | "dark", icon: React.ReactNode) => (
   <span
-    className={`w-14 h-14 rounded-[15px] flex items-center justify-center text-white ${
-      variant === "orange" ? "bg-primary" : "bg-gray-900"
+    className={`w-14 h-14 rounded-[15px] flex items-center justify-center ${
+      variant === "orange" ? "bg-primary text-black" : "bg-gray-900 text-white"
     }`}
   >
     {icon}
@@ -358,7 +358,7 @@ export default function AcademyLanding() {
                     priority
                     className="w-full rounded-[24px] shadow-[0_34px_64px_-26px_rgba(0,0,0,.4)]"
                   />
-                <div className="absolute -top-3 -right-3 z-[4] flex items-center gap-2 bg-primary text-white text-[13px] font-bold tracking-wide px-[18px] py-[11px] rounded-full shadow-[0_18px_32px_-10px_rgba(255,154,0,.55)]">
+                <div className="absolute -top-3 -right-3 z-[4] flex items-center gap-2 bg-primary text-black text-[13px] font-bold tracking-wide px-[18px] py-[11px] rounded-full shadow-[0_18px_32px_-10px_rgba(255,154,0,.55)]">
                   <svg
                     className="w-4 h-4"
                     viewBox="0 0 24 24"
@@ -693,7 +693,7 @@ export default function AcademyLanding() {
               {checklist.map((item, i) => (
                 <FadeIn key={item} delay={i * 60}>
                   <li className="grid grid-cols-[30px_1fr] gap-[18px] items-start py-5 border-t border-gray-200 first:border-t-0 text-[19px] leading-snug text-gray-900">
-                    <span className="w-[30px] h-[30px] rounded-full bg-primary text-white flex items-center justify-center mt-0.5">
+                    <span className="w-[30px] h-[30px] rounded-full bg-primary text-black flex items-center justify-center mt-0.5">
                       <Check />
                     </span>
                     {item}

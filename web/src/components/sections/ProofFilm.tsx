@@ -263,7 +263,7 @@ export default function ProofFilm({ variant = "band" }: { variant?: Variant }) {
               <div className="flex flex-wrap items-center gap-x-8 gap-y-4">
                 <Link
                   href="/kontakt"
-                  className="inline-flex items-center justify-center bg-primary px-7 py-4 text-sm font-semibold text-white transition-colors duration-200 hover:bg-primary-dark"
+                  className="inline-flex items-center justify-center bg-primary px-7 py-4 text-sm font-semibold text-black transition-colors duration-200 hover:bg-primary-dark"
                 >
                   Book en gratis AI-afklaring
                 </Link>

@@ -76,7 +76,7 @@ export default function NewsletterForm({
       <button
         type="submit"
         disabled={status === "loading"}
-        className="bg-primary text-white rounded-full px-5 py-2.5 text-sm font-semibold hover:bg-primary-dark transition-colors disabled:opacity-60 disabled:cursor-not-allowed whitespace-nowrap"
+        className="bg-primary text-black rounded-full px-5 py-2.5 text-sm font-semibold hover:bg-primary-dark transition-colors disabled:opacity-60 disabled:cursor-not-allowed whitespace-nowrap"
       >
         {status === "loading" ? "..." : "Tilmeld"}
       </button>

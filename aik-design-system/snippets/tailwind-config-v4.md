@@ -53,7 +53,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 I en komponent:
 
 ```tsx
-<button className="bg-primary text-white px-6 py-3 rounded-full font-semibold">
+<button className="bg-primary text-black px-6 py-3 rounded-full font-semibold">
   Test
 </button>
 ```

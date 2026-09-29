@@ -42,7 +42,7 @@ export default function SaadanArbejderVi() {
             </div>
             <div className="lg:col-span-5">
               <p className="text-[clamp(3rem,5vw,4.25rem)] font-bold leading-none tracking-display text-gray-900">
-                80<span className="text-primary">%</span>
+                80%
               </p>
               <p className="mt-3 max-w-[40ch] text-[0.975rem] leading-relaxed text-gray-600">
                 af AI-projekter leverer ikke den værdi, virksomheden forventede.

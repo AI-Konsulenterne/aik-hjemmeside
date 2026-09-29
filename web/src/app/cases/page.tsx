@@ -207,7 +207,7 @@ export default async function Cases() {
 
                     <span className="relative z-10 inline-flex w-10 h-10 rounded-full border border-white/30 items-center justify-center self-end group-hover:bg-primary group-hover:border-primary transition-colors">
                       <svg
-                        className="w-4 h-4 text-white"
+                        className="w-4 h-4 text-white transition-colors group-hover:text-black"
                         fill="none"
                         stroke="currentColor"
                         strokeWidth={2}

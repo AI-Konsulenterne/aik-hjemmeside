@@ -94,7 +94,7 @@ export default function LeadMagnet() {
                   <button
                     type="submit"
                     disabled={loading}
-                    className="bg-primary text-white font-semibold rounded-full px-8 py-3.5 hover:bg-primary-dark hover:-translate-y-0.5 hover:shadow-lg transition-all duration-200 w-full disabled:opacity-60 disabled:cursor-not-allowed disabled:transform-none"
+                    className="bg-primary text-black font-semibold rounded-full px-8 py-3.5 hover:bg-primary-dark hover:-translate-y-0.5 hover:shadow-lg transition-all duration-200 w-full disabled:opacity-60 disabled:cursor-not-allowed disabled:transform-none"
                   >
                     {loading ? "Sender..." : "Hent guiden gratis"}
                   </button>

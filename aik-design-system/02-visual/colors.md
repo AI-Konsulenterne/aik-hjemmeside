@@ -41,7 +41,9 @@ Tilføjet til de oprindelige tre brand-farver for praktisk UI-arbejde (subtile b
 
 ## Tilgængelighed
 
-- `#ff9a00` på hvid: kontrastforhold ~2.5:1 — **ikke tilstrækkeligt** til brødtekst. Brug kun orange tekst på hvid for store overskrifter (≥24px) eller dekorativt. Brug **hvid tekst på orange** til CTAs.
+- `#ff9a00` på hvid: kontrastforhold **2,13:1**. Det dumper WCAG AA for al tekst, også store overskrifter (kravet for stor tekst er 3:1). Orange bærer derfor aldrig tekst på lyse flader; brug den dekorativt (prikker, streger, lamper, ikoner ved siden af tekst).
+- Tekst **på** orange er altid sort: `#000` på `#ff9a00` giver **9,9:1**. Hvid tekst på orange giver 2,13:1 og bruges ikke.
+- Orange tekst på mørke flader er fint: `#ff9a00` på `#0a0a0a` giver ca. 9,3:1.
 - `#171717` på hvid: kontrastforhold >15:1 — opfylder WCAG AAA.
 - Tjek altid kontrast når du sætter orange tekst på hvid.
 

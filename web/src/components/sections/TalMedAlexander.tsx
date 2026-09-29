@@ -24,7 +24,7 @@ const vilkaar = [
 
 export default function TalMedAlexander() {
   return (
-    <section data-header="moerk" className="section-y relative overflow-hidden bg-ink">
+    <section data-header="moerk" data-alexander className="section-y relative overflow-hidden bg-ink">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-16">
           <FadeIn className="lg:col-span-5">

@@ -223,7 +223,7 @@ export default function GuideForm() {
         <button
           type="submit"
           disabled={loading}
-          className="w-full bg-primary text-white font-semibold rounded-full px-8 py-3.5 hover:bg-primary-dark hover:-translate-y-0.5 hover:shadow-lg transition-all duration-200 disabled:opacity-60 disabled:cursor-not-allowed disabled:transform-none"
+          className="w-full bg-primary text-black font-semibold rounded-full px-8 py-3.5 hover:bg-primary-dark hover:-translate-y-0.5 hover:shadow-lg transition-all duration-200 disabled:opacity-60 disabled:cursor-not-allowed disabled:transform-none"
         >
           {loading ? "Genererer jeres analyse…" : "Få min gratis AI-analyse"}
         </button>

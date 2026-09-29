@@ -67,7 +67,7 @@ export default function FAQ() {
                       <span
                         aria-hidden="true"
                         className={`mt-0.5 shrink-0 text-xl leading-none text-gray-800 transition-transform duration-300 ease-precise ${
-                          isOpen ? "rotate-45 text-primary" : ""
+                          isOpen ? "rotate-45 text-gray-900" : ""
                         }`}
                       >
                         +

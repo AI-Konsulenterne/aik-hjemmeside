@@ -80,7 +80,7 @@ export default function ProblemSolution() {
                     aria-label={`Trin ${i + 1}`}
                     className={`w-10 h-10 rounded-full text-sm font-bold transition-colors ${
                       open === i
-                        ? "bg-primary text-white"
+                        ? "bg-primary text-black"
                         : "bg-white text-gray-500 ring-1 ring-gray-200 hover:ring-primary/40"
                     }`}
                   >

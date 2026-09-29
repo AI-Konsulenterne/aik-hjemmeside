@@ -1,141 +1,153 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
+
+/**
+ * Kortet fra Alexander.
+ *
+ * Her lå en modal i fuld størrelse. Den kom ved halvvejs scroll eller efter
+ * 45 sekunder, lagde et mørkt slør over siden og afbrød læseren midt i
+ * Lavazza-casen. Det var det eneste på forsiden, der stadig føltes som en
+ * lille-virksomheds-side, og det er det sidste en it-chef vil møde.
+ *
+ * Nu er det et lille kort nederst til venstre på store skærme. Siden kan
+ * læses videre ved siden af det, og det lukkes med ét klik eller Escape.
+ * Det kommer én gang pr. session, ved samme tidspunkt som før, og trækker
+ * sig mens "Tal med Alexander" er i billedet, så han ikke står der to gange.
+ *
+ * På telefoner vises det ikke. Der har bundbjælken allerede "Ring til
+ * Alexander", og et kort ville dække halvdelen af skærmen.
+ *
+ * Nøglen i sessionStorage er den samme som popup'ens, så den der har lukket
+ * popup'en i denne session, heller ikke får kortet.
+ */
+
+const NOEGLE = "aik-popup-dismissed";
 
 export default function PopupPhone() {
-  const [visible, setVisible] = useState(false);
+  const [klar, setKlar] = useState(false);
+  const [lukket, setLukket] = useState(false);
+  const [alexanderISyne, setAlexanderISyne] = useState(false);
 
+  /* Samme udløser som popup'en: mere end halvdelen af siden læst, eller
+     45 sekunder på siden. Alt sker i callbacks, ikke direkte i effekten. */
   useEffect(() => {
-    if (sessionStorage.getItem("aik-popup-dismissed")) return;
+    let afvist = false;
+    try {
+      afvist = !!sessionStorage.getItem(NOEGLE);
+    } catch {}
+    if (afvist) return;
 
-    // Show popup after user has scrolled 50% of the page
-    function onScroll() {
-      const scrollPercent =
-        window.scrollY / (document.documentElement.scrollHeight - window.innerHeight);
-      if (scrollPercent > 0.5) {
-        setVisible(true);
-        window.removeEventListener("scroll", onScroll);
-      }
-    }
-
-    // Also show after 45 seconds as fallback (for users who read slowly)
-    const timer = setTimeout(() => {
-      setVisible(true);
+    let timer = 0;
+    const vis = () => {
+      setKlar(true);
       window.removeEventListener("scroll", onScroll);
-    }, 45000);
-
+      window.clearTimeout(timer);
+    };
+    function onScroll() {
+      const ialt = document.documentElement.scrollHeight - window.innerHeight;
+      if (ialt > 0 && window.scrollY / ialt > 0.5) vis();
+    }
+    timer = window.setTimeout(vis, 45000);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => {
-      clearTimeout(timer);
+      window.clearTimeout(timer);
       window.removeEventListener("scroll", onScroll);
     };
   }, []);
 
-  function dismiss() {
-    sessionStorage.setItem("aik-popup-dismissed", "true");
-    setVisible(false);
+  /* Træk kortet væk mens sektionen med Alexander er synlig. */
+  useEffect(() => {
+    if (!klar) return;
+    const sektion = document.querySelector("[data-alexander]");
+    if (!sektion) return;
+    const io = new IntersectionObserver(([e]) => setAlexanderISyne(e.isIntersecting), {
+      threshold: 0.15,
+    });
+    io.observe(sektion);
+    return () => io.disconnect();
+  }, [klar]);
+
+  function luk() {
+    try {
+      sessionStorage.setItem(NOEGLE, "true");
+    } catch {}
+    setLukket(true);
   }
 
-  if (!visible) return null;
+  const synlig = klar && !lukket && !alexanderISyne;
+
+  if (!klar || lukket) return null;
 
   return (
-    <div
-      className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 animate-overlay-in"
-      onClick={dismiss}
+    <aside
+      aria-label="Kontakt Alexander"
+      aria-hidden={!synlig}
+      onKeyDown={(e) => {
+        if (e.key === "Escape") luk();
+      }}
+      className={`fixed bottom-8 left-8 z-40 hidden w-[22rem] rounded-2xl border border-black/[0.06] bg-white p-5 shadow-[0_28px_70px_-24px_rgba(0,0,0,0.35)] transition-[opacity,translate] duration-500 ease-out motion-reduce:transition-none lg:block ${
+        synlig ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-3 opacity-0"
+      }`}
     >
-      <div
-        className="bg-black rounded-2xl shadow-2xl max-w-4xl w-full overflow-hidden animate-popup-in relative grid grid-cols-1 md:grid-cols-2"
-        onClick={(e) => e.stopPropagation()}
+      <button
+        type="button"
+        onClick={luk}
+        aria-label="Luk"
+        tabIndex={synlig ? 0 : -1}
+        className="absolute right-3 top-3 flex h-8 w-8 items-center justify-center rounded-full text-gray-500 transition-colors hover:bg-gray-100 hover:text-gray-900"
       >
-        {/* Close button */}
-        <button
-          onClick={dismiss}
-          aria-label="Luk popup"
-          className="absolute top-4 right-4 z-10 text-white hover:text-primary transition-colors"
+        <svg className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24" aria-hidden="true">
+          <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+
+      <div className="flex items-center gap-3.5 pr-8">
+        <div className="relative h-12 w-12 flex-none overflow-hidden rounded-full bg-gray-100">
+          <Image
+            src="/team/alexander-hero.png"
+            alt=""
+            fill
+            sizes="48px"
+            className="object-cover object-[50%_20%]"
+          />
+        </div>
+        <div>
+          <p className="text-[0.9375rem] font-semibold leading-tight text-gray-900">Alexander</p>
+          <p className="mt-0.5 text-[0.8125rem] leading-tight text-gray-600">AI-konsulent, AI Konsulenterne</p>
+        </div>
+      </div>
+
+      <p className="mt-4 text-[0.9375rem] leading-relaxed text-gray-700">
+        Har I en opgave, I tror AI kan tage? Ring direkte, så finder vi ud af
+        det sammen. Det er ikke et salgsopkald.
+      </p>
+
+      <div className="mt-5 flex items-center gap-4">
+        <a
+          href="tel:+4525547074"
+          tabIndex={synlig ? 0 : -1}
+          className="inline-flex items-center gap-2 rounded-full bg-primary px-4 py-2.5 text-sm font-semibold text-black transition-colors hover:bg-primary-dark"
         >
-          <svg
-            className="w-7 h-7"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth={2.5}
-            viewBox="0 0 24 24"
-            aria-hidden="true"
-          >
+          <svg className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth={1.9} viewBox="0 0 24 24" aria-hidden="true">
             <path
               strokeLinecap="round"
               strokeLinejoin="round"
-              d="M6 18L18 6M6 6l12 12"
+              d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"
             />
           </svg>
-        </button>
-
-        {/* Left — Alexander portrait */}
-        <div className="relative h-64 md:h-auto md:min-h-[440px] bg-black">
-          <Image
-            src="/team/alexander.png"
-            alt="Alexander, AI-konsulent hos AI Konsulenterne"
-            fill
-            priority
-            className="object-cover object-center"
-            sizes="(max-width: 768px) 100vw, 50vw"
-          />
-        </div>
-
-        {/* Right — copy + CTA */}
-        <div className="p-8 lg:p-10 flex flex-col justify-between text-white">
-          <div>
-            <h2 className="text-2xl lg:text-3xl font-bold tracking-heading text-primary leading-tight">
-              Giv mig et kald og lad os starte jeres AI-rejse
-            </h2>
-            <p className="mt-6 text-gray-300 leading-relaxed text-sm lg:text-base">
-              Mit navn er Alexander! Jeg er AI-konsulent og vil rigtig gerne hjælpe jer med at komme i gang med AI. Lad os afklare jeres behov og finde et konkret forslag til næste skridt. Uforpligtende og lige til.
-            </p>
-
-            <div className="mt-6 space-y-2 text-sm lg:text-base">
-              <p className="text-gray-300">
-                <span className="font-semibold text-white">Telefonnummer:</span>{" "}
-                <a
-                  href="tel:+4525547074"
-                  className="text-primary font-semibold hover:underline"
-                >
-                  +45 25 54 70 74
-                </a>
-              </p>
-              <p className="text-gray-300">
-                <span className="font-semibold text-white">Email:</span>{" "}
-                <a
-                  href="mailto:alexander@ai-konsulenterne.dk"
-                  className="text-primary font-semibold hover:underline break-all"
-                >
-                  alexander@ai-konsulenterne.dk
-                </a>
-              </p>
-            </div>
-          </div>
-
-          <a
-            href="tel:+4525547074"
-            className="mt-8 inline-flex items-center justify-center gap-2 bg-primary text-white font-semibold rounded-full px-6 py-3.5 text-base hover:bg-primary-dark hover:-translate-y-0.5 hover:shadow-lg transition-all duration-200 w-full"
-          >
-            <svg
-              className="w-5 h-5"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth={2}
-              viewBox="0 0 24 24"
-              aria-hidden="true"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"
-              />
-            </svg>
-            Ring til Alexander
-          </a>
-        </div>
+          +45 25 54 70 74
+        </a>
+        <Link
+          href="/kontakt"
+          tabIndex={synlig ? 0 : -1}
+          className="text-sm font-semibold text-gray-900 underline decoration-gray-300 underline-offset-4 transition-colors hover:decoration-gray-900"
+        >
+          Book en samtale
+        </Link>
       </div>
-    </div>
+    </aside>
   );
 }

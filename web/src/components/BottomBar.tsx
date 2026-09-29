@@ -58,7 +58,7 @@ export default function BottomBar() {
         <Link
           href="/kontakt"
           tabIndex={vis ? 0 : -1}
-          className="rounded-full bg-primary px-4 py-2 text-[0.8125rem] font-semibold text-white transition-colors hover:bg-primary-dark"
+          className="rounded-full bg-primary px-4 py-2 text-[0.8125rem] font-semibold text-black transition-colors hover:bg-primary-dark"
         >
           Book en samtale
         </Link>

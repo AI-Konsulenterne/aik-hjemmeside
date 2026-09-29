@@ -383,7 +383,7 @@ export default function LeadMagnetForm() {
             <button
               type="button"
               onClick={next}
-              className="flex-1 bg-primary text-white font-semibold rounded-full px-8 py-3.5 hover:bg-primary-dark transition-colors"
+              className="flex-1 bg-primary text-black font-semibold rounded-full px-8 py-3.5 hover:bg-primary-dark transition-colors"
             >
               Videre
             </button>
@@ -391,7 +391,7 @@ export default function LeadMagnetForm() {
             <button
               type="submit"
               disabled={loading}
-              className="flex-1 bg-primary text-white font-semibold rounded-full px-8 py-3.5 hover:bg-primary-dark transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
+              className="flex-1 bg-primary text-black font-semibold rounded-full px-8 py-3.5 hover:bg-primary-dark transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
             >
               {loading ? "Genererer jeres forslag…" : "Få vores 3 forslag"}
             </button>

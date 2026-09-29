@@ -6,8 +6,15 @@ Reference: `src/components/ui/Button.tsx`.
 
 | Variant | Brug |
 |---|---|
-| `primary` | Hoved-CTA (én pr. sektion). Orange baggrund, hvid tekst. |
+| `primary` | Hoved-CTA (én pr. sektion). Orange baggrund, **sort tekst** (9,9:1). |
 | `secondary` | Sekundær handling. Sort outline, hvid baggrund. |
+| `dark` | Rolig handling på lys flade, fx i navigationen. |
+| `white` | Rolig handling på mørk flade. |
+| `ghost` | Sekundær handling på mørk flade eller over billeder. Hvid outline. |
+
+**Hvorfor sort og ikke hvid tekst på orange:** hvid på `#ff9a00` giver 2,13:1 og
+dumper WCAG AA, også for stor tekst (kravet er 3:1). Sort giver 9,9:1. Den første
+udgave af designsystemet sagde hvid tekst; det blev ændret i september 2026.
 
 ## Størrelser
 
@@ -28,7 +35,7 @@ Reference: `src/components/ui/Button.tsx`.
 ```tsx
 // Primary
 <button className="inline-flex items-center justify-center font-semibold rounded-full
-                   bg-primary text-white hover:bg-primary-dark
+                   bg-primary text-black hover:bg-primary-dark
                    transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg
                    px-6 py-3 text-sm">
   Book et møde
