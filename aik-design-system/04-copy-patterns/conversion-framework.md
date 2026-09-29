@@ -6,11 +6,11 @@ Sitet er bygget til ét formål: **folk skal booke et møde med Alexander.** Alt
 
 ### 1. Dream Outcome — vær ekstremt specifik
 
-Brug research-backed tal — McKinsey, MIT, Harvard. Ikke AIK-specifikke endnu.
+Brug research-backed tal med en kilde, I kan pege på. Ikke AIK-specifikke endnu.
 
 Eksempler:
-- *McKinsey: Virksomheder der implementerer AI i administrative processer sparer gennemsnitligt 20-30% af arbejdstiden.*
-- *MIT-studie: AI-assisterede medarbejdere løser opgaver 40% hurtigere.*
+- *MIT-studie (Noy og Zhang, Science 2023): professionelle brugte 40 % kortere tid på skriveopgaver med ChatGPT.* Brug det med den afgrænsning.
+- Brug ikke McKinsey-tallet "20-30 % af arbejdstiden": AIK kender ikke kilden, og det er fjernet fra sitet (29/9).
 - Formulér konkret: *"Spar 1 dag om ugen på manuelle processer — inden 60 dage."*
 
 ### 2. Perceived Likelihood — konkret social proof

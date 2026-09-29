@@ -48,6 +48,8 @@ export const metadata: Metadata = {
  *
  * Fakta og priser er de samme som før: 150 kr. pr. bruger, data i
  * Microsoft Azure (EU), frit valg af model, i gang inden for få uger.
+ * Bindingen er 3 måneder (bekræftet af AIK 29/9); den gamle side sagde
+ * "Ingen binding".
  * Forbruget i bentoen og HR-svaret er eksempler og siger det selv.
  */
 
@@ -108,7 +110,7 @@ const FAQS = [
   },
   {
     q: "Hvad koster det?",
-    a: "150 kr. pr. bruger om måneden. Tokens, søgninger og hukommelse er med i prisen, og der er ingen binding.",
+    a: "150 kr. pr. bruger om måneden. Tokens, søgninger og hukommelse er med i prisen, og der er 3 måneders binding.",
   },
   {
     q: "Hvor lang tid tager det at komme i gang?",
@@ -444,7 +446,7 @@ export default function VisionAI() {
         titel="Se AIK Workspace i brug."
         tekst="Book en demo, så viser Alexander platformen og hvordan den kan kobles på jeres systemer. Det forpligter ikke til noget."
         punkter={[
-          ["Ingen binding", "Hverken på demoen eller på platformen."],
+          ["Uforpligtende demo", "I binder jer først, når I siger ja."],
           ["Hurtig opsætning", "De fleste virksomheder er i gang inden for få uger."],
           ["GDPR-compliant", "Data i Microsoft Azure (EU), aldrig delt med andre."],
         ]}
@@ -466,7 +468,7 @@ function SektionHovedEnkel() {
         for jer.
       </p>
       <ul className="mt-8 space-y-2.5 text-[0.9375rem] text-gray-900">
-        {["Ingen binding", "GDPR-compliant", "Hurtig opsætning"].map((t) => (
+        {["Data i EU og GDPR-compliant", "I gang inden for få uger", "3 måneders binding"].map((t) => (
           <li key={t} className="flex items-center gap-3">
             <span className="h-1.5 w-1.5 rounded-full bg-gray-900" aria-hidden="true" />
             {t}

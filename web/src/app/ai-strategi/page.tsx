@@ -106,10 +106,14 @@ const TRIN = [
   },
 ];
 
+/* Kun tal med en kilde, vi kan pege på. McKinsey-tallet (20-30 %) er
+   fjernet: AIK kender ikke kilden. MIT-tallet er Noy og Zhang, Science
+   2023: professionelle med ChatGPT brugte 40 % kortere tid på
+   skriveopgaver. Det står nu med netop den afgrænsning. */
 const TAL = [
-  ["20-30%", "af arbejdstiden i administrative processer kan spares med AI.", "McKinsey"],
-  ["40%", "hurtigere løser AI-assisterede medarbejdere deres opgaver.", "MIT-studie"],
+  ["40%", "kortere tid brugte professionelle på skriveopgaver med ChatGPT.", "MIT-studie, Science 2023"],
   ["Et par uger", "fra første møde til en roadmap, I kan begynde at bruge.", "Typisk forløb hos os"],
+  ["45 min.", "gratis AI-afklaring, hvor vi finder ud af, hvor I skal starte.", "Uden forpligtelse"],
 ];
 
 const VIDERE = [

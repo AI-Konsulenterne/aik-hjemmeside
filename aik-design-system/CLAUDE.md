@@ -47,7 +47,7 @@ Hvis svaret på alle tre er ja, er du på rette vej.
 
 Alt salgscopy på AIKs site følger Hormozi-rammen:
 
-- **Dream Outcome** — vær konkret og research-backed (McKinsey: 20-30% tidsbesparelse, MIT: 40% hurtigere opgaveløsning).
+- **Dream Outcome** — vær konkret og research-backed, kun med tal der har en kilde (fx MIT, Science 2023: 40 % kortere tid på skriveopgaver med ChatGPT). Ikke McKinsey-tallet "20-30 %": kilden kendes ikke.
 - **Perceived Likelihood** — navngivne cases med konkrete resultater, ikke kun logoer.
 - **Time to Value** — *"Gratis 45-minutters AI-afklaring — ingen forpligtelse."*
 - **Reduce Effort** — *"I skal ikke forberede noget. Vi tager det hele."*

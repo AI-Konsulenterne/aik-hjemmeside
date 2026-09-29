@@ -135,12 +135,14 @@ export default function Forside() {
           bare ikke på forsiden. Begge tidligere udgaver ligger på hver sin
           branch: claude/simpel-udgave og claude/ml-udgave.
 
-          Udtalelser og team kommer fra Strapi og er også taget af forsiden.
-          Seed-dataene har anonyme udtalelser ("Ledelse, INDKOM") fra kunder
-          vi ikke må nævne, og tre teammedlemmer der hedder "Navn kommer".
-          Alexander står i bunden, og teamet hører til på /om-os. Kommer der
-          en navngiven udtalelse fra Lavazza, J.M Band eller Smukfest, er
-          komponenten klar til at komme tilbage. */}
+          Udtalelser kommer fra Strapi og er taget af forsiden. Seed-dataene
+          har anonyme udtalelser ("Ledelse, INDKOM") fra kunder vi ikke må
+          nævne. Kommer der en navngiven udtalelse fra Lavazza eller J.M Band,
+          er komponenten klar til at komme tilbage. Smukfest er J.M Bands
+          kunde, ikke vores, og nævnes ikke som vores.
+
+          Holdet er tilbage (Team): det viser kun rigtige navne fra Strapi og
+          skjuler pladsholderne ("Navn kommer"). */}
       <HomeHero />
       <ToSpor />
       <DataHistorie />
