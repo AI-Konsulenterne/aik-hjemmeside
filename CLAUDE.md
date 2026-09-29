@@ -53,7 +53,7 @@ Ny hjemmeside til **AI Konsulenterne (AIK)** — dansk AI-konsulenthus der bygge
 |---|---|
 | Framework | Next.js (App Router) |
 | Styling | Tailwind CSS |
-| CMS | Strapi Cloud |
+| Indhold | I repoet: artikler som markdown, cases og hold som filer (Strapi lukket 29/9) |
 | Hosting | Hetzner |
 | CDN | Cloudflare (gratis tier) |
 | Domain | Simply |
@@ -171,49 +171,27 @@ Brug research-backed tal med en kilde, vi kan pege på — ikke AIK-specifikke:
 
 ---
 
-## Strapi CMS — Indholdstyper
+## Indhold (i repoet, intet CMS)
 
-Følgende skal kunne redigeres uden at røre kode:
+Strapi blev lukket 29/9 2026. Alt indhold ligger nu i repoet og bygges med ved
+hvert deploy:
 
-```
-Cases
-  - titel
-  - kunde (navn + logo)
-  - udfordring
-  - løsning
-  - resultater
-  - kategori (Intern AI / Webshop / Vidensbase)
-
-Testimonials
-  - citat
-  - navn
-  - titel
-  - virksomhed
-  - billede
-
-Blog / Viden om AI
-  - titel
-  - indhold (rich text)
-  - forfatter
-  - dato
-  - kategori
-  - SEO meta
-
-Teammedlemmer
-  - navn
-  - titel
-  - billede
-  - bio
-  - LinkedIn URL
-```
+- **Artikler (Viden om AI):** `web/content/blog/<slug>.md`, én fil pr. artikel,
+  med en top af JSON-felter (titel, excerpt, kategori, datoer, SEO). Læses af
+  `web/src/lib/blog.ts`. Format, regler og udgivelse: `web/content/blog-cloud-runbook.md`.
+  Tjek før push: `npm run tjek-blog` i `web/`. `draft: true` skjuler en artikel.
+- **Cases:** `web/src/content/cases.ts`. Kun Lavazza, J.M Band og Wunderwear.
+- **Holdet:** `web/src/content/team.ts`, fotos i `web/public/team/`.
+- **Udtalelser:** ingen endnu. Kommer der en navngiven, kan den stå i en fil
+  ved siden af casene.
 
 ---
 
 ## SEO
 
 - Alle sider: `<title>`, `<meta description>`, Open Graph tags (LinkedIn preview)
-- Sitemap genereres dynamisk af `web/src/app/sitemap.ts` (henter sider, blog og
-  cases fra Strapi, 60s ISR) — ikke et committet artefakt, intet build nødvendigt
+- Sitemap bygges af `web/src/app/sitemap.ts` sammen med sitet og tager alle
+  artikler og cases med
 - Struktureret data (JSON-LD) på forsiden og cases
 - Dansk sprog: `<html lang="da">`
 - Core Web Vitals: LCP < 2.5s, CLS < 0.1
@@ -244,7 +222,7 @@ Teammedlemmer
 │   │   ├── PopupPhone.tsx      # Kort fra Alexander (ikke-modalt, kun store skærme)
 │   │   ├── BottomBar.tsx       # Fast ring-til-os bar
 │   │   └── LeadMagnet.tsx      # PDF download formular
-│   ├── lib/                    # Utilities, Strapi client
+│   ├── lib/                    # Utilities, artikel-læseren (blog.ts)
 │   ├── styles/                 # Globale styles
 │   └── content/                # Statisk indhold / copy
 ├── public/                     # Assets, PDF lead magnet
@@ -257,10 +235,6 @@ Teammedlemmer
 ## Miljøvariabler (.env.local)
 
 ```bash
-# Strapi
-STRAPI_API_URL=
-STRAPI_API_TOKEN=
-
 # Google Analytics
 NEXT_PUBLIC_GA_ID=
 
@@ -292,6 +266,10 @@ NEXT_PUBLIC_CAL_USERNAME=
 ## Kendte kunder (til cases & social proof)
 
 Lavazza, INDKOM, Fregat, Wunderwear, Mæglerakademiet, CETC, Stretchfit, J.M Band
+
+**På sitet og i artiklerne må kun Lavazza, J.M Band og Wunderwear nævnes**
+(afgjort af AIK 29/9). INDKOM nævnes ikke; den gamle case-adresse sender
+videre til `/cases`. Smukfest er J.M Bands kunde, ikke AIK's.
 
 ---
 
@@ -339,6 +317,7 @@ Claude skal læse denne sektion FØR hver opgave og aktivt undgå kendte fejlmø
 | 10 | Lagde det mørke bagtæppe i AIK Workspace-heroen fra sektionens bund (`bottom-[clamp(...)]`). På 390 px voksede sektionen under skærmen (faktaboksen), og første række fakta endte på den mørke flade i mørk tekst: 1,07:1. På 1440 så det rigtigt ud. | Forankr bagtæppet til det element, der skal stå halvt på det (skærmen), og læg alt andet uden for sektionen. Mål kontrast på 390, ikke kun på 1440. |
 | 11 | Foldede logoets streg sammen med `scaleX(0.048)` på et element med CSS-maske. Masken blev samplet om i den lille skala, og der kom en mørk søm på ca. 1 px midt i stregen (pixelværdi 81 mod 255). | Animér bredden (`width` mellem to CSS-variabler) på maskerede elementer, ikke `scale`, og mål den sammenfoldede tilstand på pixels. |
 | 12 | Gav tekstlaget i `/referencer`-filmen `h-full` under en forælder, der kun havde `min-height`. Procenthøjden faldt tilbage til indholdets højde, og tidslinjen stod midt i videoen i stedet for i bunden. | `h-full` virker ikke under en forælder med kun `min-height`. Brug `flex flex-col` på forælderen og `flex-1` på barnet, og mål afstanden til bunden ved flere skærmhøjder. |
+| 13 | Klippede artikelsiderne ud af HTML'en ved første "Læs også" for at tjekke, at hele teksten blev vist. Én artikel skrev selv "Læs også et udpluk …", og siden så ud til at mangle 35 % af teksten. Den manglede intet. | Klip ved en markør, der ikke kan stå i indholdet (en klasse eller et id), og tjek et par sætninger fra slutningen af kilden på siden, før en side meldes ufuldstændig. |
 
 ### Sådan tilføjer du en fejl
 Når Claude laver en fejl, sig bare:
@@ -361,6 +340,7 @@ Claude skriver en kort log efter hver større opgave:
 | 2026-09-29 | Partikelfortælling i WebGL, "Sådan arbejder vi" som scroll-flow, high-end detaljer og kontrast på undersiderne | Færdig | Demovinduet ("Det kører. Lige nu, i din browser.") er erstattet af `DataHistorie`: 90.000 partikler (26.000 på telefon) bevæger sig mellem fire former styret af scroll (spredt viden, dokumenter, graf med en puls fra spørgsmål til kilde, prognose med usikkerhed). WebGL2 uden biblioteker, lys summeret i en float-buffer og tonemappet, så orange forbliver orange. Sløret ligger i shaderen med støj: den tomme flade måler nu 10,0 i alle kolonner mod 9,5-10,4 før. Uden WebGL står teksten og kortene alene og følger stadig kapitlerne. "Sådan arbejder vi": en streg fyldes i sort med scroll, sektionens ene lampe sidder for enden, og hvert trin viser "Det får I". Overskrifter ord for ord, FadeIn står fremme uden JavaScript, Lavazza-billedet åbner sig med scroll (ren CSS). Kontrast målt på pixels på 15 undersider: ca. 180 fund → kun målefejl tilbage (skjulte FAQ-svar, ringen om knapper). CLS 0 ved 1440/1024/390, 60 fps i proces-scroll. Lint uændret (de to kendte fejl). WebGL-billedraten er ikke målt på rigtig GPU; Playwright tegner i software. |
 | 2026-09-29 | Runde 4: logoet folder sig sammen, hele filmen på forsiden, holdet tilbage, og alle undersider bygget om i forsidens sprog | Færdig | Logoet er det officielle ordmærke som CSS-masker (`public/logo/`): fuldt "AI KONSULENTERNE" øverst, foldet til "AIK" ved scroll, farven følger fladen. Forsidens film kører alle 13 skud med begge akter; `ReferencerBaand` er et andet CTA til /referencer længere nede. Holdet er tilbage fra Strapi (pladsholdere skjult, fotos fra repoet som reserve). Tidslinjen på /referencer sidder 43 px fra bunden ved 1440/1920/2560. Navigationen måles igen, når indholdet streames ind (ResizeObserver): 6/6 gennemsigtig over filmen. Undersider: AI-Minds, workshop, skræddersyet AI, fire use cases, AI-strategi, AIK Workspace (produktet i heroen, skærmen retter sig op 20→0 grader over 520 px), om os, kontakt, gratis AI-analyse, cases og casesider (kundens filmskud), Viden om AI (liste med filtre), juridiske sider (typografien manglede helt) og 404. Fælles byggeklodser i `components/side/`. " - " og tankestreger er skrevet ud af teksten; Strapi-tekster normaliseres ved visning. Målt: 20 ruter uden vandret scroll på 390, CLS 0 på 10 nye sider ved 1440/1024/390, kontrast på 12 sider ved 1440 og 390 (ét rigtigt fund, faktaboksen på /visionai, rettet; resten målefejl), sider uden Strapi viser rolige tomme tilstande. Lint uændret. Uden JavaScript viser hele sitet kun indlæsningsprikkerne (se fejl 9 og åbne punkter). |
 | 2026-09-29 | Runde 4, opfølgning: AIKs svar på de åbne punkter | Færdig | `app/loading.tsx` er fjernet efter AIKs OK. Uden JavaScript står hele siden nu fremme (h1 synlig i `main` på 5/5 sider; før kun tre prikker), HTML'en har ingen skjulte stream-blokke, og cases eller artikler, der ikke findes, svarer nu 404 i stedet for 200. Navigationen er gennemsigtig over filmen 6/6, klientnavigation virker, CLS 0 på 5 sider ved 1440/1024/390. AIK Workspace: 3 måneders binding i FAQ, prisafsnit og kontaktlisten ("Uforpligtende demo" i stedet for "Ingen binding"). AI-Minds' "løbende måned + 1" er AIKs egen tekst og er ikke rørt. McKinsey-tallet (20-30 %) er fjernet fra /ai-strategi og fra briefen og designsystemet; MIT-tallet står med kilden og afgrænsningen (skriveopgaver, Science 2023). Smukfest er J.M Bands kunde, ikke vores; det nævnes ikke på sitet, og noterne er rettet. Uden JavaScript kan FAQ-svarene stadig ikke foldes ud. |
+| 2026-09-29 | Runde 5: Strapi lukket, de 31 artikler gennemgået, alle fire på /om-os og /referencer bygget om | Færdig | Strapi er skåret ud (`cms/`, `lib/strapi.ts`, revalidate-ruten, `Testimonials`) efter AIKs OK. Artiklerne er markdown i `web/content/blog` (læses af `lib/blog.ts`), cases og hold står i `src/content`. Live viste kun 25 af 31 artikler i oversigten og sitemappet, fordi Strapi gav 25 pr. kald; alle 31 er flyttet over, ord for ord kontrolleret mod live. Fire gennemgange med kilder: McKinsey-tallet stod i 24 artikler, INDKOM i 11, Lavazza var "trænet på" dokumenterne flere steder (casen siger det modsatte), Microsofts 31 % var læst forkert, AI-politik-artiklen var forældet efter AI-omnibussen (EU 2026/1744, i kraft 27/7), to artikler modsagde sitets priser, og Copilot-artiklerne blandede Copilot Chat og licensen sammen. Alt er rettet; nye påstande er set i en kilde. De to tynde artikler er udvidet (første use case 288 → 953 ord, kundeservice 286 → 985), den om AI-rådgivning er lagt sammen med AI-konsulent (`draft: true` og redirect). `npm run tjek-blog` (ren Node) fanger formatfejl, døde links, McKinsey, INDKOM, tankestreger og redirect-mål, der skjules; 0 fejl på alle 31. Læsetiden regnes ud af teksten. /referencer: filmen under gennemsigtig navigation, de tre cases som store kort med klip ved hover, syv brancher uden navne, undervisning og Alexander. /om-os: de fire med navn, titel og LinkedIn. Målt: build ok (30 artikler, 3 cases i sitemappet), CLS 0 på 6 sider ved 1440/1024/390, ingen vandret scroll på 390, tekst synlig uden JS, kontrast på /referencer og /om-os ved 1440 og 390 (casekortenes etiketter og en brancheetiket rettet; resten målefejl). Lint uændret. |
 
 **Åbent efter 18/8:** sætningen til logostriben ("Før AIK byggede vi til…" vs "Vores stifter har leveret løsninger til…") mangler Benjamins valg. Registret på `/referencer` mangler én sætning pr. kunde om hvad vi konkret byggede — den skal skrives af AIK, ikke gættes. Vindmølleklippet bør skydes om; grade-passet slebet dens amber-lys næsten væk. *(Løst 19/8 i `318bfda`: ny plate med lampen tæt på kameraet.)*
 
@@ -370,6 +350,8 @@ Claude skriver en kort log efter hver større opgave:
 
 **Åbent efter runde 4 (29/9), skal afgøres af AIK:** `src/app/loading.tsx` lægger hele sidens indhold bag en Suspense-grænse, så uden JavaScript ser man kun tre prikker (indholdet står i HTML'en, men skjult). Anbefaling: fjern filen; vi sletter ikke filer uden jeres OK. Strapi har INDKOM og Wunderwear som cases (seed-dataene), og /cases viser det, Strapi indeholder; afpublicér dem i Strapi, hvis de ikke må stå. Retail Partner-casen står stadig på /workshop (uden logo). Martins titel kommer fra Strapi. McKinsey-tallet (20-30 %) på /ai-strategi kommer fra briefen her og er ikke efterprøvet. AIK Workspace: modelnavnene og forbruget i bentoen er eksempler, og "Ingen binding" er overtaget fra den gamle side; bekræft vilkårene. Privatlivspolitikken nævner Cal.com som databehandler, selvom booking er parkeret. Servere i Sverige mod Azure (EU) er stadig åbent. *(Afgjort af AIK 29/9: `loading.tsx` er fjernet. AIK Workspace har 3 måneders binding. McKinsey-tallet er fjernet, fordi kilden ikke kendes. Smukfest er J.M Bands kunde, ikke vores.)*
 
+**Åbent efter runde 5 (29/9), skal afgøres af AIK:** (1) Rækkefølgen ved merge: blog-routinerne læser runbooken på `main`, så indtil denne branch er merget, udgiver de stadig i Strapi. Kommer der nye indlæg i Strapi før merge, skal de flyttes over, ellers forsvinder de. Kollegaens lokale `aik-blog`-skill poster også til Strapi og skal rettes. Strapi Cloud kan opsiges efter merge. (2) Tilbyder AIK foredrag? `ai-foredrag-hvad-faar-i-ud-af-det` anbefaler foredrag, og sitet har ingen foredragsside. (3) De juridiske afsnit (AI-forordningen i `ai-politik-for-virksomheder`, patientdata i `ai-i-sundhedsvaesenet-hvor-det-giver-mening`) bør læses af en jurist. (4) `copilot-priser-2026-...` bygger på Microsofts kampagnepris til 31/12 2026 og skal gennemgås i januar. (5) `copilot-kursus-hvad-koster-det` nævner en opfølgning 2-3 uger efter som kendetegn ved et godt kursus; /workshop lover ikke en. Leverer AIK den? (6) /skraeddersyede-ai siger 50.000-250.000 kr., artiklerne siger "typisk fra 50.000 kr.". (7) Påstande om AIKs egen arbejdsform er beholdt og skal kunne stå til troende: "Det er sådan, vi selv bygger" (sikkerhed), "De fire spørgsmål, vi altid stiller" (første use case), "Vi taler altid med dem, der skal bruge løsningen" (implementering). (8) Er Wunderwear-agenten skriftlig (mail/chat)? Så kan "på skrift" komme tilbage i telefon-artiklen. Stadig åbent fra før: Privatlivspolitikken nævner Cal.com, selvom booking er parkeret, og servere i Sverige mod Azure (EU). *(Løst i runde 5: Strapi og dermed INDKOM og seed-dataene er væk; Martins titel står i `src/content/team.ts` som Senior AI-udvikler.)*
+
 ---
 
-*Version 1.6 — Opdateret: September 2026*
+*Version 1.7 — Opdateret: September 2026*

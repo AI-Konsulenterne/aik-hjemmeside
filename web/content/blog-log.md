@@ -44,7 +44,7 @@ Udgivet via `blog-backlog.md`-køen. Medtaget her, så emnerne ikke gentages.
 | 2026-07-13 | ai implementering | `ai-implementering-saadan-lykkes-det` |
 | 2026-07-05 | ai automatisering | `ai-automatisering-hvad-kan-i-automatisere` |
 | 2026-07-05 | ai marketing | `hvad-er-ai-marketing` |
-| 2026-07-05 | ai rådgivning | `ai-raadgivning-saadan-faar-din-virksomhed-vaerdi` |
+| 2026-07-05 | ai rådgivning | `ai-raadgivning-saadan-faar-din-virksomhed-vaerdi` (29/9: lagt sammen med `hvad-laver-en-ai-konsulent`; står som draft, adressen sender videre) |
 | 2026-07-05 | ai automatisering kundeservice | `ai-automatisering-af-kundeservice` |
 | 2026-07-05 | første ai use case | `saadan-vaelger-i-jeres-foerste-ai-use-case` |
 | 2026-07-04 | ai kursus for virksomheder | `ai-kursus-for-virksomheder-saadan-vaelger-i-det-rigtige` |
@@ -84,5 +84,10 @@ Udgivet via `blog-backlog.md`-køen. Medtaget her, så emnerne ikke gentages.
   Der er lagt 18 nye emner ind (11-28), flere af dem organiseret som klynger, så
   samme emne kan dække tre dage i træk med hvert sit søgeord. #7 "ai kundeservice"
   blev i sin tid sprunget over, fordi den live artikel
-  `ai-automatisering-af-kundeservice` målretter samme søgeord - den er kun 286 ord
-  og er stadig den tyndeste på sitet, så den trænger til en dybere omskrivning.
+  `ai-automatisering-af-kundeservice` målretter samme søgeord. Den er skrevet om
+  29/9 (286 → 985 ord) og er nu en guide i seks trin.
+- **Alle 31 artikler er gennemgået 29/9** mod kilderne og sitet. De hyppigste
+  fejl var McKinsey-tallet (24 artikler), INDKOM (11), Lavazza "trænet på" sine
+  dokumenter (casen siger det modsatte), tal gengivet forkert fra kilden
+  (Microsofts 31 %), og priser, der ikke stemte med sitet. Læs kilden selv, før
+  et tal skrives ind; kan den ikke læses i sandkassen, så lad tallet være.

@@ -227,6 +227,14 @@ const nextConfig: NextConfig = {
         destination: "/cases",
         permanent: true,
       },
+      // Den korte artikel om AI-rådgivning (400 ord) jagtede de samme
+      // læsere som den lange om AI-konsulenter. Den er lagt sammen med den
+      // og står som draft i content/blog (29/9).
+      {
+        source: "/viden-om-ai/ai-raadgivning-saadan-faar-din-virksomhed-vaerdi",
+        destination: "/viden-om-ai/hvad-laver-en-ai-konsulent",
+        permanent: true,
+      },
     ];
   },
 
