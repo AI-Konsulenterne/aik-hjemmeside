@@ -8,13 +8,12 @@ type CalButtonProps = {
 };
 
 /**
- * Cal-booking er parkeret — booking sker via telefon og email. Knappen fører
- * til kontaktsiden.
+ * Kalenderen er ikke aktiveret — knappen fører direkte til kontaktformularen.
  */
 export default function CalButton({
   children,
   className = "",
-  fallbackHref = "/kontakt",
+  fallbackHref = "/kontakt#booking",
 }: CalButtonProps) {
   return (
     <Link href={fallbackHref} className={className}>

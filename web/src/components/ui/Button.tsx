@@ -7,8 +7,7 @@ type ButtonProps = {
   children: React.ReactNode;
   className?: string;
   /**
-   * Bevaret for kompatibilitet. Cal-booking er parkeret — knapper med cal=true
-   * fører til kontaktsiden, hvor booking sker via telefon og email.
+   * Knapper med cal=true fører direkte til forespørgselsformularen.
    */
   cal?: boolean;
 } & React.ButtonHTMLAttributes<HTMLButtonElement>;
@@ -37,8 +36,7 @@ export default function Button({
 }: ButtonProps) {
   const classes = `inline-flex items-center justify-center font-semibold rounded-full transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg ${variantClasses[variant]} ${sizeClasses[size]} ${className}`;
 
-  // Booking sker via telefon/email → kontaktsiden.
-  const target = cal ? href || "/kontakt" : href;
+  const target = cal && (!href || href === "/kontakt") ? "/kontakt#booking" : href;
 
   if (target) {
     return (
