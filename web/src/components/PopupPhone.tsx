@@ -1,36 +1,43 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import Image from "next/image";
 
 export default function PopupPhone() {
   const [visible, setVisible] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
+    if (pathname === "/kontakt") {
+      setVisible(false);
+      return;
+    }
     if (sessionStorage.getItem("aik-popup-dismissed")) return;
+    // Kun desktop med mus: på telefoner har bundbaren allerede "Ring nu".
+    if (
+      !window.matchMedia("(min-width: 1024px) and (hover: hover) and (pointer: fine)")
+        .matches
+    )
+      return;
 
-    // Show popup after user has scrolled 50% of the page
-    function onScroll() {
-      const scrollPercent =
-        window.scrollY / (document.documentElement.scrollHeight - window.innerHeight);
-      if (scrollPercent > 0.5) {
-        setVisible(true);
-        window.removeEventListener("scroll", onScroll);
-      }
+    let armed = false;
+    const armTimer = setTimeout(() => {
+      armed = true;
+    }, 5000);
+
+    function onMouseOut(e: MouseEvent) {
+      if (!armed || e.relatedTarget || e.clientY > 0) return;
+      setVisible(true);
+      document.removeEventListener("mouseout", onMouseOut);
     }
 
-    // Also show after 45 seconds as fallback (for users who read slowly)
-    const timer = setTimeout(() => {
-      setVisible(true);
-      window.removeEventListener("scroll", onScroll);
-    }, 45000);
-
-    window.addEventListener("scroll", onScroll, { passive: true });
+    document.addEventListener("mouseout", onMouseOut);
     return () => {
-      clearTimeout(timer);
-      window.removeEventListener("scroll", onScroll);
+      clearTimeout(armTimer);
+      document.removeEventListener("mouseout", onMouseOut);
     };
-  }, []);
+  }, [pathname]);
 
   function dismiss() {
     sessionStorage.setItem("aik-popup-dismissed", "true");
