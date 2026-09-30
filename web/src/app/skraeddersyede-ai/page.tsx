@@ -156,12 +156,13 @@ export default function SkraeddersyedeAI() {
                   <div className="appwin-url">ai-konsulenterne.dk</div>
                 </div>
                 <div className="appwin-screen">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
+                  <Image
                     src="/screenshots/skraeddersyede-dashboard.png"
                     alt="Et AI-system bygget til en virksomhed - forankret i deres egne data og systemer"
                     width={2632}
                     height={1616}
+                    priority
+                    sizes="(max-width: 900px) 92vw, 600px"
                     draggable={false}
                   />
                 </div>
