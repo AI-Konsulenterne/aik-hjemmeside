@@ -2,7 +2,10 @@ import CalButton from "./ui/CalButton";
 
 export default function BottomBar() {
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-40 bg-black text-white">
+    <div
+      data-cta-placement="bottom-bar"
+      className="fixed bottom-0 left-0 right-0 z-40 bg-black text-white"
+    >
       <div className="max-w-7xl mx-auto px-4 lg:px-8 flex items-center justify-between h-14 lg:h-12">
         <a
           href="tel:+4525547074"
@@ -28,7 +31,8 @@ export default function BottomBar() {
           <span className="sm:hidden">Ring nu</span>
         </a>
         <CalButton className="bg-primary text-white rounded-full px-5 py-1.5 text-sm font-semibold hover:bg-primary-dark transition-colors">
-          Book møde
+          <span className="max-[359px]:hidden">Book en gratis AI-afklaring</span>
+          <span className="hidden max-[359px]:inline">Book afklaring</span>
         </CalButton>
       </div>
     </div>

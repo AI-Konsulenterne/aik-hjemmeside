@@ -18,7 +18,7 @@ export default function CalBooking({ className = "" }: CalBookingProps) {
         Book en gratis AI-afklaring
       </h3>
       <p className="text-gray-500 mt-3 max-w-md leading-relaxed">
-        Ring eller skriv til Alexander, så finder vi en tid til en uforpligtende
+        Ring eller skriv til Alexander, så finder vi en tid til en gratis
         45-minutters AI-afklaring.
       </p>
       <a

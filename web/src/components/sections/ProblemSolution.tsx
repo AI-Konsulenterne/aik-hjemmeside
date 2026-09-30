@@ -91,7 +91,7 @@ export default function ProblemSolution() {
 
               <div className="mt-8">
                 <Button variant="primary" size="lg" href="/kontakt" cal>
-                  Book et møde i dag
+                  Book en gratis AI-afklaring
                 </Button>
               </div>
             </div>

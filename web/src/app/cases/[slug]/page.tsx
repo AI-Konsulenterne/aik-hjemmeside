@@ -276,7 +276,7 @@ export default async function CaseDetail({
                     href="/kontakt"
                     className="block w-full text-center whitespace-nowrap bg-primary text-white rounded-full px-5 py-3 text-sm font-semibold hover:bg-primary-dark transition-colors"
                   >
-                    Book en snak
+                    Book en gratis AI-afklaring
                   </Link>
                 </div>
               </div>

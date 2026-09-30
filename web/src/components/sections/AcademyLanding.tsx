@@ -321,7 +321,7 @@ export default function AcademyLanding() {
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 mt-9">
                   <Button variant="primary" size="lg" cal>
-                    Book en snak
+                    Book en gratis AI-afklaring
                     <ArrowRight />
                   </Button>
                   <a href="#lektion" className={ghostBtn}>
@@ -747,7 +747,7 @@ export default function AcademyLanding() {
                 </p>
                 <div className="relative mt-7">
                   <Button variant="white" size="lg" cal>
-                    Book en snak
+                    Book en gratis AI-afklaring
                     <ArrowRight />
                   </Button>
                 </div>
@@ -893,7 +893,7 @@ export default function AcademyLanding() {
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 mt-9">
                   <Button variant="primary" size="lg" cal>
-                    Book en snak
+                    Book en gratis AI-afklaring
                     <ArrowRight />
                   </Button>
                   <a href="#lektion" className={lightBtn}>

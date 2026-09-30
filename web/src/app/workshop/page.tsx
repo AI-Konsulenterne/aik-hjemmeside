@@ -101,7 +101,7 @@ export default function Workshop() {
               </p>
               <div className="hero-cta">
                 <Button variant="primary" size="lg" cal>
-                  Book et møde
+                  Book en gratis AI-afklaring
                 </Button>
                 <a href="#emner" className="btn btn-ghost btn-lg">
                   Se emnerne
@@ -397,7 +397,7 @@ export default function Workshop() {
               </p>
               <div className="final-cta">
                 <Button variant="primary" size="lg" cal>
-                  Book en snak
+                  Book en gratis AI-afklaring
                 </Button>
                 <div className="final-phone">
                   <Image

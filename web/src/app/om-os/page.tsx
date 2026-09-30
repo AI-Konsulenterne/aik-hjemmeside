@@ -204,7 +204,7 @@ export default async function OmOs() {
 
       <SubpageCTA
         heading="Lad os tage en snak"
-        description="Vi er altid klar til en uforpligtende samtale om jeres virksomhed og muligheder med AI."
+        description="Vi er altid klar til en snak om jeres virksomhed og muligheder med AI."
       />
     </>
   );

@@ -134,7 +134,7 @@ export default function SkraeddersyedeAI() {
               </p>
               <div className="hero-cta">
                 <Button variant="primary" size="lg" cal>
-                  Tag en snak med os
+                  Book en gratis AI-afklaring
                 </Button>
                 <a href="#cases" className="btn btn-ghost btn-lg">
                   Se vores cases
@@ -370,7 +370,7 @@ export default function SkraeddersyedeAI() {
               </p>
               <div className="final-cta">
                 <Button variant="primary" size="lg" cal>
-                  Kom i gang med AI i dag
+                  Book en gratis AI-afklaring
                 </Button>
               </div>
             </div>

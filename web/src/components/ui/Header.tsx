@@ -111,7 +111,7 @@ export default function Header() {
             </Link>
           ))}
           <Button variant="primary" size="sm" href="/kontakt" cal>
-            Book møde
+            Book en gratis AI-afklaring
           </Button>
         </nav>
 
@@ -174,7 +174,7 @@ export default function Header() {
               href="/kontakt"
               className="mt-4 w-full text-center"
             >
-              Book møde
+              Book en gratis AI-afklaring
             </Button>
           </nav>
         </div>

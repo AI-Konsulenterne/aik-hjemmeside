@@ -111,7 +111,7 @@ export default async function VidenOmAI() {
               </p>
               <div className="mt-6">
                 <Button variant="primary" href="/ai-guide">
-                  Hent gratis AI-guide
+                  Få en gratis AI-analyse
                 </Button>
               </div>
             </div>

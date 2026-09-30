@@ -45,6 +45,7 @@ export default function PopupPhone() {
       onClick={dismiss}
     >
       <div
+        data-cta-placement="popup"
         className="bg-black rounded-2xl shadow-2xl max-w-4xl w-full overflow-hidden animate-popup-in relative grid grid-cols-1 md:grid-cols-2"
         onClick={(e) => e.stopPropagation()}
       >
@@ -86,10 +87,10 @@ export default function PopupPhone() {
         <div className="p-8 lg:p-10 flex flex-col justify-between text-white">
           <div>
             <h2 className="text-2xl lg:text-3xl font-bold tracking-heading text-primary leading-tight">
-              Giv mig et kald og lad os starte jeres AI rejse
+              Giv mig et kald, og lad os komme i gang med AI
             </h2>
             <p className="mt-6 text-gray-300 leading-relaxed text-sm lg:text-base">
-              Mit navn er Alexander! Jeg er AI-konsulent og vil rigtig gerne hjælpe jer med at komme i gang med AI. Lad os afklare jeres behov og finde et konkret forslag til næste skridt. Uforpligtende og lige til.
+              Mit navn er Alexander! Jeg er AI-konsulent og vil rigtig gerne hjælpe jer med at komme i gang med AI. Lad os afklare jeres behov og finde et konkret forslag til næste skridt.
             </p>
 
             <div className="mt-6 space-y-2 text-sm lg:text-base">
