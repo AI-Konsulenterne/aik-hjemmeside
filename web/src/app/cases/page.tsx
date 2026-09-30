@@ -7,6 +7,7 @@ import TalMedAlexander from "@/components/sections/TalMedAlexander";
 import SektionHoved from "@/components/side/SektionHoved";
 import { CASES, KATEGORI, type Case } from "@/content/cases";
 import { filmPoster } from "@/content/film";
+import KundeLogo, { LogoForloeb } from "@/components/side/KundeLogo";
 
 export const metadata: Metadata = {
   title: "AI-cases fra danske virksomheder",
@@ -53,6 +54,13 @@ function Billede({ c, prioritet }: { c: Case; prioritet: boolean }) {
         sizes="(min-width: 1024px) 40rem, 100vw"
         className="object-cover transition-transform duration-[1400ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.03]"
       />
+      <LogoForloeb />
+      <div className="absolute bottom-6 left-6 right-6 flex items-end justify-between gap-6 lg:bottom-7 lg:left-7 lg:right-7">
+        <KundeLogo logo={c.logo} alt="" />
+        <p className="text-right text-[0.6875rem] font-semibold uppercase tracking-[0.16em] text-white/80">
+          {KATEGORI[c.category]}
+        </p>
+      </div>
     </div>
   );
 }

@@ -7,6 +7,7 @@ import JsonLd from "@/components/ui/JsonLd";
 import SolutionDiagram from "@/components/ui/SolutionDiagram";
 import TalMedAlexander from "@/components/sections/TalMedAlexander";
 import SideHero from "@/components/side/SideHero";
+import KundeLogo, { LogoForloeb } from "@/components/side/KundeLogo";
 import { CASES, KATEGORI, caseMedSlug } from "@/content/cases";
 import { FILM_SHOTS, filmPoster } from "@/content/film";
 
@@ -170,7 +171,15 @@ export default async function CaseDetail({
 
       <SideHero
         id="case-titel"
-        kicker={`Case · ${caseData.customer}`}
+        kicker={`Case · ${KATEGORI[caseData.category]}`}
+        logo={
+          <KundeLogo
+            logo={caseData.logo}
+            alt={caseData.customer}
+            str="stor"
+            className="drop-shadow-[0_2px_16px_rgba(0,0,0,0.55)]"
+          />
+        }
         titel={[caseData.title]}
         tekst={caseData.kort}
         primaer={{ label: "Book en samtale", href: "/kontakt" }}
@@ -224,6 +233,8 @@ export default async function CaseDetail({
                             sizes="(min-width: 768px) 24rem, 100vw"
                             className="object-cover transition-transform duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.04]"
                           />
+                          <LogoForloeb />
+                          <KundeLogo logo={c.logo} alt="" className="absolute bottom-6 left-6" />
                         </div>
                       ) : (
                         /* Uden billede: kundens navn på mørk flade i samme format. */

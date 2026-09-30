@@ -36,11 +36,13 @@ type Props = {
   fakta?: [string, string][];
   /** Et lille eksempelkort til højre på store skærme (fx HR-agentens svar). */
   eksempel?: React.ReactNode;
+  /** Kundens logo over overskriften (casesiderne). */
+  logo?: React.ReactNode;
 };
 
 const SKUD_MS = 6000;
 
-export default function SideHero({ id, kicker, titel, tekst, primaer, sekundaer, skud, fakta = [], eksempel }: Props) {
+export default function SideHero({ id, kicker, titel, tekst, primaer, sekundaer, skud, fakta = [], eksempel, logo }: Props) {
   const [index, setIndex] = useState(0);
   const [aktiv, setAktiv] = useState(true);
   const [reduceret, setReduceret] = useState(false);
@@ -129,6 +131,7 @@ export default function SideHero({ id, kicker, titel, tekst, primaer, sekundaer,
       <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-1 flex-col justify-end px-6 pb-10 pt-36 lg:px-8 lg:pb-14">
         <div className="flex items-end justify-between gap-12">
         <div className={eksempel ? "max-w-3xl" : "max-w-4xl"}>
+          {logo && <div className="mb-9 lg:mb-11">{logo}</div>}
           <div className="flex items-center gap-3">
             <span className="lamp" data-lit="true" aria-hidden="true" />
             <p className="kicker text-white [text-shadow:0_1px_3px_rgba(0,0,0,0.55),0_1px_14px_rgba(0,0,0,0.6)]">{kicker}</p>

@@ -27,6 +27,13 @@ export type Case = {
   seoDescription?: string;
   /** Skud fra referencefilmen (content/film.ts). */
   skud?: string;
+  /**
+   * Kundens logo i hvid, til at stå på casebilledet som på forsidens
+   * Lavazza-sektion. Højden er sat pr. logo, så de tre fylder lige meget for
+   * øjet: Wunderwear er bred og tynd, J.M Band er kompakt. `lille` er til
+   * kort, `stor` til heroen og de store kort på /referencer.
+   */
+  logo: { src: string; bredde: number; hoejde: number; lille: string; stor: string };
   publishedAt: string;
   updatedAt: string;
 };
@@ -55,6 +62,7 @@ export const CASES: Case[] = [
     seoTitle: "Lavazza: datasikker HR-agent med AI",
     seoDescription: "Sådan byggede vi en GDPR-sikker HR-agent til Lavazza, der svarer medarbejderne på sekunder ud fra virksomhedens egne HR-dokumenter.",
     skud: "kaffe",
+    logo: { src: "/logos/lavazza-hvid.png", bredde: 900, hoejde: 232, lille: "h-6 sm:h-7", stor: "h-9 lg:h-11" },
     publishedAt: "2026-07-05T15:05:44.804Z",
     updatedAt: "2026-09-29T12:00:00.000Z",
   },
@@ -73,6 +81,7 @@ export const CASES: Case[] = [
     seoTitle: "Wunderwear: automatiseret webshop",
     seoDescription: "Sådan automatiserede vi ordrebehandlingen på tværs af Shopify og CRM for Wunderwear, og en AI-agent besvarer nu 80 % af de gentagne spørgsmål.",
     skud: "undertoej",
+    logo: { src: "/logos/wunderwear.svg", bredde: 498, hoejde: 47, lille: "h-[0.95rem] sm:h-[1.1rem]", stor: "h-[1.35rem] lg:h-[1.65rem]" },
     publishedAt: "2026-07-05T15:05:45.125Z",
     updatedAt: "2026-09-29T12:00:00.000Z",
   },
@@ -91,6 +100,7 @@ export const CASES: Case[] = [
     seoTitle: "J.M Band: AI på tværs af systemer",
     seoDescription: "Sådan byggede vi en AI-agent til J.M Band, der samler data fra CRM, Shopify og interne systemer, så medarbejderne får svar ét sted.",
     skud: "armbaand",
+    logo: { src: "/logos/jmband-hvid.png", bredde: 493, hoejde: 241, lille: "h-9 sm:h-10", stor: "h-12 lg:h-16" },
     publishedAt: "2026-07-05T15:05:45.432Z",
     updatedAt: "2026-09-29T12:00:00.000Z",
   },

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Button from "@/components/ui/Button";
 import FadeIn from "@/components/ui/FadeIn";
 import OrdForOrd from "@/components/ui/OrdForOrd";
-import DeveloperExperience from "@/components/sections/DeveloperExperience";
+import ErfaringFra from "@/components/sections/ErfaringFra";
 import ReferencerBaand from "@/components/sections/ReferencerBaand";
 import TalMedAlexander from "@/components/sections/TalMedAlexander";
 import ToSpor from "@/components/sections/ToSpor";
@@ -29,11 +29,12 @@ export const metadata: Metadata = {
 
 /**
  * Om os. Siden handler om mennesker, så heroen er holdet selv: en kort
- * erklæring og de fire portrætter på mørk flade (content/team.ts). Derefter
- * de fire ting, det betyder at arbejde med os, de kunder vi har hjulpet
- * (samme filmstrimmel som på forsiden), de to spor og hvor udviklerne
- * kommer fra. Fakta i heroen står andre steder på sitet (København i
- * metadata, AI siden 2016 på /skraeddersyede-ai).
+ * erklæring og de fire portrætter på mørk flade (content/team.ts). Lige
+ * under står, hvor udviklerne har erfaring fra (Apple, TDC Net, Semler
+ * Mobility, Arla, Damstahl), stort og i logoernes egne farver. Derefter de
+ * fire ting, det betyder at arbejde med os, de kunder vi har hjulpet (samme
+ * filmstrimmel som på forsiden) og de to spor. Fakta i heroen står andre
+ * steder på sitet (København i metadata, AI siden 2016 på /skraeddersyede-ai).
  */
 
 const VAERDIER = [
@@ -119,6 +120,9 @@ export default function OmOs() {
         </div>
       </section>
 
+      {/* --- Hvor udviklerne har erfaring fra: stort, lige under holdet --- */}
+      <ErfaringFra />
+
       {/* --- Sådan er vi at arbejde med --- */}
       <section className="section-y bg-white">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -151,8 +155,6 @@ export default function OmOs() {
       <ReferencerBaand />
 
       <ToSpor />
-
-      <DeveloperExperience />
 
       <TalMedAlexander />
     </>

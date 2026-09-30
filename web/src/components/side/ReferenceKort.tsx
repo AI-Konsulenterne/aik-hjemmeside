@@ -4,6 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRef } from "react";
 import FadeIn from "@/components/ui/FadeIn";
+import KundeLogo from "@/components/side/KundeLogo";
+import type { Case } from "@/content/cases";
 import { filmClip, filmPoster } from "@/content/film";
 
 /**
@@ -56,9 +58,10 @@ export type NavngivetCase = {
   titel: string;
   kort: string;
   skud: string;
+  logo: Case["logo"];
 };
 
-/** De tre cases med navn: stort billede, kunde, titel og resultatet i én linje. */
+/** De tre cases med navn: stort billede med kundens logo, titel og resultatet i én linje. */
 export function CaseKort({ c, i }: { c: NavngivetCase; i: number }) {
   const { video, spil, stop } = useKlip(c.skud);
   return (
@@ -75,9 +78,7 @@ export function CaseKort({ c, i }: { c: NavngivetCase; i: number }) {
           <p className="absolute left-6 top-6 rounded-full bg-black/60 px-3 py-1.5 text-[0.6875rem] font-semibold uppercase tracking-[0.16em] text-white backdrop-blur-sm">
             {c.kategori}
           </p>
-          <p className="absolute bottom-6 left-6 text-[clamp(1.75rem,2.6vw,2.25rem)] font-bold leading-none tracking-display text-white">
-            {c.kunde}
-          </p>
+          <KundeLogo logo={c.logo} alt={c.kunde} str="stor" className="absolute bottom-6 left-6" />
         </div>
         <div className="flex flex-1 flex-col pt-6">
           <h3 className="text-xl font-bold leading-snug tracking-heading text-gray-900">{c.titel}</h3>

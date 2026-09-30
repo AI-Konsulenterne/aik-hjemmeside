@@ -1,12 +1,20 @@
 import Image from "next/image";
 
-const companies = [
-  { name: "Apple", logo: "/logos/apple.svg", width: 814, height: 1000, cls: "h-7 lg:h-8" },
-  { name: "TDC Net", logo: "/logos/tdc-net.svg", width: 704, height: 203, cls: "h-6 lg:h-7" },
-  { name: "Semler Mobility", logo: "/logos/semler-mobility.svg", width: 709, height: 325, cls: "h-10 lg:h-11" },
-  { name: "Arla", logo: "/logos/arla.svg", width: 150, height: 100, cls: "h-10 lg:h-11" },
-  { name: "Damstahl", logo: "/logos/damstahl.svg", width: 172, height: 40, cls: "h-6 lg:h-7" },
+/**
+ * Hvor AIK's udviklere har erfaring fra. Bruges her som diskret strimmel
+ * (/skraeddersyede-ai) og stort på /om-os (ErfaringFra.tsx). `cls` er
+ * højden i strimlen, `stor` i den store væg; højderne er sat pr. logo, så
+ * de fylder lige meget for øjet.
+ */
+export const ERFARING = [
+  { name: "Apple", logo: "/logos/apple.svg", width: 814, height: 1000, cls: "h-7 lg:h-8", stor: "h-10 sm:h-12 lg:h-[4.25rem]" },
+  { name: "TDC Net", logo: "/logos/tdc-net.svg", width: 704, height: 203, cls: "h-6 lg:h-7", stor: "h-7 sm:h-9 lg:h-12" },
+  { name: "Semler Mobility", logo: "/logos/semler-mobility.svg", width: 709, height: 325, cls: "h-10 lg:h-11", stor: "h-10 sm:h-12 lg:h-16" },
+  { name: "Arla", logo: "/logos/arla.svg", width: 150, height: 100, cls: "h-10 lg:h-11", stor: "h-11 sm:h-14 lg:h-[4.5rem]" },
+  { name: "Damstahl", logo: "/logos/damstahl.svg", width: 172, height: 40, cls: "h-6 lg:h-7", stor: "h-6 sm:h-8 lg:h-11" },
 ];
+
+const companies = ERFARING;
 
 /** Diskret tillids-strip: hvor AIK's udviklere har erfaring fra. Ensfarvet grå, så den ikke konkurrerer med kundelogoerne. */
 export default function DeveloperExperience() {

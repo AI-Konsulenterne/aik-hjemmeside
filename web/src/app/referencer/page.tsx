@@ -75,6 +75,7 @@ export default function Referencer() {
     titel: c.title,
     kort: c.kort,
     skud: c.skud!,
+    logo: c.logo,
   }));
   const navngivneSkud = new Set(navngivne.map((c) => c.skud));
   const oevrige = FILM_SHOTS_KUNDER.filter((s) => !navngivneSkud.has(s.id));
