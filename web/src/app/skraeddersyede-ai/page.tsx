@@ -10,6 +10,7 @@ import FAQ from "@/components/sections/FAQ";
 import TalMedAlexander from "@/components/sections/TalMedAlexander";
 import SideHero from "@/components/side/SideHero";
 import SektionHoved from "@/components/side/SektionHoved";
+import ForklarVideo from "@/components/side/ForklarVideo";
 import TrinFlow from "@/components/side/TrinFlow";
 
 const serviceSchema = {
@@ -201,6 +202,25 @@ export default function SkraeddersyedeAi() {
               </aside>
             </FadeIn>
           </div>
+        </div>
+      </section>
+
+      {/* --- Filmen: en AI-agent på 23 sekunder (AIKs egen) --- */}
+      <section className="section-y bg-white">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <SektionHoved
+            kicker="På 23 sekunder"
+            titel="Sådan arbejder en AI-agent."
+            tekst="En bunke ordremails om morgenen. Agenten læser dem, slår op og lægger svarene klar, og et menneske godkender, før noget bliver sendt."
+          />
+          <FadeIn delay={150} className="mt-12 lg:mt-16">
+            <ForklarVideo
+              src="/video/ai-agent.mp4"
+              plakat="/video/ai-agent.webp"
+              titel="Sådan arbejder en AI-agent"
+              varighed="23 sek."
+            />
+          </FadeIn>
         </div>
       </section>
 
