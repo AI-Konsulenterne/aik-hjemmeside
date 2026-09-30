@@ -19,7 +19,20 @@ Og **tre primære farveudgaver:**
 
 ## Filer
 
-Tilgængelige i [`../assets/logo/`](../assets/logo/):
+**De officielle vektorer (fra AIK, 30/9 2026), brug dem:**
+
+- [`aik-lang-officiel.svg`](../assets/logo/aik-lang-officiel.svg) — lang udgave, hvid (573,13 x 83,49)
+- [`aik-kort-officiel.svg`](../assets/logo/aik-kort-officiel.svg) — kort udgave, hvid (146,26 x 82,78)
+
+Farven skiftes ved at ændre `fill` (eller tegne dem med `currentColor`, som
+sitet gør). I sitet ligger de som `web/public/logo/aik-lang.svg` og
+`aik-kort.svg`, og navigationen, footeren, favicon og OG-billederne tegnes ud
+fra dem via `web/src/components/ui/logo-data.ts`. Det korte logos A, I og K
+står præcis som i det lange (målt pixel for pixel), så de kan folde over i
+hinanden.
+
+Filerne nedenfor er ældre, håndtegnede efterligninger (den korte er skrevet
+med Raleway-tekst). Brug dem ikke:
 
 - `logo-full-black.svg` — sort, lang
 - `logo-full-orange.svg` — orange, lang (= eksisterende `public/logo-full.svg`)
@@ -28,7 +41,7 @@ Tilgængelige i [`../assets/logo/`](../assets/logo/):
 - `logo-icon-orange.svg` — orange, kort (= eksisterende `public/logo-icon.svg`)
 - `logo-icon-white.svg` — hvid, kort
 
-For brug i selve sitet ligger arbejds-versionerne i `public/logo-full.svg` og `public/logo-icon.svg`.
+(`public/logo-full.svg` og `public/logo-icon.svg` i sitet er de samme efterligninger og bruges ikke længere.)
 
 ## Filtyper
 

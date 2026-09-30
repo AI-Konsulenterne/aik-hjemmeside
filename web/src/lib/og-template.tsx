@@ -1,4 +1,5 @@
 import { ImageResponse } from "next/og";
+import { LANG_HALE, LANG_STAMME, LANG_STREG, LANG_VIEWBOX } from "@/components/ui/logo-data";
 
 /**
  * Fælles OG-billede template brugt på tværs af sider.
@@ -46,49 +47,16 @@ export function renderOgImage({
             alignItems: "center",
           }}
         >
-          <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "flex-start",
-              }}
-            >
-              <span
-                style={{
-                  fontSize: 56,
-                  fontWeight: 800,
-                  color: "#ff9a00",
-                  lineHeight: 1,
-                  letterSpacing: -2,
-                }}
-              >
-                AI
-              </span>
-              <div
-                style={{
-                  marginTop: 4,
-                  height: 5,
-                  width: 72,
-                  background: "#ff9a00",
-                  borderRadius: 2,
-                }}
-              />
-            </div>
-            <span
-              style={{
-                fontSize: 22,
-                fontWeight: 700,
-                color: "#ff9a00",
-                textTransform: "uppercase",
-                letterSpacing: 1.5,
-                marginLeft: 10,
-                marginTop: 10,
-              }}
-            >
-              Konsulenterne
-            </span>
-          </div>
+          {/* AIKs officielle logo (logo-data.ts), ikke en efterligning med tekst. */}
+          <svg width={330} height={48} viewBox={LANG_VIEWBOX} fill="#ff9a00">
+            {[...LANG_STAMME, ...LANG_HALE, LANG_STREG].map((f, i) =>
+              f.d ? (
+                <path key={i} d={f.d} transform={f.transform} />
+              ) : (
+                <polygon key={i} points={f.points} transform={f.transform} />
+              ),
+            )}
+          </svg>
           {tag && (
             <span
               style={{

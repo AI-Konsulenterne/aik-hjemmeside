@@ -1,6 +1,6 @@
 import Link from "next/link";
-import Image from "next/image";
 import CookieConsentLink from "./CookieConsentLink";
+import LogoKort from "./LogoKort";
 
 const serviceLinks = [
   { label: "AI-Minds læringsplatform", href: "/academy" },
@@ -39,13 +39,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1.3fr_1fr_1fr_1.3fr] gap-10 lg:gap-12">
           {/* Brand + Newsletter */}
           <div>
-            <Image
-              src="/logo-aik-mark.png"
-              alt="AI Konsulenterne"
-              width={153}
-              height={89}
-              className="h-10 w-auto"
-            />
+            <LogoKort className="aspect-[146.26/82.78] h-10 w-auto text-primary" />
             <p className="mt-3 text-sm text-gray-400 leading-relaxed">
               Vi lærer jeres folk AI og bygger den til dem.
             </p>

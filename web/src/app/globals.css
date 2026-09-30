@@ -679,6 +679,7 @@ body {
 
 /* ---------------------------------------------------------------
    Logoet, der folder sig sammen (LogoMorf.tsx). 1em = AI's højde.
+   Tegnet som vektorer; længder i transform er SVG-enheder (AI = 82,78).
    Sammen: understregningens højre ende glider ind mod K'et, mens
    bogstaverne forsvinder bagfra, 28 ms mellem hvert. Ud igen: stregen
    går ud først, og bogstaverne kommer frem forfra i dens kølvand.
@@ -689,54 +690,76 @@ body {
   height: 1em;
   flex: none;
   vertical-align: middle;
+  transition: color 300ms ease;
 }
 
-.logo-del {
+.logo-morf svg {
   position: absolute;
-  background-color: currentColor;
-  transition: background-color 300ms ease;
+  left: 0;
+  display: block;
+  overflow: visible;
 }
 
 .logo-bogstav {
   transition:
     opacity 260ms ease,
-    transform 480ms cubic-bezier(0.16, 1, 0.3, 1),
-    background-color 300ms ease;
-  transition-delay: calc(var(--i) * 28ms + 90ms), calc(var(--i) * 28ms + 90ms), 0ms;
+    transform 480ms cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: calc(var(--i) * 28ms + 90ms);
 }
 
 .logo-morf[data-kompakt="true"] .logo-bogstav {
   opacity: 0;
-  transform: translateX(-0.28em);
-  transition-delay: calc((11 - var(--i)) * 28ms), calc((11 - var(--i)) * 28ms), 0ms;
+  /* 0,28em i SVG-enheder */
+  transform: translateX(-23.18px);
+  transition-delay: calc((11 - var(--i)) * 28ms);
+}
+
+/* Understregningen. Enderne trækkes sammen fra det lange logos hjørner
+   (10,85 enheder) til det korte logos (5,74): scaleX(0,529) om den ydre
+   kant. Midten går fra 125,26-562,76 til 120,20-141,02, og højre ende
+   ender ved 146,26 som i aik-kort.svg. Samme funktioner i begge
+   tilstande, så hver værdi tweenes for sig, og overlappet på 0,5
+   enhed holder hele vejen. */
+.logo-streg-venstre,
+.logo-streg-midte,
+.logo-streg-hoejre {
+  transform-box: fill-box;
+  transition: transform 560ms cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.logo-streg-venstre {
+  transform-origin: left center;
+  transform: scaleX(1);
 }
 
 .logo-streg-midte {
-  width: var(--lang);
-  transition:
-    width 560ms cubic-bezier(0.65, 0, 0.35, 1),
-    background-color 300ms ease;
+  transform-origin: left center;
+  transform: translateX(0px) scaleX(1);
+}
+
+.logo-streg-hoejre {
+  transform-origin: right center;
+  transform: translateX(0px) scaleX(1);
+}
+
+.logo-morf[data-kompakt="true"] .logo-streg-venstre {
+  transform: scaleX(0.529);
 }
 
 .logo-morf[data-kompakt="true"] .logo-streg-midte {
-  width: var(--kort);
+  transform: translateX(-5.06px) scaleX(0.04759);
 }
 
-.logo-streg-ende {
-  transition:
-    transform 560ms cubic-bezier(0.65, 0, 0.35, 1),
-    background-color 300ms ease;
-}
-
-.logo-morf[data-kompakt="true"] .logo-streg-ende {
-  transform: translateX(var(--flyt));
+.logo-morf[data-kompakt="true"] .logo-streg-hoejre {
+  transform: translateX(-426.84px) scaleX(0.529);
 }
 
 @media (prefers-reduced-motion: reduce) {
   .logo-bogstav,
+  .logo-streg-venstre,
   .logo-streg-midte,
-  .logo-streg-ende {
-    transition: background-color 300ms ease;
+  .logo-streg-hoejre {
+    transition: none;
   }
 }
 
