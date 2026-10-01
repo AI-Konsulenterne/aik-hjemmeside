@@ -1,65 +1,44 @@
-"use client";
-
 import Image from "next/image";
-import { useState, useEffect } from "react";
 import Button from "@/components/ui/Button";
 import FadeIn from "@/components/ui/FadeIn";
 
-const useCases = [
-  "kundeservice",
-  "ordrehåndtering",
-  "rapportering",
-  "dataanalyse",
-];
+// Kundelogoer vist i gråtoner på hvid. Logoerne er lavet til det orange bånd:
+// de hvide gøres mørke ("mono"), de farvede med egen baggrund vises i gråtoner.
+const clients = [
+  { name: "Lavazza", logo: "/logos/lavazza.png", width: 3840, height: 2400, cls: "h-10 lg:h-11", tone: "mono" },
+  { name: "INDKOM", logo: "/logos/indkom.png", width: 400, height: 74, cls: "h-5 lg:h-6", tone: "mono" },
+  { name: "Wunderwear", logo: "/logos/wunderwear.svg", width: 498, height: 47, cls: "h-3.5 lg:h-4", tone: "mono" },
+  { name: "Stretchfit", logo: "/logos/stretchfit.png", width: 600, height: 180, cls: "h-6 lg:h-7", tone: "mono" },
+  { name: "J.M Band", logo: "/logos/jmband.png", width: 494, height: 242, cls: "h-7 lg:h-8", tone: "gray" },
+  { name: "Fregat", logo: "/logos/fregat.png", width: 400, height: 112, cls: "h-6 lg:h-7", tone: "gray" },
+  { name: "Retail Partner", logo: "/logos/retail-partner.png", width: 324, height: 46, cls: "h-4 lg:h-5", tone: "mono" },
+] as const;
 
 export default function Hero() {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [isVisible, setIsVisible] = useState(true);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setIsVisible(false);
-      setTimeout(() => {
-        setCurrentIndex((prev) => (prev + 1) % useCases.length);
-        setIsVisible(true);
-      }, 400);
-    }, 3000);
-    return () => clearInterval(interval);
-  }, []);
-
   return (
-    <section className="pt-[clamp(4rem,11vw,8rem)] pb-[clamp(4rem,10vw,7rem)] relative overflow-hidden">
+    <section className="pt-[clamp(3.5rem,9vw,7rem)] pb-[clamp(3.5rem,8vw,6rem)] relative overflow-hidden">
       <div className="hero-glow" aria-hidden="true" />
       <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-[1.35fr_1fr] gap-10 lg:gap-16 items-center">
-          {/* Left — copy */}
-          <div className="text-center lg:text-left">
+        <div className="grid grid-cols-1 lg:grid-cols-[1.4fr_1fr] gap-12 lg:gap-16 items-center">
+          {/* Venstre: tekst */}
+          <div>
             <FadeIn>
-              <h1 className="text-[2.5rem] sm:text-5xl lg:text-[4rem] xl:text-[4.5rem] font-bold tracking-heading text-gray-900 leading-[1.05]">
-                Brug færre timer på{" "}
-                <span className="relative inline-block">
-                  <span
-                    className={`text-primary transition-all duration-400 ${
-                      isVisible
-                        ? "opacity-100 translate-y-0"
-                        : "opacity-0 -translate-y-2"
-                    }`}
-                  >
-                    {useCases[currentIndex]}
-                  </span>
-                  <span className="absolute bottom-0 left-0 right-0 h-[3px] bg-primary/30 rounded-full" />
+              <h1 className="text-[2.125rem] sm:text-[2.75rem] lg:text-[3.25rem] xl:text-[3.625rem] font-bold tracking-heading text-gray-900 leading-[1.08] text-balance">
+                Vi bygger AI ind i danske virksomheder -{" "}
+                <span className="text-primary">
+                  også jer, der ikke ved, hvor I skal starte.
                 </span>
               </h1>
             </FadeIn>
             <FadeIn delay={150}>
-              <p className="text-lead text-gray-700 mt-6 lg:mt-8 max-w-xl mx-auto lg:mx-0">
-                Vi er AI-konsulenterne, der hjælper danske virksomheder godt i
-                gang med AI - også jer der ikke ved hvor I skal starte, eller
-                ikke har en IT-afdeling at læne jer op ad.
+              <p className="text-lead text-gray-700 mt-6 lg:mt-7 max-w-xl">
+                AI-værktøjerne ændrer sig hver måned. Vi finder de opgaver, hvor
+                AI sparer jeres medarbejdere tid, og bygger løsningen - uden at I
+                skal have en IT-afdeling.
               </p>
             </FadeIn>
             <FadeIn delay={300}>
-              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3 mt-8 lg:mt-10">
+              <div className="flex flex-wrap items-center gap-3 mt-8 lg:mt-9">
                 <Button variant="primary" size="lg" href="/kontakt" cal>
                   Book en gratis AI-afklaring
                 </Button>
@@ -68,12 +47,34 @@ export default function Hero() {
                 </Button>
               </div>
             </FadeIn>
+            <FadeIn delay={400}>
+              <div className="mt-11 lg:mt-12">
+                <p className="text-xs uppercase tracking-[0.15em] text-gray-500 font-semibold">
+                  Virksomheder vi har hjulpet
+                </p>
+                <ul className="mt-4 flex flex-wrap items-center gap-x-8 gap-y-5 lg:gap-x-10">
+                  {clients.map((c) => (
+                    <li key={c.name} className="flex items-center">
+                      <Image
+                        src={c.logo}
+                        alt={c.name}
+                        width={c.width}
+                        height={c.height}
+                        sizes="160px"
+                        className={`${c.cls} w-auto max-w-[150px] object-contain ${
+                          c.tone === "mono" ? "brightness-0 opacity-55" : "grayscale opacity-70"
+                        }`}
+                      />
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </FadeIn>
           </div>
 
-          {/* Right — Alexander's portrait card */}
+          {/* Højre: Alexanders portræt */}
           <FadeIn delay={200}>
             <div className="relative max-w-sm mx-auto lg:mx-0 lg:ml-auto w-full">
-              {/* Portrait */}
               <div className="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-xl ring-1 ring-gray-100">
                 <Image
                   src="/team/alexander-hero.png"
@@ -85,7 +86,7 @@ export default function Hero() {
                 />
               </div>
 
-              {/* Floating quote card */}
+              {/* Kaffe-kort */}
               <div className="absolute -bottom-6 -left-4 lg:-left-8 bg-white rounded-xl shadow-lg p-4 lg:p-5 max-w-[260px] ring-1 ring-gray-100">
                 <p className="text-sm lg:text-[0.95rem] text-gray-900 font-semibold leading-snug">
                   ☕ Klar til en kop kaffe
