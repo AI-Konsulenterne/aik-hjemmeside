@@ -76,7 +76,7 @@ export default function FAQ() {
         </div>
 
         <FadeIn delay={400}>
-          <p className="text-center mt-10 text-sm text-gray-500">
+          <p className="text-center mt-10 text-body-sm text-gray-600">
             Har du andre spørgsmål?{" "}
             <a href="tel:+4525547074" className="text-primary font-semibold hover-underline">
               Ring til Alexander på +45 25 54 70 74

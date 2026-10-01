@@ -320,9 +320,9 @@
   .slogan-panel .sp-foot {
     position: relative;
     margin: 24px 0 0;
-    color: rgba(255, 255, 255, 0.62);
-    font-size: 0.96rem;
-    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: var(--fs-body-sm);
+    line-height: 1.6;
   }
 
   /* ── Bevis (cases) ── */

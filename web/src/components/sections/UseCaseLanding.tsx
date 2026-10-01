@@ -66,7 +66,7 @@ export default function UseCaseLanding({
                 Få en gratis AI-analyse
               </Button>
             </div>
-            <p className="text-sm text-gray-500 mt-5">
+            <p className="text-body-sm text-gray-600 mt-5">
               Finder vi ikke en konkret AI-mulighed, der kan spare jer tid -
               koster det ingenting.
             </p>

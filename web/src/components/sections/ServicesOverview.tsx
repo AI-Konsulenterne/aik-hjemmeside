@@ -61,7 +61,7 @@ export default function ServicesOverview() {
                   <h3 className="text-2xl lg:text-3xl font-bold tracking-heading text-white leading-[1.15]">
                     Skræddersyede AI-løsninger
                   </h3>
-                  <p className="text-white/50 mt-3 leading-relaxed max-w-md">
+                  <p className="text-white/70 mt-3 text-body max-w-md">
                     Vi bygger AI ind i jeres hverdag - med udgangspunkt i jeres data, jeres systemer og det I rent faktisk har brug for. Ikke bare en standardpakke.
                   </p>
                 </div>

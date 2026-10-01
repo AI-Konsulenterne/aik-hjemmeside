@@ -740,7 +740,7 @@ export default function AcademyLanding() {
                 <h3 className="relative text-[26px] font-bold tracking-tight leading-snug mt-4 text-balance">
                   Det her er ikke teori - folk bruger det bagefter.
                 </h3>
-                <p className="relative mt-5 text-[16px] leading-relaxed text-gray-400">
+                <p className="relative mt-5 text-body text-gray-400">
                   Vi viser jer det hellere, end vi fortæller om det. Book et
                   opkald, så går vi gennem konkrete eksempler fra AI-Minds - og
                   hvad jeres team kan få ud af det.

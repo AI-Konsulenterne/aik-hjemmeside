@@ -43,7 +43,7 @@ export default function Barriers() {
           {barriers.map((b, i) => (
             <FadeIn key={i} delay={i * 80}>
               <div className="bg-white rounded-2xl p-6 lg:p-7 h-full border border-gray-100 hover:border-primary/40 hover:shadow-sm transition-all duration-300">
-                <p className="text-gray-900 font-semibold italic leading-snug mb-4 text-[0.98rem] lg:text-base">
+                <p className="text-gray-900 font-semibold italic leading-snug mb-4 text-[1.0625rem] lg:text-lg">
                   &ldquo;{b.quote}&rdquo;
                 </p>
                 <div className="flex gap-3 items-start pt-4 border-t border-gray-100">
@@ -68,7 +68,7 @@ export default function Barriers() {
               <p className="text-lg lg:text-xl font-bold tracking-heading leading-tight mb-3">
                 I behøver ikke have svarene.
               </p>
-              <p className="text-white/60 text-sm leading-relaxed">
+              <p className="text-white/70 text-body-sm">
                 Det er præcis derfor vi findes. Så lad os tage en god snak og se hvor I står.
               </p>
             </div>

@@ -655,7 +655,7 @@
     margin-bottom: 20px;
   }
   .sec-title { color: var(--orange-soft); margin-bottom: 10px; }
-  .sec-desc { color: rgba(255, 255, 255, 0.62); font-size: 0.96rem; margin: 0; }
+  .sec-desc { color: rgba(255, 255, 255, 0.7); font-size: var(--fs-body-sm); line-height: 1.6; margin: 0; }
 
   /* ── Departments · app cards ── */
   .dept-section { background: var(--cream); }
