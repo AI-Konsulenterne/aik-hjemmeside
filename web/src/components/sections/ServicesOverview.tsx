@@ -3,7 +3,7 @@ import FadeIn from "@/components/ui/FadeIn";
 
 export default function ServicesOverview() {
   return (
-    <section className="bg-gray-50 py-[clamp(4rem,10vw,7rem)]">
+    <section className="bg-sand py-[clamp(4rem,10vw,7rem)]">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <FadeIn>
           <p className="text-[11px] uppercase tracking-[0.2em] text-primary font-semibold text-center mb-3">
@@ -91,7 +91,7 @@ export default function ServicesOverview() {
                         AIK Workshop
                       </h3>
                     </div>
-                    <p className="text-gray-500 text-sm leading-relaxed">
+                    <p className="text-body-sm text-gray-700">
                       En hel dag hvor jeres team får lov at prøve kræfter med AI med afsæt i jeres egne opgaver. I går hjem med konkrete værktøjer, teknikker og nye måder at arbejde med AI på.
                     </p>
                   </div>
@@ -120,7 +120,7 @@ export default function ServicesOverview() {
                         AIK Workspace
                       </h3>
                     </div>
-                    <p className="text-gray-500 text-sm leading-relaxed">
+                    <p className="text-body-sm text-gray-700">
                       Jeres helt eget AI-system, som er forankret i jeres data, jeres systemer og jeres måde at gøre tingene på.
                     </p>
                   </div>

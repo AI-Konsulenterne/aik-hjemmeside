@@ -91,7 +91,7 @@ export default async function VidenOmAI() {
               <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold tracking-heading text-gray-900 leading-[1.05]">
                 Viden om AI
               </h1>
-              <p className="text-lg lg:text-xl text-gray-500 mt-6 leading-relaxed">
+              <p className="text-lead text-gray-700 mt-6">
                 Artikler og indsigter om AI til danske virksomheder. Konkret
                 viden I kan bruge — ingen buzzwords.
               </p>
@@ -104,8 +104,8 @@ export default async function VidenOmAI() {
       <section className="pb-[clamp(3rem,8vw,6rem)]">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           {posts.length === 0 ? (
-            <div className="max-w-2xl mx-auto bg-gray-50 rounded-2xl p-10 text-center border border-gray-100">
-              <p className="text-gray-500 leading-relaxed">
+            <div className="max-w-2xl mx-auto bg-sand rounded-2xl p-10 text-center border border-gray-100">
+              <p className="text-body text-gray-700">
                 Blog-artikler er på vej. I mellemtiden kan du hente vores gratis
                 AI-guide.
               </p>
@@ -175,7 +175,7 @@ export default async function VidenOmAI() {
                           <h2 className="text-lg lg:text-xl font-bold tracking-heading mb-3 leading-snug group-hover:text-primary transition-colors">
                             {post.title}
                           </h2>
-                          <p className="text-gray-500 leading-relaxed text-sm flex-grow">
+                          <p className="text-body-sm text-gray-700 flex-grow">
                             {post.excerpt}
                           </p>
                           <p className="text-xs text-gray-400 mt-4 pt-4 border-t border-gray-100">

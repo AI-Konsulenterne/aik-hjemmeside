@@ -14,7 +14,7 @@ export default async function Testimonials() {
   if (items.length === 0) return null;
 
   return (
-    <section className="bg-gray-50 py-[clamp(4rem,10vw,7rem)]">
+    <section className="bg-sand py-[clamp(4rem,10vw,7rem)]">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <FadeIn>
           <p className="text-[11px] uppercase tracking-[0.2em] text-primary font-semibold text-center mb-3">

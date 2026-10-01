@@ -10,14 +10,17 @@
   --orange-glow: rgba(255, 154, 0, 0.1);
 
   --cream: #ffffff;
-  --cream-2: #fafafa;
-  --warm-100: #f5f5f5;
-  --warm-150: #e5e5e5;
+  --cream-2: #f8f4ed;
+  --warm-100: #f2ebe1;
+  --warm-150: #e8dfd3;
   --border: #e5e5e5;
   --border-2: #d4d4d4;
 
   --ink: #171717;
-  --muted: #737373;
+  --muted: #6b6b6b;
+  --body: #404040;
+  --fs-body: clamp(1.0625rem, 0.95rem + 0.3vw, 1.125rem);
+  --fs-body-sm: clamp(1rem, 0.9rem + 0.25vw, 1.0625rem);
   --subtle: #a3a3a3;
 
   --dark: #171717;
@@ -87,9 +90,9 @@
     line-height: 1.2;
   }
   .lead {
-    font-size: clamp(1.1rem, 1.6vw, 1.3rem);
-    line-height: 1.55;
-    color: var(--muted);
+    font-size: clamp(1.1875rem, 1.6vw, 1.3125rem);
+    line-height: 1.6;
+    color: var(--body);
     font-weight: 400;
   }
   .tag {
@@ -294,7 +297,7 @@
   .bento-wide { grid-column: span 6; padding: 30px 32px 32px; }
   .bento-copy { padding: 32px 32px 20px; }
   .bento-copy .h3 { margin-bottom: 10px; }
-  .bento-copy p { color: var(--muted); margin: 0; font-size: 1rem; max-width: 46ch; }
+  .bento-copy p { color: var(--body); margin: 0; font-size: var(--fs-body); line-height: 1.65; max-width: 46ch; }
   .bento-shot { margin-top: auto; padding-left: 32px; overflow: hidden; }
   .bento-shot img {
     display: block;
@@ -378,7 +381,7 @@
     text-overflow: ellipsis;
   }
   .bento-sm-title { margin-bottom: 8px; }
-  .bento-sm p { color: var(--muted); margin: 0; font-size: 0.96rem; }
+  .bento-sm p { color: var(--body); margin: 0; font-size: var(--fs-body-sm); line-height: 1.6; }
 
   /* token-usage graphic */
   .usage-head {
@@ -904,8 +907,9 @@
   .faq-a {
     margin: 0;
     padding: 0 26px 24px;
-    color: var(--muted);
-    font-size: 1rem;
+    color: var(--body);
+    font-size: var(--fs-body);
+    line-height: 1.65;
     max-width: 94%;
   }
 
@@ -937,7 +941,7 @@
   }
   .final-card > *:not(.final-glow) { position: relative; z-index: 1; }
   .final-title { margin-bottom: 22px; color: var(--ink); }
-  .final-lead { color: var(--muted); max-width: 600px; margin: 0 auto 38px; }
+  .final-lead { color: var(--body); max-width: 600px; margin: 0 auto 38px; font-size: clamp(1.125rem, 1.5vw, 1.25rem); line-height: 1.6; }
   .final-cta {
     display: flex;
     flex-wrap: wrap;

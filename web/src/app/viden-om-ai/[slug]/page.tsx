@@ -132,7 +132,7 @@ export default async function BlogPostPage({
               {post.readingTime && <span>· {post.readingTime} min læsning</span>}
             </div>
             {post.excerpt && (
-              <p className="text-lg lg:text-xl text-gray-500 mt-6 leading-relaxed">
+              <p className="text-lead text-gray-700 mt-6">
                 {post.excerpt}
               </p>
             )}

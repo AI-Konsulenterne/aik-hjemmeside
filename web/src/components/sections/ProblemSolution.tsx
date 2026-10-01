@@ -36,7 +36,7 @@ export default function ProblemSolution() {
   const [open, setOpen] = useState(0);
 
   return (
-    <section className="bg-gray-50 py-[clamp(4rem,10vw,7rem)]">
+    <section className="bg-sand py-[clamp(4rem,10vw,7rem)]">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* Header over begge kolonner */}
         <FadeIn>
@@ -44,7 +44,7 @@ export default function ProblemSolution() {
             <h2 className="text-3xl lg:text-4xl xl:text-5xl font-bold tracking-heading text-gray-900 leading-[1.1]">
               Sådan hjælper vi vores kunder i gang med AI
             </h2>
-            <p className="text-gray-500 mt-5 leading-relaxed">
+            <p className="text-body text-gray-700 mt-5">
               Det skal ikke være kompliceret at komme i gang med AI. Her er
               hvordan vi arbejder - uanset om I har en konkret use case eller om
               I skal finde ud af hvor I står.
@@ -61,7 +61,7 @@ export default function ProblemSolution() {
                 <p className="text-2xl lg:text-3xl font-bold tracking-heading text-primary">
                   Over 80% af AI-projekter mislykkes
                 </p>
-                <p className="text-sm text-gray-500 mt-2 leading-relaxed">
+                <p className="text-body-sm text-gray-700 mt-2">
                   RAND interviewede dataforskere og ingeniører med mindst fem
                   års AI-erfaring og fandt, at over 80% af AI-projekter ikke
                   leverer den værdi virksomheden forventede - dobbelt så høj
@@ -151,7 +151,7 @@ export default function ProblemSolution() {
                       }`}
                     >
                       <div className="overflow-hidden">
-                        <p className="px-6 pb-6 pl-[3.75rem] text-gray-500 leading-relaxed whitespace-pre-line">
+                        <p className="px-6 pb-6 pl-[3.75rem] text-body text-gray-700 whitespace-pre-line">
                           {step.body}
                         </p>
                       </div>

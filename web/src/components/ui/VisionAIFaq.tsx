@@ -38,7 +38,7 @@ export default function VisionAIFaq() {
           >
             <button
               onClick={() => setOpen(isOpen ? null : i)}
-              className="w-full flex items-center justify-between gap-4 px-6 py-5 text-left hover:bg-gray-50/50 transition-colors"
+              className="w-full flex items-center justify-between gap-4 px-6 py-5 text-left hover:bg-sand/50 transition-colors"
               aria-expanded={isOpen}
             >
               <span className="text-base lg:text-lg font-bold tracking-heading text-gray-900 leading-tight">
@@ -67,7 +67,7 @@ export default function VisionAIFaq() {
               className={`grid transition-all duration-300 ease-out ${isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"}`}
             >
               <div className="overflow-hidden">
-                <p className="px-6 pb-6 text-gray-600 leading-relaxed">
+                <p className="px-6 pb-6 text-body text-gray-700">
                   {faq.a}
                 </p>
               </div>

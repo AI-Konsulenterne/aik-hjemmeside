@@ -12,12 +12,12 @@ type CalBookingProps = {
 export default function CalBooking({ className = "" }: CalBookingProps) {
   return (
     <div
-      className={`bg-gray-50 rounded-2xl ring-1 ring-gray-100 p-8 lg:p-12 text-center flex flex-col items-center justify-center ${className}`}
+      className={`bg-sand rounded-2xl ring-1 ring-gray-100 p-8 lg:p-12 text-center flex flex-col items-center justify-center ${className}`}
     >
       <h3 className="text-2xl lg:text-3xl font-bold tracking-heading text-gray-900">
         Book en gratis AI-afklaring
       </h3>
-      <p className="text-gray-500 mt-3 max-w-md leading-relaxed">
+      <p className="text-body text-gray-700 mt-3 max-w-md">
         Ring eller skriv til Alexander, så finder vi en tid til en gratis
         45-minutters AI-afklaring.
       </p>

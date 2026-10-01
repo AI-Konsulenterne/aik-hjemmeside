@@ -26,7 +26,7 @@ export default function CookieDeclaration() {
 
   if (!cookiebotId) {
     return (
-      <div className="bg-gray-50 rounded-xl p-6 border border-gray-100 text-sm text-gray-500">
+      <div className="bg-sand rounded-xl p-6 border border-gray-100 text-sm text-gray-500">
         Cookie-oversigten bliver tilgængelig når Cookiebot er konfigureret.
       </div>
     );

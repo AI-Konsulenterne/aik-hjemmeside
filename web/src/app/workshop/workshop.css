@@ -10,13 +10,16 @@
   --orange-glow: rgba(255, 154, 0, 0.1);
 
   --cream: #ffffff;
-  --cream-2: #fafafa;
-  --warm-100: #f5f5f5;
+  --cream-2: #f8f4ed;
+  --warm-100: #f2ebe1;
   --border: #e5e5e5;
   --border-2: #d4d4d4;
 
   --ink: #171717;
-  --muted: #737373;
+  --muted: #6b6b6b;
+  --body: #404040;
+  --fs-body: clamp(1.0625rem, 0.95rem + 0.3vw, 1.125rem);
+  --fs-body-sm: clamp(1rem, 0.9rem + 0.25vw, 1.0625rem);
   --subtle: #a3a3a3;
 
   --radius: 14px;
@@ -74,9 +77,9 @@
   }
   .h3 { font-size: 1.3rem; font-weight: 700; letter-spacing: -0.02em; line-height: 1.2; }
   .lead {
-    font-size: clamp(1.1rem, 1.6vw, 1.3rem);
-    line-height: 1.55;
-    color: var(--muted);
+    font-size: clamp(1.1875rem, 1.6vw, 1.3125rem);
+    line-height: 1.6;
+    color: var(--body);
     font-weight: 400;
   }
   .accent { color: var(--orange); }
@@ -184,7 +187,7 @@
   .hero-micro {
     margin: 18px 0 0;
     font-size: 0.9rem;
-    color: var(--subtle);
+    color: var(--muted);
     display: inline-flex;
     align-items: center;
     gap: 8px;
@@ -311,7 +314,7 @@
   .problem-body {
     font-size: clamp(1.12rem, 1.7vw, 1.32rem);
     line-height: 1.62;
-    color: var(--muted);
+    color: var(--body);
     margin: 0;
     text-wrap: pretty;
   }
@@ -335,7 +338,7 @@
     margin: 0 0 20px;
   }
   .how-card h3 { margin: 0 0 12px; color: var(--ink); }
-  .how-card p { margin: 0; color: var(--muted); font-size: 0.99rem; line-height: 1.58; }
+  .how-card p { margin: 0; color: var(--body); font-size: var(--fs-body); line-height: 1.65; }
 
   /* ── Emner — chips + detail panel ── */
   .emner-grid {
@@ -429,8 +432,8 @@
   }
   .emne-panel .emne-desc {
     margin: 0;
-    color: var(--muted);
-    font-size: clamp(1.05rem, 1.5vw, 1.2rem);
+    color: var(--body);
+    font-size: clamp(1.0625rem, 1.5vw, 1.2rem);
     line-height: 1.6;
     max-width: 30em;
     text-wrap: pretty;
@@ -511,7 +514,7 @@
     line-height: 1.25;
   }
   .pcard .pc-h .pc-num { color: var(--orange); }
-  .pcard p { margin: 0; color: var(--muted); font-size: 0.98rem; line-height: 1.55; }
+  .pcard p { margin: 0; color: var(--body); font-size: var(--fs-body); line-height: 1.65; }
 
   /* ── Final CTA ── */
   .final-section { background: var(--cream); }
@@ -543,10 +546,10 @@
   .final-card .eyebrow { color: var(--subtle); margin-bottom: 18px; }
   .final-title { margin: 0 0 22px; color: var(--ink); }
   .final-lead {
-    color: var(--muted);
+    color: var(--body);
     max-width: 620px;
     margin: 0 auto 38px;
-    font-size: clamp(1.05rem, 1.5vw, 1.2rem);
+    font-size: clamp(1.125rem, 1.5vw, 1.25rem);
     line-height: 1.6;
   }
   .final-cta {
@@ -604,11 +607,11 @@
     margin: 0 0 14px;
   }
   .ws-academy p {
-    color: var(--muted);
+    color: var(--body);
     max-width: 560px;
     margin: 0 auto 28px;
-    font-size: 1.05rem;
-    line-height: 1.6;
+    font-size: var(--fs-body);
+    line-height: 1.65;
   }
 
   /* ── Referencer ── */
@@ -690,8 +693,9 @@
     color: var(--ink);
   }
   .ws-pack > p {
-    color: var(--muted);
-    line-height: 1.6;
+    color: var(--body);
+    font-size: var(--fs-body);
+    line-height: 1.65;
     margin: 0 0 18px;
   }
   .ws-pack ul {
@@ -703,9 +707,9 @@
     display: flex;
     gap: 10px;
     padding: 7px 0;
-    color: var(--muted);
-    line-height: 1.5;
-    font-size: 0.97rem;
+    color: var(--body);
+    line-height: 1.55;
+    font-size: var(--fs-body-sm);
   }
   .ws-pack li::before {
     content: "✓";
@@ -735,7 +739,8 @@
   .ws-case-block { margin-bottom: 36px; }
   .ws-case-block:last-child { margin-bottom: 0; }
   .ws-case-block p {
-    color: var(--muted);
+    color: var(--body);
+    font-size: var(--fs-body);
     line-height: 1.65;
     margin: 0;
   }
@@ -749,8 +754,9 @@
     display: flex;
     gap: 10px;
     padding: 5px 0;
-    color: var(--muted);
-    line-height: 1.5;
+    color: var(--body);
+    font-size: var(--fs-body-sm);
+    line-height: 1.55;
   }
   .ws-case-block li::before {
     content: "✓";
@@ -764,8 +770,8 @@
     border: 1px solid rgba(255, 154, 0, 0.22);
     border-radius: var(--radius);
     padding: 18px 20px;
-    font-size: 0.95rem;
-    color: var(--muted);
+    font-size: var(--fs-body-sm);
+    color: var(--body);
     line-height: 1.6;
   }
   .ws-case-example strong { color: var(--ink); }

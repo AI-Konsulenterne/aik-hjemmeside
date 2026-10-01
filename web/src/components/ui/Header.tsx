@@ -91,7 +91,7 @@ export default function Header() {
                   <Link
                     key={link.href}
                     href={link.href}
-                    className="block px-5 py-2.5 text-sm text-gray-600 hover:text-black hover:bg-gray-50 transition-colors"
+                    className="block px-5 py-2.5 text-sm text-gray-600 hover:text-black hover:bg-sand transition-colors"
                     onClick={() => setDropdownOpen(false)}
                   >
                     {link.label}

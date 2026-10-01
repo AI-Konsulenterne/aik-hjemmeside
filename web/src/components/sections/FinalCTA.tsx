@@ -10,7 +10,7 @@ export default function FinalCTA() {
             <h2 className="text-3xl lg:text-4xl xl:text-5xl font-bold tracking-heading text-gray-900 leading-[1.1]">
               Hvad ville du gøre med 200.000 kr ekstra om året?
             </h2>
-            <p className="text-gray-500 mt-5 leading-relaxed">
+            <p className="text-body text-gray-700 mt-5">
               Det starter med én samtale. 45 minutter. Gratis. Du går derfra
               med en konkret AI-plan — eller det koster dig ingenting.
             </p>

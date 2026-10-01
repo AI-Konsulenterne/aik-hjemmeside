@@ -52,7 +52,7 @@ export default function VisionAIPricing() {
           { label: "Søgninger inkl.", value: searches },
           { label: "Hukommelse inkl.", value: `${storage} GB` },
         ].map((item) => (
-          <div key={item.label} className="bg-gray-50 rounded-xl px-4 py-3">
+          <div key={item.label} className="bg-sand rounded-xl px-4 py-3">
             <p className="text-[11px] uppercase tracking-widest text-gray-400 font-semibold">
               {item.label}
             </p>

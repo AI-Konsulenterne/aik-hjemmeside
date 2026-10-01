@@ -94,7 +94,7 @@ export default function CaseHighlight() {
             </div>
 
             <div className="border-t border-gray-200 pt-8">
-              <p className="text-gray-500 leading-relaxed text-center">
+              <p className="text-body text-gray-700 text-center">
                 Lavazzas HR-afdeling brugte alt for mange timer på at besvare de
                 samme spørgsmål igen og igen. Vi byggede en datasikker AI-agent,
                 der automatisk besvarer HR-spørgsmålene — så teamet kan bruge

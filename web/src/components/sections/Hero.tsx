@@ -52,7 +52,7 @@ export default function Hero() {
               </h1>
             </FadeIn>
             <FadeIn delay={150}>
-              <p className="text-base sm:text-lg lg:text-xl text-gray-500 mt-6 lg:mt-8 max-w-xl mx-auto lg:mx-0 leading-relaxed">
+              <p className="text-lead text-gray-700 mt-6 lg:mt-8 max-w-xl mx-auto lg:mx-0">
                 Vi er AI-konsulenterne, der hjælper danske virksomheder godt i
                 gang med AI - også jer der ikke ved hvor I skal starte, eller
                 ikke har en IT-afdeling at læne jer op ad.

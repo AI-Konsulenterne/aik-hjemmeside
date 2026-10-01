@@ -109,7 +109,7 @@ export function renderMarkdown(source: string): ReactNode {
       const items: ReactNode[] = [];
       while (i < lines.length && /^[-*]\s+/.test(lines[i])) {
         items.push(
-          <li key={items.length} className="mb-2 leading-relaxed">
+          <li key={items.length} className="mb-2">
             {inlineMarkdown(lines[i].replace(/^[-*]\s+/, ""))}
           </li>,
         );
@@ -118,7 +118,7 @@ export function renderMarkdown(source: string): ReactNode {
       blocks.push(
         <ul
           key={key++}
-          className="list-disc pl-6 my-4 text-gray-700 marker:text-primary"
+          className="list-disc pl-6 my-4 text-body text-gray-700 marker:text-primary"
         >
           {items}
         </ul>,
@@ -131,7 +131,7 @@ export function renderMarkdown(source: string): ReactNode {
       const items: ReactNode[] = [];
       while (i < lines.length && /^\d+\.\s+/.test(lines[i])) {
         items.push(
-          <li key={items.length} className="mb-2 leading-relaxed">
+          <li key={items.length} className="mb-2">
             {inlineMarkdown(lines[i].replace(/^\d+\.\s+/, ""))}
           </li>,
         );
@@ -140,7 +140,7 @@ export function renderMarkdown(source: string): ReactNode {
       blocks.push(
         <ol
           key={key++}
-          className="list-decimal pl-6 my-4 text-gray-700 marker:text-primary"
+          className="list-decimal pl-6 my-4 text-body text-gray-700 marker:text-primary"
         >
           {items}
         </ol>,
@@ -158,7 +158,7 @@ export function renderMarkdown(source: string): ReactNode {
       blocks.push(
         <blockquote
           key={key++}
-          className="border-l-4 border-primary pl-5 my-6 text-gray-600 italic leading-relaxed"
+          className="border-l-4 border-primary pl-5 my-6 text-body text-gray-700 italic"
         >
           {inlineMarkdown(quoteLines.join(" "))}
         </blockquote>,
@@ -176,7 +176,7 @@ export function renderMarkdown(source: string): ReactNode {
     blocks.push(
       <p
         key={key++}
-        className="text-gray-700 leading-relaxed mb-5 text-[1.05rem]"
+        className="text-body text-gray-700 mb-5"
       >
         {inlineMarkdown(paragraph.join(" "))}
       </p>,

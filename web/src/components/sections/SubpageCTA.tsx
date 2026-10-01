@@ -18,7 +18,7 @@ export default function SubpageCTA({
             <h2 className="text-2xl lg:text-3xl font-bold tracking-heading text-gray-900">
               {heading}
             </h2>
-            <p className="text-gray-500 mt-4 leading-relaxed">{description}</p>
+            <p className="text-body text-gray-700 mt-4">{description}</p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8">
               <Button variant="primary" href="/kontakt" cal>
                 Book en gratis AI-afklaring

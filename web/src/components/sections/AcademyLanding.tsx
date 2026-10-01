@@ -273,7 +273,7 @@ function CourseCard({
         <h3 className="text-[23px] font-bold tracking-tight text-gray-900 mt-3">
           {title}
         </h3>
-        <p className="text-[15px] leading-relaxed text-gray-500 mt-2.5">
+        <p className="text-body-sm text-gray-700 mt-2.5">
           {desc}
         </p>
       </div>
@@ -313,7 +313,7 @@ export default function AcademyLanding() {
                   Uddannelse i Copilot{" "}
                   <span className="text-primary">til hele organisationen</span>
                 </h1>
-                <p className="text-lg lg:text-xl text-gray-500 mt-6 leading-relaxed max-w-xl">
+                <p className="text-lead text-gray-700 mt-6 max-w-xl">
                   Vi har bygget en online læringsplatform med 40+ moduler, der
                   underviser jeres kollegaer i alt, hvad de har brug for inden
                   for Copilot, Claude og AI Act. Modulerne er korte, hands-on
@@ -415,7 +415,7 @@ export default function AcademyLanding() {
       </section>
 
       {/* ══════════ PAIN ══════════ */}
-      <section className="bg-gray-50 py-[clamp(4rem,10vw,7rem)]">
+      <section className="bg-sand py-[clamp(4rem,10vw,7rem)]">
         <div className="max-w-3xl mx-auto px-6 lg:px-8 text-center">
           <FadeIn>
             <Eyebrow>Lyder det bekendt?</Eyebrow>
@@ -423,7 +423,7 @@ export default function AcademyLanding() {
               Få réel forretningsværdi{" "}
               <span className="text-primary">ud af jeres licenser</span>
             </h2>
-            <p className="text-xl text-gray-600 mt-6 leading-relaxed">
+            <p className="text-lead text-gray-700 mt-6">
               I har købt licenser. I har gjort opmærksom på at de eksisterer.
               Men ingen bruger dem? Derfor har vi bygget AI-Minds, der gør
               læring omkring AI nemt og tilgængeligt. Med små, korte og konkrete
@@ -445,7 +445,7 @@ export default function AcademyLanding() {
                   <span className="text-primary">travl hverdag</span>.
                 </h2>
               </div>
-              <p className="text-[17px] text-gray-600 max-w-[380px]">
+              <p className="text-body text-gray-700 max-w-[380px]">
                 Start med Grundlæggende AI - eller dyk direkte ned i det værktøj,
                 jeres folk bruger til dagligt, oftest Microsoft Copilot.
               </p>
@@ -591,7 +591,7 @@ export default function AcademyLanding() {
 
             {/* Coming soon */}
             <FadeIn delay={240}>
-              <div className="flex flex-col items-center justify-center text-center gap-3.5 h-full rounded-[22px] border border-dashed border-gray-300 bg-gray-50 p-10">
+              <div className="flex flex-col items-center justify-center text-center gap-3.5 h-full rounded-[22px] border border-dashed border-gray-300 bg-sand p-10">
                 <span className="w-[52px] h-[52px] rounded-[14px] bg-primary/10 text-primary flex items-center justify-center">
                   <svg
                     className="w-[26px] h-[26px]"
@@ -611,7 +611,7 @@ export default function AcademyLanding() {
                   <div className="text-[19px] font-bold tracking-tight text-gray-900">
                     Nye moduler kommer løbende
                   </div>
-                  <div className="text-[15px] text-gray-500 mt-1.5 max-w-[240px]">
+                  <div className="text-body-sm text-gray-700 mt-1.5 max-w-[240px]">
                     AI-landskabet bevæger sig med lynets hast - vi sørger for at
                     holde jer opdateret.
                   </div>
@@ -620,7 +620,7 @@ export default function AcademyLanding() {
             </FadeIn>
           </div>
 
-          <div className="flex items-center gap-3.5 mt-7 text-[15px] text-gray-500">
+          <div className="flex items-center gap-3.5 mt-7 text-body-sm text-gray-700">
             <span className="w-[7px] h-[7px] rounded-full bg-primary" />
             Usikker på hvor I skal starte? Book en snak, så finder vi det rette
             forløb sammen.
@@ -629,7 +629,7 @@ export default function AcademyLanding() {
       </section>
 
       {/* ══════════ SE EN RIGTIG LEKTION ══════════ */}
-      <section id="lektion" className="bg-gray-50 py-[clamp(4rem,10vw,7rem)] scroll-mt-24">
+      <section id="lektion" className="bg-sand py-[clamp(4rem,10vw,7rem)] scroll-mt-24">
         <div className="max-w-4xl mx-auto px-6 lg:px-8">
           <FadeIn>
             <div className="max-w-2xl mx-auto text-center">
@@ -637,7 +637,7 @@ export default function AcademyLanding() {
               <h2 className="text-3xl lg:text-5xl font-bold tracking-heading text-gray-900 leading-[1.08] mt-4">
                 Se vores underviser <span className="text-primary">i aktion</span>.
               </h2>
-              <p className="text-lg text-gray-600 mt-5 leading-relaxed">
+              <p className="text-lead text-gray-700 mt-5">
                 Det her er en lektion fra AI-Minds om prompting - præcis som
                 jeres medarbejdere møder den. Så kan I selv vurdere formatet,
                 inden vi tager en snak.
@@ -690,7 +690,7 @@ export default function AcademyLanding() {
                   <h3 className="text-[22px] font-bold tracking-tight text-gray-900 mb-3">
                     {v.title}
                   </h3>
-                  <p className="text-gray-600 leading-relaxed">{v.description}</p>
+                  <p className="text-body text-gray-700">{v.description}</p>
                 </div>
               </FadeIn>
             ))}
@@ -699,7 +699,7 @@ export default function AcademyLanding() {
       </section>
 
       {/* ══════════ SÅDAN SER DET UD I PRAKSIS ══════════ */}
-      <section className="bg-gray-50 py-[clamp(4rem,10vw,7rem)]">
+      <section className="bg-sand py-[clamp(4rem,10vw,7rem)]">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <FadeIn>
             <div className="max-w-2xl">
@@ -818,7 +818,7 @@ export default function AcademyLanding() {
       </section>
 
       {/* ══════════ FAQ ══════════ */}
-      <section id="faq" className="bg-gray-50 py-[clamp(4rem,10vw,7rem)] scroll-mt-24">
+      <section id="faq" className="bg-sand py-[clamp(4rem,10vw,7rem)] scroll-mt-24">
         <div className="max-w-3xl mx-auto px-6 lg:px-8">
           <FadeIn>
             <div>
@@ -827,7 +827,7 @@ export default function AcademyLanding() {
                 Spørgsmål{" "}
                 <span className="text-primary">vores kunder stiller.</span>
               </h2>
-              <p className="text-[17px] text-gray-600 mt-5 leading-relaxed">
+              <p className="text-body text-gray-700 mt-5">
                 Har du et spørgsmål, der ikke står her? Tag det med på opkaldet.
               </p>
             </div>
@@ -859,7 +859,7 @@ export default function AcademyLanding() {
                       </svg>
                     </span>
                   </summary>
-                  <div className="pb-7 -mt-1 text-[17px] leading-relaxed text-gray-600 max-w-[760px]">
+                  <div className="pb-7 -mt-1 text-body text-gray-700 max-w-[760px]">
                     {item.a}
                   </div>
                 </details>

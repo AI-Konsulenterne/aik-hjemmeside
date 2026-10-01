@@ -15,7 +15,7 @@ export default function NotFound() {
         <h1 className="text-2xl lg:text-3xl font-bold tracking-heading text-gray-900 mt-6">
           Siden blev ikke fundet
         </h1>
-        <p className="text-lg text-gray-500 mt-4 max-w-md mx-auto leading-relaxed">
+        <p className="text-lead text-gray-700 mt-4 max-w-md mx-auto">
           Den side du leder efter eksisterer ikke eller er blevet flyttet.
         </p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-10">

@@ -25,7 +25,7 @@ const barriers = [
 
 export default function Barriers() {
   return (
-    <section className="bg-gray-50 py-[clamp(4rem,10vw,7rem)]">
+    <section className="bg-sand py-[clamp(4rem,10vw,7rem)]">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <FadeIn>
           <p className="text-[11px] uppercase tracking-[0.2em] text-primary font-semibold text-center mb-3">
@@ -34,7 +34,7 @@ export default function Barriers() {
           <h2 className="text-3xl lg:text-4xl font-bold tracking-heading text-gray-900 text-center leading-[1.1] max-w-3xl mx-auto">
             Det er ikke AI der er svært. Det er at vide hvor man skal starte.
           </h2>
-          <p className="text-gray-500 text-center max-w-2xl mx-auto mt-4 leading-relaxed">
+          <p className="text-body text-gray-700 text-center max-w-2xl mx-auto mt-4">
             De fleste virksomheder vi møder, sidder med de samme fem udfordringer - Kan du genkende nogen?
           </p>
         </FadeIn>
@@ -52,7 +52,7 @@ export default function Barriers() {
                       <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                     </svg>
                   </span>
-                  <p className="text-sm lg:text-[0.95rem] text-gray-600 leading-relaxed">
+                  <p className="text-body-sm text-gray-700">
                     {b.answer}
                   </p>
                 </div>

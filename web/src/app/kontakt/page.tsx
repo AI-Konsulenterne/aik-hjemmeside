@@ -32,7 +32,7 @@ export default function Kontakt() {
               <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold tracking-heading text-gray-900 leading-[1.05]">
                 Lad os tage en snak
               </h1>
-              <p className="text-lg lg:text-xl text-gray-500 mt-6 leading-relaxed">
+              <p className="text-lead text-gray-700 mt-6">
                 Ring direkte, send en mail, eller book en gratis 45-minutters
                 AI-afklaring. Vi er klar til at hjælpe.
               </p>
@@ -48,7 +48,7 @@ export default function Kontakt() {
             {/* Phone */}
             <a
               href="tel:+4525547074"
-              className="bg-gray-50 rounded-2xl p-8 text-center hover:shadow-md transition-shadow group"
+              className="bg-sand rounded-2xl p-8 text-center hover:shadow-md transition-shadow group"
             >
               <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mx-auto mb-4">
                 <svg
@@ -77,7 +77,7 @@ export default function Kontakt() {
             {/* Email */}
             <a
               href="mailto:kontakt@ai-konsulenterne.dk"
-              className="bg-gray-50 rounded-2xl p-8 text-center hover:shadow-md transition-shadow group"
+              className="bg-sand rounded-2xl p-8 text-center hover:shadow-md transition-shadow group"
             >
               <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mx-auto mb-4">
                 <svg

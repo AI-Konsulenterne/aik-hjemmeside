@@ -53,7 +53,7 @@ export default function UseCaseLanding({
             </h1>
           </FadeIn>
           <FadeIn delay={150}>
-            <p className="text-base sm:text-lg lg:text-xl text-gray-500 mt-6 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-lead text-gray-700 mt-6 max-w-2xl mx-auto">
               {lead}
             </p>
           </FadeIn>
@@ -75,7 +75,7 @@ export default function UseCaseLanding({
       </section>
 
       {/* ── Intro ── */}
-      <section className="py-[clamp(3.5rem,8vw,6rem)] bg-gray-50">
+      <section className="py-[clamp(3.5rem,8vw,6rem)] bg-sand">
         <div className="max-w-3xl mx-auto px-6 lg:px-8">
           <FadeIn>
             <h2 className="text-3xl lg:text-4xl font-bold tracking-heading text-gray-900 leading-[1.1]">
@@ -84,7 +84,7 @@ export default function UseCaseLanding({
             {intro.paragraphs.map((p, i) => (
               <p
                 key={i}
-                className="text-gray-600 mt-5 leading-relaxed text-lg"
+                className="text-lead text-gray-700 mt-5"
               >
                 {p}
               </p>
@@ -109,7 +109,7 @@ export default function UseCaseLanding({
                   <h3 className="text-lg font-bold tracking-heading text-gray-900 mt-4 leading-tight">
                     {s.h}
                   </h3>
-                  <p className="text-gray-600 mt-3 leading-relaxed text-[0.95rem]">
+                  <p className="text-body-sm text-gray-700 mt-3">
                     {s.p}
                   </p>
                 </div>
@@ -120,7 +120,7 @@ export default function UseCaseLanding({
       </section>
 
       {/* ── Cases (proof) ── */}
-      <section className="py-[clamp(4rem,10vw,7rem)] bg-gray-50">
+      <section className="py-[clamp(4rem,10vw,7rem)] bg-sand">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <FadeIn>
             <div className="max-w-2xl">
@@ -131,7 +131,7 @@ export default function UseCaseLanding({
                 {cases.h2}
               </h2>
               {cases.intro && (
-                <p className="text-gray-600 mt-4 leading-relaxed text-lg">
+                <p className="text-lead text-gray-700 mt-4">
                   {cases.intro}
                 </p>
               )}
@@ -155,7 +155,7 @@ export default function UseCaseLanding({
                   <h3 className="text-xl font-bold tracking-heading text-gray-900 mt-3 leading-tight">
                     {c.headline}
                   </h3>
-                  <p className="text-gray-600 mt-3 leading-relaxed flex-1">
+                  <p className="text-body text-gray-700 mt-3 flex-1">
                     {c.blurb}
                   </p>
                   <span className="text-primary font-semibold mt-5 inline-flex items-center gap-1.5">
@@ -186,7 +186,7 @@ export default function UseCaseLanding({
                   <h3 className="text-base lg:text-lg font-bold tracking-heading text-gray-900 leading-tight">
                     {f.q}
                   </h3>
-                  <p className="text-gray-600 mt-3 leading-relaxed">{f.a}</p>
+                  <p className="text-body text-gray-700 mt-3">{f.a}</p>
                 </div>
               </FadeIn>
             ))}
@@ -195,7 +195,7 @@ export default function UseCaseLanding({
       </section>
 
       {/* ── Relaterede løsninger ── */}
-      <section className="py-[clamp(4rem,10vw,7rem)] bg-gray-50">
+      <section className="py-[clamp(4rem,10vw,7rem)] bg-sand">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <FadeIn>
             <h2 className="text-3xl lg:text-4xl font-bold tracking-heading text-gray-900 leading-[1.1] max-w-2xl">
@@ -217,7 +217,7 @@ export default function UseCaseLanding({
                       →
                     </span>
                   </div>
-                  <p className="text-gray-600 mt-2.5 leading-relaxed text-[0.95rem]">
+                  <p className="text-body-sm text-gray-700 mt-2.5">
                     {r.desc}
                   </p>
                 </Link>
@@ -234,7 +234,7 @@ export default function UseCaseLanding({
             <h2 className="text-3xl lg:text-4xl font-bold tracking-heading text-gray-900 leading-[1.1]">
               {final.h2}
             </h2>
-            <p className="text-gray-500 mt-5 max-w-xl mx-auto leading-relaxed text-lg">
+            <p className="text-lead text-gray-700 mt-5 max-w-xl mx-auto">
               {final.lead}
             </p>
             <div className="mt-9 flex justify-center">

@@ -49,7 +49,7 @@ function logoFor(customer: string): string | null {
 }
 
 // Bløde, brand-venlige kort-farver der roterer
-const cardColors = ["bg-primary/10", "bg-gray-100", "bg-primary/5", "bg-gray-50"];
+const cardColors = ["bg-primary/10", "bg-gray-100", "bg-primary/5", "bg-sand"];
 
 function CaseCard({ c, index }: { c: Case; index: number }) {
   const logo = logoFor(c.customer);
@@ -141,7 +141,7 @@ export default async function Cases() {
               <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold tracking-heading text-gray-900 leading-[1.05]">
                 Konkrete resultater fra vores kunder
               </h1>
-              <p className="text-lg lg:text-xl text-gray-500 mt-6 leading-relaxed">
+              <p className="text-lead text-gray-700 mt-6">
                 Vi lader resultaterne tale for sig selv. Her er et udvalg af
                 virksomheder vi har hjulpet med AI.
               </p>
@@ -153,8 +153,8 @@ export default async function Cases() {
       {allCases.length === 0 && (
         <section className="pb-[clamp(3rem,8vw,6rem)]">
           <div className="max-w-3xl mx-auto px-6 lg:px-8 text-center">
-            <div className="bg-gray-50 rounded-2xl p-8 lg:p-10 border border-gray-100">
-              <p className="text-gray-500 leading-relaxed">
+            <div className="bg-sand rounded-2xl p-8 lg:p-10 border border-gray-100">
+              <p className="text-body text-gray-700">
                 Cases indlæses lige nu. Tjek igen om et øjeblik.
               </p>
             </div>

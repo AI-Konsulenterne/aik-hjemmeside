@@ -249,7 +249,7 @@ export default async function CaseDetail({
           {/* Sidebar */}
           <aside className="lg:sticky lg:top-24 lg:self-start">
             <FadeIn delay={150}>
-              <div className="bg-gray-50 rounded-2xl p-6 lg:p-7 border border-gray-100">
+              <div className="bg-sand rounded-2xl p-6 lg:p-7 border border-gray-100">
                 <p className="text-[11px] uppercase tracking-widest text-gray-400 font-semibold mb-4">
                   Fakta
                 </p>
@@ -269,7 +269,7 @@ export default async function CaseDetail({
                 </dl>
 
                 <div className="mt-6 pt-6 border-t border-gray-200">
-                  <p className="text-sm text-gray-600 leading-relaxed mb-4">
+                  <p className="text-body-sm text-gray-700 mb-4">
                     Vil du høre, om vi kan hjælpe jer med noget lignende?
                   </p>
                   <Link
@@ -287,7 +287,7 @@ export default async function CaseDetail({
 
       {/* Other cases */}
       {otherCases.length > 0 && (
-        <section className="bg-gray-50 py-[clamp(3rem,8vw,6rem)]">
+        <section className="bg-sand py-[clamp(3rem,8vw,6rem)]">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
             <FadeIn>
               <h2 className="text-2xl lg:text-3xl font-bold tracking-heading text-gray-900 mb-8">

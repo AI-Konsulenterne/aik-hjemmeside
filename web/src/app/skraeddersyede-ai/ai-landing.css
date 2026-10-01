@@ -10,13 +10,16 @@
   --orange-glow: rgba(255, 154, 0, 0.1);
 
   --cream: #ffffff;
-  --cream-2: #fafafa;
-  --warm-100: #f5f5f5;
+  --cream-2: #f8f4ed;
+  --warm-100: #f2ebe1;
   --border: #e5e5e5;
   --border-2: #d4d4d4;
 
   --ink: #171717;
-  --muted: #737373;
+  --muted: #6b6b6b;
+  --body: #404040;
+  --fs-body: clamp(1.0625rem, 0.95rem + 0.3vw, 1.125rem);
+  --fs-body-sm: clamp(1rem, 0.9rem + 0.25vw, 1.0625rem);
   --subtle: #a3a3a3;
 
   --dark: #171717;
@@ -70,9 +73,9 @@
   }
   .h3 { font-size: 1.3rem; font-weight: 700; letter-spacing: -0.02em; line-height: 1.2; }
   .lead {
-    font-size: clamp(1.1rem, 1.6vw, 1.3rem);
-    line-height: 1.55;
-    color: var(--muted);
+    font-size: clamp(1.1875rem, 1.6vw, 1.3125rem);
+    line-height: 1.6;
+    color: var(--body);
     font-weight: 400;
   }
   .accent { color: var(--orange); }
@@ -169,7 +172,7 @@
   .hero-micro {
     margin: 18px 0 0;
     font-size: 0.9rem;
-    color: var(--subtle);
+    color: var(--muted);
     display: inline-flex;
     align-items: center;
     gap: 8px;
@@ -261,7 +264,7 @@
   .problem-body {
     font-size: clamp(1.12rem, 1.7vw, 1.32rem);
     line-height: 1.62;
-    color: var(--muted);
+    color: var(--body);
     margin: 0;
     text-wrap: pretty;
   }
@@ -427,9 +430,9 @@
     margin: 0 0 18px;
   }
   .jm-case-copy p {
-    color: var(--muted);
-    font-size: 1.05rem;
-    line-height: 1.6;
+    color: var(--body);
+    font-size: var(--fs-body);
+    line-height: 1.65;
     margin: 0 0 14px;
   }
   .jm-case-copy p:last-child { margin-bottom: 0; }
@@ -505,7 +508,7 @@
     line-height: 1.25;
   }
   .pcard .pc-h .pc-num { color: var(--orange); }
-  .pcard p { margin: 0; color: var(--muted); font-size: 0.98rem; line-height: 1.55; }
+  .pcard p { margin: 0; color: var(--body); font-size: var(--fs-body); line-height: 1.65; }
   .pc-gain {
     display: inline-flex;
     align-items: center;
@@ -532,7 +535,7 @@
   }
   .why-card { padding: 32px 30px 34px; }
   .why-card .h3 { margin: 0 0 12px; }
-  .why-card p { color: var(--muted); margin: 0; font-size: 0.99rem; line-height: 1.58; }
+  .why-card p { color: var(--body); margin: 0; font-size: var(--fs-body); line-height: 1.65; }
 
   /* ── FAQ ── */
   .faq-section { background: var(--cream-2); }
@@ -594,9 +597,9 @@
   .faq-a {
     margin: 0;
     padding: 0 26px 24px;
-    color: var(--muted);
-    font-size: 1rem;
-    line-height: 1.6;
+    color: var(--body);
+    font-size: var(--fs-body);
+    line-height: 1.65;
     max-width: 94%;
   }
   .faq-a .ph { color: var(--ink); font-weight: 600; }
@@ -631,10 +634,10 @@
   .final-card .eyebrow { color: var(--subtle); margin-bottom: 18px; }
   .final-title { margin: 0 0 22px; color: var(--ink); }
   .final-lead {
-    color: var(--muted);
+    color: var(--body);
     max-width: 620px;
     margin: 0 auto 38px;
-    font-size: clamp(1.05rem, 1.5vw, 1.2rem);
+    font-size: clamp(1.125rem, 1.5vw, 1.25rem);
     line-height: 1.6;
   }
   .final-cta {

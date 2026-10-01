@@ -44,7 +44,7 @@ export default function NewsletterForm({
 
   if (status === "success") {
     return (
-      <p className={`text-sm leading-relaxed ${dark ? "text-gray-400" : "text-gray-500"}`}>
+      <p className={`text-body-sm ${dark ? "text-gray-400" : "text-gray-700"}`}>
         <span className="text-primary font-semibold">Tak!</span> Du hører fra os
         snart.
       </p>

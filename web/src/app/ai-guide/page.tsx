@@ -30,7 +30,7 @@ export default function AIGuide() {
                 <h1 className="text-4xl lg:text-5xl font-bold tracking-heading text-gray-900 leading-[1.05]">
                   Find jeres første AI use case lige her
                 </h1>
-                <p className="text-lg text-gray-500 mt-6 leading-relaxed">
+                <p className="text-lead text-gray-700 mt-6">
                   Vi oplever at rigtig mange virksomheder gerne vil bruge AI -
                   men ikke ved hvor de skal starte, eller hvilken opgave de skal
                   tage fat på først. Fortæl os kort om jer, så vender vi tilbage
@@ -66,7 +66,7 @@ export default function AIGuide() {
                   ))}
                 </ul>
 
-                <p className="text-base text-gray-500 mt-8 leading-relaxed">
+                <p className="text-body text-gray-700 mt-8">
                   Vi stiller jer de samme spørgsmål, som vi stiller vores kunder,
                   når vi afdækker hvor skoen trykker og hvor jeres AI-rejse skal
                   starte. På den måde bliver analysen jeres startskud.
@@ -76,7 +76,7 @@ export default function AIGuide() {
 
             {/* Form */}
             <FadeIn delay={200}>
-              <div className="bg-gray-50 rounded-2xl p-8 lg:p-10">
+              <div className="bg-sand rounded-2xl p-8 lg:p-10">
                 <LeadMagnetForm />
               </div>
             </FadeIn>

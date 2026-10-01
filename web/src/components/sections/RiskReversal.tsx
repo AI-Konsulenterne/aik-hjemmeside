@@ -60,7 +60,7 @@ export default function RiskReversal() {
 
           {/* Guarantee */}
           <FadeIn delay={200}>
-            <div className="bg-gray-50 rounded-2xl p-8 lg:p-10">
+            <div className="bg-sand rounded-2xl p-8 lg:p-10">
               <div className="inline-flex items-center justify-center w-14 h-14 rounded-full border-2 border-primary/20 mb-6">
                 <svg className="w-6 h-6 text-primary" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
@@ -72,7 +72,7 @@ export default function RiskReversal() {
                 <span className="text-primary">koster mødet ingenting.</span>
               </h3>
 
-              <p className="text-gray-500 leading-relaxed mb-6">
+              <p className="text-body text-gray-700 mb-6">
                 Ingen risiko, ingen skjulte omkostninger, ingen salgstricks.
                 Vi bruger 45 minutter på at forstå jeres virksomhed.
                 Finder vi ikke en konkret AI-mulighed — skylder I os ingenting.

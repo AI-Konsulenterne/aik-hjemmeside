@@ -154,7 +154,7 @@ export default function AiStrategi() {
             </h1>
           </FadeIn>
           <FadeIn delay={150}>
-            <p className="text-base sm:text-lg lg:text-xl text-gray-500 mt-6 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-lead text-gray-700 mt-6 max-w-2xl mx-auto">
               En AI-strategi er ikke et 80-siders dokument, der samler støv. Det
               er en konkret plan for, hvor AI giver jer mest værdi - og hvordan I
               kommer i gang. Vi laver AI-analysen, lægger en roadmap og hjælper
@@ -179,20 +179,20 @@ export default function AiStrategi() {
       </section>
 
       {/* ── Hvad er en AI-strategi ── */}
-      <section className="py-[clamp(3.5rem,8vw,6rem)] bg-gray-50">
+      <section className="py-[clamp(3.5rem,8vw,6rem)] bg-sand">
         <div className="max-w-3xl mx-auto px-6 lg:px-8">
           <FadeIn>
             <h2 className="text-3xl lg:text-4xl font-bold tracking-heading text-gray-900 leading-[1.1]">
               Hvad er en AI-strategi - i praksis?
             </h2>
-            <p className="text-gray-600 mt-6 leading-relaxed text-lg">
+            <p className="text-lead text-gray-700 mt-6">
               En AI-strategi er en plan for, hvordan jeres virksomhed bruger AI
               til at spare tid og skabe værdi. Den starter med en AI-analyse af
               jeres processer, prioriterer de use cases, der betaler sig hurtigst,
               og ender i en konkret roadmap for, hvad I gør - og i hvilken
               rækkefølge.
             </p>
-            <p className="text-gray-600 mt-4 leading-relaxed text-lg">
+            <p className="text-lead text-gray-700 mt-4">
               Det handler ikke om at bruge AI for at bruge AI. Det handler om at
               vælge de rigtige steder at starte, de rigtige værktøjer og en plan,
               som jeres folk faktisk kan følge - så I ikke ender med spredte
@@ -223,7 +223,7 @@ export default function AiStrategi() {
                   <h3 className="text-lg font-bold tracking-heading text-gray-900 mt-4 leading-tight">
                     {s.h}
                   </h3>
-                  <p className="text-gray-600 mt-3 leading-relaxed text-[0.95rem]">
+                  <p className="text-body-sm text-gray-700 mt-3">
                     {s.p}
                   </p>
                 </div>
@@ -234,7 +234,7 @@ export default function AiStrategi() {
       </section>
 
       {/* ── Hvorfor ── */}
-      <section className="py-[clamp(4rem,10vw,7rem)] bg-gray-50">
+      <section className="py-[clamp(4rem,10vw,7rem)] bg-sand">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <FadeIn>
             <div className="max-w-2xl">
@@ -287,7 +287,7 @@ export default function AiStrategi() {
                       →
                     </span>
                   </div>
-                  <p className="text-gray-600 mt-3 leading-relaxed">{c.p}</p>
+                  <p className="text-body text-gray-700 mt-3">{c.p}</p>
                 </Link>
               </FadeIn>
             ))}
@@ -296,7 +296,7 @@ export default function AiStrategi() {
       </section>
 
       {/* ── FAQ ── */}
-      <section className="py-[clamp(4rem,10vw,7rem)] bg-gray-50">
+      <section className="py-[clamp(4rem,10vw,7rem)] bg-sand">
         <div className="max-w-3xl mx-auto px-6 lg:px-8">
           <FadeIn>
             <h2 className="text-3xl lg:text-4xl font-bold tracking-heading text-gray-900 leading-[1.1] text-center">
@@ -310,7 +310,7 @@ export default function AiStrategi() {
                   <h3 className="text-base lg:text-lg font-bold tracking-heading text-gray-900 leading-tight">
                     {f.q}
                   </h3>
-                  <p className="text-gray-600 mt-3 leading-relaxed">{f.a}</p>
+                  <p className="text-body text-gray-700 mt-3">{f.a}</p>
                 </div>
               </FadeIn>
             ))}
@@ -325,7 +325,7 @@ export default function AiStrategi() {
             <h2 className="text-3xl lg:text-4xl font-bold tracking-heading text-gray-900 leading-[1.1]">
               Skal vi lægge jeres AI-strategi?
             </h2>
-            <p className="text-gray-500 mt-5 max-w-xl mx-auto leading-relaxed text-lg">
+            <p className="text-lead text-gray-700 mt-5 max-w-xl mx-auto">
               Vi starter med en gratis AI-afklaring. Vi finder ud af, hvor AI
               giver jer mest værdi - og siger ærligt til, hvis det ikke kan betale
               sig endnu.

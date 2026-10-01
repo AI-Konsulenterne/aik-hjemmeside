@@ -89,7 +89,7 @@ export default async function OmOs() {
               <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold tracking-heading text-gray-900 leading-[1.05]">
                 Vi gør AI tilgængeligt for danske virksomheder
               </h1>
-              <p className="text-lg lg:text-xl text-gray-500 mt-6 leading-relaxed">
+              <p className="text-lead text-gray-700 mt-6">
                 AI Konsulenterne er et dansk AI-konsulenthus der hjælper danske
                 virksomheder med at spare tid og penge med skræddersyede
                 AI-løsninger. Vi
@@ -101,13 +101,13 @@ export default async function OmOs() {
       </section>
 
       {/* Team */}
-      <section className="bg-gray-50 py-[clamp(3rem,8vw,6rem)]">
+      <section className="bg-sand py-[clamp(3rem,8vw,6rem)]">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <FadeIn>
             <h2 className="text-3xl lg:text-4xl font-bold tracking-heading text-gray-900 text-center mb-4">
               Teamet bag
             </h2>
-            <p className="text-gray-500 text-center max-w-2xl mx-auto mb-12 leading-relaxed">
+            <p className="text-body text-gray-700 text-center max-w-2xl mx-auto mb-12">
               Fire mennesker med én mission - at gøre AI konkret og nyttigt for
               danske virksomheder.
             </p>
@@ -191,7 +191,7 @@ export default async function OmOs() {
                     <h3 className="text-lg font-bold tracking-heading mb-2">
                       {value.title}
                     </h3>
-                    <p className="text-gray-500 leading-relaxed">
+                    <p className="text-body text-gray-700">
                       {value.description}
                     </p>
                   </div>

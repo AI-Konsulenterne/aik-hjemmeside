@@ -26,7 +26,7 @@ export default function FAQ() {
   const [open, setOpen] = useState<number | null>(0);
 
   return (
-    <section className="bg-gray-50 py-[clamp(4rem,10vw,7rem)]">
+    <section className="bg-sand py-[clamp(4rem,10vw,7rem)]">
       <div className="max-w-4xl mx-auto px-6 lg:px-8">
         <FadeIn>
           <p className="text-[11px] uppercase tracking-[0.2em] text-primary font-semibold text-center mb-3">
@@ -45,7 +45,7 @@ export default function FAQ() {
                 <div className="bg-white rounded-xl border border-gray-100 overflow-hidden">
                   <button
                     onClick={() => setOpen(isOpen ? null : i)}
-                    className="w-full flex items-center justify-between gap-4 px-6 py-5 text-left hover:bg-gray-50/50 transition-colors"
+                    className="w-full flex items-center justify-between gap-4 px-6 py-5 text-left hover:bg-sand/50 transition-colors"
                     aria-expanded={isOpen}
                   >
                     <span className="text-base lg:text-lg font-bold tracking-heading text-gray-900 leading-tight">
@@ -64,7 +64,7 @@ export default function FAQ() {
                     className={`grid transition-all duration-300 ease-out ${isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"}`}
                   >
                     <div className="overflow-hidden">
-                      <p className="px-6 pb-6 text-gray-600 leading-relaxed">
+                      <p className="px-6 pb-6 text-body text-gray-700">
                         {faq.a}
                       </p>
                     </div>

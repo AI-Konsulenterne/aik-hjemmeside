@@ -49,7 +49,7 @@ function Node({
             className={`text-xs lg:text-[13px] rounded-lg px-3 py-1.5 leading-snug ${
               isPrimary
                 ? "bg-white/10 text-white/90"
-                : "bg-gray-50 text-gray-600"
+                : "bg-sand text-gray-600"
             }`}
           >
             {item}
@@ -110,7 +110,7 @@ const flows: Record<string, Flow> = {
 export default function SolutionDiagram({ category }: { category?: string }) {
   const flow = (category && flows[category]) || flows.andet;
   return (
-    <div className="bg-gray-50 rounded-2xl p-6 lg:p-8 border border-gray-100">
+    <div className="bg-sand rounded-2xl p-6 lg:p-8 border border-gray-100">
       <p className="text-[11px] uppercase tracking-[0.15em] text-gray-400 font-semibold text-center mb-6">
         Sådan virker løsningen
       </p>

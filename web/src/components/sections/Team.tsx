@@ -37,7 +37,7 @@ export default async function Team() {
           <h2 className="text-3xl lg:text-4xl font-bold tracking-heading text-gray-900 text-center leading-[1.1] max-w-3xl mx-auto">
             Fire mennesker. Én mission.
           </h2>
-          <p className="text-gray-500 text-center max-w-2xl mx-auto mt-4 leading-relaxed">
+          <p className="text-body text-gray-700 text-center max-w-2xl mx-auto mt-4">
             At gøre AI til en konkurrencefordel for danske virksomheder uanset størrelse eller teknisk niveau.
           </p>
         </FadeIn>
