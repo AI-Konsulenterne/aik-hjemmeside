@@ -5,7 +5,6 @@ import Footer from "@/components/ui/Footer";
 import BottomBar from "@/components/BottomBar";
 import PopupPhone from "@/components/PopupPhone";
 import TrackingEvents from "@/components/TrackingEvents";
-import Analytics from "@/components/Analytics";
 import ScrollToTop from "@/components/ui/ScrollToTop";
 import "./globals.css";
 
@@ -73,9 +72,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="da" className={`${raleway.variable} antialiased`}>
-      <head>
-        <Analytics />
-      </head>
       <body>
         <a href="#main-content" className="skip-to-content">
           Spring til indhold

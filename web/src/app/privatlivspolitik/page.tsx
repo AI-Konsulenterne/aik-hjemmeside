@@ -13,7 +13,7 @@ export default function Privatlivspolitik() {
   return (
     <LegalLayout
       title="Privatlivspolitik"
-      lastUpdated="april 2026"
+      lastUpdated="oktober 2026"
     >
       <h2>1. Dataansvarlig</h2>
       <p>
@@ -41,7 +41,8 @@ export default function Privatlivspolitik() {
         </li>
         <li>
           <strong>Teknisk data</strong> (IP-adresse, browsertype,
-          skærmstørrelse) — via analyseværktøjer, kun med dit samtykke
+          skærmstørrelse) — kun i vores hostingudbyders tekniske logs, som
+          bruges til drift og sikkerhed
         </li>
         <li>
           <strong>Cookies</strong> — se vores cookiepolitik for detaljer
@@ -67,7 +68,7 @@ export default function Privatlivspolitik() {
       <ul>
         <li>
           <strong>Dit samtykke</strong> (GDPR art. 6, stk. 1, litra a) — fx
-          ved tilmelding til nyhedsbrev eller accept af marketing-cookies
+          ved tilmelding til nyhedsbrev
         </li>
         <li>
           <strong>Kontrakt</strong> (GDPR art. 6, stk. 1, litra b) — når du er
@@ -118,10 +119,6 @@ export default function Privatlivspolitik() {
         </li>
         <li>
           <strong>Cloudflare</strong> — CDN og sikkerhed
-        </li>
-        <li>
-          <strong>Google Analytics</strong> — statistik (anonymiseret IP, kun
-          ved samtykke)
         </li>
         <li>
           <strong>Hetzner / Vercel</strong> — hosting af hjemmesiden

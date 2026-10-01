@@ -1,76 +1,59 @@
 import type { Metadata } from "next";
 import LegalLayout from "@/components/ui/LegalLayout";
-import CookieDeclaration from "@/components/ui/CookieDeclaration";
 
 export const metadata: Metadata = {
   title: "Cookiepolitik",
   description:
-    "AI Konsulenterne's cookiepolitik. Få overblik over cookies på hjemmesiden, og hvordan du styrer dit samtykke.",
+    "AI Konsulenterne's cookiepolitik. Vi bruger ikke cookies til statistik eller marketing og viser derfor ikke et cookie-banner.",
   alternates: { canonical: "/cookiepolitik" },
   robots: { index: true, follow: true },
 };
 
 export default function Cookiepolitik() {
   return (
-    <LegalLayout title="Cookiepolitik" lastUpdated="april 2026">
+    <LegalLayout title="Cookiepolitik" lastUpdated="oktober 2026">
       <h2>Hvad er en cookie?</h2>
       <p>
-        En cookie er en lille tekstfil, der lagres i din browser. Cookies bruges
-        til at siden kan huske dine valg, til statistik, og til at forbedre din
-        oplevelse.
+        En cookie er en lille tekstfil, der lagres i din browser. Cookies kan
+        bruges til at huske dine valg, til statistik og til marketing.
       </p>
 
       <h2>Vores brug af cookies</h2>
       <p>
-        Vi bruger kun cookies der er strengt nødvendige for sidens funktion,
-        samt — hvis du giver samtykke — cookies til statistik og marketing.
+        Vi bruger ikke cookies til statistik eller marketing, og vi følger dig
+        ikke på tværs af andre hjemmesider. Derfor viser vi heller ikke et
+        cookie-banner.
       </p>
 
-      <h3>Nødvendige cookies</h3>
-      <p>
-        Disse bruges uden samtykke (de er forudsætningen for at siden kan
-        fungere):
-      </p>
+      <h3>Det, der kan blive gemt i din browser</h3>
       <ul>
         <li>
-          <strong>Session cookies</strong> — huske tilstand mellem sideskift
+          <strong>Sikkerhed</strong> — vores hostingudbyder (Vercel) kan sætte
+          en teknisk nødvendig cookie, der beskytter siden mod misbrug.
         </li>
         <li>
-          <strong>Cookie consent</strong> — gemme dit cookie-valg
+          <strong>Lukket pop-up</strong> — lukker du vores pop-up, husker din
+          browser det, indtil du lukker fanen. Det gemmes i browserens
+          sessionStorage og ikke som en cookie.
         </li>
       </ul>
 
-      <h3>Statistik-cookies (kræver samtykke)</h3>
-      <ul>
-        <li>
-          <strong>Google Analytics (GA4)</strong> — hjælper os med at forstå
-          hvordan siden bruges. IP anonymiseres.
-        </li>
-      </ul>
-
-      <h3>Marketing-cookies (kræver samtykke)</h3>
-      <ul>
-        <li>
-          <strong>Cal.com</strong> — bruges når du åbner booking-kalenderen
-        </li>
-      </ul>
-
-      <h2>Aktuel cookie-liste på hjemmesiden</h2>
+      <h3>Video fra YouTube</h3>
       <p>
-        Listen nedenfor opdateres automatisk af vores consent-system
-        (Cookiebot). Her ser du præcis hvilke cookies der bruges, deres formål
-        og levetid.
+        Videoen på vores side om AI-Minds hentes først fra YouTube
+        (youtube-nocookie.com), når du trykker play. Herefter kan YouTube gemme
+        oplysninger i din browser efter Googles egne regler.
       </p>
-      <div className="not-prose my-6">
-        <CookieDeclaration />
-      </div>
 
-      <h2>Sådan styrer du dine cookies</h2>
+      <h2>Statistik</h2>
       <p>
-        Du kan til enhver tid ændre eller trække dit samtykke tilbage via
-        cookie-banneret nederst på siden. Du kan også slette cookies i din
-        browser:
+        Vi bruger Google Search Console til at se, hvordan vores sider klarer
+        sig i Googles søgeresultater. Det kræver ingen cookies på vores
+        hjemmeside.
       </p>
+
+      <h2>Sådan sletter du cookies</h2>
+      <p>Du kan til enhver tid slette cookies og andre data i din browser:</p>
       <ul>
         <li>
           <a

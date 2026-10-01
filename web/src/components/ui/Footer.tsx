@@ -1,6 +1,5 @@
 import Link from "next/link";
 import Image from "next/image";
-import CookieConsentLink from "./CookieConsentLink";
 
 const serviceLinks = [
   { label: "AI-strategi", href: "/ai-strategi" },
@@ -156,7 +155,6 @@ export default function Footer() {
                   {link.label}
                 </Link>
               ))}
-              <CookieConsentLink className="text-xs text-gray-500 hover:text-white transition-colors cursor-pointer" />
             </div>
           </div>
           <p className="text-xs text-gray-500 flex items-center gap-1.5">
