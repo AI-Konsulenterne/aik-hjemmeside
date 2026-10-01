@@ -5,9 +5,9 @@ import FadeIn from "@/components/ui/FadeIn";
 // Kundelogoer vist i gråtoner på hvid. Logoerne er lavet til det orange bånd:
 // de hvide gøres mørke ("mono"), de farvede med egen baggrund vises i gråtoner.
 const clients = [
-  { name: "Lavazza", logo: "/logos/lavazza.png", width: 3840, height: 2400, cls: "h-10 lg:h-11", tone: "mono" },
+  { name: "Lavazza", logo: "/logos/lavazza.png", width: 3840, height: 2400, cls: "h-9 lg:h-11", tone: "mono" },
   { name: "INDKOM", logo: "/logos/indkom.png", width: 400, height: 74, cls: "h-5 lg:h-6", tone: "mono" },
-  { name: "Wunderwear", logo: "/logos/wunderwear.svg", width: 498, height: 47, cls: "h-3.5 lg:h-4", tone: "mono" },
+  { name: "Wunderwear", logo: "/logos/wunderwear.svg", width: 498, height: 47, cls: "h-3 lg:h-[15px]", tone: "mono" },
   { name: "Stretchfit", logo: "/logos/stretchfit.png", width: 600, height: 180, cls: "h-6 lg:h-7", tone: "mono" },
   { name: "J.M Band", logo: "/logos/jmband.png", width: 494, height: 242, cls: "h-7 lg:h-8", tone: "gray" },
   { name: "Fregat", logo: "/logos/fregat.png", width: 400, height: 112, cls: "h-6 lg:h-7", tone: "gray" },
@@ -19,12 +19,12 @@ export default function Hero() {
     <section className="pt-[clamp(3.5rem,9vw,7rem)] pb-[clamp(3.5rem,8vw,6rem)] relative overflow-hidden">
       <div className="hero-glow" aria-hidden="true" />
       <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-[1.4fr_1fr] gap-12 lg:gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-[1.4fr_1fr] gap-x-16 gap-y-12 lg:gap-y-16 items-center">
           {/* Venstre: tekst */}
           <div>
             <FadeIn>
               <h1 className="text-[2.125rem] sm:text-[2.75rem] lg:text-[3.25rem] xl:text-[3.625rem] font-bold tracking-heading text-gray-900 leading-[1.08] text-balance">
-                Vi bygger AI ind i danske virksomheder -{" "}
+                Vi bygger AI ind i danske virksomheder -{" "}
                 <span className="text-primary">
                   også jer, der ikke ved, hvor I skal starte.
                 </span>
@@ -47,33 +47,10 @@ export default function Hero() {
                 </Button>
               </div>
             </FadeIn>
-            <FadeIn delay={400}>
-              <div className="mt-11 lg:mt-12">
-                <p className="text-xs uppercase tracking-[0.15em] text-gray-500 font-semibold">
-                  Virksomheder vi har hjulpet
-                </p>
-                <ul className="mt-4 flex flex-wrap items-center gap-x-8 gap-y-5 lg:gap-x-10">
-                  {clients.map((c) => (
-                    <li key={c.name} className="flex items-center">
-                      <Image
-                        src={c.logo}
-                        alt={c.name}
-                        width={c.width}
-                        height={c.height}
-                        sizes="160px"
-                        className={`${c.cls} w-auto max-w-[150px] object-contain ${
-                          c.tone === "mono" ? "brightness-0 opacity-55" : "grayscale opacity-70"
-                        }`}
-                      />
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </FadeIn>
           </div>
 
           {/* Højre: Alexanders portræt */}
-          <FadeIn delay={200}>
+          <FadeIn delay={200} className="order-3 lg:order-none">
             <div className="relative max-w-sm mx-auto lg:mx-0 lg:ml-auto w-full">
               <div className="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-xl ring-1 ring-gray-100">
                 <Image
@@ -98,6 +75,31 @@ export default function Hero() {
                   </p>
                 </div>
               </div>
+            </div>
+          </FadeIn>
+
+          {/* Kundelogoer: efter knapperne på mobil, fuld bredde under hero på desktop */}
+          <FadeIn delay={400} className="order-2 lg:order-none lg:col-span-2">
+            <div className="flex flex-col xl:flex-row xl:items-center gap-4 xl:gap-12 lg:pt-10 lg:border-t lg:border-gray-100">
+              <p className="text-xs uppercase tracking-[0.15em] text-gray-500 font-semibold xl:shrink-0">
+                Virksomheder vi har hjulpet
+              </p>
+              <ul className="flex flex-wrap items-center gap-x-8 gap-y-5 lg:justify-between lg:gap-x-6 xl:flex-1">
+                {clients.map((c) => (
+                  <li key={c.name} className="flex items-center">
+                    <Image
+                      src={c.logo}
+                      alt={c.name}
+                      width={c.width}
+                      height={c.height}
+                      sizes="160px"
+                      className={`${c.cls} w-auto max-w-[170px] object-contain ${
+                        c.tone === "mono" ? "brightness-0 opacity-55" : "grayscale opacity-70"
+                      }`}
+                    />
+                  </li>
+                ))}
+              </ul>
             </div>
           </FadeIn>
         </div>
