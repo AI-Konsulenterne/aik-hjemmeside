@@ -13,7 +13,7 @@ export default function DeveloperExperience() {
   return (
     <section className="py-10 lg:py-14 bg-white border-y border-gray-100">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <p className="text-[11px] uppercase tracking-[0.2em] text-gray-400 font-semibold text-center mb-7">
+        <p className="text-[11px] uppercase tracking-[0.2em] text-gray-500 font-semibold text-center mb-7">
           Vores udviklere har erfaring fra
         </p>
         <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-6 lg:gap-x-16">

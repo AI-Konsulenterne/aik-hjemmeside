@@ -631,7 +631,7 @@
     background: radial-gradient(circle, var(--orange-glow) 0%, transparent 64%);
   }
   .final-card > *:not(.final-glow) { position: relative; z-index: 1; }
-  .final-card .eyebrow { color: var(--subtle); margin-bottom: 18px; }
+  .final-card .eyebrow { color: var(--muted); margin-bottom: 18px; }
   .final-title { margin: 0 0 22px; color: var(--ink); }
   .final-lead {
     color: var(--body);
@@ -662,7 +662,7 @@
     font-size: 0.8rem;
     font-weight: 700;
     letter-spacing: 0.04em;
-    color: var(--subtle);
+    color: var(--muted);
     text-transform: uppercase;
   }
   .final-phone .fp-num {

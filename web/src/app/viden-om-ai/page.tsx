@@ -167,7 +167,7 @@ export default async function VidenOmAI() {
                               </span>
                             )}
                             {post.readingTime && (
-                              <span className="text-[11px] text-gray-400">
+                              <span className="text-[11px] text-gray-500">
                                 {post.readingTime} min
                               </span>
                             )}
@@ -178,7 +178,7 @@ export default async function VidenOmAI() {
                           <p className="text-body-sm text-gray-700 flex-grow">
                             {post.excerpt}
                           </p>
-                          <p className="text-xs text-gray-400 mt-4 pt-4 border-t border-gray-100">
+                          <p className="text-xs text-gray-500 mt-4 pt-4 border-t border-gray-100">
                             {formatDate(post.publishedAt)}
                           </p>
                         </div>

@@ -56,7 +56,7 @@ export default function HowItWorks() {
                     <h3 className="text-xl lg:text-2xl font-bold tracking-heading text-gray-900">
                       {step.title}
                     </h3>
-                    <span className="text-[11px] uppercase tracking-[0.1em] text-gray-400 font-semibold bg-sand px-2.5 py-1 rounded-full whitespace-nowrap">
+                    <span className="text-[11px] uppercase tracking-[0.1em] text-gray-500 font-semibold bg-sand px-2.5 py-1 rounded-full whitespace-nowrap">
                       {step.duration}
                     </span>
                   </div>

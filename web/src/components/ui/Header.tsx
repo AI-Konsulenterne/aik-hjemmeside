@@ -143,7 +143,7 @@ export default function Header() {
       {menuOpen && (
         <div className="lg:hidden bg-white border-t border-gray-200 shadow-lg">
           <nav className="flex flex-col px-6 py-6 gap-1">
-            <p className="text-xs uppercase tracking-widest text-gray-400 font-semibold mb-2 mt-1">
+            <p className="text-xs uppercase tracking-widest text-gray-500 font-semibold mb-2 mt-1">
               Ydelser
             </p>
             {serviceLinks.map((link) => (

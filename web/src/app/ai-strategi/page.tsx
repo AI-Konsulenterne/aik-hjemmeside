@@ -253,8 +253,8 @@ export default function AiStrategi() {
                   <p className="text-4xl lg:text-5xl font-bold tracking-heading text-primary">
                     {s.figure}
                   </p>
-                  <p className="text-gray-700 mt-4 leading-relaxed">{s.text}</p>
-                  <p className="text-xs uppercase tracking-[0.15em] text-gray-400 font-semibold mt-4">
+                  <p className="text-body text-gray-700 mt-4">{s.text}</p>
+                  <p className="text-xs uppercase tracking-[0.15em] text-gray-500 font-semibold mt-4">
                     {s.source}
                   </p>
                 </div>

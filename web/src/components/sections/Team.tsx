@@ -67,7 +67,7 @@ export default async function Team() {
                         href={person.linkedinUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-gray-400 hover:text-primary transition-colors flex-shrink-0 ml-2"
+                        className="text-gray-500 hover:text-primary transition-colors flex-shrink-0 ml-2"
                         aria-label={`LinkedIn-profil for ${person.name}`}
                       >
                         <svg

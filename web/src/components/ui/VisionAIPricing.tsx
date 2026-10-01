@@ -41,7 +41,7 @@ export default function VisionAIPricing() {
         onChange={(e) => setUsers(Number(e.target.value))}
         className="w-full mt-4 accent-primary cursor-pointer"
       />
-      <div className="flex justify-between text-xs text-gray-400 mt-1">
+      <div className="flex justify-between text-xs text-gray-500 mt-1">
         <span>10</span>
         <span>150</span>
       </div>
@@ -53,7 +53,7 @@ export default function VisionAIPricing() {
           { label: "Hukommelse inkl.", value: `${storage} GB` },
         ].map((item) => (
           <div key={item.label} className="bg-sand rounded-xl px-4 py-3">
-            <p className="text-[11px] uppercase tracking-widest text-gray-400 font-semibold">
+            <p className="text-[11px] uppercase tracking-widest text-gray-500 font-semibold">
               {item.label}
             </p>
             <p className="text-base font-bold text-gray-900 mt-0.5">
@@ -69,7 +69,7 @@ export default function VisionAIPricing() {
           <p className="text-3xl lg:text-4xl font-bold tracking-heading text-primary">
             {total.toLocaleString("da-DK")} kr
           </p>
-          <p className="text-xs text-gray-400 mt-1">
+          <p className="text-xs text-gray-500 mt-1">
             {PER_USER_PRICE} kr pr. bruger
           </p>
         </div>

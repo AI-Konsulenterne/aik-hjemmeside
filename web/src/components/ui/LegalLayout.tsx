@@ -21,12 +21,12 @@ export default function LegalLayout({
           <h1 className="text-3xl lg:text-4xl font-bold tracking-heading text-gray-900 leading-[1.1]">
             {title}
           </h1>
-          <p className="text-sm text-gray-400 mt-4">
+          <p className="text-sm text-gray-500 mt-4">
             Sidst opdateret: {lastUpdated}
           </p>
         </FadeIn>
         <FadeIn delay={100}>
-          <div className="prose-article mt-10 text-gray-700 leading-relaxed">
+          <div className="prose-article mt-10 text-body text-gray-700">
             {children}
           </div>
         </FadeIn>

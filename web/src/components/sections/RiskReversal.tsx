@@ -44,7 +44,7 @@ export default function RiskReversal() {
                       </svg>
                       <span className="text-gray-900 font-medium">{item.item}</span>
                     </div>
-                    <span className="text-sm text-gray-400 line-through whitespace-nowrap">
+                    <span className="text-sm text-gray-500 line-through whitespace-nowrap">
                       {item.value}
                     </span>
                   </div>

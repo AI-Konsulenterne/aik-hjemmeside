@@ -250,7 +250,7 @@ export default async function CaseDetail({
           <aside className="lg:sticky lg:top-24 lg:self-start">
             <FadeIn delay={150}>
               <div className="bg-sand rounded-2xl p-6 lg:p-7 border border-gray-100">
-                <p className="text-[11px] uppercase tracking-widest text-gray-400 font-semibold mb-4">
+                <p className="text-[11px] uppercase tracking-widest text-gray-500 font-semibold mb-4">
                   Fakta
                 </p>
                 <dl className="space-y-4 text-sm">

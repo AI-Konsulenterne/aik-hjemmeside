@@ -108,7 +108,7 @@ export default function ValueCalculator() {
           </div>
         </div>
       </div>
-      <p className="px-8 lg:px-10 py-4 border-t border-gray-100 text-[13px] text-gray-400 italic">
+      <p className="px-8 lg:px-10 py-4 border-t border-gray-100 text-[13px] text-gray-500 italic">
         Beregningen er et illustrativt regneeksempel og er ikke en garanti for
         besparelsen.
       </p>

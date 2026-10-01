@@ -47,12 +47,12 @@ export default function Footer() {
             <p className="mt-3 text-sm text-gray-400 leading-relaxed">
               Vi bygger skræddersyede AI-løsninger til danske virksomheder.
             </p>
-            <p className="mt-4 text-xs text-gray-500">CVR: 45569241</p>
+            <p className="mt-4 text-xs text-gray-400">CVR: 45569241</p>
           </div>
 
           {/* Services */}
           <div>
-            <p className="text-xs uppercase tracking-widest text-gray-500 font-semibold mb-4">
+            <p className="text-xs uppercase tracking-widest text-gray-400 font-semibold mb-4">
               Ydelser
             </p>
             <nav className="flex flex-col gap-2.5">
@@ -67,7 +67,7 @@ export default function Footer() {
               ))}
             </nav>
 
-            <p className="text-xs uppercase tracking-widest text-gray-500 font-semibold mb-4 mt-7">
+            <p className="text-xs uppercase tracking-widest text-gray-400 font-semibold mb-4 mt-7">
               Løsninger
             </p>
             <nav className="flex flex-col gap-2.5">
@@ -85,7 +85,7 @@ export default function Footer() {
 
           {/* Virksomhed */}
           <div>
-            <p className="text-xs uppercase tracking-widest text-gray-500 font-semibold mb-4">
+            <p className="text-xs uppercase tracking-widest text-gray-400 font-semibold mb-4">
               Virksomhed
             </p>
             <nav className="flex flex-col gap-2.5">
@@ -103,7 +103,7 @@ export default function Footer() {
 
           {/* Kontakt */}
           <div>
-            <p className="text-xs uppercase tracking-widest text-gray-500 font-semibold mb-4">
+            <p className="text-xs uppercase tracking-widest text-gray-400 font-semibold mb-4">
               Kontakt
             </p>
             <div className="space-y-2.5 text-sm text-gray-400">
@@ -141,7 +141,7 @@ export default function Footer() {
 
         <div className="border-t border-white/10 pt-8 mt-12 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-6">
-            <p className="text-xs text-gray-500">
+            <p className="text-xs text-gray-400">
               © {new Date().getFullYear()} AI Konsulenterne. Alle rettigheder
               forbeholdes.
             </p>
@@ -150,14 +150,14 @@ export default function Footer() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="text-xs text-gray-500 hover:text-white transition-colors"
+                  className="text-xs text-gray-400 hover:text-white transition-colors"
                 >
                   {link.label}
                 </Link>
               ))}
             </div>
           </div>
-          <p className="text-xs text-gray-500 flex items-center gap-1.5">
+          <p className="text-xs text-gray-400 flex items-center gap-1.5">
             <span
               className="inline-block w-1.5 h-1.5 rounded-full bg-primary/60"
               aria-hidden="true"

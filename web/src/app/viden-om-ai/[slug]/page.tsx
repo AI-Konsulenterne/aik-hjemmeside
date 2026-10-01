@@ -126,7 +126,7 @@ export default async function BlogPostPage({
             <h1 className="text-3xl lg:text-5xl font-bold tracking-heading text-gray-900 leading-[1.1]">
               {post.title}
             </h1>
-            <div className="flex items-center gap-4 mt-6 text-sm text-gray-400">
+            <div className="flex items-center gap-4 mt-6 text-sm text-gray-500">
               <span>{formatDate(post.publishedAt)}</span>
               {post.author && <span>· {post.author}</span>}
               {post.readingTime && <span>· {post.readingTime} min læsning</span>}

@@ -68,7 +68,7 @@ export default function ProblemSolution() {
                   fejlrate som almindelige IT-projekter. Derfor arbejder vi som
                   vi gør, så I ikke ender i den statistik.
                 </p>
-                <p className="text-xs text-gray-400 mt-2">Kilde: RAND, 2024</p>
+                <p className="text-xs text-gray-500 mt-2">Kilde: RAND, 2024</p>
               </div>
 
               {/* Trin-numre */}

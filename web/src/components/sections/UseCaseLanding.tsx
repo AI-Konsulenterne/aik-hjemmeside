@@ -144,7 +144,7 @@ export default function UseCaseLanding({
                   href={c.href}
                   className="group flex flex-col h-full bg-white rounded-2xl border border-gray-100 p-8 hover:border-gray-900 hover:shadow-lg transition-all"
                 >
-                  <p className="text-xs uppercase tracking-[0.15em] text-gray-400 font-semibold">
+                  <p className="text-xs uppercase tracking-[0.15em] text-gray-500 font-semibold">
                     {c.company}
                   </p>
                   {c.stat && (

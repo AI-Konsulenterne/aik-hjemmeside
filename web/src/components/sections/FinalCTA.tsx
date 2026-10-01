@@ -22,12 +22,12 @@ export default function FinalCTA() {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-4">
               <a
                 href="tel:+4525547074"
-                className="text-sm text-gray-400 hover:text-gray-900 transition-colors"
+                className="text-sm text-gray-500 hover:text-gray-900 transition-colors"
               >
                 Eller ring direkte: +45 25 54 70 74
               </a>
             </div>
-            <p className="text-xs text-gray-400 mt-6">
+            <p className="text-xs text-gray-500 mt-6">
               Vi tager et begrænset antal nye kunder pr. måned for at sikre kvaliteten.
             </p>
           </div>

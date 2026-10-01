@@ -47,7 +47,7 @@ export default function CaseHighlight() {
                   <p className="text-sm font-bold tracking-heading text-gray-900">
                     HR-agenten
                   </p>
-                  <p className="text-xs text-gray-400 flex items-center gap-1.5">
+                  <p className="text-xs text-gray-500 flex items-center gap-1.5">
                     <span className="inline-block w-2 h-2 rounded-full bg-green-500" />
                     Online · svarer med det samme
                   </p>
@@ -70,7 +70,7 @@ export default function CaseHighlight() {
                 </div>
               </div>
             </div>
-            <p className="text-center text-xs text-gray-400 mt-3">
+            <p className="text-center text-xs text-gray-500 mt-3">
               Eksempel — bygget på Lavazzas egne HR-dokumenter
             </p>
           </div>
@@ -81,15 +81,15 @@ export default function CaseHighlight() {
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 text-center mb-10">
               <div>
                 <p className="text-2xl font-bold tracking-heading text-gray-900">Lavazza</p>
-                <p className="text-sm text-gray-400 mt-1">HR / intern AI</p>
+                <p className="text-sm text-gray-500 mt-1">HR / intern AI</p>
               </div>
               <div>
                 <p className="text-2xl font-bold tracking-heading text-gray-900">Datasikker</p>
-                <p className="text-sm text-gray-400 mt-1">Lever op til GDPR</p>
+                <p className="text-sm text-gray-500 mt-1">Lever op til GDPR</p>
               </div>
               <div>
                 <p className="text-2xl font-bold tracking-heading text-primary">Frigjort tid</p>
-                <p className="text-sm text-gray-400 mt-1">i hele HR-afdelingen</p>
+                <p className="text-sm text-gray-500 mt-1">i hele HR-afdelingen</p>
               </div>
             </div>
 

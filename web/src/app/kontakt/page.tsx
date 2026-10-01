@@ -71,7 +71,7 @@ export default function Kontakt() {
               <p className="text-primary font-semibold group-hover:underline">
                 +45 25 54 70 74
               </p>
-              <p className="text-sm text-gray-400 mt-1">Alexander</p>
+              <p className="text-sm text-gray-500 mt-1">Alexander</p>
             </a>
 
             {/* Email */}
@@ -118,7 +118,7 @@ export default function Kontakt() {
       {/* Info */}
       <section className="py-[clamp(3rem,8vw,6rem)]">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center">
-          <p className="text-sm text-gray-400">
+          <p className="text-sm text-gray-500">
             AI Konsulenterne — CVR: 45569241
           </p>
         </div>

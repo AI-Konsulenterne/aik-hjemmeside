@@ -95,7 +95,7 @@ export default function ServicesOverview() {
                       En hel dag hvor jeres team får lov at prøve kræfter med AI med afsæt i jeres egne opgaver. I går hjem med konkrete værktøjer, teknikker og nye måder at arbejde med AI på.
                     </p>
                   </div>
-                  <div className="flex items-center gap-2 text-sm font-semibold text-gray-400 group-hover:text-primary transition-colors mt-4">
+                  <div className="flex items-center gap-2 text-sm font-semibold text-gray-500 group-hover:text-primary transition-colors mt-4">
                     Læs mere
                     <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
@@ -124,7 +124,7 @@ export default function ServicesOverview() {
                       Jeres helt eget AI-system, som er forankret i jeres data, jeres systemer og jeres måde at gøre tingene på.
                     </p>
                   </div>
-                  <div className="flex items-center gap-2 text-sm font-semibold text-gray-400 group-hover:text-primary transition-colors mt-4">
+                  <div className="flex items-center gap-2 text-sm font-semibold text-gray-500 group-hover:text-primary transition-colors mt-4">
                     Læs mere
                     <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />

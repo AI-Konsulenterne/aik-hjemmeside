@@ -56,7 +56,7 @@
     color: var(--orange);
     margin: 0;
   }
-  .eyebrow.muted { color: var(--subtle); }
+  .eyebrow.muted { color: var(--muted); }
   h1, h2, h3, h4 {
     margin: 0;
     letter-spacing: -0.025em;
@@ -390,7 +390,7 @@
     margin-top: 20px;
     font-size: 0.82rem;
     font-weight: 600;
-    color: var(--subtle);
+    color: var(--muted);
     background: var(--warm-100);
     border: 1px dashed var(--border-2);
     border-radius: var(--radius-full);
@@ -420,7 +420,7 @@
     font-weight: 700;
     letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: var(--subtle);
+    color: var(--muted);
     margin: 0 0 10px;
   }
   .emne-panel h3 {
@@ -543,7 +543,7 @@
     background: radial-gradient(circle, var(--orange-glow) 0%, transparent 64%);
   }
   .final-card > *:not(.final-glow) { position: relative; z-index: 1; }
-  .final-card .eyebrow { color: var(--subtle); margin-bottom: 18px; }
+  .final-card .eyebrow { color: var(--muted); margin-bottom: 18px; }
   .final-title { margin: 0 0 22px; color: var(--ink); }
   .final-lead {
     color: var(--body);
@@ -574,7 +574,7 @@
     font-size: 0.8rem;
     font-weight: 700;
     letter-spacing: 0.04em;
-    color: var(--subtle);
+    color: var(--muted);
     text-transform: uppercase;
   }
   .final-phone .fp-num {

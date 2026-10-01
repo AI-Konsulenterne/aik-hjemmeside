@@ -64,7 +64,7 @@ export default function LessonVideo({
           </button>
         )}
       </div>
-      <p className="text-[13px] text-gray-400 mt-3 text-center">
+      <p className="text-[13px] text-gray-500 mt-3 text-center">
         Videoen afspilles via YouTube, når du trykker play.
       </p>
     </div>

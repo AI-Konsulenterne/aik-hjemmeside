@@ -207,7 +207,7 @@ export default function GuideForm() {
         <div>
           <label className="block text-sm font-semibold text-gray-700 mb-1.5">
             Hvor trykker skoene mest?{" "}
-            <span className="font-normal text-gray-400">(valgfri)</span>
+            <span className="font-normal text-gray-500">(valgfri)</span>
           </label>
           <textarea
             rows={3}
@@ -227,7 +227,7 @@ export default function GuideForm() {
         >
           {loading ? "Genererer jeres analyse…" : "Få min gratis AI-analyse"}
         </button>
-        <p className="text-xs text-gray-400 text-center">
+        <p className="text-xs text-gray-500 text-center">
           Tager 30 sekunder. Vi vender tilbage inden for 24 timer.
         </p>
       </form>
