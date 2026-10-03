@@ -8,6 +8,8 @@ const clients = [
   { name: "Lavazza", logo: "/logos/lavazza.png", width: 3840, height: 2400, cls: "h-9 lg:h-11", tone: "mono" },
   { name: "INDKOM", logo: "/logos/indkom.png", width: 400, height: 74, cls: "h-5 lg:h-6", tone: "mono" },
   { name: "Wunderwear", logo: "/logos/wunderwear.svg", width: 498, height: 47, cls: "h-3 lg:h-[15px]", tone: "mono" },
+  { name: "Turbinehallen", logo: "/logos/turbinehallen.png", width: 264, height: 242, cls: "h-11 lg:h-12", tone: "mono" },
+  { name: "MALT Fest & Event", logo: "/logos/malt.png", width: 357, height: 199, cls: "h-8 lg:h-10", tone: "mono" },
   { name: "Stretchfit", logo: "/logos/stretchfit.png", width: 600, height: 180, cls: "h-6 lg:h-7", tone: "mono" },
   { name: "J.M Band", logo: "/logos/jmband.png", width: 494, height: 242, cls: "h-7 lg:h-8", tone: "gray" },
   { name: "Fregat", logo: "/logos/fregat.png", width: 400, height: 112, cls: "h-6 lg:h-7", tone: "gray" },
@@ -80,11 +82,11 @@ export default function Hero() {
 
           {/* Kundelogoer: efter knapperne på mobil, fuld bredde under hero på desktop */}
           <FadeIn delay={400} className="order-2 lg:order-none lg:col-span-2">
-            <div className="flex flex-col xl:flex-row xl:items-center gap-4 xl:gap-12 lg:pt-10 lg:border-t lg:border-gray-100">
-              <p className="text-xs uppercase tracking-[0.15em] text-gray-500 font-semibold xl:shrink-0">
+            <div className="flex flex-col gap-5 lg:pt-10 lg:border-t lg:border-gray-100">
+              <p className="text-xs uppercase tracking-[0.15em] text-gray-500 font-semibold">
                 Virksomheder vi har hjulpet
               </p>
-              <ul className="flex flex-wrap items-center gap-x-8 gap-y-5 lg:justify-between lg:gap-x-6 xl:flex-1">
+              <ul className="flex flex-wrap items-center gap-x-8 gap-y-5 xl:justify-between xl:gap-x-6">
                 {clients.map((c) => (
                   <li key={c.name} className="flex items-center">
                     <Image
