@@ -7,6 +7,7 @@ import CaseHighlight from "@/components/sections/CaseHighlight";
 import Team from "@/components/sections/Team";
 import DeveloperExperience from "@/components/sections/DeveloperExperience";
 import Testimonials from "@/components/sections/Testimonials";
+import TeamStrip from "@/components/sections/TeamStrip";
 import MidCTA from "@/components/sections/MidCTA";
 import FAQ from "@/components/sections/FAQ";
 import JsonLd from "@/components/ui/JsonLd";
@@ -169,6 +170,11 @@ export default function Forside() {
       <ServicesOverview />
       <CaseHighlight />
       <Testimonials />
+      <section className="pt-[clamp(3rem,8vw,5rem)]">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <TeamStrip />
+        </div>
+      </section>
       <MidCTA />
       <Team />
       <DeveloperExperience />
