@@ -143,18 +143,18 @@ export default function AiStrategi() {
       {/* ── Hero ── */}
       <section className="pt-[clamp(4rem,11vw,8rem)] pb-[clamp(3rem,8vw,5.5rem)] relative overflow-hidden">
         <div className="hero-glow" aria-hidden="true" />
-        <div className="max-w-4xl mx-auto px-6 lg:px-8 relative z-10 text-center">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
           <FadeIn>
             <p className="text-[13px] font-bold tracking-[0.22em] uppercase text-primary">
               AI-strategi
             </p>
-            <h1 className="text-[2.5rem] sm:text-5xl lg:text-[3.75rem] font-bold tracking-heading text-gray-900 leading-[1.05] mt-4 text-balance">
+            <h1 className="text-[2.5rem] sm:text-5xl lg:text-[3.75rem] font-bold tracking-heading text-gray-900 leading-[1.05] mt-4 text-balance max-w-4xl">
               AI-strategi til danske virksomheder -{" "}
               <span className="text-primary">der rent faktisk bliver til noget.</span>
             </h1>
           </FadeIn>
           <FadeIn delay={150}>
-            <p className="text-lead text-gray-700 mt-6 max-w-2xl mx-auto">
+            <p className="text-lead text-gray-700 mt-6 max-w-2xl">
               En AI-strategi er ikke et 80-siders dokument, der samler støv. Det
               er en konkret plan for, hvor AI giver jer mest værdi - og hvordan I
               kommer i gang. Vi laver AI-analysen, lægger en roadmap og hjælper
@@ -162,7 +162,7 @@ export default function AiStrategi() {
             </p>
           </FadeIn>
           <FadeIn delay={300}>
-            <div className="flex flex-wrap items-center justify-center gap-3 mt-9">
+            <div className="flex flex-wrap items-center gap-3 mt-9">
               <Button variant="primary" size="lg" cal>
                 Book en gratis AI-afklaring
               </Button>

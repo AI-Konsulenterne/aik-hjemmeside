@@ -132,9 +132,9 @@ export default async function Cases() {
     <>
       {/* Hero */}
       <section className="pt-[clamp(4rem,12vw,8rem)] pb-[clamp(2rem,5vw,4rem)]">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <FadeIn>
-            <div className="max-w-3xl mx-auto">
+            <div className="max-w-3xl">
               <p className="text-[11px] uppercase tracking-[0.2em] text-primary font-semibold mb-4">
                 Kundehistorier
               </p>

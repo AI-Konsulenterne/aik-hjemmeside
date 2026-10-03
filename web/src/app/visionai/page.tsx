@@ -108,36 +108,36 @@ export default function VisionAI() {
       {/* ── Hero ── */}
       <section className="hero" id="top">
         <div className="hero-glow" aria-hidden="true" />
-        <FadeIn>
-          <div className="container hero-center">
-            <p className="eyebrow">AIK Workspace · jeres eget AI-system</p>
-            <h1 className="display hero-title">
-              AI-platformen der <span className="accent">samler det hele</span>
-            </h1>
-            <p className="lead hero-lead">
-              AIK Workspace er jeres AI-system til hele virksomheden - forankret i
-              jeres egen data, systemer og forretningslogik.
-            </p>
-            <div className="hero-cta">
-              <Button variant="primary" size="lg" cal>
-                Book en demo
-                <Icon name="arrow-right" size={18} />
-              </Button>
-              <a href="#platform" className="btn btn-ghost btn-lg">
-                Se platformen
-              </a>
+        <div className="container hero-grid">
+          <FadeIn>
+            <div className="hero-copy">
+              <p className="eyebrow">AIK Workspace · jeres eget AI-system</p>
+              <h1 className="display hero-title">
+                AI-platformen der <span className="accent">samler det hele</span>
+              </h1>
+              <p className="lead hero-lead">
+                AIK Workspace er jeres AI-system til hele virksomheden - forankret i
+                jeres egen data, systemer og forretningslogik.
+              </p>
+              <div className="hero-cta">
+                <Button variant="primary" size="lg" cal>
+                  Book en demo
+                  <Icon name="arrow-right" size={18} />
+                </Button>
+                <a href="#platform" className="btn btn-ghost btn-lg">
+                  Se platformen
+                </a>
+              </div>
+              <div className="hero-chips">
+                {HERO_CHIPS.map(([ic, t]) => (
+                  <span className="chip" key={t}>
+                    <Icon name={ic} /> {t}
+                  </span>
+                ))}
+              </div>
             </div>
-            <div className="hero-chips">
-              {HERO_CHIPS.map(([ic, t]) => (
-                <span className="chip" key={t}>
-                  <Icon name={ic} /> {t}
-                </span>
-              ))}
-            </div>
-          </div>
-        </FadeIn>
-        <FadeIn delay={150}>
-          <div className="container hero-shot-wrap">
+          </FadeIn>
+          <FadeIn delay={150}>
             <div className="hero-shot">
               <div className="appwin">
                 <div className="appwin-bar">
@@ -158,8 +158,8 @@ export default function VisionAI() {
                 </div>
               </div>
             </div>
-          </div>
-        </FadeIn>
+          </FadeIn>
+        </div>
       </section>
 
       {/* ── Platform bento ── */}
