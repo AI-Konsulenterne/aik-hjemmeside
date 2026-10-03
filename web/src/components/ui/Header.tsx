@@ -12,9 +12,9 @@ const serviceLinks = [
 ];
 
 const navLinks = [
-  { label: "AI-Minds", href: "/academy" },
+  { label: "Copilot-uddannelse", href: "/academy" },
   { label: "Cases", href: "/cases" },
-  { label: "Hjælp til AI", href: "/ai-guide" },
+  { label: "Gratis AI-analyse", href: "/ai-guide" },
   { label: "Viden om AI", href: "/viden-om-ai" },
   { label: "Om os", href: "/om-os" },
   { label: "Kontakt", href: "/kontakt" },
@@ -64,7 +64,7 @@ export default function Header() {
         </Link>
 
         {/* Desktop nav */}
-        <nav className="hidden lg:flex items-center gap-8">
+        <nav className="hidden lg:flex items-center gap-5 xl:gap-8">
           {/* Ydelser dropdown */}
           <div className="relative" ref={dropdownRef}>
             <button

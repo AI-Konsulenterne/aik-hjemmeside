@@ -1,4 +1,5 @@
 import Hero from "@/components/sections/Hero";
+import TwoPaths from "@/components/sections/TwoPaths";
 import Barriers from "@/components/sections/Barriers";
 import ProblemSolution from "@/components/sections/ProblemSolution";
 import ServicesOverview from "@/components/sections/ServicesOverview";
@@ -162,6 +163,7 @@ export default function Forside() {
       <JsonLd data={faqJsonLd} />
       <JsonLd data={breadcrumbJsonLd} />
       <Hero />
+      <TwoPaths />
       <Barriers />
       <ProblemSolution />
       <ServicesOverview />
