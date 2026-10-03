@@ -8,7 +8,7 @@ export default function CaseHighlight() {
         <FadeIn>
           <div className="text-center mb-4">
             <p className="text-[11px] uppercase tracking-[0.2em] text-primary font-semibold mb-6">
-              Kundecase — Lavazza
+              Kundecase - Lavazza
             </p>
             <h2 className="text-3xl lg:text-4xl xl:text-5xl font-bold tracking-heading text-gray-900 leading-[1.1]">
               HR-agenten der svarer<br className="hidden sm:block" /> så medarbejderne{" "}
@@ -71,7 +71,7 @@ export default function CaseHighlight() {
               </div>
             </div>
             <p className="text-center text-xs text-gray-500 mt-3">
-              Eksempel — bygget på Lavazzas egne HR-dokumenter
+              Eksempel - bygget på Lavazzas egne HR-dokumenter
             </p>
           </div>
         </FadeIn>
@@ -97,7 +97,7 @@ export default function CaseHighlight() {
               <p className="text-body text-gray-700 text-center">
                 Lavazzas HR-afdeling brugte alt for mange timer på at besvare de
                 samme spørgsmål igen og igen. Vi byggede en datasikker AI-agent,
-                der automatisk besvarer HR-spørgsmålene — så teamet kan bruge
+                der automatisk besvarer HR-spørgsmålene - så teamet kan bruge
                 tiden på det, der virkelig kræver et menneske.
               </p>
             </div>

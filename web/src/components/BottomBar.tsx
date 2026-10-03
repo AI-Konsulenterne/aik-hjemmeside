@@ -26,7 +26,7 @@ export default function BottomBar() {
             />
           </svg>
           <span className="hidden sm:inline">
-            +45 25 54 70 74 — Ring til Alexander nu
+            +45 25 54 70 74 - Ring til Alexander nu
           </span>
           <span className="sm:hidden">Ring nu</span>
         </a>

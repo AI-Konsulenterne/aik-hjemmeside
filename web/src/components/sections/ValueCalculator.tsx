@@ -54,7 +54,7 @@ export default function ValueCalculator() {
   ];
 
   return (
-    <div className="rounded-[24px] border border-gray-200 bg-white overflow-hidden shadow-[0_30px_60px_-40px_rgba(0,0,0,.25)]">
+    <div className="rounded-[20px] border border-gray-200 bg-white overflow-hidden shadow-[0_30px_60px_-40px_rgba(0,0,0,.25)]">
       <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr]">
         {/* Inputs */}
         <div className="p-8 lg:p-10 flex flex-col gap-8">

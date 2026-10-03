@@ -257,7 +257,7 @@ function CourseCard({
   cover: React.ReactNode;
 }) {
   return (
-    <div className="flex flex-col rounded-[22px] border border-gray-200 overflow-hidden transition-all duration-200 hover:border-gray-300 hover:-translate-y-1 hover:shadow-lg">
+    <div className="flex flex-col rounded-[20px] border border-gray-200 overflow-hidden transition-all duration-200 hover:border-gray-300 hover:-translate-y-1 hover:shadow-lg">
       <div className="relative">
         {badge && (
           <span className="absolute top-4 left-4 z-10 text-[11px] font-bold tracking-[0.12em] uppercase px-3 py-1.5 rounded-full bg-primary text-white shadow-md">
@@ -283,7 +283,7 @@ function CourseCard({
 
 const glyphTile = (variant: "orange" | "dark", icon: React.ReactNode) => (
   <span
-    className={`w-14 h-14 rounded-[15px] flex items-center justify-center text-white ${
+    className={`w-14 h-14 rounded-[12px] flex items-center justify-center text-white ${
       variant === "orange" ? "bg-primary" : "bg-gray-900"
     }`}
   >
@@ -350,7 +350,7 @@ export default function AcademyLanding() {
                     width={720}
                     height={383}
                     priority
-                    className="w-full rounded-[24px] shadow-[0_34px_64px_-26px_rgba(0,0,0,.4)]"
+                    className="w-full rounded-[20px] shadow-[0_34px_64px_-26px_rgba(0,0,0,.4)]"
                   />
                 <div className="absolute -top-3 -right-3 z-[4] flex items-center gap-2 bg-primary text-white text-[13px] font-bold tracking-wide px-[18px] py-[11px] rounded-full shadow-[0_18px_32px_-10px_rgba(255,154,0,.55)]">
                   <svg
@@ -591,8 +591,8 @@ export default function AcademyLanding() {
 
             {/* Coming soon */}
             <FadeIn delay={240}>
-              <div className="flex flex-col items-center justify-center text-center gap-3.5 h-full rounded-[22px] border border-dashed border-gray-300 bg-sand p-10">
-                <span className="w-[52px] h-[52px] rounded-[14px] bg-primary/10 text-primary flex items-center justify-center">
+              <div className="flex flex-col items-center justify-center text-center gap-3.5 h-full rounded-[20px] border border-dashed border-gray-300 bg-sand p-10">
+                <span className="w-[52px] h-[52px] rounded-[12px] bg-primary/10 text-primary flex items-center justify-center">
                   <svg
                     className="w-[26px] h-[26px]"
                     viewBox="0 0 24 24"
@@ -671,7 +671,7 @@ export default function AcademyLanding() {
             {values.map((v, i) => (
               <FadeIn key={v.title} delay={i * 70}>
                 <div className="h-full rounded-[20px] border border-gray-200 p-9 transition-all duration-200 hover:border-gray-300 hover:-translate-y-1 hover:shadow-lg">
-                  <span className="w-14 h-14 rounded-[14px] bg-primary/10 text-primary flex items-center justify-center mb-6">
+                  <span className="w-14 h-14 rounded-[12px] bg-primary/10 text-primary flex items-center justify-center mb-6">
                     <svg
                       className="w-7 h-7"
                       fill="none"
@@ -787,7 +787,7 @@ export default function AcademyLanding() {
       <section className="pb-[clamp(4rem,10vw,7rem)]">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <FadeIn>
-            <div className="relative overflow-hidden rounded-[28px] bg-gray-900 text-white px-9 py-12 lg:px-[72px] lg:py-16 grid grid-cols-1 lg:grid-cols-[0.8fr_1.2fr] gap-10 lg:gap-14 items-center">
+            <div className="relative overflow-hidden rounded-[32px] bg-gray-900 text-white px-9 py-12 lg:px-[72px] lg:py-16 grid grid-cols-1 lg:grid-cols-[0.8fr_1.2fr] gap-10 lg:gap-14 items-center">
               <div
                 className="pointer-events-none absolute -bottom-[260px] -left-[120px] w-[500px] h-[500px] rounded-full"
                 style={{
@@ -902,7 +902,7 @@ export default function AcademyLanding() {
                 </div>
               </div>
 
-              <div className="relative bg-white rounded-[22px] p-9 shadow-[0_30px_60px_-28px_rgba(0,0,0,.5)]">
+              <div className="relative bg-white rounded-[20px] p-9 shadow-[0_30px_60px_-28px_rgba(0,0,0,.5)]">
                 <div className="flex items-center gap-4">
                   <Image
                     src="/alexander.png"

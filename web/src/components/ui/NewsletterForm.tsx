@@ -67,7 +67,7 @@ export default function NewsletterForm({
         value={email}
         onChange={(e) => setEmail(e.target.value)}
         disabled={status === "loading"}
-        className={`flex-1 rounded-full px-4 py-2.5 text-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors disabled:opacity-60 ${
+        className={`flex-1 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors disabled:opacity-60 ${
           dark
             ? "bg-white/5 border border-white/15 text-white placeholder:text-gray-500"
             : "bg-white border border-gray-200 placeholder:text-gray-400"

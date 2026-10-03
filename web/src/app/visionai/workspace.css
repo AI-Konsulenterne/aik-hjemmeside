@@ -28,9 +28,9 @@
   --dark-line: rgba(255, 255, 255, 0.1);
 
   --radius-sm: 6px;
-  --radius: 14px;
+  --radius: 12px;
   --radius-lg: 20px;
-  --radius-xl: 28px;
+  --radius-xl: 32px;
   --radius-full: 9999px;
 
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04);
@@ -234,7 +234,7 @@
   .appwin {
     background: #fff;
     border: 1px solid var(--border);
-    border-radius: 16px;
+    border-radius: 20px;
     overflow: hidden;
     box-shadow: var(--shadow-window);
   }
@@ -561,7 +561,7 @@
   .mcp-detail {
     background: #fff;
     border: 1px solid #ece8e2;
-    border-radius: 14px;
+    border-radius: 12px;
     padding: 22px;
     align-self: start;
   }
@@ -640,7 +640,7 @@
   .sec-card {
     background: var(--dark-2);
     border: 1px solid var(--dark-line);
-    border-radius: 18px;
+    border-radius: 20px;
     padding: 28px 24px;
   }
   .sec-icon {
@@ -679,7 +679,7 @@
   .dept-app-card {
     background: #fff;
     border: 1px solid #ece8e2;
-    border-radius: 16px;
+    border-radius: 20px;
     padding: 20px;
     display: flex;
     flex-direction: column;
@@ -864,7 +864,7 @@
   .faq-item {
     background: #fff;
     border: 1px solid var(--border);
-    border-radius: 16px;
+    border-radius: 20px;
     overflow: hidden;
     transition: border-color 0.2s ease, box-shadow 0.2s ease;
   }
@@ -924,7 +924,7 @@
     background: #fff;
     color: var(--ink);
     border: 1px solid var(--border);
-    border-radius: clamp(24px, 4vw, 36px);
+    border-radius: 32px;
     box-shadow: var(--shadow-lg);
     padding: clamp(48px, 7vw, 92px) clamp(28px, 5vw, 64px);
   }

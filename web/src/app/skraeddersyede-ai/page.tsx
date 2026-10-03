@@ -122,9 +122,9 @@ export default function SkraeddersyedeAI() {
         <div className="container hero-grid">
           <FadeIn>
             <div className="hero-copy">
-              <p className="eyebrow">AI-konsulenterne</p>
+              <p className="eyebrow">AI-løsninger</p>
               <h1 className="display hero-title">
-                AI løsninger der passer ind i{" "}
+                AI-løsninger, der passer ind i{" "}
                 <span className="accent">jeres forretning.</span>
               </h1>
               <p className="lead hero-lead">

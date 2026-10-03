@@ -86,7 +86,7 @@ export default function Workshop() {
         <div className="container hero-grid">
           <FadeIn>
             <div className="hero-copy">
-              <p className="eyebrow">AI-konsulenterne</p>
+              <p className="eyebrow">AI-workshop</p>
               <h1 className="display hero-title">
                 En AI-workshop, der{" "}
                 <span className="accent">passer til jer.</span>

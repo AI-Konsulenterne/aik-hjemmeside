@@ -25,9 +25,9 @@
   --dark: #171717;
   --dark-line: rgba(255, 255, 255, 0.1);
 
-  --radius: 14px;
+  --radius: 12px;
   --radius-lg: 20px;
-  --radius-xl: 28px;
+  --radius-xl: 32px;
   --radius-full: 9999px;
 
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04);
@@ -222,7 +222,7 @@
   .appwin {
     background: #fff;
     border: 1px solid var(--border);
-    border-radius: 16px;
+    border-radius: 20px;
     overflow: hidden;
     box-shadow: var(--shadow-window);
   }
@@ -386,7 +386,7 @@
   .proof-author-img {
     width: 52px;
     height: 52px;
-    border-radius: 14px;
+    border-radius: 12px;
     object-fit: cover;
     box-shadow: var(--shadow);
     flex-shrink: 0;
@@ -549,7 +549,7 @@
   .faq-item {
     background: #fff;
     border: 1px solid var(--border);
-    border-radius: 16px;
+    border-radius: 20px;
     overflow: hidden;
     transition: border-color 0.2s ease, box-shadow 0.2s ease;
   }
@@ -615,7 +615,7 @@
     background: #fff;
     color: var(--ink);
     border: 1px solid var(--border);
-    border-radius: clamp(24px, 4vw, 36px);
+    border-radius: 32px;
     box-shadow: var(--shadow-lg);
     padding: clamp(48px, 7vw, 88px) clamp(28px, 5vw, 64px);
   }

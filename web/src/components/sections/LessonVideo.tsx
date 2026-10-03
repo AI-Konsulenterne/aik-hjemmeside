@@ -21,7 +21,7 @@ export default function LessonVideo({
 
   return (
     <div>
-      <div className="relative aspect-video rounded-[24px] overflow-hidden bg-gray-900 shadow-[0_34px_64px_-26px_rgba(0,0,0,.45)] ring-1 ring-gray-200">
+      <div className="relative aspect-video rounded-[20px] overflow-hidden bg-gray-900 shadow-[0_34px_64px_-26px_rgba(0,0,0,.45)] ring-1 ring-gray-200">
         {playing ? (
           <iframe
             src={`https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0`}
