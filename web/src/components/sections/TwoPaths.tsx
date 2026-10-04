@@ -69,7 +69,7 @@ export default function TwoPaths() {
                 Lær det selv
               </p>
               <h3 className="text-2xl lg:text-[1.75rem] font-bold tracking-heading leading-[1.15] mt-3">
-                Lær medarbejderne at bruge Copilot
+                Hands-on undervisning i Copilot
               </h3>
               <p className="text-body text-white/80 mt-4">
                 AI-Minds: korte videoer på dansk, månedlig live Q&amp;A og nye
