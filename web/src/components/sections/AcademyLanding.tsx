@@ -1,4 +1,5 @@
 import Image from "next/image";
+import CopilotCertificate from "@/components/sections/CopilotCertificate";
 import Button from "@/components/ui/Button";
 import FadeIn from "@/components/ui/FadeIn";
 import LessonVideo from "@/components/sections/LessonVideo";
@@ -783,8 +784,11 @@ export default function AcademyLanding() {
         </div>
       </section>
 
+      {/* ══════════ CERTIFIKAT ══════════ */}
+      <CopilotCertificate />
+
       {/* ══════════ TIL LEDELSEN ══════════ */}
-      <section className="pb-[clamp(4rem,10vw,7rem)]">
+      <section className="py-[clamp(4rem,10vw,7rem)]">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <FadeIn>
             <div className="relative overflow-hidden rounded-[32px] bg-gray-900 text-white px-9 py-12 lg:px-[72px] lg:py-16 grid grid-cols-1 lg:grid-cols-[0.8fr_1.2fr] gap-10 lg:gap-14 items-center">
