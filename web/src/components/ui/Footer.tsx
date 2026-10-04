@@ -6,7 +6,7 @@ const serviceLinks = [
   { label: "Skræddersyede AI", href: "/skraeddersyede-ai" },
   { label: "AIK Workshop", href: "/workshop" },
   { label: "AIK Workspace", href: "/visionai" },
-  { label: "Copilot-uddannelse", href: "/academy" },
+  { label: "Undervisning i Copilot", href: "/academy" },
 ];
 
 const solutionLinks = [

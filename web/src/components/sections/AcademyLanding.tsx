@@ -311,7 +311,7 @@ export default function AcademyLanding() {
               <div>
                 <Eyebrow>AI-Minds</Eyebrow>
                 <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold tracking-heading text-gray-900 leading-[1.04] mt-4 text-balance">
-                  Uddannelse i Copilot{" "}
+                  Undervisning i Copilot{" "}
                   <span className="text-primary">til hele organisationen</span>
                 </h1>
                 <p className="text-lead text-gray-700 mt-6 max-w-xl">
