@@ -174,7 +174,7 @@ const checklist = [
 const faqs = [
   {
     q: "Hvad koster det?",
-    a: "Fra 249 kr. pr. medarbejder om måneden - prisen afhænger af, hvor mange I er. Ring eller book et møde med os, og få et konkret prisforslag.",
+    a: "Prisen afhænger af, hvor mange I er. Ring eller book et møde med os, og få et konkret prisforslag.",
   },
   {
     q: "Hvor meget tid skal vi bruge på det?",
