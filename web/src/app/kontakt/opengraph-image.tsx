@@ -9,6 +9,6 @@ export default async function OgImage() {
     tag: "Kontakt",
     title: "Book en gratis AI-afklaring",
     subtitle:
-      "45 minutter med Alexander. Ingen forberedelse, ingen forpligtelse, ingen salg.",
+      "30 minutter med Alexander. Ingen forberedelse, ingen forpligtelse, ingen salg.",
   });
 }

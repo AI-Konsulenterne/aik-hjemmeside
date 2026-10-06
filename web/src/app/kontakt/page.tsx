@@ -6,7 +6,7 @@ import FadeIn from "@/components/ui/FadeIn";
 export const metadata: Metadata = {
   title: { absolute: "Kontakt AI Konsulenterne - book gratis AI-afklaring" },
   description:
-    "Book en gratis 45-minutters AI-afklaring med Alexander. Ingen forpligtelse - finder vi ikke en mulighed, koster det ingenting. Ring +45 25 54 70 74.",
+    "Book en gratis 30-minutters AI-afklaring med Alexander. Ingen forpligtelse - finder vi ikke en mulighed, koster det ingenting. Ring +45 25 54 70 74.",
   alternates: { canonical: "/kontakt" },
   keywords: [
     "kontakt AI konsulent",
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Kontakt - book en gratis AI-afklaring",
     description:
-      "45 min gratis AI-afklaring med Alexander. Ingen forberedelse, ingen forpligtelse.",
+      "30 min gratis AI-afklaring med Alexander. Ingen forberedelse, ingen forpligtelse.",
     url: "/kontakt",
   },
 };
@@ -35,8 +35,8 @@ export default function Kontakt() {
                   Book en gratis AI-afklaring
                 </h1>
                 <p className="text-lead text-gray-700 mt-6 max-w-xl">
-                  45 minutter med Alexander, hvor vi finder ud af, hvor AI kan
-                  spare jer tid. I skal ikke forberede noget.
+                  30 minutter med Alexander, hvor vi finder ud af, hvordan vi kan
+                  hjælpe jer med AI.
                 </p>
                 <div className="flex flex-wrap items-center gap-x-6 gap-y-3 mt-8">
                   <a
