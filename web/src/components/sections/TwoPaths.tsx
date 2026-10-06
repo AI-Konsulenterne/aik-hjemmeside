@@ -12,7 +12,8 @@ const learnChips = [
   "40+ moduler",
   "Fællesskab",
   "Live Q&A's",
-  "Løbende måned + 1 måned",
+  "+ Claude-bonus",
+  "AI Act",
 ];
 
 // To veje lige under hero: få det bygget af os, eller lær det selv (AI-Minds).
