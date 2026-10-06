@@ -5,7 +5,7 @@ import { NextRequest, NextResponse } from "next/server";
  *
  * Samme leveringskanaler som /api/subscribe og /api/ai-analyse:
  *   - LeadAgent (X-API-Key, LEADAGENT_WEBHOOK_KEY)
- *   - Email til Alexander via Resend (RESEND_API_KEY)
+ *   - Email til Alexander med kopi til Nicholas via Resend (RESEND_API_KEY)
  *   - Slack (SLACK_WEBHOOK_URL)
  *
  * Henvendelsen regnes som modtaget, hvis mindst én kanal tager imod den.
@@ -22,6 +22,8 @@ const FROM_EMAIL =
   "AI Konsulenterne <analyse@ai-konsulenterne.dk>";
 const ALEXANDER_EMAIL =
   process.env.ALEXANDER_EMAIL || "alexander@ai-konsulenterne.dk";
+const NICHOLAS_EMAIL =
+  process.env.NICHOLAS_EMAIL || "nicholas@ai-konsulenterne.dk";
 const SLACK_WEBHOOK_URL = process.env.SLACK_WEBHOOK_URL;
 
 const WHEN_OPTIONS = ["I dag", "I morgen", "Senere på ugen"] as const;
@@ -52,12 +54,12 @@ async function sendToLeadAgent(payload: Record<string, string | undefined>) {
   return false;
 }
 
-async function emailAlexander(subject: string, html: string) {
+async function emailTeam(subject: string, html: string) {
   if (!RESEND_KEY) return false;
   const res = await fetch("https://api.resend.com/emails", {
     method: "POST",
     headers: { Authorization: `Bearer ${RESEND_KEY}`, "Content-Type": "application/json" },
-    body: JSON.stringify({ from: FROM_EMAIL, to: [ALEXANDER_EMAIL], subject, html }),
+    body: JSON.stringify({ from: FROM_EMAIL, to: [ALEXANDER_EMAIL], cc: [NICHOLAS_EMAIL], subject, html }),
   });
   if (res.ok) return true;
   console.error(`[Ring op] Resend fejl ${res.status}:`, (await res.text()).slice(0, 200));
@@ -106,7 +108,7 @@ export async function POST(req: NextRequest) {
         source: "ring-op",
         source_url: sourceUrl,
       }),
-      emailAlexander(
+      emailTeam(
         `Ring op: ${name}${company ? ` (${company})` : ""} - ${when}`,
         `<p style="font-family:sans-serif;white-space:pre-line;">${escapeHtml(summary)}</p>
          <p style="font-family:sans-serif;"><a href="tel:${escapeHtml(phone.replace(/[^\d+]/g, ""))}">Ring ${escapeHtml(phone)}</a></p>`,
