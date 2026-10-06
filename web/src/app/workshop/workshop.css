@@ -18,8 +18,8 @@
   --ink: #171717;
   --muted: #6b6b6b;
   --body: #404040;
-  --fs-body: clamp(1.0625rem, 0.95rem + 0.3vw, 1.125rem);
-  --fs-body-sm: clamp(1rem, 0.9rem + 0.25vw, 1.0625rem);
+  --fs-body: clamp(1.1875rem, 1.075rem + 0.3vw, 1.25rem);
+  --fs-body-sm: clamp(1.125rem, 1.025rem + 0.25vw, 1.1875rem);
   --subtle: #a3a3a3;
 
   --radius: 12px;

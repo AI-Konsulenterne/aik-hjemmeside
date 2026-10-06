@@ -31,20 +31,20 @@
   }
 }
 
-/* Brødtekst-skala: løbende tekst må ikke være mindre end 17 px (18 px fra lg). */
+/* Brødtekst-skala: løbende tekst må ikke være mindre end 19 px (20 px fra lg). */
 @utility text-body {
-  font-size: 1.0625rem;
+  font-size: 1.1875rem;
   line-height: 1.65;
   @media (width >= 64rem) {
-    font-size: 1.125rem;
+    font-size: 1.25rem;
   }
 }
 
 @utility text-body-sm {
-  font-size: 1rem;
+  font-size: 1.125rem;
   line-height: 1.6;
   @media (width >= 64rem) {
-    font-size: 1.0625rem;
+    font-size: 1.1875rem;
   }
 }
 
