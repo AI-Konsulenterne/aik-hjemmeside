@@ -9,15 +9,24 @@
 const STRAPI_URL = process.env.STRAPI_API_URL || "http://localhost:1337";
 const STRAPI_TOKEN = process.env.STRAPI_API_TOKEN || "";
 
+/** Strapis egen øvre grænse for `pagination[pageSize]`. Højere tal ignoreres. */
+const STRAPI_MAX_PAGE_SIZE = 100;
+
+type StrapiFetchOptions = RequestInit & {
+  next?: { revalidate?: number; tags?: string[] };
+};
+
+type StrapiPagination = {
+  page: number;
+  pageSize: number;
+  pageCount: number;
+  total: number;
+};
+
 type StrapiResponse<T> = {
   data: T;
   meta?: {
-    pagination?: {
-      page: number;
-      pageSize: number;
-      pageCount: number;
-      total: number;
-    };
+    pagination?: StrapiPagination;
   };
 };
 
@@ -37,8 +46,20 @@ type StrapiError = {
  */
 export async function strapiFetch<T>(
   endpoint: string,
-  options: RequestInit & { next?: { revalidate?: number; tags?: string[] } } = {},
+  options: StrapiFetchOptions = {},
 ): Promise<T> {
+  const { data } = await strapiFetchPage<T>(endpoint, options);
+  return data;
+}
+
+/**
+ * Som `strapiFetch`, men returnerer også `meta.pagination`, så kaldere kan
+ * se, om der er flere sider at hente. Bruges af `strapiFetchAll`.
+ */
+async function strapiFetchPage<T>(
+  endpoint: string,
+  options: StrapiFetchOptions = {},
+): Promise<{ data: T; pagination?: StrapiPagination }> {
   const url = `${STRAPI_URL}/api/${endpoint}`;
 
   const res = await fetch(url, {
@@ -62,7 +83,45 @@ export async function strapiFetch<T>(
   }
 
   const json = (await res.json()) as StrapiResponse<T>;
-  return json.data;
+  return { data: json.data, pagination: json.meta?.pagination };
+}
+
+/**
+ * Henter ALLE poster på tværs af Strapis sideopdeling.
+ *
+ * Uden `pagination[pageSize]` returnerer Strapi kun sin egen default på 25
+ * poster - og `pageSize` er begrænset til 100 i API'et, så man kan ikke
+ * bare sætte et højt tal én gang for alle. Derfor løber vi siderne
+ * igennem. Det gælder bl.a. sitemap'et og blogoversigten, hvor en manglende
+ * post betyder en artikel, hverken Google eller brugeren kan finde.
+ */
+async function strapiFetchAll<T>(
+  path: string,
+  query: URLSearchParams,
+  options: StrapiFetchOptions = {},
+): Promise<T[]> {
+  const all: T[] = [];
+  let page = 1;
+
+  // Beder man om mere end 100, skruer Strapi stiltiende ned til 100 - og
+  // sætter pageCount derefter, så løkken henter resten.
+  while (true) {
+    const pageQuery = new URLSearchParams(query);
+    pageQuery.set("pagination[page]", String(page));
+    pageQuery.set("pagination[pageSize]", String(STRAPI_MAX_PAGE_SIZE));
+
+    const { data, pagination } = await strapiFetchPage<T[]>(
+      `${path}?${pageQuery.toString()}`,
+      options,
+    );
+    all.push(...data);
+
+    const pageCount = pagination?.pageCount ?? 1;
+    if (page >= pageCount || data.length === 0) break;
+    page += 1;
+  }
+
+  return all;
 }
 
 /**
@@ -182,10 +241,14 @@ export async function getCases(params?: {
     "sort[0]": "order:asc",
   });
   if (params?.featured) query.set("filters[featured][$eq]", "true");
-  if (params?.limit) query.set("pagination[pageSize]", String(params.limit));
-  return strapiFetch<Case[]>(`cases?${query.toString()}`, {
-    next: { tags: ["cases"] },
-  });
+
+  const options = { next: { tags: ["cases"] } };
+
+  // Samme som ovenfor: intet `limit` betyder "alle", ikke "de første 25".
+  if (!params?.limit) return strapiFetchAll<Case>("cases", query, options);
+
+  query.set("pagination[pageSize]", String(params.limit));
+  return strapiFetch<Case[]>(`cases?${query.toString()}`, options);
 }
 
 export async function getCaseBySlug(slug: string): Promise<Case | null> {
@@ -211,10 +274,14 @@ export async function getBlogPosts(limit?: number): Promise<BlogPost[]> {
     populate: "*",
     "sort[0]": "publishedAt:desc",
   });
-  if (limit) query.set("pagination[pageSize]", String(limit));
-  return strapiFetch<BlogPost[]>(`blog-posts?${query.toString()}`, {
-    next: { tags: ["blog"], revalidate: 60 },
-  });
+  const options = { next: { tags: ["blog"], revalidate: 60 } };
+
+  // Uden `limit` vil kalderen have dem alle - sitemap'et, blogoversigten og
+  // `generateStaticParams`. Hent derfor alle sider, ikke kun Strapis default.
+  if (!limit) return strapiFetchAll<BlogPost>("blog-posts", query, options);
+
+  query.set("pagination[pageSize]", String(limit));
+  return strapiFetch<BlogPost[]>(`blog-posts?${query.toString()}`, options);
 }
 
 export async function getBlogPostBySlug(slug: string): Promise<BlogPost | null> {
