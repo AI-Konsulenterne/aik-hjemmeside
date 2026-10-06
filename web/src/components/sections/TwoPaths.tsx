@@ -10,7 +10,8 @@ const buildLinks = [
 
 const learnChips = [
   "40+ moduler",
-  "Fra 249 kr. pr. medarbejder/md",
+  "Fællesskab",
+  "Live Q&A's",
   "Løbende måned + 1 måned",
 ];
 
