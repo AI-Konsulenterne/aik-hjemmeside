@@ -283,6 +283,31 @@ export default function Workshop() {
         </div>
       </section>
 
+      {/* ── Fortsæt i Academy ── */}
+      <section className="section" style={{ paddingTop: 0 }}>
+        <div className="container">
+          <FadeIn>
+            <div className="ws-academy">
+              <p className="eyebrow">Efter workshoppen</p>
+              <h2>Fortsæt hvor I slap</h2>
+              <p>
+                Få AI ind i dagligdagen med vores læringsunivers, AI-Minds -
+                korte videoer, konkrete use cases og et community, der hjælper
+                hinanden.
+              </p>
+              <a
+                href="https://www.skool.com/aiminds/classroom"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-primary btn-lg"
+              >
+                Gå til AI-Minds →
+              </a>
+            </div>
+          </FadeIn>
+        </div>
+      </section>
+
       {/* ── Case: Retail Partner ── */}
       <section className="section" id="case">
         <div className="container">
@@ -415,31 +440,6 @@ export default function Workshop() {
                   </span>
                 </div>
               </div>
-            </div>
-          </FadeIn>
-        </div>
-      </section>
-
-      {/* ── Fortsæt i Academy ── */}
-      <section className="section" style={{ paddingTop: 0 }}>
-        <div className="container">
-          <FadeIn>
-            <div className="ws-academy">
-              <p className="eyebrow">Efter workshoppen</p>
-              <h2>Fortsæt hvor I slap</h2>
-              <p>
-                Få AI ind i dagligdagen med vores læringsunivers, AI-Minds -
-                korte videoer, konkrete use cases og et community, der hjælper
-                hinanden.
-              </p>
-              <a
-                href="https://www.skool.com/aiminds/classroom"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn btn-primary btn-lg"
-              >
-                Gå til AI-Minds →
-              </a>
             </div>
           </FadeIn>
         </div>
