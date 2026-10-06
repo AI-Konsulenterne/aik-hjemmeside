@@ -34,9 +34,9 @@ export default function Hero() {
             </FadeIn>
             <FadeIn delay={150}>
               <p className="text-lead text-gray-700 mt-6 lg:mt-7 max-w-xl">
-                AI-værktøjerne ændrer sig hver måned. Vi finder de opgaver, hvor
-                AI sparer jeres medarbejdere tid, og bygger løsningen - uden at I
-                skal have en IT-afdeling.
+                Det kan være udfordrende at vide, hvilke opgaver AI kan bidrage
+                til. Vi finder ud af i fællesskab med jer, hvor skoen trykker, og
+                bygger AI-løsningen, der skaber værdi for jeres forretning.
               </p>
             </FadeIn>
             <FadeIn delay={300}>
