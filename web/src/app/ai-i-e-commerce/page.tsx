@@ -37,7 +37,7 @@ const faqs = [
   },
   {
     q: "Hvad koster en AI-løsning til webshop?",
-    a: "Det afhænger af omfang. Mindre løsninger starter typisk fra 50.000 kr. Efter en gratis AI-afklaring giver vi en fast pris, så I ved præcis, hvad I siger ja til.",
+    a: "Det afhænger af omfang. Efter en gratis AI-afklaring giver vi en fast pris, så I ved præcis, hvad I siger ja til.",
   },
 ];
 

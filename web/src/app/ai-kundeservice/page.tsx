@@ -37,7 +37,7 @@ const faqs = [
   },
   {
     q: "Hvad koster en AI-kundeservice-løsning?",
-    a: "Det afhænger af omfang og systemer. Mindre løsninger starter typisk fra 50.000 kr. Vi giver en fast pris efter en gratis AI-afklaring, så I ved præcis, hvad I siger ja til.",
+    a: "Det afhænger af omfang og systemer. Vi giver en fast pris efter en gratis AI-afklaring, så I ved præcis, hvad I siger ja til.",
   },
 ];
 

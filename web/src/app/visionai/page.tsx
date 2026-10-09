@@ -4,7 +4,6 @@ import FadeIn from "@/components/ui/FadeIn";
 import { Icon, Logo } from "@/components/sections/workspace/parts";
 import {
   McpView,
-  PricingCalc,
   FaqList,
 } from "@/components/sections/workspace/WorkspaceInteractive";
 import "./workspace.css";
@@ -247,12 +246,11 @@ export default function VisionAI() {
                     </div>
                     <h3 className="h3 usage-title">Fuld transparens</h3>
                     <p className="usage-sub">
-                      Tokenforbrug på tværs af organisationen · juni 2026
+                      Eksempel: tokenforbrug pr. afdeling på en måned
                     </p>
                   </div>
                   <div className="usage-total">
                     <span className="usage-total-tok">6,25 mio. tokens</span>
-                    <span className="usage-total-cost">975 kr</span>
                   </div>
                 </div>
                 <div className="usage-legend">
@@ -267,7 +265,7 @@ export default function VisionAI() {
                   ))}
                 </div>
                 <div className="usage-rows">
-                  {USAGE.map(([dept, tok, cost, fill, split]) => (
+                  {USAGE.map(([dept, tok, , fill, split]) => (
                     <div className="usage-row" key={dept}>
                       <span className="usage-dept">{dept}</span>
                       <span className="usage-track">
@@ -281,7 +279,6 @@ export default function VisionAI() {
                         </span>
                       </span>
                       <span className="usage-tok">{tok}</span>
-                      <span className="usage-cost">{cost}</span>
                     </div>
                   ))}
                 </div>
@@ -409,25 +406,6 @@ export default function VisionAI() {
         </div>
       </section>
 
-      {/* ── Pris ── */}
-      <section className="section price-section" id="priser">
-        <div className="container">
-          <FadeIn>
-            <div className="section-head">
-              <p className="eyebrow">Pris</p>
-              <h2 className="h2">Beregn jeres pris</h2>
-              <p className="lead">
-                Enkel pris pr. bruger - inklusive tokens, søgninger og
-                hukommelse. Træk i stregen for at se jeres pris.
-              </p>
-            </div>
-          </FadeIn>
-          <FadeIn delay={100}>
-            <PricingCalc />
-          </FadeIn>
-        </div>
-      </section>
-
       {/* ── FAQ ── */}
       <section className="section faq-section" id="faq">
         <div className="container faq-container">
@@ -467,7 +445,7 @@ export default function VisionAI() {
                 </a>
               </div>
               <div className="final-chips">
-                <span>Ingen binding</span>
+                <span>Data i Azure EU</span>
                 <span className="sep">·</span>
                 <span>GDPR-compliant</span>
                 <span className="sep">·</span>

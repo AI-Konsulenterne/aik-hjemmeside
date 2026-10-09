@@ -5,7 +5,7 @@ import JsonLd from "@/components/ui/JsonLd";
 const academySchema = {
   "@context": "https://schema.org",
   "@type": "Course",
-  name: "AI kursus og AI-uddannelse til virksomheder",
+  name: "AI-Minds: Copilot-undervisning og AI-kursus til virksomheder",
   description:
     "Online AI-kursus og AI-uddannelse for danske virksomheder. Lær ChatGPT, Microsoft Copilot og Claude gennem korte videoer, konkrete use cases og et community.",
   provider: {
@@ -28,7 +28,7 @@ const academySchema = {
 };
 
 export const metadata: Metadata = {
-  title: { absolute: "AI kursus & AI-uddannelse til virksomheder | AI-Minds" },
+  title: { absolute: "Copilot-undervisning og AI-kursus til virksomheder | AI-Minds" },
   description:
     "AI kursus og AI-uddannelse til virksomheder - online og i øjenhøjde. Lær ChatGPT, Copilot og Claude med korte videoer, konkrete use cases og et community.",
   alternates: { canonical: "/academy" },
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     "AI-Minds",
   ],
   openGraph: {
-    title: "AI kursus & AI-uddannelse til virksomheder | AI-Minds",
+    title: "Copilot-undervisning og AI-kursus til virksomheder | AI-Minds",
     description:
       "AI kursus og AI-uddannelse til virksomheder - online og i øjenhøjde. Lær ChatGPT, Copilot og Claude med korte videoer og konkrete use cases.",
     url: "/academy",

@@ -291,8 +291,8 @@ export default function Workshop() {
               <p className="eyebrow">Efter workshoppen</p>
               <h2>Fortsæt hvor I slap</h2>
               <p>
-                Få AI ind i dagligdagen med vores læringsunivers, AI-Minds -
-                korte videoer, konkrete use cases og et community, der hjælper
+                Få AI ind i dagligdagen med AI-Minds, vores Copilot-undervisning -
+                korte videoer, konkrete use cases og et fællesskab, der hjælper
                 hinanden.
               </p>
               <a href="/academy" className="btn btn-primary btn-lg">

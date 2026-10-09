@@ -7,8 +7,8 @@ import Button from "@/components/ui/Button";
 const steps = [
   {
     number: "01",
-    title: "Vi finder ud af, hvor I står",
-    body: "Vi afdækker, undersøger og finder ud af præcis hvor skoen trykker for jer. Nogle gange ligger en konkret use case lige til højrebenet. Andre gange er det første skridt en workshop, undervisning eller bare at få skabt et overblik.",
+    title: "Vi starter med en gratis snak",
+    body: "Det starter med en gratis AI-afklaring på 30 minutter. Her finder vi ud af, hvor skoen trykker for jer, og I skal ikke forberede noget. Nogle gange ligger en konkret use case lige til højrebenet. Andre gange er det første skridt en workshop, undervisning eller bare at få skabt et overblik.",
   },
   {
     number: "02",
@@ -18,7 +18,7 @@ const steps = [
   {
     number: "03",
     title: "Vi udvikler første version",
-    body: "I den her fase udvikler vi den første version. Vi kobler modellen sammen med jeres data og systemer og får teknikken til at spille. Vi tror på, at vi lærer mest om produktet og behovet, når I får det i hænderne. Derfor gør vi en dyd ud af at levere en POC hurtigt, så vi kan iterere og tilpasse undervejs.",
+    body: "I den her fase udvikler vi den første version. Vi kobler modellen sammen med jeres data og systemer og får teknikken til at spille. Vi tror på, at vi lærer mest om produktet og behovet, når I får det i hænderne. Derfor gør vi en dyd ud af at levere en første version hurtigt, så vi kan tilpasse undervejs.",
   },
   {
     number: "04",

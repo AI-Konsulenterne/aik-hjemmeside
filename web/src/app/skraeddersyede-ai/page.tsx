@@ -21,7 +21,7 @@ const serviceSchema = {
   offers: {
     "@type": "Offer",
     priceCurrency: "DKK",
-    description: "Skræddersyet AI-løsning, typisk 50.000-250.000 kr",
+    description: "Skræddersyet AI-løsning med fast pris efter første snak",
   },
 };
 
@@ -102,7 +102,7 @@ const WHY = [
   {
     ic: "lock",
     h: "Jeres data bliver i EU.",
-    p: "Vi vægter datasuverænitet rigtig højt hos AIK, derfor hoster vi kun jeres data på svenske servere. Det betyder, at jeres data ikke bliver delt med USA, Rusland og resten af verden.",
+    p: "Vi vægter datasuverænitet rigtig højt hos AIK. Derfor ligger jeres data i Microsoft Azure i EU og bliver ikke delt med AI-leverandørerne eller brugt til at træne modeller.",
   },
   {
     ic: "users",

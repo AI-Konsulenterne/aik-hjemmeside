@@ -27,8 +27,8 @@ export default function Kontakt() {
     <>
       <section className="pt-[clamp(3.5rem,9vw,7rem)] pb-[clamp(3.5rem,8vw,6rem)]">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_1fr] gap-x-16 gap-y-12 items-start">
-            {/* Venstre: tekst, telefon og teamet */}
+          <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_1fr] gap-x-16 gap-y-12 lg:gap-y-0 items-start">
+            {/* Venstre: tekst og telefon */}
             <div>
               <FadeIn>
                 <h1 className="text-[2.125rem] sm:text-[2.75rem] lg:text-[3.25rem] font-bold tracking-heading text-gray-900 leading-[1.08] text-balance">
@@ -38,6 +38,18 @@ export default function Kontakt() {
                   30 minutter med Alexander, hvor vi finder ud af, hvordan vi kan
                   hjælpe jer med AI.
                 </p>
+                <ul className="mt-6 space-y-3 max-w-xl">
+                  {[
+                    "I skal ikke forberede noget. I fortæller, vi spørger.",
+                    "Vi finder sammen 1-2 steder, hvor AI kan spare jer tid.",
+                    "Giver det ikke mening for jer endnu, siger vi det ærligt.",
+                  ].map((t) => (
+                    <li key={t} className="flex items-start gap-3 text-body text-gray-700">
+                      <span className="mt-[0.55em] inline-block w-1.5 h-1.5 rounded-full bg-primary shrink-0" aria-hidden="true" />
+                      {t}
+                    </li>
+                  ))}
+                </ul>
                 <div className="flex flex-wrap items-center gap-x-6 gap-y-3 mt-8">
                   <a
                     href="tel:+4525547074"
@@ -53,14 +65,16 @@ export default function Kontakt() {
                   </a>
                 </div>
               </FadeIn>
-              <FadeIn delay={150}>
-                <TeamStrip columns={2} className="mt-12 pt-10 border-t border-gray-100" />
-              </FadeIn>
             </div>
 
-            {/* Højre: ring-op-formular */}
-            <FadeIn delay={200}>
+            {/* Højre: ring-op-formular. På mobil lige efter teksten, før teamet. */}
+            <FadeIn delay={200} className="lg:row-span-2">
               <CallbackForm />
+            </FadeIn>
+
+            {/* Teamet: under teksten på desktop, under formularen på mobil */}
+            <FadeIn delay={150} className="lg:col-start-1 lg:row-start-2 lg:mt-12">
+              <TeamStrip columns={2} className="pt-10 border-t border-gray-100" />
             </FadeIn>
           </div>
         </div>

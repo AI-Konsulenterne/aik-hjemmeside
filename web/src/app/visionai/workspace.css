@@ -430,7 +430,7 @@
   .usage-rows { display: flex; flex-direction: column; gap: 15px; }
   .usage-row {
     display: grid;
-    grid-template-columns: 200px 1fr 84px 72px;
+    grid-template-columns: 200px 1fr 84px;
     align-items: center;
     gap: 18px;
   }
@@ -991,7 +991,7 @@
     .dept-cards { grid-template-columns: 1fr; }
     .bento-sm { grid-column: span 6; }
     .usage-row { grid-template-columns: 1fr auto; gap: 12px; }
-    .usage-track, .usage-tok { display: none; }
+    .usage-track { display: none; }
     .bento-copy { padding: 26px 24px 16px; }
     .bento-shot { padding-left: 24px; }
     .price-foot { flex-direction: column; align-items: flex-start; gap: 18px; }

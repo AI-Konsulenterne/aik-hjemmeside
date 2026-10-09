@@ -8,6 +8,8 @@ const buildLinks = [
   { label: "AIK Workshop", href: "/workshop" },
 ];
 
+const workspaceChips = ["GDPR-compliant", "Data i Azure EU", "Hurtig opsætning"];
+
 const learnChips = [
   "40+ moduler",
   "Fællesskab",
@@ -16,7 +18,8 @@ const learnChips = [
   "AI Act",
 ];
 
-// To veje lige under hero: få det bygget af os, eller lær det selv (AI-Minds).
+// Tre veje lige under hero: få det bygget, jeres eget AI-system (Workspace) eller lær det selv (AI-Minds).
+// Forsidens eneste oversigt over tilbuddene.
 export default function TwoPaths() {
   return (
     <section className="py-[clamp(3.5rem,8vw,6rem)]">
@@ -27,7 +30,7 @@ export default function TwoPaths() {
           </h2>
         </FadeIn>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 mt-10 lg:mt-12">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 mt-10 lg:mt-12">
           {/* Kort 1: Få det bygget */}
           <FadeIn delay={100} className="h-full">
             <div className="h-full flex flex-col bg-sand rounded-[20px] p-7 lg:p-10">
@@ -64,7 +67,38 @@ export default function TwoPaths() {
             </div>
           </FadeIn>
 
-          {/* Kort 2: Lær det selv */}
+          {/* Kort 2: AIK Workspace */}
+          <FadeIn delay={150} className="h-full">
+            <div className="h-full flex flex-col bg-white border border-gray-200 rounded-[20px] p-7 lg:p-10">
+              <p className="text-[11px] uppercase tracking-[0.2em] text-primary font-semibold">
+                Jeres eget AI-system
+              </p>
+              <h3 className="text-2xl lg:text-[1.75rem] font-bold tracking-heading text-gray-900 leading-[1.15] mt-3">
+                AIK Workspace
+              </h3>
+              <p className="text-body text-gray-700 mt-4">
+                Chat, agenter og vidensbase samlet ét sted - forankret i jeres
+                data, jeres systemer og jeres måde at gøre tingene på.
+              </p>
+              <ul className="flex flex-wrap gap-2 mt-6">
+                {workspaceChips.map((c) => (
+                  <li
+                    key={c}
+                    className="text-sm font-semibold text-gray-700 bg-sand rounded-full px-3.5 py-1.5"
+                  >
+                    {c}
+                  </li>
+                ))}
+              </ul>
+              <div className="mt-auto pt-8">
+                <Button variant="secondary" href="/visionai">
+                  Se AIK Workspace
+                </Button>
+              </div>
+            </div>
+          </FadeIn>
+
+          {/* Kort 3: Lær det selv */}
           <FadeIn delay={200} className="h-full">
             <div className="h-full flex flex-col bg-gray-900 text-white rounded-[20px] p-7 lg:p-10">
               <p className="text-[11px] uppercase tracking-[0.2em] text-primary font-semibold">
@@ -89,7 +123,7 @@ export default function TwoPaths() {
               </ul>
               <div className="mt-auto pt-8">
                 <Button variant="white" href="/academy">
-                  Se Copilot-uddannelsen
+                  Se AI-Minds
                 </Button>
               </div>
             </div>

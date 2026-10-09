@@ -17,9 +17,8 @@ const FAQS: { q: string; a: ReactNode }[] = [
     q: "Hvad koster det?",
     a: (
       <>
-        Det afhænger af opgaven. En skræddersyet løsning ligger typisk mellem{" "}
-        <span className="ph">50.000 og 250.000 kr</span> - og I får altid et
-        konkret bud, før der bliver bygget noget.
+        Det afhænger af opgaven. Efter første snak får I en fast pris, så I
+        ved præcis, hvad I siger ja til, før der bliver bygget noget.
       </>
     ),
   },

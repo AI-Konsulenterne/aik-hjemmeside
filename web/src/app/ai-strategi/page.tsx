@@ -119,8 +119,8 @@ const HUB = [
   },
   {
     href: "/academy",
-    h: "AI-kursus & uddannelse",
-    p: "Klæd hele organisationen på med vores online AI-læringsunivers.",
+    h: "AI-Minds: Copilot-undervisning",
+    p: "Klæd hele organisationen på med korte videoer på dansk og live Q&A.",
   },
   {
     href: "/workshop",

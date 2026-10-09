@@ -11,7 +11,7 @@ export const faqs = [
   },
   {
     q: "Hvad koster det?",
-    a: "Det kommer an på hvad vi bygger - og det ville være useriøst at give et tal her uden at have set jeres setup. Workshops starter typisk omkring 25.000 kr. Mindre AI-løsninger ligger fra 50.000 kr og opefter. Efter første snak ved vi nok til at give jer en fast pris, så I ved præcis hvad I siger ja til.",
+    a: "Det kommer an på, hvad vi bygger - og det ville være useriøst at give et tal uden at have set jeres setup. Efter første snak ved vi nok til at give jer en fast pris, så I ved præcis, hvad I siger ja til.",
   },
   {
     q: "Kan vi ikke bare bruge ChatGPT?",

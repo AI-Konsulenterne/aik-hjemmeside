@@ -3,12 +3,10 @@ import TwoPaths from "@/components/sections/TwoPaths";
 import Barriers from "@/components/sections/Barriers";
 import ProblemSolution from "@/components/sections/ProblemSolution";
 import HowWeWork from "@/components/sections/HowWeWork";
-import ServicesOverview from "@/components/sections/ServicesOverview";
 import CaseHighlight from "@/components/sections/CaseHighlight";
 import Team from "@/components/sections/Team";
 import DeveloperExperience from "@/components/sections/DeveloperExperience";
 import Testimonials from "@/components/sections/Testimonials";
-import TeamStrip from "@/components/sections/TeamStrip";
 import MidCTA from "@/components/sections/MidCTA";
 import FAQ from "@/components/sections/FAQ";
 import JsonLd from "@/components/ui/JsonLd";
@@ -125,18 +123,12 @@ export default function Forside() {
       <Barriers />
       <ProblemSolution />
       <HowWeWork />
-      <ServicesOverview />
       <CaseHighlight />
       <Testimonials />
-      <section className="pt-[clamp(3rem,8vw,5rem)]">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <TeamStrip />
-        </div>
-      </section>
-      <MidCTA />
-      <Team />
       <DeveloperExperience />
+      <Team />
       <FAQ />
+      <MidCTA />
     </>
   );
 }

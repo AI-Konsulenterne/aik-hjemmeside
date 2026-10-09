@@ -37,7 +37,7 @@ const faqs = [
   },
   {
     q: "Hvad koster en AI-løsning til HR?",
-    a: "Det afhænger af omfang og datasikkerhedskrav. Mindre løsninger starter typisk fra 50.000 kr. Vi giver en fast pris efter en gratis AI-afklaring.",
+    a: "Det afhænger af omfang og datasikkerhedskrav. Vi giver en fast pris efter en gratis AI-afklaring.",
   },
 ];
 

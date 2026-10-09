@@ -37,7 +37,7 @@ const faqs = [
   },
   {
     q: "Hvad koster en AI-analyseløsning?",
-    a: "Det afhænger af antallet af systemer og kompleksitet. Mindre løsninger starter typisk fra 50.000 kr. Efter en gratis AI-afklaring giver vi en fast pris.",
+    a: "Det afhænger af antallet af systemer og kompleksitet. Efter en gratis AI-afklaring giver vi en fast pris.",
   },
 ];
 
