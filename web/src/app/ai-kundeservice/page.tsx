@@ -105,7 +105,7 @@ export default function AiKundeservice() {
             {
               n: "04",
               h: "Jeres team til det svære",
-              p: "De henvendelser, der kræver et menneske, lander hos jeres folk - med mere tid til hver enkelt.",
+              p: "De henvendelser, der kræver et menneske, lander hos jeres medarbejdere - med mere tid til hver enkelt.",
             },
           ],
         }}

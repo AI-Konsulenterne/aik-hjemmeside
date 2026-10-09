@@ -19,7 +19,7 @@ export default function CalBooking({ className = "" }: CalBookingProps) {
       </h3>
       <p className="text-body text-gray-700 mt-3 max-w-md">
         Ring eller skriv til Alexander, så finder vi en tid til en gratis
-        45-minutters AI-afklaring.
+        AI-afklaring på 30 minutter.
       </p>
       <a
         href="tel:+4525547074"

@@ -52,7 +52,7 @@ const faqs = [
   },
   {
     q: "Kan I også hjælpe med implementeringen bagefter?",
-    a: "Ja. En strategi er kun noget værd, når den bliver til drift. Vi bygger og integrerer løsningerne med jeres systemer - eller klæder jeres egne folk på til at gøre det. Vi vil være jeres AI-samarbejdspartner hele vejen.",
+    a: "Ja. En strategi er kun noget værd, når den bliver til drift. Vi bygger og integrerer løsningerne med jeres systemer - eller klæder jeres egne medarbejdere på til at gøre det. Vi vil være jeres AI-samarbejdspartner hele vejen.",
   },
   {
     q: "Vi er en mindre virksomhed - er en AI-strategi relevant for os?",
@@ -84,7 +84,7 @@ const STEPS = [
   {
     n: "03",
     h: "Implementering",
-    p: "Vi bygger og integrerer løsningerne med jeres systemer - eller klæder jeres egne folk på til selv at køre dem.",
+    p: "Vi bygger og integrerer løsningerne med jeres systemer - eller klæder jeres egne medarbejdere på til selv at køre dem.",
   },
   {
     n: "04",
@@ -195,7 +195,7 @@ export default function AiStrategi() {
             <p className="text-lead text-gray-700 mt-4">
               Det handler ikke om at bruge AI for at bruge AI. Det handler om at
               vælge de rigtige steder at starte, de rigtige værktøjer og en plan,
-              som jeres folk faktisk kan følge - så I ikke ender med spredte
+              som jeres medarbejdere faktisk kan følge - så I ikke ender med spredte
               forsøg, der aldrig bliver til drift.
             </p>
           </FadeIn>

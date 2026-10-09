@@ -25,7 +25,7 @@ export default function RiskReversal() {
           <FadeIn>
             <div>
               <p className="text-[11px] uppercase tracking-[0.2em] text-primary font-semibold mb-4">
-                Hvad I får — helt gratis
+                Hvad I får - helt gratis
               </p>
               <h2 className="text-3xl lg:text-4xl font-bold tracking-heading text-gray-900 leading-[1.1] mb-8">
                 Jeres gratis AI-afklaring er{" "}
@@ -68,14 +68,14 @@ export default function RiskReversal() {
               </div>
 
               <h3 className="text-2xl font-bold tracking-heading text-gray-900 leading-[1.15] mb-4">
-                Vores garanti: Finder vi ikke en mulighed —{" "}
+                Vores garanti: Finder vi ikke en mulighed -{" "}
                 <span className="text-primary">koster mødet ingenting.</span>
               </h3>
 
               <p className="text-body text-gray-700 mb-6">
                 Ingen risiko, ingen skjulte omkostninger, ingen salgstricks.
                 Vi bruger 45 minutter på at forstå jeres virksomhed.
-                Finder vi ikke en konkret AI-mulighed — skylder I os ingenting.
+                Finder vi ikke en konkret AI-mulighed - skylder I os ingenting.
               </p>
 
               <Button variant="primary" href="/kontakt" cal>

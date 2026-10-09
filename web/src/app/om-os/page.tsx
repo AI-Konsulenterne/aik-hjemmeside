@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     "dansk AI bureau",
   ],
   openGraph: {
-    title: "Om Os — AI Konsulenterne",
+    title: "Om Os - AI Konsulenterne",
     description:
       "Mød holdet bag AI Konsulenterne. Et lille, dansk hold med fokus på danske virksomheder.",
     url: "/om-os",

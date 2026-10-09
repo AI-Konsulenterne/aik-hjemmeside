@@ -51,7 +51,7 @@ export default function LeadMagnet() {
               </h2>
               <p className="text-white/60 mt-4 leading-relaxed">
                 Et konkret værktøj I kan bruge i næste ledermøde. Ingen teori,
-                ingen buzzwords — bare de spørgsmål vi selv stiller når vi finder
+                ingen buzzwords - bare de spørgsmål vi selv stiller når vi finder
                 AI-muligheder hos vores kunder.
               </p>
               <ul className="text-white/70 text-sm mt-6 space-y-2">
@@ -75,7 +75,7 @@ export default function LeadMagnet() {
                 <div className="bg-white/10 rounded-2xl p-8 text-center">
                   <p className="text-xl font-bold mb-2">Tak for din tilmelding!</p>
                   <p className="text-white/60">
-                    Tjek din indbakke — guiden er på vej.
+                    Tjek din indbakke - guiden er på vej.
                   </p>
                 </div>
               ) : (
@@ -99,7 +99,7 @@ export default function LeadMagnet() {
                     {loading ? "Sender..." : "Hent guiden gratis"}
                   </button>
                   <p className="text-xs text-white/30 text-center">
-                    Vi sender kun guiden — ingen spam.
+                    Vi sender kun guiden - ingen spam.
                   </p>
                 </form>
               )}

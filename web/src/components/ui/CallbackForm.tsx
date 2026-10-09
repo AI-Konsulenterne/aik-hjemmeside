@@ -133,6 +133,13 @@ export default function CallbackForm({ className = "" }: { className?: string })
       >
         {loading ? "Sender..." : "Ring mig op"}
       </button>
+      <p className="text-sm text-gray-500 mt-4">
+        Vi bruger kun jeres oplysninger til at ringe jer op. Læs vores{" "}
+        <a href="/privatlivspolitik" className="underline hover:text-gray-900">
+          privatlivspolitik
+        </a>
+        .
+      </p>
     </form>
   );
 }

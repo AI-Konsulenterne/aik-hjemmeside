@@ -41,13 +41,13 @@ export default function Handelsbetingelser() {
       <p>
         En aftale indgås, når begge parter har accepteret tilbuddet skriftligt
         (fx via email eller digital underskrift). Første afklaringsmøde er
-        gratis og uforpligtende.
+        gratis og uden forpligtelse.
       </p>
 
       <h2>4. Priser og betaling</h2>
       <p>
         Alle priser er i DKK og eksklusive moms, medmindre andet er oplyst.
-        Betaling sker efter aftale — typisk delbetaling ved projektstart og
+        Betaling sker efter aftale - typisk delbetaling ved projektstart og
         restbeløb ved levering. Betalingsfrist er 8 dage netto fra
         fakturadato.
       </p>
@@ -101,7 +101,7 @@ export default function Handelsbetingelser() {
         <a href="mailto:kontakt@ai-konsulenterne.dk">
           kontakt@ai-konsulenterne.dk
         </a>
-        . Vi behandler klager hurtigst muligt — typisk inden for 5
+        . Vi behandler klager hurtigst muligt - typisk inden for 5
         arbejdsdage.
       </p>
 

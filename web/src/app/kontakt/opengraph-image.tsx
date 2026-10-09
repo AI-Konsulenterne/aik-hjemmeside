@@ -1,6 +1,6 @@
 import { renderOgImage } from "@/lib/og-template";
 
-export const alt = "Kontakt AI Konsulenterne — Book gratis AI-afklaring";
+export const alt = "Kontakt AI Konsulenterne - Book gratis AI-afklaring";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 

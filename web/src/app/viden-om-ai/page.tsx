@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Button from "@/components/ui/Button";
 import FadeIn from "@/components/ui/FadeIn";
+import SubpageCTA from "@/components/sections/SubpageCTA";
 import {
   getBlogPosts,
   strapiImageUrl,
@@ -23,9 +24,9 @@ export const metadata: Metadata = {
     "AI blog dansk",
   ],
   openGraph: {
-    title: "Viden om AI — Praktiske Guides til Danske Virksomheder",
+    title: "Viden om AI - Praktiske Guides til Danske Virksomheder",
     description:
-      "Alt du skal vide om AI i praksis — fra første skridt til avancerede use-cases.",
+      "Alt du skal vide om AI i praksis - fra første skridt til avancerede use-cases.",
     url: "/viden-om-ai",
   },
 };
@@ -60,8 +61,8 @@ function iconForPost(slug: string, title: string): string {
 const categoryLabels: Record<string, string> = {
   guide: "Guide",
   "case-story": "Case",
-  "tech-dive": "Tech",
-  "business-case": "Business",
+  "tech-dive": "Teknik",
+  "business-case": "Forretning",
   compliance: "Compliance",
   news: "Nyhed",
 };
@@ -93,7 +94,7 @@ export default async function VidenOmAI() {
               </h1>
               <p className="text-lead text-gray-700 mt-6">
                 Artikler og indsigter om AI til danske virksomheder. Konkret
-                viden I kan bruge — ingen buzzwords.
+                viden I kan bruge - ingen buzzwords.
               </p>
             </div>
           </FadeIn>
@@ -106,8 +107,8 @@ export default async function VidenOmAI() {
           {posts.length === 0 ? (
             <div className="max-w-2xl mx-auto bg-sand rounded-2xl p-10 text-center border border-gray-100">
               <p className="text-body text-gray-700">
-                Blog-artikler er på vej. I mellemtiden kan du hente vores gratis
-                AI-guide.
+                Artiklerne er på vej. I mellemtiden kan I få en gratis
+                AI-analyse.
               </p>
               <div className="mt-6">
                 <Button variant="primary" href="/ai-guide">
@@ -192,6 +193,7 @@ export default async function VidenOmAI() {
         </div>
       </section>
 
+      <SubpageCTA />
     </>
   );
 }

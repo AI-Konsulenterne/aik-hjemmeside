@@ -248,7 +248,7 @@ export default function CommunitySection() {
                   <rect x="3.5" y="5" width="17" height="16" rx="2" />
                   <path d="M3.5 10 h17 M8 3 v4 M16 3 v4" />
                 </svg>
-                Ugentlig Q&amp;A-session — om 7 timer
+                Ugentlig Q&amp;A-session - om 7 timer
               </div>
 
               {/* Post-kort */}

@@ -5,10 +5,10 @@ import FadeIn from "@/components/ui/FadeIn";
 export const metadata: Metadata = {
   title: "Gratis AI-analyse til jeres virksomhed",
   description:
-    "Mange virksomheder ved ikke hvor de skal starte med AI. Få en gratis AI-analyse og konkrete forslag til hvor AI kan spare jer tid — uden buzzwords.",
+    "Mange virksomheder ved ikke hvor de skal starte med AI. Få en gratis AI-analyse og konkrete forslag til hvor AI kan spare jer tid - uden buzzwords.",
   alternates: { canonical: "/ai-guide" },
   openGraph: {
-    title: "Gratis AI-analyse — AI Konsulenterne",
+    title: "Gratis AI-analyse - AI Konsulenterne",
     description:
       "Svært ved at komme i gang med AI? Få en gratis AI-analyse med konkrete forslag til jeres første use case.",
   },
@@ -42,7 +42,7 @@ export default function AIGuide() {
                     "Konkrete forslag til jeres første AI-use case",
                     "Et bud på hvor I kan spare mest tid",
                     "De mest almindelige fejl - og hvordan I undgår dem",
-                    "Uforpligtende og helt gratis",
+                    "Gratis og uden forpligtelse",
                   ].map((item) => (
                     <li
                       key={item}
@@ -68,8 +68,8 @@ export default function AIGuide() {
 
                 <p className="text-body text-gray-700 mt-8">
                   Vi stiller jer de samme spørgsmål, som vi stiller vores kunder,
-                  når vi afdækker hvor skoen trykker og hvor jeres AI-rejse skal
-                  starte. På den måde bliver analysen jeres startskud.
+                  når vi afdækker, hvor skoen trykker, og hvor I skal starte
+                  med AI. På den måde bliver analysen jeres startskud.
                 </p>
               </div>
             </FadeIn>

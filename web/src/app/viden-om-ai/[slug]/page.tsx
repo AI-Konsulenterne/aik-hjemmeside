@@ -173,7 +173,7 @@ export default async function BlogPostPage({
 
       <SubpageCTA
         heading="Vil I tale om hvad AI kan gøre for jer?"
-        description="Book en gratis AI-afklaring — vi finder konkrete muligheder hos jer."
+        description="Book en gratis AI-afklaring - vi finder konkrete muligheder hos jer."
       />
     </>
   );

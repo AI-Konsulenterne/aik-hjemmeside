@@ -5,7 +5,7 @@ const steps = [
     number: "1",
     title: "Vi finder ud af hvor I skal starte",
     description:
-      "I skal ikke vide noget på forhånd. Vi kortlægger jeres processer, forstår hvor I taber tid — og finder de 2-3 muligheder der giver størst effekt hurtigst.",
+      "I skal ikke vide noget på forhånd. Vi kortlægger jeres processer, forstår hvor I taber tid - og finder de 2-3 muligheder der giver størst effekt hurtigst.",
     duration: "45 min",
     addresses: "Løser: \"Vi ved ikke hvor vi skal starte\"",
   },
@@ -21,7 +21,7 @@ const steps = [
     number: "3",
     title: "Vi sørger for det bliver brugt",
     description:
-      "Onboarding, træning tilpasset hver rolle, og support indtil jeres team bruger det dagligt. Vi måler faktisk brug — ikke bare at det er live.",
+      "Onboarding, træning tilpasset hver rolle, og support indtil jeres team bruger det dagligt. Vi måler faktisk brug - ikke bare at det er live.",
     duration: "30-60 dage",
     addresses: "Løser: \"Medarbejderne bruger det ikke\"",
   },

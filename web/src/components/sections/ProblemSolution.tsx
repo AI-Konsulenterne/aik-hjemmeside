@@ -28,7 +28,7 @@ const steps = [
   {
     number: "05",
     title: "Vi er med jer hele vejen",
-    body: "Når løsningen er i luften, forsvinder vi ikke bare. Vi drifter den naturligvis sammen med jer, står klar med support og er der, når noget skal justeres eller udvikles. Vi vil være jeres AI-samarbejdspartner, der altid står ved siden af på jeres rejse med AI.",
+    body: "Når løsningen er i luften, forsvinder vi ikke bare. Vi drifter den naturligvis sammen med jer, står klar med support og er der, når noget skal justeres eller udvikles. Vi vil være jeres AI-samarbejdspartner, der altid står ved siden af jer.",
   },
 ];
 

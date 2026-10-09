@@ -42,10 +42,10 @@ export async function generateMetadata({
   return {
     title:
       caseData.seoTitle ||
-      `${caseData.customer} — ${caseData.title} | AI Case Study`,
+      `${caseData.customer} - ${caseData.title} | AI-case`,
     description:
       caseData.seoDescription ||
-      `${caseData.customer} — ${caseData.challenge.slice(0, 140)}...`,
+      `${caseData.customer} - ${caseData.challenge.slice(0, 140)}...`,
     alternates: { canonical: `/cases/${caseData.slug}` },
     openGraph: {
       title: `${caseData.customer}: ${caseData.title}`,
@@ -320,7 +320,7 @@ export default async function CaseDetail({
 
       <SubpageCTA
         heading="Klar til at blive den næste case?"
-        description="Book en gratis 45-minutters samtale — vi lærer jeres virksomhed at kende og ser om AI giver mening for jer."
+        description="Book en gratis snak på 30 minutter - vi lærer jeres virksomhed at kende og ser, om AI giver mening for jer."
       />
     </>
   );

@@ -55,7 +55,7 @@ export default function Processes() {
             Processer vi typisk starter med
           </h2>
           <p className="text-body text-gray-700 text-center max-w-2xl mx-auto mt-4">
-            I behøver ikke vide hvilken. Vi finder den sammen — men her er hvor de fleste virksomheder får størst effekt.
+            I behøver ikke vide hvilken. Vi finder den sammen - men her er hvor de fleste virksomheder får størst effekt.
           </p>
         </FadeIn>
 

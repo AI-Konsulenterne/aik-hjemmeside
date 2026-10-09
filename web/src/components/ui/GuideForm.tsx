@@ -132,7 +132,7 @@ export default function GuideForm() {
       </h2>
       <p className="text-gray-500 text-sm mb-6">
         Fortæl os kort om jer, så vender vi tilbage med konkrete forslag til
-        hvor I bør starte jeres rejse med AI.
+        hvor I bør starte med AI.
       </p>
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>

@@ -12,7 +12,7 @@ export default function FinalCTA() {
             </h2>
             <p className="text-body text-gray-700 mt-5">
               Det starter med én samtale. 45 minutter. Gratis. Du går derfra
-              med en konkret AI-plan — eller det koster dig ingenting.
+              med en konkret AI-plan - eller det koster dig ingenting.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8">
               <Button variant="primary" size="lg" href="/kontakt" cal>

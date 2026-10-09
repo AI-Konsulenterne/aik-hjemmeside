@@ -28,11 +28,11 @@ export default function Cookiepolitik() {
       <h3>Det, der kan blive gemt i din browser</h3>
       <ul>
         <li>
-          <strong>Sikkerhed</strong> — vores hostingudbyder (Vercel) kan sætte
+          <strong>Sikkerhed</strong> - vores hostingudbyder (Vercel) kan sætte
           en teknisk nødvendig cookie, der beskytter siden mod misbrug.
         </li>
         <li>
-          <strong>Lukket pop-up</strong> — lukker du vores pop-up, husker din
+          <strong>Lukket pop-up</strong> - lukker du vores pop-up, husker din
           browser det, indtil du lukker fanen. Det gemmes i browserens
           sessionStorage og ikke som en cookie.
         </li>

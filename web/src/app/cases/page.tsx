@@ -19,9 +19,9 @@ export const metadata: Metadata = {
     "Wunderwear AI",
   ],
   openGraph: {
-    title: "AI Cases — Konkrete Resultater fra Danske Virksomheder",
+    title: "AI Cases - Konkrete Resultater fra Danske Virksomheder",
     description:
-      "Lavazza, Wunderwear, INDKOM, J.M Band — se hvordan de bruger AI til at spare tid.",
+      "Lavazza, Wunderwear, INDKOM, J.M Band - se hvordan de bruger AI til at spare tid.",
     url: "/cases",
   },
 };

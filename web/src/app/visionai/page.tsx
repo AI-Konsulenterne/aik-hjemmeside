@@ -450,9 +450,9 @@ export default function VisionAI() {
             <div className="final-card">
               <div className="final-glow" aria-hidden="true" />
               <h2 className="h2 final-title">
-                Klar til at transformere
+                Skal vi vise jer det
                 <br />
-                jeres virksomhed?
+                på jeres egne data?
               </h2>
               <p className="lead final-lead">
                 Lad os vise jer, hvordan AIK Workspace kan styrke jeres

@@ -89,7 +89,7 @@ const STEPS = [
     n: "05",
     h: "Vi er med jer hele vejen",
     p: "Når løsningen kører og gør en forskel, hjælper vi med at få den helt ind i hverdagen - så det ikke står og falder med én person, men bliver en del af måden, I arbejder på.",
-    gain: "en AI-partner, der er med jer på jeres AI-rejse.",
+    gain: "en AI-partner, der er med jer hele vejen.",
   },
 ];
 

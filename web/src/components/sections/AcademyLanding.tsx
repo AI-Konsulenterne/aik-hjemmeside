@@ -181,10 +181,6 @@ const faqs = [
     a: "Vi har struktureret læringen fra A-Z, så I får det vigtigste serveret på en spiselig måde. Derfor varer vores videoer typisk under 15 minutter, så de passer ind i en kaffepause.",
   },
   {
-    q: "Er vi bundet til noget?",
-    a: "Nej, der er ingen binding. Det kører løbende måned + 1 måned, så I kan opsige, når det passer jer.",
-  },
-  {
     q: "Bruger de det overhovedet bagefter?",
     a: "Det er præcis derfor, det er korte videoer med rigtige opgaver og en månedlig Q&A - i stedet for ét langt kursus, der er glemt ugen efter.",
   },
@@ -448,7 +444,7 @@ export default function AcademyLanding() {
               </div>
               <p className="text-body text-gray-700 max-w-[380px]">
                 Start med Grundlæggende AI - eller dyk direkte ned i det værktøj,
-                jeres folk bruger til dagligt, oftest Microsoft Copilot.
+                jeres medarbejdere bruger til dagligt, oftest Microsoft Copilot.
               </p>
             </div>
           </FadeIn>
@@ -739,7 +735,7 @@ export default function AcademyLanding() {
                   Se det selv
                 </span>
                 <h3 className="relative text-[26px] font-bold tracking-tight leading-snug mt-4 text-balance">
-                  Det her er ikke teori - folk bruger det bagefter.
+                  Det her er ikke teori - medarbejderne bruger det bagefter.
                 </h3>
                 <p className="relative mt-5 text-body text-gray-400">
                   Vi viser jer det hellere, end vi fortæller om det. Book et

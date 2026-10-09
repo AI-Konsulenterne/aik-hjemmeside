@@ -116,7 +116,7 @@ function reportToHtml(company: string, report: string, withCalendar: boolean): s
 
   const calendar = withCalendar
     ? `<div style="margin-top:20px;padding:16px;background:#fff7ed;border-radius:12px;">
-         <p style="margin:0 0 10px;color:#404040;font-size:14px;">I bad om at blive ringet op - book gerne 20 minutter med det samme:</p>
+         <p style="margin:0 0 10px;color:#404040;font-size:14px;">I bad om at blive ringet op - book gerne en gratis snak på 30 minutter:</p>
          <a href="https://ai-konsulenterne.dk/kontakt" style="display:inline-block;background:#ff9a00;color:#fff;text-decoration:none;font-weight:600;padding:12px 24px;border-radius:999px;">Book et møde</a>
        </div>`
     : `<a href="https://ai-konsulenterne.dk/kontakt" style="display:inline-block;margin-top:16px;background:#ff9a00;color:#fff;text-decoration:none;font-weight:600;padding:14px 28px;border-radius:999px;">Book en gratis snak</a>`;

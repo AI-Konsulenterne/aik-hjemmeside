@@ -8,7 +8,7 @@ type SubpageCTAProps = {
 
 export default function SubpageCTA({
   heading = "Klar til at komme i gang?",
-  description = "Book en gratis 45-minutters AI-afklaring. Ingen forpligtelse, ingen forberedelse — vi tager det hele.",
+  description = "Book en gratis AI-afklaring på 30 minutter. Ingen forpligtelse, ingen forberedelse - vi tager det hele.",
 }: SubpageCTAProps) {
   return (
     <section className="py-[clamp(3rem,8vw,6rem)] border-t border-gray-100">

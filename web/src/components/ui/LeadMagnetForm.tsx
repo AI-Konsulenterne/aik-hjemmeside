@@ -182,7 +182,7 @@ export default function LeadMagnetForm() {
         </p>
         <div className="border-t border-gray-100 pt-8 text-left">
           <p className="text-sm font-semibold text-gray-900 mb-1">
-            Mens I venter - book 20 minutter med os
+            Mens I venter - tag en gratis snak på 30 minutter
           </p>
           <p className="text-sm text-gray-500 mb-5">
             Så går vi dybere ind i den case I synes lyder mest interessant.
@@ -400,7 +400,12 @@ export default function LeadMagnetForm() {
           <p className="text-xs text-gray-500 text-center mt-4 leading-relaxed">
             Tager 30 sekunder. Vi sender rapporten på mail inden for en time.
             <br />
-            Også når der ikke lige er en faktura imellem.
+            Vi bruger kun jeres oplysninger til at sende analysen og følge op
+            på den. Læs vores{" "}
+            <a href="/privatlivspolitik" className="underline hover:text-gray-900">
+              privatlivspolitik
+            </a>
+            .
           </p>
         )}
       </form>
