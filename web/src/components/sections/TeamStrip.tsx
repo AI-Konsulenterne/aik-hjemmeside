@@ -24,7 +24,7 @@ export default async function TeamStrip({
   return (
     <div className={className}>
       <p className="text-[11px] uppercase tracking-[0.2em] text-primary font-semibold">
-        Det er os, I taler med
+        Menneskerne bag
       </p>
       <ul className={`grid grid-cols-2 ${columns === 4 ? "lg:grid-cols-4" : ""} gap-x-5 gap-y-6 mt-5`}>
         {ordered.map((m) => (
