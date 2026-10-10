@@ -84,7 +84,7 @@ export default function Barriers() {
     fresh === i ? "opacity-0 motion-safe:translate-y-2" : "opacity-100 translate-y-0";
 
   return (
-    <section className="bg-sand py-[clamp(4rem,10vw,7rem)]">
+    <section className="bg-white py-[clamp(4rem,10vw,7rem)]">
       <div className="max-w-[1180px] mx-auto px-6 flex flex-col gap-14">
         {/* Header */}
         <FadeIn>
