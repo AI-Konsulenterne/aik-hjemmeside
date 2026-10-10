@@ -35,14 +35,13 @@ export default function Kontakt() {
                   Book en gratis AI-afklaring
                 </h1>
                 <p className="text-lead text-gray-700 mt-6 max-w-xl">
-                  30 minutter med Alexander, hvor vi finder ud af, hvordan vi kan
-                  hjælpe jer med AI.
+                  30 minutter med Alexander, hvor vi finder ud af, hvordan AI
+                  bedst kan hjælpe jer.
                 </p>
                 <ul className="mt-6 space-y-3 max-w-xl">
                   {[
-                    "I skal ikke forberede noget. I fortæller, vi spørger.",
-                    "Vi finder sammen 1-2 steder, hvor AI kan spare jer tid.",
-                    "Giver det ikke mening for jer endnu, siger vi det ærligt.",
+                    "I behøver ikke at forberede noget. Vi spørger, I fortæller.",
+                    "Sammen finder vi 1-2 steder, hvor det giver mening at introducere AI.",
                   ].map((t) => (
                     <li key={t} className="flex items-start gap-3 text-body text-gray-700">
                       <span className="mt-[0.55em] inline-block w-1.5 h-1.5 rounded-full bg-primary shrink-0" aria-hidden="true" />
