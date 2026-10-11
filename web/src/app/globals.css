@@ -93,6 +93,30 @@
   }
 }
 
+/* Kundeudtalelser: orange markering under den vigtigste sætning.
+   Tegnes ind, når kortet scrolles i view (kun hvor browseren understøtter det);
+   ellers står markeringen bare fuldt fra start. */
+.aik-mark {
+  background-repeat: no-repeat;
+  background-position: 0 88%;
+  background-size: 100% 38%;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+@keyframes aik-mark-draw {
+  from { background-size: 0% 38%; }
+  to { background-size: 100% 38%; }
+}
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .aik-mark {
+      animation: aik-mark-draw linear both;
+      animation-timeline: view();
+      animation-range: entry 60% cover 40%;
+    }
+  }
+}
+
 /* Smooth scrolling */
 html {
   scroll-behavior: smooth;
