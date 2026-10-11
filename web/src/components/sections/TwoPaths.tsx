@@ -180,8 +180,8 @@ export default function TwoPaths() {
                   Få bygget AI ind i forretningen
                 </h3>
                 <p className="text-[17px] leading-[1.65] text-gray-700 mt-4">
-                  Vi finder opgaverne, hvor AI sparer tid, og bygger løsningen til
-                  jeres systemer.
+                  Vi hjælper med strategien, udvikler løsningerne og lærer
+                  medarbejderne at bruge dem.
                 </p>
               </div>
               <ul className="border-t border-gray-200">
