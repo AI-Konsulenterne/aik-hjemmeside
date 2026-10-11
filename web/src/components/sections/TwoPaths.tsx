@@ -222,9 +222,12 @@ export default function TwoPaths() {
                 <h3 className="text-[clamp(1.75rem,2.4vw,2.25rem)] font-bold tracking-heading text-gray-900 leading-[1.15] mt-3">
                   AIK Workspace
                 </h3>
-                <p className="text-[17px] leading-[1.65] text-gray-700 mt-4">
-                  Chat, agenter og vidensbase samlet ét sted - forankret i jeres
-                  data, jeres systemer og jeres måde at gøre tingene på.
+                <p className="text-[17px] leading-[1.65] font-semibold text-gray-900 mt-4">
+                  AI-platformen der samler det hele
+                </p>
+                <p className="text-[17px] leading-[1.65] text-gray-700 mt-1">
+                  AIK Workspace er jeres AI-system til hele virksomheden -
+                  forankret i jeres egen data, systemer og forretningslogik.
                 </p>
               </div>
               <ul className="flex flex-wrap gap-2">
