@@ -7,7 +7,6 @@ import CaseHighlight from "@/components/sections/CaseHighlight";
 import Team from "@/components/sections/Team";
 import DeveloperExperience from "@/components/sections/DeveloperExperience";
 import Testimonials from "@/components/sections/Testimonials";
-import MidCTA from "@/components/sections/MidCTA";
 import FAQ from "@/components/sections/FAQ";
 import JsonLd from "@/components/ui/JsonLd";
 import { faqs } from "@/components/sections/faqData";
@@ -128,7 +127,6 @@ export default function Forside() {
       <DeveloperExperience />
       <Team />
       <FAQ />
-      <MidCTA />
     </>
   );
 }
