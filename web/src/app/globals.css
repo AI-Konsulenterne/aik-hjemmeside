@@ -93,6 +93,50 @@
   }
 }
 
+/* Kundecase: HR-agentens chat spiller i et 11-sekunders loop.
+   Med reduceret bevægelse står spørgsmål, svar og kilde stille (uden skriveindikator). */
+@keyframes aik-chat-q {
+  0%, 4% { opacity: 0; transform: translateY(8px); }
+  8%, 92% { opacity: 1; transform: translateY(0); }
+  97%, 100% { opacity: 0; transform: translateY(0); }
+}
+@keyframes aik-chat-typing {
+  0%, 12% { opacity: 0; }
+  15%, 28% { opacity: 1; }
+  31%, 100% { opacity: 0; }
+}
+@keyframes aik-chat-a {
+  0%, 29% { opacity: 0; transform: translateY(8px); }
+  33%, 92% { opacity: 1; transform: translateY(0); }
+  97%, 100% { opacity: 0; transform: translateY(0); }
+}
+@keyframes aik-chat-src {
+  0%, 37% { opacity: 0; }
+  41%, 92% { opacity: 1; }
+  97%, 100% { opacity: 0; }
+}
+@keyframes aik-chat-dot {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}
+.aik-chat-q { animation: aik-chat-q 11s ease-out infinite both; }
+.aik-chat-typing { animation: aik-chat-typing 11s linear infinite both; }
+.aik-chat-a { animation: aik-chat-a 11s ease-out infinite both; }
+.aik-chat-src { animation: aik-chat-src 11s linear infinite both; }
+.aik-chat-dot { animation: aik-chat-dot 1s ease-in-out infinite; }
+@media (prefers-reduced-motion: reduce) {
+  .aik-chat-q,
+  .aik-chat-typing,
+  .aik-chat-a,
+  .aik-chat-src,
+  .aik-chat-dot {
+    animation: none;
+  }
+  .aik-chat-typing {
+    visibility: hidden;
+  }
+}
+
 /* Kundeudtalelser: orange markering under den vigtigste sætning.
    Tegnes ind, når kortet scrolles i view (kun hvor browseren understøtter det);
    ellers står markeringen bare fuldt fra start. */
