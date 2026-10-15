@@ -161,6 +161,48 @@
   }
 }
 
+/* Sådan arbejder vi: orange overstregning, der tegnes, når teksten toner frem
+   (FadeIn sætter data-fade), og et trin-kort, hvor tre trin lyser op på skift
+   i et 9-sekunders loop. Med reduceret bevægelse står stregen fuldt, og trinene
+   står uden markering. */
+.aik-strike {
+  background-image: linear-gradient(var(--color-primary), var(--color-primary));
+  background-repeat: no-repeat;
+  background-position: 0 55%;
+  background-size: 100% 2px;
+}
+@keyframes aik-strike {
+  from { background-size: 0% 2px; }
+  to { background-size: 100% 2px; }
+}
+[data-fade="hidden"] .aik-strike {
+  background-size: 0% 2px;
+}
+[data-fade="shown"] .aik-strike {
+  animation: aik-strike 700ms ease-out 900ms both;
+}
+@keyframes aik-step {
+  0%, 30% { background-color: #fff8ee; border-color: var(--color-primary); }
+  34%, 100% { background-color: var(--color-white); border-color: var(--color-gray-200); }
+}
+@keyframes aik-step-num {
+  0%, 30% { background-color: var(--color-primary); color: var(--color-gray-900); }
+  34%, 100% { background-color: var(--color-gray-100); color: var(--color-gray-500); }
+}
+.aik-step {
+  animation: aik-step 9s linear infinite;
+}
+.aik-step-num {
+  animation: aik-step-num 9s linear infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  [data-fade="shown"] .aik-strike,
+  .aik-step,
+  .aik-step-num {
+    animation: none;
+  }
+}
+
 /* Smooth scrolling */
 html {
   scroll-behavior: smooth;

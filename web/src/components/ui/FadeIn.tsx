@@ -11,6 +11,8 @@ type FadeInProps = {
 // Serveren renderer altid indholdet synligt: det, der er på skærmen ved
 // indlæsning, må ikke vente på JavaScript (LCP). Kun elementer under folden
 // skjules efter mount og toner ind, når de scrolles frem.
+// data-fade (static | hidden | shown) lader CSS starte animationer inde i
+// elementet, først når det toner frem (fx .aik-strike).
 export default function FadeIn({
   children,
   className = "",
@@ -52,6 +54,7 @@ export default function FadeIn({
   return (
     <div
       ref={ref}
+      data-fade={phase}
       className={`${motion} ${className}`}
       style={phase === "shown" ? { transitionDelay: `${delay}ms` } : undefined}
     >
