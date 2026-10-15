@@ -68,7 +68,7 @@ export default async function Team() {
           </header>
         </FadeIn>
 
-        <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,240px),1fr))] gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {ordered.map((person, i) => (
             <FadeIn key={person.id} delay={150 + i * 100}>
               <article className="flex flex-col gap-4">
@@ -77,7 +77,7 @@ export default async function Team() {
                     src={getImageForMember(person, i)}
                     alt={person.name}
                     fill
-                    sizes="(max-width: 540px) 92vw, (max-width: 1024px) 46vw, 300px"
+                    sizes="(max-width: 640px) 92vw, (max-width: 1024px) 46vw, 300px"
                     className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.04] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
                   />
                   {person.isPrimary && (
