@@ -58,7 +58,9 @@ export default async function Team() {
                 Hele holdet bag
               </p>
               <h2 className="text-[clamp(2.25rem,5vw,4rem)] font-bold leading-[1.05] tracking-heading text-gray-900">
-                Fire mennesker. Én mission.
+                Fire mennesker.
+                <br />
+                Én mission.
               </h2>
             </div>
             <p className="text-body text-gray-600 max-w-[460px] text-pretty">
