@@ -1,16 +1,14 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import Button from "@/components/ui/Button";
 import FadeIn from "@/components/ui/FadeIn";
 
 /**
- * "Tre spor til AI i jeres virksomhed" (design-handoff "Tre spor").
- * Vælger øverst fremhæver det matchende kort. Hvert kort har en lille visual:
- * animeret dataflow (Få det bygget), Workspace-screenshot og Copilot-videoen
- * (klik-for-afspil, YouTube indlæses først ved klik).
+ * "To spor til AI i jeres virksomhed".
+ * Vælger øverst fremhæver det matchende kort. Hvert kort har en lille animeret
+ * visual: dataflow (Få det bygget) og læringsforløb (Lær det selv).
  */
 
 const buildLinks = [
@@ -19,14 +17,9 @@ const buildLinks = [
   { label: "AIK Workshop", href: "/workshop" },
 ];
 
-const workspaceChips = ["GDPR-compliant", "Data i Azure EU", "Hurtig opsætning"];
-
 const learnChips = ["40+ moduler", "Fællesskab", "Live Q&A's", "+ Claude-bonus", "AI Act"];
 
-const picks = ["have det bygget for os", "have vores eget AI-system", "lære det selv"];
-
-const VIDEO_ID = "-MePqDXITi8";
-const VIDEO_TITLE = "Forbedre dine resultater med Copilot på 15 minutter";
+const picks = ["have det bygget for os", "lære det selv"];
 
 function ArrowRight() {
   return (
@@ -75,42 +68,32 @@ function FlowVisual({ phase }: { phase: number }) {
   );
 }
 
-function VideoVisual() {
-  const [playing, setPlaying] = useState(false);
+// Kort 2: Copilot/ChatGPT/Claude fyldes op én ad gangen, i samme rytme som kort 1.
+function LearnVisual({ phase }: { phase: number }) {
   return (
-    <div className="relative aspect-video rounded-2xl overflow-hidden border border-gray-700 bg-[#0b0f2a]">
-      {playing ? (
-        <iframe
-          src={`https://www.youtube-nocookie.com/embed/${VIDEO_ID}?autoplay=1&rel=0`}
-          title={VIDEO_TITLE}
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowFullScreen
-          data-cookieconsent="ignore"
-          className="absolute inset-0 w-full h-full border-0"
-        />
-      ) : (
-        <button
-          type="button"
-          onClick={() => setPlaying(true)}
-          aria-label={`Afspil video: ${VIDEO_TITLE}`}
-          className="group absolute inset-0 w-full h-full cursor-pointer"
-        >
-          <Image
-            src="/lektion-prompting.jpg"
-            alt=""
-            fill
-            sizes="(max-width: 1024px) 100vw, 400px"
-            className="object-cover transition-transform duration-300 group-hover:scale-[1.02]"
-          />
-          <span className="absolute inset-0 flex items-center justify-center">
-            <span className="w-14 h-14 rounded-full bg-primary text-white flex items-center justify-center shadow-[0_12px_28px_-8px_rgba(255,154,0,.65)] transition-transform duration-300 group-hover:scale-110">
-              <svg className="w-6 h-6 translate-x-0.5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                <path d="M8 5.5v13l11-6.5-11-6.5z" />
+    <div className="bg-gray-800 border border-gray-700 rounded-2xl h-[200px] p-6 flex flex-col justify-center gap-5" aria-hidden="true">
+      {["Copilot", "ChatGPT", "Claude"].map((tool, i) => {
+        const done = phase >= i + 2;
+        return (
+          <div key={tool} className="grid grid-cols-[80px_1fr_auto] items-center gap-4">
+            <span className="text-[13px] font-semibold text-white">{tool}</span>
+            <span className="h-1.5 rounded-full bg-gray-700 overflow-hidden">
+              <span
+                className={`block h-full rounded-full bg-primary transition-[width] duration-[600ms] ease-out ${done ? "w-full" : "w-0"}`}
+              />
+            </span>
+            <span
+              className={`w-6 h-6 rounded-full flex items-center justify-center transition-colors duration-[400ms] ${
+                done ? "bg-primary text-white" : "bg-gray-700 text-transparent"
+              }`}
+            >
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={3} strokeLinecap="round" strokeLinejoin="round">
+                <path d="M20 6 9 17l-5-5" />
               </svg>
             </span>
-          </span>
-        </button>
-      )}
+          </div>
+        );
+      })}
     </div>
   );
 }
@@ -141,7 +124,7 @@ export default function TwoPaths() {
         <div className="flex flex-wrap justify-between items-end gap-x-12 gap-y-6">
           <FadeIn>
             <h2 className="text-[clamp(2.25rem,5vw,4rem)] font-bold tracking-heading text-gray-900 leading-[1.05] max-w-[640px] text-balance">
-              Tre spor til AI i jeres virksomhed
+              To spor til AI i jeres virksomhed
             </h2>
           </FadeIn>
           <FadeIn delay={100}>
@@ -205,50 +188,10 @@ export default function TwoPaths() {
             </div>
           </FadeIn>
 
-          {/* Kort 2: AIK Workspace */}
+          {/* Kort 2: AI-Minds */}
           <FadeIn delay={200} className="h-full">
-            <div className={`h-full flex flex-col gap-7 bg-white border border-gray-200 rounded-[24px] p-[clamp(28px,3vw,40px)] transition-all duration-[350ms] ease-out ${cardState(1)}`}>
-              <div className="relative h-[200px] rounded-2xl overflow-hidden border border-gray-200 bg-gray-50">
-                <Image
-                  src="/screenshots/workspace-assistent.png"
-                  alt="AIK Workspace dashboard med opgaver, forslag og assistent"
-                  fill
-                  sizes="(max-width: 1024px) 100vw, 400px"
-                  className="object-cover object-[center_top]"
-                />
-              </div>
-              <div>
-                <p className="text-xs font-bold uppercase tracking-[0.16em] text-primary">Jeres eget AI-system</p>
-                <h3 className="text-[clamp(1.75rem,2.4vw,2.25rem)] font-bold tracking-heading text-gray-900 leading-[1.15] mt-3">
-                  AIK Workspace
-                </h3>
-                <p className="text-[17px] leading-[1.65] font-semibold text-gray-900 mt-4">
-                  AI-platformen der samler det hele
-                </p>
-                <p className="text-[17px] leading-[1.65] text-gray-700 mt-1">
-                  AIK Workspace er jeres AI-system til hele virksomheden -
-                  forankret i jeres egen data, systemer og forretningslogik.
-                </p>
-              </div>
-              <ul className="flex flex-wrap gap-2">
-                {workspaceChips.map((c) => (
-                  <li key={c} className="bg-sand rounded-full px-4 py-[9px] text-sm font-semibold text-gray-700">
-                    {c}
-                  </li>
-                ))}
-              </ul>
-              <div className="mt-auto">
-                <Button variant="secondary" size="lg" href="/visionai">
-                  Se AIK Workspace
-                </Button>
-              </div>
-            </div>
-          </FadeIn>
-
-          {/* Kort 3: AI-Minds */}
-          <FadeIn delay={300} className="h-full">
-            <div className={`h-full flex flex-col gap-7 bg-gray-900 rounded-[24px] p-[clamp(28px,3vw,40px)] transition-all duration-[350ms] ease-out ${cardState(2)}`}>
-              <VideoVisual />
+            <div className={`h-full flex flex-col gap-7 bg-gray-900 rounded-[24px] p-[clamp(28px,3vw,40px)] transition-all duration-[350ms] ease-out ${cardState(1)}`}>
+              <LearnVisual phase={phase} />
               <div>
                 <p className="text-xs font-bold uppercase tracking-[0.16em] text-primary">Lær det selv</p>
                 <h3 className="text-[clamp(1.75rem,2.4vw,2.25rem)] font-bold tracking-heading text-white leading-[1.15] mt-3">
