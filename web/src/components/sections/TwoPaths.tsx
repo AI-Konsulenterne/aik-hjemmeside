@@ -7,35 +7,15 @@ import Button from "@/components/ui/Button";
 import FadeIn from "@/components/ui/FadeIn";
 
 /**
- * "Tre spor til AI i jeres virksomhed" (design-handoff "Tre spor").
- * Vælger øverst fremhæver det matchende kort. Hvert kort har en lille visual:
- * animeret dataflow (Få det bygget), Workspace-screenshot og Copilot-videoen
+ * "Vi udvikler og underviser": to spor side om side.
+ * Kort 1 har et animeret dataflow, kort 2 Copilot-videoen
  * (klik-for-afspil, YouTube indlæses først ved klik).
  */
 
-const buildLinks = [
-  { label: "AI-strategi", href: "/ai-strategi" },
-  { label: "AI-løsninger til jeres data og systemer", href: "/skraeddersyede-ai" },
-  { label: "AIK Workshop", href: "/workshop" },
-];
-
-const workspaceChips = ["GDPR-compliant", "Data i Azure EU", "Hurtig opsætning"];
-
 const learnChips = ["40+ moduler", "Fællesskab", "Live Q&A's", "+ Claude-bonus", "AI Act"];
-
-const picks = ["have det bygget for os", "have vores eget AI-system", "lære det selv"];
 
 const VIDEO_ID = "-MePqDXITi8";
 const VIDEO_TITLE = "Forbedre dine resultater med Copilot på 15 minutter";
-
-function ArrowRight() {
-  return (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-      <path d="M5 12h14" />
-      <path d="m12 5 7 7-7 7" />
-    </svg>
-  );
-}
 
 // Kort 1: Mail/ERP/Excel → AI-løsning → færdig. Faser tændes én ad gangen.
 function FlowVisual({ phase }: { phase: number }) {
@@ -44,7 +24,7 @@ function FlowVisual({ phase }: { phase: number }) {
   const line2 = phase >= 3;
   const done = phase >= 4;
   return (
-    <div className="bg-white rounded-2xl h-[200px] p-5 grid grid-cols-[auto_1fr_auto_1fr_auto] items-center" aria-hidden="true">
+    <div className="bg-white rounded-2xl aspect-video min-h-[200px] p-5 grid grid-cols-[auto_1fr_auto_1fr_auto] items-center" aria-hidden="true">
       <div className="flex flex-col gap-2">
         {["Mail", "ERP", "Excel"].map((s) => (
           <span key={s} className="border border-gray-200 rounded-full px-3 py-1.5 text-[13px] font-semibold text-gray-900 text-center bg-white">
@@ -116,7 +96,6 @@ function VideoVisual() {
 }
 
 export default function TwoPaths() {
-  const [pick, setPick] = useState(-1);
   const [tick, setTick] = useState(4);
 
   // Dataflow-animation i kort 1. Står i slutfasen (alt tændt) ved reduced motion.
@@ -127,55 +106,22 @@ export default function TwoPaths() {
   }, []);
   const phase = tick % 6;
 
-  const cardState = (i: number) =>
-    pick === -1
-      ? ""
-      : pick === i
-        ? "motion-safe:-translate-y-1.5 shadow-[0_0_0_2px_#ff9a00,0_24px_48px_rgba(0,0,0,0.10)]"
-        : "opacity-40";
-
   return (
     <section className="bg-white py-[clamp(4rem,10vw,7rem)] px-6">
       <div className="max-w-[1280px] mx-auto flex flex-col gap-12">
-        {/* Topbar: overskrift + vælger */}
-        <div className="flex flex-wrap justify-between items-end gap-x-12 gap-y-6">
-          <FadeIn>
-            <h2 className="text-[clamp(2.25rem,5vw,4rem)] font-bold tracking-heading text-gray-900 leading-[1.05] max-w-[640px] text-balance">
-              Tre spor til AI i jeres virksomhed
-            </h2>
-          </FadeIn>
-          <FadeIn delay={100}>
-            <div className="flex flex-col gap-3">
-              <p className="text-sm font-semibold text-gray-500">Vi vil gerne…</p>
-              <div className="flex flex-wrap gap-2">
-                {picks.map((p, i) => (
-                  <button
-                    key={p}
-                    type="button"
-                    aria-pressed={pick === i}
-                    onClick={() => setPick(pick === i ? -1 : i)}
-                    className={`rounded-full px-5 py-3 text-[15px] font-semibold whitespace-nowrap border transition-colors duration-200 ${
-                      pick === i
-                        ? "bg-gray-900 border-gray-900 text-white"
-                        : "bg-white border-gray-300 text-gray-900 hover:border-primary"
-                    }`}
-                  >
-                    {p}
-                  </button>
-                ))}
-              </div>
-            </div>
-          </FadeIn>
-        </div>
+        <FadeIn>
+          <h2 className="text-[clamp(2.25rem,5vw,4rem)] font-bold tracking-heading text-gray-900 leading-[1.05] text-balance">
+            Vi udvikler og underviser
+          </h2>
+        </FadeIn>
 
-        {/* Kort */}
-        <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,340px),1fr))] gap-6 items-stretch">
-          {/* Kort 1: Få det bygget */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
+          {/* Kort 1: Vi udvikler */}
           <FadeIn delay={100} className="h-full">
-            <div className={`h-full flex flex-col gap-7 bg-sand rounded-[24px] p-[clamp(28px,3vw,40px)] transition-all duration-[350ms] ease-out ${cardState(0)}`}>
+            <div className="h-full flex flex-col gap-7 bg-sand rounded-[24px] p-[clamp(28px,3vw,40px)]">
               <FlowVisual phase={phase} />
               <div>
-                <p className="text-xs font-bold uppercase tracking-[0.16em] text-primary">Få det bygget</p>
+                <p className="text-xs font-bold uppercase tracking-[0.16em] text-primary">Vi udvikler</p>
                 <h3 className="text-[clamp(1.75rem,2.4vw,2.25rem)] font-bold tracking-heading text-gray-900 leading-[1.15] mt-3">
                   Få bygget AI ind i forretningen
                 </h3>
@@ -184,19 +130,6 @@ export default function TwoPaths() {
                   medarbejderne at bruge dem.
                 </p>
               </div>
-              <ul className="border-t border-gray-200">
-                {buildLinks.map((l) => (
-                  <li key={l.label} className="border-b border-gray-200">
-                    <Link
-                      href={l.href}
-                      className="flex items-center justify-between gap-4 py-[18px] text-[17px] font-semibold text-gray-900 transition-all duration-200 hover:text-primary-dark hover:pl-1.5"
-                    >
-                      {l.label}
-                      <ArrowRight />
-                    </Link>
-                  </li>
-                ))}
-              </ul>
               <div className="mt-auto">
                 <Button variant="primary" size="lg" href="/skraeddersyede-ai">
                   Se hvordan vi arbejder
@@ -205,52 +138,12 @@ export default function TwoPaths() {
             </div>
           </FadeIn>
 
-          {/* Kort 2: AIK Workspace */}
+          {/* Kort 2: Vi underviser (AI-Minds) */}
           <FadeIn delay={200} className="h-full">
-            <div className={`h-full flex flex-col gap-7 bg-white border border-gray-200 rounded-[24px] p-[clamp(28px,3vw,40px)] transition-all duration-[350ms] ease-out ${cardState(1)}`}>
-              <div className="relative h-[200px] rounded-2xl overflow-hidden border border-gray-200 bg-gray-50">
-                <Image
-                  src="/screenshots/workspace-assistent.png"
-                  alt="AIK Workspace dashboard med opgaver, forslag og assistent"
-                  fill
-                  sizes="(max-width: 1024px) 100vw, 400px"
-                  className="object-cover object-[center_top]"
-                />
-              </div>
-              <div>
-                <p className="text-xs font-bold uppercase tracking-[0.16em] text-primary">Jeres eget AI-system</p>
-                <h3 className="text-[clamp(1.75rem,2.4vw,2.25rem)] font-bold tracking-heading text-gray-900 leading-[1.15] mt-3">
-                  AIK Workspace
-                </h3>
-                <p className="text-[17px] leading-[1.65] font-semibold text-gray-900 mt-4">
-                  AI-platformen der samler det hele
-                </p>
-                <p className="text-[17px] leading-[1.65] text-gray-700 mt-1">
-                  AIK Workspace er jeres AI-system til hele virksomheden -
-                  forankret i jeres egen data, systemer og forretningslogik.
-                </p>
-              </div>
-              <ul className="flex flex-wrap gap-2">
-                {workspaceChips.map((c) => (
-                  <li key={c} className="bg-sand rounded-full px-4 py-[9px] text-sm font-semibold text-gray-700">
-                    {c}
-                  </li>
-                ))}
-              </ul>
-              <div className="mt-auto">
-                <Button variant="secondary" size="lg" href="/visionai">
-                  Se AIK Workspace
-                </Button>
-              </div>
-            </div>
-          </FadeIn>
-
-          {/* Kort 3: AI-Minds */}
-          <FadeIn delay={300} className="h-full">
-            <div className={`h-full flex flex-col gap-7 bg-gray-900 rounded-[24px] p-[clamp(28px,3vw,40px)] transition-all duration-[350ms] ease-out ${cardState(2)}`}>
+            <div className="h-full flex flex-col gap-7 bg-gray-900 rounded-[24px] p-[clamp(28px,3vw,40px)]">
               <VideoVisual />
               <div>
-                <p className="text-xs font-bold uppercase tracking-[0.16em] text-primary">Lær det selv</p>
+                <p className="text-xs font-bold uppercase tracking-[0.16em] text-primary">Vi underviser</p>
                 <h3 className="text-[clamp(1.75rem,2.4vw,2.25rem)] font-bold tracking-heading text-white leading-[1.15] mt-3">
                   Hands-on undervisning i Copilot
                 </h3>
