@@ -37,6 +37,11 @@ eller fjern emner du ikke vil have skrevet.
 | 22 | ai chatbot til hjemmeside | Hvad en AI-chatbot kan - og hvor den typisk fejler | Wunderwear | /ai-kundeservice |
 | 23 | ai til små virksomheder | Hvor lille kan I være og stadig få værdi af AI | Wunderwear | /skraeddersyede-ai |
 | 24 | ai mødereferat | Referater og opfølgning automatisk - og hvad I skal passe på | - | /skraeddersyede-ai |
+| 29 | ai workshop for webshops | Hvad en webshop skal gå hjem med efter én dag (klynge: workshop) | Wunderwear | /workshop, /ai-i-e-commerce |
+| 30 | ai workshop hr | Workshop for HR-teamet: de opgaver der fylder (klynge: workshop) | Lavazza | /workshop, /ai-i-hr |
+| 31 | ai workshop for ledere | Ledergruppen før medarbejderne: strategi og prioritering (klynge: workshop) | INDKOM | /workshop, /ai-strategi |
+| 32 | ai workshop produktion | Produktionsvirksomheder: fra gulv til kontor (klynge: workshop) | - | /workshop |
+| 33 | ai workshop vs kursus | Hvornår skal I vælge hvad (klynge: workshop, binder klyngen sammen) | - | /workshop, /academy |
 | 25 | ai e-mail automatisering | Indbakken som jeres første AI-opgave | Wunderwear | /ai-kundeservice |
 | 26 | ai pilotprojekt | Sådan kører I et pilotprojekt, der ikke dør efter tre uger | INDKOM | /ai-strategi |
 | 27 | hvad kan ai ikke | Det AI er dårlig til - ærligt, fra dem der bygger det | - | /skraeddersyede-ai |
@@ -52,6 +57,15 @@ søgeord. De må gerne skrives på tre dage i træk - hvert indlæg sit eget sø
 sin egen vinkel og sin egen slug, og de skal linke til hinanden. Se trin 0 i
 [`blog-cloud-runbook.md`](blog-cloud-runbook.md): dublet-reglen går på søgeordet,
 ikke på emnet.
+
+**Om workshop-klyngen (#29-#33, tilføjet 2026-10-26):** prioriteret over #25-#28,
+fordi workshop-søgeord har fået traction. Rækkerne står derfor før #25 i tabellen,
+men har fået nye numre, så henvisningerne i `blog-log.md` stadig passer. Det brede
+søgeord "ai workshop" ejes af siden `/workshop` - skriv det IKKE som blogindlæg, så
+de ikke konkurrerer. Hvert branche-indlæg linker til `/workshop` og til hinanden.
+**Pas på med proof:** de fire cases er løsninger, ikke workshops. Brug dem som
+eksempel på, hvad en branche typisk ender med at bygge - påstå aldrig, at AIK har
+holdt en workshop for Wunderwear, Lavazza eller INDKOM.
 
 Når listen er tom: skriv et fordybende opfølgnings-indlæg til et af de
 bedst-performende emner (dybere guide, ny vinkel, opdaterede eksempler).
