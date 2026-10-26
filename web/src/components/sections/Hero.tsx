@@ -63,16 +63,15 @@ export default function Hero() {
           <div className="flex flex-col gap-8">
             <h1 className="font-bold text-gray-900 text-[clamp(2.75rem,6.2vw,5.25rem)] leading-[1.02] tracking-[-0.025em] text-balance">
               <span className="block aik-rise" style={rise(0)}>
-                Vi bygger AI ind i danske virksomheder -
+                AI i øjenhøjde.
               </span>
-              <span className="block aik-rise text-primary italic text-[0.78em] leading-[1.1] mt-[0.15em]" style={rise(150)}>
-                også jer, der ikke ved, hvor I skal starte.
+              <span className="block aik-rise text-primary" style={rise(150)}>
+                Målbar effekt.
               </span>
             </h1>
             <p className="aik-rise text-[clamp(1.05rem,1.5vw,1.3rem)] leading-[1.65] text-gray-700 max-w-[600px]" style={rise(300)}>
-              Det kan være udfordrende at vide, hvilke opgaver AI kan bidrage
-              til. Vi finder ud af i fællesskab med jer, hvor skoen trykker, og
-              bygger AI-løsningen, der skaber værdi for jeres forretning.
+              Vi designer, bygger og implementerer AI-løsninger, der løser
+              rigtige opgaver i jeres forretning.
             </p>
             <div className="aik-rise flex flex-col gap-[18px]" style={rise(450)}>
               <div className="flex flex-wrap gap-3.5">
