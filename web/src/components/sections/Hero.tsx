@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Button from "@/components/ui/Button";
-import HeroPainCard from "@/components/sections/HeroPainCard";
 
 // Kundelogoer vist i gråtoner på hvid. Logoerne er lavet til det orange bånd:
 // de hvide gøres mørke ("mono"), de farvede med egen baggrund vises i gråtoner.
@@ -48,7 +47,7 @@ function LogoStrip({ hidden = false }: { hidden?: boolean }) {
 }
 
 // Hero med rolig indgangsanimation (ren CSS, så teksten ikke venter på JavaScript),
-// roterende "hvor trykker skoen"-kort, kaffe-kort og uendelig logo-marquee.
+// kaffe-kort og uendelig logo-marquee.
 export default function Hero() {
   const rise = (delay: number, distance = 12) => ({
     animationDelay: `${60 + delay}ms`,
@@ -112,10 +111,7 @@ export default function Hero() {
               />
             </div>
 
-            {/* Kort A: hvor trykker skoen (over skulderen, ikke over ansigtet) */}
-            <HeroPainCard className="hidden sm:flex absolute bottom-[120px] right-3 xl:-right-8 w-[min(260px,62%)] box-border" />
-
-            {/* Kort B: klar til en kop kaffe */}
+            {/* Kort: klar til en kop kaffe */}
             <div className="absolute bottom-0 left-3 xl:-left-7 bg-white border border-gray-200 rounded-2xl px-[22px] py-[18px] shadow-[0_16px_40px_rgba(0,0,0,0.10)] flex flex-col gap-3.5">
               <p className="flex items-center gap-2.5 text-[17px] font-semibold text-gray-900">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.75} strokeLinecap="round" strokeLinejoin="round" className="text-primary" aria-hidden="true">
