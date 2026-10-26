@@ -82,12 +82,6 @@ export default async function Team() {
                     sizes="(max-width: 640px) 92vw, (max-width: 1024px) 46vw, 300px"
                     className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.04] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
                   />
-                  {person.isPrimary && (
-                    <span className="absolute left-3.5 top-3.5 inline-flex items-center gap-2 rounded-full bg-white px-3 py-[7px] text-xs font-bold text-gray-900 shadow-[0_8px_20px_rgba(0,0,0,0.12)]">
-                      <span className="h-[7px] w-[7px] rounded-full bg-primary" aria-hidden="true" />
-                      Jeres første kontakt
-                    </span>
-                  )}
                 </div>
 
                 <div className="flex items-start justify-between gap-3">
