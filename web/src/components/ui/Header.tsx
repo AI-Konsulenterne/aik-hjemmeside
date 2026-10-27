@@ -14,7 +14,6 @@ const serviceLinks = [
 const navLinks = [
   { label: "Copilot-undervisning", href: "/academy" },
   { label: "Cases", href: "/cases" },
-  { label: "Gratis AI-analyse", href: "/ai-guide" },
   { label: "Viden om AI", href: "/viden-om-ai" },
   { label: "Om os", href: "/om-os" },
   { label: "Kontakt", href: "/kontakt" },
