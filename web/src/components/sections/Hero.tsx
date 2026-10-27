@@ -82,9 +82,6 @@ export default function Hero() {
                     <path d="m12 5 7 7-7 7" />
                   </svg>
                 </Button>
-                <Button variant="secondary" size="lg" href="/ai-guide">
-                  Få en gratis AI-analyse
-                </Button>
               </div>
               <ul className="flex flex-wrap gap-x-5 gap-y-2 pl-1 text-sm text-gray-600">
                 {promises.map((p) => (

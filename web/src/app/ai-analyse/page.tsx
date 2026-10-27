@@ -149,7 +149,7 @@ export default function AiAnalyse() {
         }}
         final={{
           h2: "Skal vi gøre jeres data til indsigt?",
-          lead: "Book en gratis AI-afklaring - eller få en gratis AI-analyse, hvor vi peger på, hvor I kan hente mest værdi.",
+          lead: "Book en gratis AI-afklaring, hvor vi peger på, hvor I kan hente mest værdi.",
         }}
       />
     </>

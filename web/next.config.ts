@@ -211,6 +211,8 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       ...legacyRedirects,
+      // Lead magnet-siden er lukket. Gamle links sendes til kontakt.
+      { source: "/ai-guide", destination: "/kontakt", permanent: true },
       // Sitemap'et genereres nu dynamisk af src/app/sitemap.ts og ligger kun
       // paa /sitemap.xml. Den gamle next-sitemap-fil (/sitemap-0.xml) er
       // indsendt i Search Console og linket udefra, saa den peges videre.

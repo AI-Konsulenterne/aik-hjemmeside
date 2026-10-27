@@ -62,9 +62,6 @@ export default function UseCaseLanding({
               <Button variant="primary" size="lg" cal>
                 Book en gratis AI-afklaring
               </Button>
-              <Button variant="secondary" size="lg" href="/ai-guide">
-                Få en gratis AI-analyse
-              </Button>
             </div>
             <p className="text-body-sm text-gray-600 mt-5">
               Finder vi ikke en konkret AI-mulighed, der kan spare jer tid -

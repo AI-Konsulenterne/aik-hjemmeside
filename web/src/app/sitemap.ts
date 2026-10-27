@@ -32,7 +32,6 @@ const STATIC_ROUTES: Array<{ path: string; priority: number }> = [
   { path: "/viden-om-ai", priority: 0.8 },
   { path: "/om-os", priority: 0.7 },
   { path: "/kontakt", priority: 0.7 },
-  { path: "/ai-guide", priority: 0.7 },
   { path: "/cookiepolitik", priority: 0.3 },
   { path: "/privatlivspolitik", priority: 0.3 },
   { path: "/handelsbetingelser", priority: 0.3 },

@@ -107,12 +107,12 @@ export default async function VidenOmAI() {
           {posts.length === 0 ? (
             <div className="max-w-2xl mx-auto bg-sand rounded-2xl p-10 text-center border border-gray-100">
               <p className="text-body text-gray-700">
-                Artiklerne er på vej. I mellemtiden kan I få en gratis
-                AI-analyse.
+                Artiklerne er på vej. I mellemtiden kan I booke en gratis
+                AI-afklaring.
               </p>
               <div className="mt-6">
-                <Button variant="primary" href="/ai-guide">
-                  Få en gratis AI-analyse
+                <Button variant="primary" href="/kontakt" cal>
+                  Book en gratis AI-afklaring
                 </Button>
               </div>
             </div>
