@@ -145,7 +145,7 @@ export default function TwoPaths() {
               <div>
                 <p className="text-xs font-bold uppercase tracking-[0.16em] text-primary">Vi underviser</p>
                 <h3 className="text-[clamp(1.75rem,2.4vw,2.25rem)] font-bold tracking-heading text-white leading-[1.15] mt-3">
-                  Hands-on undervisning i Copilot
+                  Hands-on online undervisning i Copilot
                 </h3>
                 <p className="text-[17px] leading-[1.65] text-gray-300 mt-4">
                   AI-Minds: korte videoer på dansk, månedlig live Q&amp;A og nye
