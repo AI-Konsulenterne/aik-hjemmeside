@@ -7,7 +7,7 @@ import Button from "@/components/ui/Button";
 import FadeIn from "@/components/ui/FadeIn";
 
 /**
- * "Vi udvikler og underviser": to spor side om side.
+ * "Vi udvikler og underviser i danske virksomheder i AI": to spor side om side.
  * Kort 1 har et animeret dataflow, kort 2 Copilot-videoen
  * (klik-for-afspil, YouTube indlæses først ved klik).
  */
@@ -110,8 +110,8 @@ export default function TwoPaths() {
     <section className="bg-white py-[clamp(4rem,10vw,7rem)] px-6">
       <div className="max-w-[1280px] mx-auto flex flex-col gap-12">
         <FadeIn>
-          <h2 className="text-[clamp(2.25rem,5vw,4rem)] font-bold tracking-heading text-gray-900 leading-[1.05] text-balance">
-            Vi udvikler og underviser
+          <h2 className="text-[clamp(2.25rem,5vw,4rem)] font-bold tracking-heading text-gray-900 leading-[1.05] text-balance max-w-[900px]">
+            Vi udvikler og underviser i danske virksomheder i AI
           </h2>
         </FadeIn>
 
