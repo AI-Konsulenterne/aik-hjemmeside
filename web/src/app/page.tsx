@@ -2,7 +2,6 @@ import Hero from "@/components/sections/Hero";
 import TwoPaths from "@/components/sections/TwoPaths";
 import Barriers from "@/components/sections/Barriers";
 import ProblemSolution from "@/components/sections/ProblemSolution";
-import HowWeWork from "@/components/sections/HowWeWork";
 import CaseHighlight from "@/components/sections/CaseHighlight";
 import Team from "@/components/sections/Team";
 import DeveloperExperience from "@/components/sections/DeveloperExperience";
@@ -121,11 +120,10 @@ export default function Forside() {
       <TwoPaths />
       <Barriers />
       <ProblemSolution />
-      <HowWeWork />
       <CaseHighlight />
       <Testimonials />
-      <DeveloperExperience />
       <Team />
+      <DeveloperExperience />
       <FAQ />
     </>
   );
