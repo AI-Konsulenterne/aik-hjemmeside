@@ -34,11 +34,57 @@ slug, og at indlæggene linker til hinanden. To indlæg, der jagter samme søgeo
 konkurrerer internt i Google, og så rangerer begge dårligere end ét godt indlæg
 ville have gjort.
 
+## SEO-fokus (fra 2026-11-02) - LÆS FØR EMNEVALG
+
+Dette afsnit har forrang i emnevalg og links. Kilde: AIK's SEO-strategi
+(Keyword Planner + Search Console, okt. 2026).
+
+**Formålet er leads, ikke trafik.** Hvert indlæg skal styrke én af tre søjler
+og sende læseren videre til søjlens hub-side:
+
+| Søjle | Hub-side(r) | Andel af indlæg |
+|---|---|---|
+| 1. Undervisning: Copilot-kursus, AI-workshop, online-forløb | `/workshop` (fysisk/in-house), `/academy` (online, AI-Minds) | ca. halvdelen |
+| 2. Rådgivning: AI-konsulent, AI-strategi | `/` (forsiden), `/ai-strategi` | ca. en fjerdedel |
+| 3. Udvikling: AI-løsninger, AI-agenter, automatisering | `/skraeddersyede-ai`, `/ai-kundeservice`, `/ai-i-hr` | ca. en fjerdedel |
+
+**De 10 vigtigste søgeord ejes af sider, ikke af blogindlæg.** Brug dem aldrig
+som et indlægs primære søgeord - skriv long-tail-varianter og link til siden.
+Volumen = gns. månedlige søgninger i Danmark (Google Keyword Planner):
+
+| Søgeord | Søgninger/md | Ejes af |
+|---|---|---|
+| ai konsulent | 100-1.000 | `/` |
+| ai konsulenter | 100-1.000 | `/` |
+| ai konsulenthus | under 10 (men 176 visninger/90 dage i GSC) | `/` |
+| copilot kursus | 100-1.000 (+900% på 3 mdr.) | `/academy` (indtil `/copilot-kursus` findes) |
+| copilot workshop | 10-100 | `/workshop` |
+| microsoft copilot kursus | 10-100 | `/academy` |
+| ai workshop for virksomheder | under 10 (men 474 visninger/90 dage i GSC) | `/workshop` |
+| ai workshop | 10-100 | `/workshop` |
+| ai kursus online | 10-100 | `/academy` |
+| ai rådgivning | 10-100 | `/ai-strategi` |
+
+**Regler for hvert indlæg:**
+
+1. Notér i `blog-log.md` hvilken søjle indlægget støtter (fx "søjle 1").
+2. Link til søjlens hub-side i artiklens første tredjedel - med et af de 10
+   søgeord som linktekst, hvor det falder naturligt.
+3. CTA til sidst: søjlens hub-side eller `/kontakt` (gratis AI-afklaring).
+4. Spring over: rene modellanceringer, forbrugerprodukter, AI-billeder/video
+   og emner, der ikke kan kobles til en søjle.
+
 ## Emnevalg
 
 **Spor TREND (tirsdag):** find via websøgning hvad der er sket i AI de seneste
-7 dage, og som betyder noget for en dansk SMV. Prioritér: Copilot-nyt og
-adoption øverst, derefter værktøjer SMV'er faktisk kan bruge, så markedsanalyser.
+7 dage, og som betyder noget for en dansk virksomhed. Prioritér i denne rækkefølge:
+(a) Microsoft Copilot-nyt og adoption (søjle 1), (b) AI-forordningen, især
+artikel 4 om AI-kompetencer hos medarbejdere (søjle 1), (c) AI-agenter og
+automatisering virksomheder kan bruge (søjle 3), (d) danske tal om AI i
+virksomheder (søjle 2). To tests: vil en dansk leder google det om 14 dage, og
+kan det kobles til en søjle? Består intet emne begge tests, så skriv i stedet
+det øverste ikke-udgivne emne fra emnekøen i `blog-backlog.md` som `guide`, og
+sig det i rapporten.
 Vinkl til "hvad betyder det for en dansk virksomhed med 20 ansatte" - ikke
 "OpenAI lancerer X". Kildehenvis alle nyheder med link. `category: "news"`.
 
@@ -49,8 +95,9 @@ Copilot" - tre indlæg, tre søgeord, links mellem dem, CTA til `/academy`.
 Vælg klynge frem for et tyndt nyt emne, når nyhedsstrømmen er tynd: et emne
 folk faktisk søger på slår en nyhed, ingen googler om 14 dage.
 
-**Spor KEYWORD (torsdag):** tag det øverste emne i `web/content/blog-backlog.md`
-som ikke allerede er udgivet. `category: "guide"`.
+**Spor KEYWORD (torsdag):** tag det øverste emne i **"Emne-kø fra 2026-11-02"**
+i `web/content/blog-backlog.md`, som ikke allerede er udgivet. `category: "guide"`.
+Den gamle kø (#1-#33) er arkiv - brug den ikke til at vælge emner.
 Bemærk: Search Console er ikke tilgængelig i skyen, så keyword-valget er
 backlog-drevet. Kør den lokale opgave, hvis du vil have GSC-baseret prioritering.
 
@@ -160,7 +207,7 @@ den igennem.
 
 ## Efter udgivelse
 
-1. Tilføj en linje i `web/content/blog-log.md`: dato, spor, keyword, slug, URL.
+1. Tilføj en linje i `web/content/blog-log.md`: dato, spor, keyword, søjle, slug, URL.
 2. Er emnet taget fra `blog-backlog.md`, så lad rækken stå - loggen er facit
    for hvad der er udgivet.
 3. Commit `web/content/blog-log.md` med `blog: [titel]` og push til `main`.

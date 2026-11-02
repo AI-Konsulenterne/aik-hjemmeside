@@ -1,7 +1,7 @@
 # Blog-backlog — AI Konsulenterne
 
-Denne fil styrer den løbende blog-kadence. Den ugentlige automatik læser listen,
-vælger det **øverste emne der IKKE allerede er udgivet** (tjek mod Strapi-slugs),
+Denne fil styrer den løbende blog-kadence. Den ugentlige automatik læser
+**"Emne-kø fra 2026-11-02"** og vælger det **øverste emne der IKKE allerede er udgivet** (tjek mod Strapi-slugs),
 skriver indlægget, udgiver til Strapi og deployer.
 
 Rediger frit: tilføj emner nederst, omprioritér ved at flytte linjer op/ned,
@@ -9,7 +9,58 @@ eller fjern emner du ikke vil have skrevet.
 
 ---
 
-## Emne-kø (prioriteret — øverst skrives først)
+## Emne-kø fra 2026-11-02 (prioriteret - øverst skrives først)
+
+Bygget på SEO-strategien (okt. 2026). Volumen = gns. månedlige søgninger i
+Danmark fra Google Keyword Planner; "GSC" = visninger på 90 dage i Search
+Console, hvor Keyword Planner ikke viser tal. Søjler og hub-sider: se
+"SEO-fokus" i [`blog-cloud-runbook.md`](blog-cloud-runbook.md).
+
+| # | Primært søgeord (volumen) | Vinkel | Søjle | Case som proof | Intern-link |
+|---|---|---|---|---|---|
+| N1 | hvad koster en ai workshop (GSC: "ai workshop pris" 204 visninger) | Prisniveauer, hvad der driver prisen, og hvad I får for pengene | 1 | - | /workshop |
+| N2 | ai konsulent pris (ai konsulent 100-1.000) | Hvad koster en AI-konsulent - timepris, fast pris eller abonnement | 2 | INDKOM | /, /kontakt |
+| N3 | microsoft copilot kursus (10-100; copilot kursus 100-1.000, +900%) | Hvad lærer medarbejderne på et Copilot-kursus - Outlook, Teams, Word, Excel | 1 | - | /academy, /workshop |
+| N4 | ai agenter til virksomheder (ai agenter 1.000-10.000) | 5 konkrete AI-agenter fra danske virksomheder - og hvad de sparer | 3 | J.M Band, Lavazza | /skraeddersyede-ai |
+| N5 | ai literacy (100-1.000, +900%) | AI-forordningen artikel 4: kravet om AI-kompetencer hos medarbejdere og hvordan I dokumenterer det | 1 | - | /academy |
+| N6 | ai workshop 1 dag (GSC: "ai workshop 1 dag / 2 dage" 346 visninger) | Halv dag, hel dag eller to dage - hvad passer til jer | 1 | - | /workshop |
+| N7 | hvordan vælger man en ai konsulent (ai konsulenter 100-1.000) | Tjekliste: 7 spørgsmål I skal stille, før I vælger AI-konsulent | 2 | INDKOM | /, /kontakt |
+| N8 | copilot workshop for medarbejdere (copilot workshop 10-100) | Sådan foregår en Copilot-workshop - fra licens til daglig brug | 1 | - | /workshop, /academy |
+| N9 | ai integration (10-100, høje annoncebud) | AI ind i CRM, ERP og mail - hvad det kræver og koster | 3 | J.M Band | /skraeddersyede-ai |
+| N10 | copilot kursus online (10-100) | Online eller fysisk Copilot-kursus - hvad virker for hvem | 1 | - | /academy |
+| N11 | copilot excel (100-1.000, +900%) | Copilot i Excel: 6 opgaver den løser i dag - og hvor den fejler | 1 | - | /academy |
+| N12 | ai strategi for smv (ai strategi 10-100) | AI-strategi på én side: sådan gør en SMV | 2 | INDKOM | /ai-strategi |
+| N13 | ai workshop hr (tidl. #30) | Workshop for HR-teamet: de opgaver der fylder | 1 | Lavazza (som løsning, ikke workshop) | /workshop, /ai-i-hr |
+| N14 | ai i rekruttering (10-100, høje annoncebud) | Hvor AI hjælper i rekruttering - og hvor I skal passe på | 3 | Lavazza | /ai-i-hr |
+| N15 | ai for ledere (10-100; tidl. #31 ai workshop for ledere) | Ledergruppen før medarbejderne: strategi og prioritering | 1 | INDKOM | /workshop, /ai-strategi |
+| N16 | ai konsulent eller intern ai-ansvarlig | Skal I ansætte eller hyre ind - fordele, ulemper og pris | 2 | INDKOM | /, /kontakt |
+| N17 | ai workshop vs kursus (tidl. #33) | Hvornår skal I vælge hvad | 1 | - | /workshop, /academy |
+| N18 | ai e-mail automatisering (tidl. #25) | Indbakken som jeres første AI-opgave | 3 | Wunderwear | /ai-kundeservice |
+| N19 | ai workshop produktion (tidl. #32) | Produktionsvirksomheder: fra gulv til kontor | 1 | - | /workshop |
+| N20 | ai pilotprojekt (tidl. #26) | Sådan kører I et pilotprojekt, der ikke dør efter tre uger | 2 | INDKOM | /ai-strategi |
+| N21 | hvad kan ai ikke (tidl. #27) | Det AI er dårlig til - ærligt, fra dem der bygger det | 3 | - | /skraeddersyede-ai |
+| N22 | ai dataanalyse (tidl. #28) | Fra rapporter ingen læser til svar I kan bruge | 3 | J.M Band | /ai-analyse |
+
+**Pas på med proof (gælder N13, N15 m.fl.):** de fire cases er løsninger, ikke
+workshops. Påstå aldrig, at AIK har holdt en workshop for Wunderwear, Lavazza
+eller INDKOM.
+
+**Brug ikke de 10 side-søgeord som primært søgeord** (ai konsulent, ai
+konsulenter, ai konsulenthus, copilot kursus, copilot workshop, microsoft
+copilot kursus, ai workshop for virksomheder, ai workshop, ai kursus online, ai
+rådgivning). N3 og N8 bruger long-tail-varianter og linker til siden, der ejer
+søgeordet.
+
+Når køen er tom: skriv et opfølgnings-indlæg til et af de bedst-performende
+emner, og vælg søjle 1, hvis du er i tvivl.
+
+---
+
+## Arkiv: gammel emne-kø (#1-#33) - brug IKKE til emnevalg
+
+Beholdt, fordi `blog-log.md` henviser til numrene. De resterende ikke-udgivne
+emner er flyttet over i køen ovenfor.
+
 
 | # | Primært søgeord (volumen) | Vinkel | Case som proof | Intern-link |
 |---|---|---|---|---|
