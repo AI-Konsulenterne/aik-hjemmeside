@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { leadLogLine } from "@/lib/leadLog";
 import { SYSTEM_PROMPT, buildUserMessage, type AnalyseInput } from "@/lib/analyse-prompt";
 
 /**
@@ -198,6 +199,11 @@ export async function POST(req: NextRequest) {
     };
     const bookCall = !!body.bookCall;
     const sourceUrl = req.headers.get("referer") || "https://ai-konsulenterne.dk/ai-guide";
+    const logLine = leadLogLine({
+      form: "ai-analyse",
+      pageUrl: sourceUrl,
+      referrer: (body as { ref?: unknown }).ref,
+    });
 
     const leadSummary =
       `Branche: ${input.branche} · Størrelse: ${input.stoerrelse}\n` +
@@ -218,7 +224,7 @@ export async function POST(req: NextRequest) {
         message: `[RAPPORT FEJLEDE - følg op manuelt]\n${leadSummary}`,
         source: "ai-analyse", source_url: sourceUrl,
       });
-      await notifySlack(`:rotating_light: Rapport-generering FEJLEDE for ${company} (${email}) - følg op manuelt.\n${leadSummary}`);
+      await notifySlack(`:rotating_light: Rapport-generering FEJLEDE for ${company} (${email}) - følg op manuelt.\n${leadSummary}\n${logLine}`);
       try {
         await sendEmail([email],
           "Tak for jeres henvendelse - AI Konsulenterne",
@@ -251,7 +257,8 @@ export async function POST(req: NextRequest) {
       `Tidsforbrug: ${input.tidsforbrug.join(", ") || "-"}\n` +
       `Systemer: ${input.systemer.join(", ") || "-"}\n` +
       `Booket samtale: ${bookCall ? "ja" : "nej"}` +
-      (input.friTekst ? `\n> ${input.friTekst}` : ""),
+      (input.friTekst ? `\n> ${input.friTekst}` : "") +
+      `\n${logLine}`,
     );
 
     // 4. Lead i LeadAgent med rapport vedhæftet

@@ -40,6 +40,14 @@ export default function Privatlivspolitik() {
           selv angiver dem
         </li>
         <li>
+          <strong>Hvor henvendelsen kom fra</strong> - når du sender en
+          formular, noterer vi hvilken side på ai-konsulenterne.dk du sendte
+          den fra, og hvilket website du kom fra lige før (fx Google eller
+          LinkedIn - kun navnet på websitet). Det bruger vi til at se, hvilke
+          sider og kanaler der giver henvendelser. Der bruges ingen cookies til
+          det
+        </li>
+        <li>
           <strong>Teknisk data</strong> (IP-adresse, browsertype,
           skærmstørrelse) - kun i vores hostingudbyders tekniske logs, som
           bruges til drift og sikkerhed

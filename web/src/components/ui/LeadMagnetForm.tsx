@@ -152,6 +152,7 @@ export default function LeadMagnetForm() {
           email,
           bookCall,
           source: "ai-analyse",
+          ref: typeof document !== "undefined" ? document.referrer : "",
         }),
       });
       if (!res.ok) {

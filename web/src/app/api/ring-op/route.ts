@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { leadLogLine } from "@/lib/leadLog";
 
 /**
  * Ring-op-formularen på /kontakt.
@@ -33,6 +34,7 @@ type Payload = {
   phone: string;
   company?: string;
   when?: string;
+  ref?: string;
 };
 
 function escapeHtml(s: string): string {
@@ -92,6 +94,7 @@ export async function POST(req: NextRequest) {
     }
 
     const sourceUrl = req.headers.get("referer") || "https://ai-konsulenterne.dk/kontakt";
+    const logLine = leadLogLine({ form: "ring-op", pageUrl: sourceUrl, referrer: body.ref });
     const summary = `Ring op: ${when}\nNavn: ${name}\nTelefon: ${phone}\nVirksomhed: ${company || "-"}`;
 
     if (!LEADAGENT_KEY && !RESEND_KEY && !SLACK_WEBHOOK_URL) {
@@ -113,7 +116,7 @@ export async function POST(req: NextRequest) {
         `<p style="font-family:sans-serif;white-space:pre-line;">${escapeHtml(summary)}</p>
          <p style="font-family:sans-serif;"><a href="tel:${escapeHtml(phone.replace(/[^\d+]/g, ""))}">Ring ${escapeHtml(phone)}</a></p>`,
       ),
-      notifySlack(`:telephone_receiver: Ring op (${when}): *${name}*${company ? ` · ${company}` : ""} · ${phone}`),
+      notifySlack(`:telephone_receiver: Ring op (${when}): *${name}*${company ? ` · ${company}` : ""} · ${phone}\n${logLine}`),
     ]);
 
     results.forEach((r) => {
