@@ -16,10 +16,21 @@ Danmark fra Google Keyword Planner; "GSC" = visninger på 90 dage i Search
 Console, hvor Keyword Planner ikke viser tal. Søjler og hub-sider: se
 "SEO-fokus" i [`blog-cloud-runbook.md`](blog-cloud-runbook.md).
 
+**G1-G5 (tilføjet 2026-11-13)** er GSC quick wins: branchesøgninger hvor
+`/workshop` allerede ligger på plads 4-10 med 0 klik. Skyen kan ikke se Search
+Console, så de er lagt ind her i hånden. Følg mønstret fra
+`ai-workshop-for-webshops`. Søgeordet ejes af `/workshop` - artiklen støtter
+og linker dertil.
+
 | # | Primært søgeord (volumen) | Vinkel | Søjle | Case som proof | Intern-link |
 |---|---|---|---|---|---|
 | N1 | hvad koster en ai workshop (GSC: "ai workshop pris" 204 visninger) | Prisniveauer, hvad der driver prisen, og hvad I får for pengene | 1 | - | /workshop |
 | N2 | ai konsulent pris (ai konsulent 100-1.000) | Hvad koster en AI-konsulent - timepris, fast pris eller abonnement | 2 | INDKOM | /, /kontakt |
+| G1 | ai workshop forsikringsselskaber (GSC: 238 visninger, plads 9,2, 0 klik - 90 dage til 2026-11-12) | Forsikring: skadesanmeldelser, policedokumenter og kundehenvendelser - hvad en workshop kan afdække | 1 | - (ingen forsikringskunde - opfind ikke en) | /workshop |
+| G2 | ai workshop laboratorier og analysevirksomheder (GSC: 227 visninger, plads 4,9, 0 klik) | Laboratorier: rapporter, dokumentation og prøvedata - hvor AI hjælper, og hvor den ikke må | 1 | - | /workshop, /ai-analyse |
+| G3 | ai workshop rejsebureauer og incoming-turisme (GSC: 217 visninger, plads 7,3, 0 klik) | Rejsebureauer: forespørgsler, rejseplaner og flersprogede svar | 1 | - | /workshop, /ai-kundeservice |
+| G4 | ai workshop advokaturer og inkassovirksomheder (GSC: 200 visninger, plads 4,7, 0 klik) | Advokater og inkasso: dokumenter, breve og fortrolighed | 1 | Lavazza (lukket miljø, som løsning - ikke workshop) | /workshop, /viden-om-ai/ai-til-kontrakter-copilot-i-word |
+| G5 | ai workshop speditører og logistikvirksomheder (GSC: 198 visninger, plads 8,2, 0 klik) | Spedition og logistik: fragtpapirer, sporing og kundehenvendelser | 1 | - | /workshop |
 | N3 | microsoft copilot kursus (10-100; copilot kursus 100-1.000, +900%) | Hvad lærer medarbejderne på et Copilot-kursus - Outlook, Teams, Word, Excel | 1 | - | /academy, /workshop |
 | N4 | ai agenter til virksomheder (ai agenter 1.000-10.000) | 5 konkrete AI-agenter fra danske virksomheder - og hvad de sparer | 3 | J.M Band, Lavazza | /skraeddersyede-ai |
 | N5 | ai literacy (100-1.000, +900%) | AI-forordningen artikel 4: kravet om AI-kompetencer hos medarbejdere og hvordan I dokumenterer det | 1 | - | /academy |
