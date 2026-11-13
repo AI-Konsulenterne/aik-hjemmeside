@@ -163,14 +163,6 @@ const values = [
   },
 ];
 
-const checklist = [
-  "Adgang til alle moduler og alle fremtidige opdateringer",
-  "Månedlig live Q&A - stil spørgsmål direkte til AIK-teamet",
-  "Prompt-bibliotek, der opdateres løbende",
-  "Et forum med andre danske virksomheder, der bruger AI",
-  "Nye moduler hver måned - også når AI-landskabet rykker",
-];
-
 const faqs = [
   {
     q: "Hvad koster det?",
@@ -695,72 +687,6 @@ export default function AcademyLanding() {
         </div>
       </section>
 
-      {/* ══════════ SÅDAN SER DET UD I PRAKSIS ══════════ */}
-      <section className="bg-sand py-[clamp(4rem,10vw,7rem)]">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <FadeIn>
-            <div className="max-w-2xl">
-              <Eyebrow>Sådan ser det ud i praksis</Eyebrow>
-              <h2 className="text-3xl lg:text-5xl font-bold tracking-heading text-gray-900 leading-[1.08] mt-4">
-                Alt, hvad I <span className="text-primary">har brug for</span>.
-              </h2>
-            </div>
-          </FadeIn>
-
-          <div className="grid grid-cols-1 lg:grid-cols-[1.05fr_0.95fr] gap-14 items-start mt-14">
-            <ul>
-              {checklist.map((item, i) => (
-                <FadeIn key={item} delay={i * 60}>
-                  <li className="grid grid-cols-[30px_1fr] gap-[18px] items-start py-5 border-t border-gray-200 first:border-t-0 text-[19px] leading-snug text-gray-900">
-                    <span className="w-[30px] h-[30px] rounded-full bg-primary text-white flex items-center justify-center mt-0.5">
-                      <Check />
-                    </span>
-                    {item}
-                  </li>
-                </FadeIn>
-              ))}
-            </ul>
-
-            <FadeIn delay={120}>
-              <div className="relative overflow-hidden rounded-3xl bg-gray-900 text-white p-11">
-                <div
-                  className="pointer-events-none absolute -top-[190px] -right-[130px] w-[420px] h-[420px] rounded-full"
-                  style={{
-                    background:
-                      "radial-gradient(circle, rgba(255,154,0,.16), transparent 62%)",
-                  }}
-                  aria-hidden="true"
-                />
-                <span className="relative text-xs font-bold tracking-[0.22em] uppercase text-primary">
-                  Se det selv
-                </span>
-                <h3 className="relative text-[26px] font-bold tracking-tight leading-snug mt-4 text-balance">
-                  Det her er ikke teori - medarbejderne bruger det bagefter.
-                </h3>
-                <p className="relative mt-5 text-body text-gray-400">
-                  Vi viser jer det hellere, end vi fortæller om det. Book et
-                  opkald, så går vi gennem konkrete eksempler fra AI-Minds - og
-                  hvad jeres team kan få ud af det.
-                </p>
-                <div className="relative mt-7">
-                  <Button variant="white" size="lg" cal>
-                    Book en gratis AI-afklaring
-                    <ArrowRight />
-                  </Button>
-                </div>
-              </div>
-            </FadeIn>
-          </div>
-
-          <FadeIn>
-            <p className="mt-10 max-w-[900px] border-l-[3px] border-primary bg-primary/10 rounded-r-2xl px-7 py-5 text-[19px] leading-snug text-gray-900 font-medium">
-              I skal ikke være en stor virksomhed for at få noget ud af det - I
-              skal bare have adgang til AI.
-            </p>
-          </FadeIn>
-        </div>
-      </section>
-
       {/* ══════════ OUTCOME ══════════ */}
       <section className="py-[clamp(4rem,10vw,7rem)]">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
@@ -782,40 +708,6 @@ export default function AcademyLanding() {
 
       {/* ══════════ CERTIFIKAT ══════════ */}
       <CopilotCertificate />
-
-      {/* ══════════ TIL LEDELSEN ══════════ */}
-      <section className="py-[clamp(4rem,10vw,7rem)]">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <FadeIn>
-            <div className="relative overflow-hidden rounded-[32px] bg-gray-900 text-white px-9 py-12 lg:px-[72px] lg:py-16 grid grid-cols-1 lg:grid-cols-[0.8fr_1.2fr] gap-10 lg:gap-14 items-center">
-              <div
-                className="pointer-events-none absolute -bottom-[260px] -left-[120px] w-[500px] h-[500px] rounded-full"
-                style={{
-                  background:
-                    "radial-gradient(circle, rgba(255,154,0,.14), transparent 62%)",
-                }}
-                aria-hidden="true"
-              />
-              <div className="relative">
-                <Eyebrow>Vi holder jer opdateret</Eyebrow>
-                <h2 className="text-3xl lg:text-4xl font-bold tracking-heading leading-[1.1] mt-3.5 text-balance">
-                  I skal ikke selv være AI-eksperter.
-                </h2>
-              </div>
-              <p className="relative text-[19px] leading-relaxed text-gray-400">
-                Det er hele pointen. I skal ikke drive det, holde oplæg eller
-                svare på de svære spørgsmål.{" "}
-                <strong className="text-white font-semibold">
-                  Vi tager jeres medarbejdere i hånden
-                </strong>{" "}
-                - med korte videoer, månedlig live Q&amp;A og et forum, de altid
-                kan vende tilbage til - og vi sørger for at holde dem opdateret
-                med den konstant nye viden, de skal forholde sig til.
-              </p>
-            </div>
-          </FadeIn>
-        </div>
-      </section>
 
       {/* ══════════ FAQ ══════════ */}
       <section id="faq" className="bg-sand py-[clamp(4rem,10vw,7rem)] scroll-mt-24">
