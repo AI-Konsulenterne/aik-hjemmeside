@@ -127,7 +127,7 @@ Ingen opdigtede tal, citater, priser eller cases. Kun disse fire rigtige cases:
 Generelle tal kun med kilde: McKinsey (20-30% tidsbesparelse i administrative
 processer), MIT-studie (~40% hurtigere opgaveløsning).
 
-CTA: gratis AI-afklaring, 45 minutter, ingen forpligtelse. Alexander: +45 25 54 70 74.
+CTA: gratis AI-afklaring, 30 minutter, ingen forpligtelse. Alexander: +45 25 54 70 74.
 
 ### Link-mål der findes
 
@@ -142,7 +142,9 @@ Er du i tvivl om en side, så tjek den - men bemærk at ukendte blog-slugs svare
 ### Markdown-begrænsninger (rendereren er minimal)
 
 Virker: `##`-`######`, afsnit, `-`/`*`-lister, `1.`-lister, `**fed**`, `*kursiv*`,
-`[tekst](url)`, `` `kode` ``, `>` citat.
+`[tekst](url)`, `` `kode` ``, `>` citat, og billeder på egen linje:
+`![alt-tekst](https://...media.strapiapp.com/... "Foto: Navn / Unsplash")`
+(kun billeder fra Strapis mediebibliotek vises - andre URL'er bliver sprunget over).
 
 Virker IKKE - brug aldrig: tabeller · kodeblokke med backticks · rå HTML ·
 `---` · indrykkede lister · fed og link i samme udtryk (`**[x](/y)**` og
@@ -150,6 +152,76 @@ Virker IKKE - brug aldrig: tabeller · kodeblokke med backticks · rå HTML ·
 
 **Content skal starte med `##`**, ikke `#`. Sidens H1 er `title`-feltet.
 Skriv ikke JSON-LD - `Article`-schema udsendes automatisk af siden.
+
+## Billeder (OBLIGATORISK fra 2026-11-13)
+
+Et indlæg uden billeder ser ufærdigt ud og sælger ikke. **Hvert indlæg skal have:**
+
+1. **Et forsidebillede** (`featuredImage`). Det vises på oversigten `/viden-om-ai`,
+   øverst i artiklen og som preview på LinkedIn.
+2. **2-3 billeder inde i teksten**, placeret mellem H2-afsnit (aldrig to billeder
+   lige efter hinanden, aldrig før første afsnit). Ét billede for hver ca. 400 ord.
+
+### Hvordan billederne skal se ud: corporate, men menneskeligt
+
+- Rigtige mennesker og rigtige arbejdssituationer: møder, workshops, folk ved
+  en skærm, kontormiljøer, ledelsesmøder, hænder på tastatur.
+- Lyse, rolige, nordiske/skandinaviske miljøer: dagslys, træ, glas, beton,
+  dæmpede farver. Professionelt og roligt, ikke opstillet reklame.
+- Liggende format (landscape), mindst 1600 px bredt. Skarpt, ikke kornet.
+- Billedet skal passe til afsnittet: et afsnit om undervisning får et
+  undervisnings-/workshopbillede, et afsnit om data får en skærm med tal osv.
+- Gerne Aarhus/danske motiver, hvor det passer (Aarhus Ø, havnen, kontorer).
+
+**Aldrig:** robotter, glødende hjerner, blå/lilla "AI"-grafik, neonnetværk,
+humanoide hænder, kunstigt genererede billeder, tekst eller logoer i billedet,
+kendte personer, varemærker (fx et tydeligt Apple- eller Microsoft-logo),
+overdrevent smilende stockfotos.
+
+### Hvor billederne må komme fra
+
+Kun **Unsplash** (unsplash.com) eller **Pexels** (pexels.com). Begge har en
+licens, der tillader gratis kommerciel brug. Ingen billeder fra Google
+Billeder, andre hjemmesider eller nyhedsmedier (ophavsret).
+
+Find et billede med websøgning (fx `site:unsplash.com office meeting
+scandinavian`), åbn fotoets side, og hent det i fuld størrelse
+(Unsplash: `https://unsplash.com/photos/<id>/download?force=true`).
+Notér fotografens navn til billedteksten.
+
+### Upload til Strapi (billeder må ikke hotlinkes)
+
+1. Hent billedet ned: `curl -sSL -o billede.jpg "<download-url>"`
+2. Upload det til Strapis mediebibliotek:
+
+       curl -sS -H "Authorization: Bearer $STRAPI_API_TOKEN" \
+         -F "files=@billede.jpg" \
+         -F 'fileInfo={"alternativeText":"Beskrivende alt-tekst på dansk","caption":"Foto: Navn / Unsplash"}' \
+         "$STRAPI_API_URL/api/upload"
+
+   Svaret er en liste: brug `[0].id` (til `featuredImage`) og `[0].url`
+   (til billeder i teksten).
+3. **Forsidebillede:** sæt `featuredImage` til billedets `id` i POST'en.
+4. **Billeder i teksten:** indsæt på egen linje, med tom linje før og efter:
+
+       ![Medarbejdere til workshop om Copilot](https://...media.strapiapp.com/... "Foto: Navn / Unsplash")
+
+   Alt-teksten beskriver billedet på dansk (det er også SEO). Billedteksten i
+   anførselstegn krediterer fotografen.
+
+### Hvis billederne fejler
+
+Giver upload 401/403, eller kan billedet ikke hentes (netværk), så udgiv
+indlægget alligevel, men skriv **ØVERST i rapporten: "BILLEDER MANGLER"** med
+fejlbeskeden, så et menneske kan rette det. Opdigt aldrig et billede eller en
+URL.
+
+### Gamle indlæg uden billeder
+
+Ved hver kørsel: find ét ældre indlæg uden `featuredImage`
+(`fields[0]=slug&populate[0]=featuredImage`) og giv det et forsidebillede og
+2-3 billeder i teksten med `PUT $STRAPI_API_URL/api/blog-posts/<documentId>`.
+Ændr ikke indlæggets øvrige tekst. Nævn det i rapporten.
 
 ## Udgivelse til Strapi
 
@@ -165,6 +237,7 @@ POST til `{STRAPI_API_URL}/api/blog-posts?status=published` med `{"data": {...}}
 - `keywords` - array med 5.
 - `readingTime` - minutter (ord / 200).
 - `author` - `"AI Konsulenterne"`.
+- `featuredImage` - id fra upload (se "Billeder"). Påkrævet.
 
 Bekræft **HTTP 201** + `documentId` + `publishedAt`. Fejler POST'en: STOP,
 rapportér, og deploy ikke.

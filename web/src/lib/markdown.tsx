@@ -1,12 +1,25 @@
 /**
  * Minimal markdown → JSX renderer.
- * Understøtter: headings, paragraphs, lists, bold, italic, links, code.
+ * Understøtter: headings, paragraphs, lists, bold, italic, links, code
+ * og billeder på egen linje: ![alt](url "billedtekst").
  *
  * Hvis I senere vil have mere avanceret markdown (tables, footnotes, nested lists),
  * kan vi tilføje `react-markdown` + `remark-gfm`.
  */
 
 import React, { type ReactNode } from "react";
+import Image from "next/image";
+
+// Billeder i brødtekst skal ligge i Strapis mediebibliotek (samme hosts som next.config).
+const IMAGE_LINE = /^!\[([^\]]*)\]\((https:\/\/[^)\s]+)(?:\s+"([^"]*)")?\)\s*$/;
+function isAllowedImage(url: string): boolean {
+  try {
+    const host = new URL(url).hostname;
+    return host.endsWith(".strapiapp.com");
+  } catch {
+    return false;
+  }
+}
 
 function inlineMarkdown(text: string): ReactNode[] {
   // Split on inline patterns while preserving them
@@ -75,6 +88,32 @@ export function renderMarkdown(source: string): ReactNode {
 
     // Skip blank
     if (!line.trim()) {
+      i++;
+      continue;
+    }
+
+    // Billede på egen linje
+    const img = line.trim().match(IMAGE_LINE);
+    if (img) {
+      const [, alt, src, caption] = img;
+      if (isAllowedImage(src)) {
+        blocks.push(
+          <figure key={key++} className="my-10">
+            <div className="relative aspect-[16/9] overflow-hidden rounded-2xl bg-gray-100">
+              <Image
+                src={src}
+                alt={alt}
+                fill
+                sizes="(max-width: 768px) 100vw, 768px"
+                className="object-cover"
+              />
+            </div>
+            {caption && (
+              <figcaption className="mt-3 text-sm text-gray-500">{caption}</figcaption>
+            )}
+          </figure>,
+        );
+      }
       i++;
       continue;
     }
@@ -169,7 +208,7 @@ export function renderMarkdown(source: string): ReactNode {
     // Paragraph — gather until blank line
     const paragraph: string[] = [line];
     i++;
-    while (i < lines.length && lines[i].trim() && !/^[#>\-*]|^\d+\./.test(lines[i])) {
+    while (i < lines.length && lines[i].trim() && !/^[#>\-*]|^\d+\.|^!\[/.test(lines[i])) {
       paragraph.push(lines[i]);
       i++;
     }
