@@ -6,6 +6,22 @@ ikke gentages. Bruges af `aik-blog`-skillen (spor: TREND tirsdag / KEYWORD torsd
 Posts udgives til **Strapi** (collection `blog-posts`), ikke som markdown-filer i
 repoet. Se udgivelsesnoter nederst.
 
+> **STOPPET 22. november 2026.** Den automatiske blogudgivelse for
+> ai-konsulenterne.dk er indstillet efter beslutning fra Nicholas. Indsatsen er
+> flyttet til **mindforward.dk** (repo `Mindforward-ApS/hjemmeside`, runbook
+> `seo/blog-cloud-runbook.md`), som har sin egen emnekø, sit eget log og sin egen
+> pipeline (markdown-filer i git, ikke Strapi).
+>
+> Rutinen `aik-blog-keyword-torsdag-soendag` er slået fra.
+> `aik-blog-trend-tirsdag` skal slås fra manuelt - en agent kan ikke ændre den.
+>
+> De 22 resterende emner i `blog-backlog.md` er **ikke** flyttet med: kun
+> undervisnings-emnerne gik til Mindforward den 20. november, fordi resten er
+> konsulent-emner, der hører til AIK's forretning og ikke til Mindforwards
+> online kurser. De står urørte, hvis udgivelsen genoptages.
+>
+> De sidste 52 indlæg bliver stående og er fortsat live.
+
 | Dato | Spor | Keyword / emne | Slug | URL |
 |---|---|---|---|---|
 | 2026-08-28 | keyword | ai konsulent | `hvad-laver-en-ai-konsulent` | [/viden-om-ai/hvad-laver-en-ai-konsulent](https://ai-konsulenterne.dk/viden-om-ai/hvad-laver-en-ai-konsulent) |
